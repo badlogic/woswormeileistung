@@ -6,7 +6,8 @@ let watch = process.argv.length >= 3 && process.argv[2] == "--watch";
 
 const config = {
     entryPoints: {
-        server: "src/server/server.ts",
+        data: "src/cli/data.ts",
+        "nr-processor": "src/cli/nr-processor.ts",
     },
     bundle: true,
     sourcemap: true,
@@ -27,7 +28,7 @@ const config = {
 };
 
 if (!watch) {
-    console.log("Building server");
+    console.log("Building cli tools");
     await esbuild.build(config);
 } else {
     const buildContext = await esbuild.context(config);

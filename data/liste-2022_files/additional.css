@@ -1,0 +1,40 @@
+/* Additional Rules can be inserted here */
+tbody .borderRight {
+  border-right: 1px solid #132943;
+}
+
+.alignRight {
+  text-align: right;
+  padding-right: 0.5em;
+}
+.alignLeft {
+  text-align: left;
+  padding-left: 0.5em;
+}
+
+.hero-scroll-down{
+  z-index: 10;
+}
+
+.hero .hero-section img {
+   min-height: 50rem;
+   object-fit: cover;
+}
+
+button.inverse{
+  border: 2px solid white!important;
+}
+
+/*
+.quicklinkContainer .main-button{
+  border: 2px solid #132943!important;
+} 
+*/
+
+.banner .left img{
+  border-radius: 50%;
+}
+
+h1 {
+  -webkit-hyphens: auto;
+}

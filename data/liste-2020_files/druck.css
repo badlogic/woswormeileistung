@@ -1,0 +1,189 @@
+/*
+ @DESC CSS File für die Formatierung beim Druck
+ @AUTH Fonda, überarbeitet u.a. von Harald Niederhuber
+
+*/
+
+@charset "utf-8";
+/* CSS Document */
+
+@media print {
+
+#seitenfunktionen,
+#login, #metaNavigation, #search, #sidebar, #footer,
+#unternavigation, #utilities, #search_navi,
+#header-mobile, #header nav, #header-mobile-meta, .mobile_meta,
+.e_1,
+.table-responsive__prefix
+{
+	display: none;
+	padding: 0em;
+	margin: 0em;
+}
+
+body {
+	background: none;
+}
+
+.popupOverlay, .cookieContent {
+	display: none !important;
+	padding: 0em;
+	margin: 0em;
+}
+
+span.aktDetailContent {
+	font-size:1.4em;
+}
+
+.contentBlock
+{
+	border-bottom:0;
+	border-right:0;
+}
+#header{
+	height:auto;
+}
+#container, #main, #contentplusteaser, #content {
+	left:0;
+	width:99%;
+	margin-right:0;
+}
+p.breadcrumb .visible-md {
+    display: inline !important;
+}
+.termine, #termineIntranetContainer
+{
+	width:100% !important;
+}
+#termineIntranetContainer
+{
+        border-right:0.0833em solid #D9D9D9;
+}
+#termineIntranetContainer
+{
+        border-right:0;
+}
+#termineMonatContainer {
+	margin-right:0em;
+}
+
+/* LB 19.02.2019 A4 = Tabletansicht, daher desktop rules ins druck.css eingefügt */
+
+tr.desktop_head{
+	display: table-row!important;
+}
+
+td.desktop_meta{
+	display: table-cell!important;
+}
+
+.reiterKalNavigation .LinkRechts{
+	display: none;
+ }
+	
+.terminAuswahl{
+	border: 0;
+}
+
+tr.np td, tr.np td, tr.np td{
+	padding:0.5em!important;
+	border-top: 0.2em solid #f5aa2c!important;
+	border-bottom: 0.2em solid #f5aa2c!important;
+}
+
+tr.np .descr{
+  border-left: 0.2em solid #f5aa2c!important;
+}
+
+tr.bp td, tr.bp td, tr.bp td{
+	padding:0.5em!important;
+	border-top: 0.2em solid #44a351!important;
+	border-bottom: 0.2em solid #44a351!important;
+}
+
+tr.bp .descr{
+  border-left: 0.2em solid #44a351!important;
+}
+
+#content{
+	width: 100%!important;
+	padding: 0em;
+}
+
+/* ENDE LB 19.02.2019 */
+
+/* 25.09.2018/LB: terminkalender Desktop-Elemente die nicht gedruckt werden sollen müssen mit important überschrieben werden, weil das noprint sonst nicht greift*/
+.desktop_meta.noprint{
+	display: none!important;
+}
+
+/* 03.11.2010/HP: float setzten damit im Firefox alle Seiten angezeigt werden */
+#container, #main, #contentplusteaser, #content { float: none; width:100% }
+
+/* 02.12.2010/HP: overflow setzen damit in Firefox nicht Teile der Seite abgeschnitten werden */
+* { overflow:visible !important; }
+
+/* 04.11.2010/HP: container und header div anpassen, damit der Inhalt beim Drucken nicht verkleinert wird */
+#container { padding:0em; min-width:unset; max-width:unset; width:100%; }
+/* 22.01.2019/MS: schlechte Darstellung beim neuen Header mit dieser Direktive
+#header a img { width:100%; }
+*/
+
+div#content { 
+float:left !important;
+}
+/* 30.05.2012/HP: anzeigen des Inhalts von Content-Blöcken */
+.contentBlockContent {
+   display:block!important;
+}
+
+/*---------------Newsletter Start----------------*/
+#contentplusteaser.newsletter {
+	width:100%;
+}
+#content.newsletter {
+	width:70%;
+}
+.noprint {
+	display:none;
+}
+#sidebar.newsletter .lesezeichen{
+	display:none;
+}
+div#sidebar.newsletter {
+	display:inline;
+	float: right !important;
+	width:29%;
+}
+div#newsletterIndex {
+	display:none;
+}
+/*---------------Newsletter Ende----------------*/
+
+#col1 .tabelleContainer,
+#col2 .tabelleContainer,
+div.panel-bottom div.tabelleContainer
+{
+	max-height:none; 
+}
+
+}
+/*
+     FILE ARCHIVED ON 19:30:49 Jul 22, 2021 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 19:31:16 Jan 28, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  exclusion.robots: 0.136
+  exclusion.robots.policy: 0.123
+  cdx.remote: 0.116
+  esindex: 0.009
+  LoadShardBlock: 264.375 (6)
+  PetaboxLoader3.datanode: 183.117 (7)
+  load_resource: 74.053
+  PetaboxLoader3.resolve: 36.966
+*/

@@ -1,0 +1,1 @@
+function a(a,t){a.dataTransfer.effectAllowed="move",a.dataTransfer.dropEffect="move";const e=t.toString();a.dataTransfer.setData("text/plain",e)}function t(a,t,e){a.dataTransfer.dropEffect="move";const r=parseInt(a.dataTransfer.getData("text/plain")),n=e;return r<t?(n.splice(t+1,0,n[r]),n.splice(r,1)):(n.splice(t,0,n[r]),n.splice(r+1,1)),n}export{t as a,a as d};

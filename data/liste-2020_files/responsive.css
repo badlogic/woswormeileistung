@@ -1,0 +1,4885 @@
+@charset "UTF-8";
+@-ms-viewport {
+  width: device-width;
+}
+
+.visible-xs {
+  display: none !important;
+}
+
+.visible-sm {
+  display: none !important;
+}
+
+.visible-md {
+  display: none !important;
+}
+
+.visible-mobile {
+  display: none !important;
+}
+
+/*byps*/
+p.breadcrumb span.hidden-md {
+  display: none !important;
+}
+
+.visible-xs-block,
+.visible-xs-inline,
+.visible-xs-inline-block,
+.visible-sm-block,
+.visible-sm-inline,
+.visible-sm-inline-block,
+.visible-md-block,
+.visible-md-inline,
+.visible-md-inline-block {
+  display: none !important;
+}
+
+
+@media screen and (max-width: 767px) {
+
+	.visible-mobile {    
+		display: block !important;
+	}	
+    
+	.telefonicon {    
+		display: inline !important;
+    height: 14px;
+	}	
+	.telefonicon img {    
+    height: 12px;
+    padding-right: 0.3em;
+	}	
+	
+	
+ 	.ui-tooltip-content table td:first-of-type{
+		display:none;
+	}
+  
+  .formularSubmitRechts input[type=submit],
+  .formularSubmitRechts input[type=reset]{	
+    float: none;
+  }
+  .visible-xs {
+    display: block !important;
+  }
+  table.visible-xs {
+    display: table !important;
+  }
+  tr.visible-xs {
+    display: table-row !important;
+  }
+  th.visible-xs,
+  td.visible-xs {
+    display: table-cell !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c_1 div.status {
+    width: 90%;
+  }
+  .visible-xs-block {
+    display: block !important;
+  }
+  .Stabstelle_Einrueckung {
+	  margin-left:0;
+	  width:100%;
+  }  
+}
+
+@media screen and (max-width: 767px) {
+  .visible-xs-inline {
+    display: inline !important;
+  }
+	.hidden-mobile {
+	  display: none !important;
+	}
+  
+}
+
+@media screen and (max-width: 1024px) {
+  #content .zweiSpaltig li{
+    width: 100%;
+  }
+  #content .dreiSpaltig li{
+    width: 100%;
+  }
+  .visible-xs-inline-block {
+    display: inline-block !important;
+  }
+  /*byps*/
+  span.bcContent span:last-child {
+    display:inline !important;
+  }
+  /*byps*/
+  #sidebar #paragraphTeaser {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .visible-sm {
+    display: block !important;
+  }
+  table.visible-sm {
+    display: table !important;
+  }
+  tr.visible-sm {
+    display: table-row !important;
+  }
+  th.visible-sm,
+  td.visible-sm {
+    display: table-cell !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .visible-sm-block {
+    display: block !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .visible-sm-inline {
+    display: inline !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .visible-sm-inline-block {
+    display: inline-block !important;
+  }
+}
+
+/* for Biogr., where used with h3 */
+.contentBlockContent h3 a {
+	margin-left: -.6em;  
+}  
+
+@media screen and (min-width: 1025px) {
+  /*byps*/
+  p.breadcrumb span.visible-md {
+    display: inline !important;
+  }
+  .visible-md {
+    display: block !important;
+  }
+  table.visible-md {
+    display: table !important;
+  }
+  tr.visible-md {
+    display: table-row !important;
+  }
+  th.visible-md,
+  td.visible-md {
+    display: table-cell !important;
+  }
+  
+  
+  /*
+  	Tabs on Desktop -> never hide!
+  */
+  .tabs-responsive__tab {
+  	display:inline !important;
+  }
+  /*
+  	More Tab on Desktop -> never show!
+  */
+  .tabs-responsive__tab--more {
+  	display:none !important;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .visible-md-block {
+    display: block !important;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .visible-md-inline {
+    display: inline !important;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .visible-md-inline-block {
+    display: inline-block !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hidden-xs {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .hidden-sm {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .hidden-md {
+    display: none !important;
+  }
+}
+
+.visible-print {
+  display: none !important;
+}
+
+@media print {
+  .visible-print {
+    display: block !important;
+  }
+  table.visible-print {
+    display: table !important;
+  }
+  tr.visible-print {
+    display: table-row !important;
+  }
+  th.visible-print,
+  td.visible-print {
+    display: table-cell !important;
+  }
+}
+
+.visible-print-block {
+  display: none !important;
+}
+
+@media print {
+  .visible-print-block {
+    display: block !important;
+  }
+}
+
+.visible-print-inline {
+  display: none !important;
+}
+
+@media print {
+  .visible-print-inline {
+    display: inline !important;
+  }
+}
+
+.visible-print-inline-block {
+  display: none !important;
+}
+
+@media print {
+  .visible-print-inline-block {
+    display: inline-block !important;
+  }
+}
+
+@media print {
+  .hidden-print {
+    display: none !important;
+  }
+}
+
+/**
+  Module Grid
+  
+  General Grid Settings for Mobile/Tablet
+ */
+html {
+  /* Prevent font scaling in landscape while allowing user zoom */
+  max-height: 999999px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  body {
+    background-color: #F0F0F0;
+    background-image: none;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  #container {
+    max-width: none;
+    min-width: 0;
+    padding-left: 1.1em;
+    padding-right: 1.1em;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 350px) {
+  #container {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  #contentplusteaser {
+    float: none;
+    width: auto;
+  }
+  #content {
+    float: none;
+    width: auto;
+  }
+  #content:before, #content:after {
+    content: " ";
+    display: table;
+  }
+  #content:after {
+    clear: both;
+  }
+  
+  
+  #content dt,#content dd {
+    width: 100%;
+  }
+  #content dt {
+    font-weight: bold;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  #sidebar {
+    clear: both;
+    display: block;
+    float: none;
+    margin-top: 0.833em;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  #unternavigation {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .doormat {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 767px) {
+  .linkeSpalte40 {
+    width: 100%;
+  }
+  .rechteSpalte60 {
+    width: 100%;
+  }
+}
+
+/**
+  Module Forms
+ */
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .formularElement input:not([type=radio]):not([type=checkbox]),
+  .formularContainer textarea,
+  .formularContainer select,
+  .filterFields select,
+  select,
+  input[type=text]:not(.search-mobile__input),
+  input[type=date],
+  input[type=submit]:not(.search-mobile__submit),
+  input[type=password],
+  input[type=reset] {
+    display: block;
+    width: 100%;
+    height: 2.85714em;
+    height: 2.14286em;
+   	/* msteindl: Verlauf der Buttons wie Desktop
+    background-image: none;
+    */
+    border-radius: 0;
+    width: 100%;
+  }
+  
+  .formularContainer textarea {
+    height:8em;
+  }
+  
+  .formularContainer select::-ms-expand,
+  .filterFields select::-ms-expand,
+  select::-ms-expand,
+  input[type=text]:not(.search-mobile__input)::-ms-expand,
+  input[type=date]::-ms-expand,
+  input[type=submit]:not(.search-mobile__submit)::-ms-expand,
+  input[type=password]::-ms-expand,
+  input[type=reset]::-ms-expand {
+    border: 0;
+    background-color: transparent;
+  }
+  input[type=date] {
+    min-width: 130px;
+    padding-bottom: 0.6em;
+    padding-top: 0.3em;
+    text-align: center;
+    width: auto;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+  }
+  input[type=submit]:not(.search-mobile__submit),
+  input[type=reset] {
+    display: block;
+    font-size: 1em;
+    height: auto;
+    padding-bottom: 0.6em;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    padding-top: 0.6em;
+  }
+  .formularSubmitRechts {
+    height: auto !important;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 768px) {
+  .formularSubmitRechts {
+    text-align: right;
+  }
+  .formularSubmitRechts input[type="submit"],
+  .formularSubmitRechts input[type="reset"] {
+    display: inline-block;
+    width: auto;
+    margin: 0em;
+  }
+  .formularSubmitRechts input[type="reset"] {
+    margin-right: 0.9em;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  #footer_kurz{
+	  width: auto;
+  }
+	
+  .formularElement {
+    margin-bottom: 1em;
+  }
+  .suche fieldset.zeitraum div.formularZeile {
+    top: 0;
+  }
+  fieldset {
+    margin: 0;
+    margin-bottom: 0.6em;
+    padding: 0;
+  }
+  fieldset:before, fieldset:after {
+    content: " ";
+    display: table;
+  }
+  fieldset:after {
+    clear: both;
+  }
+  fieldset > *:last-child {
+    margin-bottom: 0;
+  }
+  .filterFields, .formularContainer {
+    display: block;
+    padding: 0.7em 0.7em;
+    width: auto;
+  }
+  .filterFields * *, .formularContainer * * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .filterFields .ogdButton, .filterFields .rssButton, .filterFields .rssImage, .formularContainer .rssButton, .formularContainer .rssImage {
+    display: none !important;
+  }
+  .suche h2 {
+    margin: 0 !important;
+    margin-bottom: 0.6em !important;
+  }
+}
+
+#content .formularContainer h2 {
+  margin: 0.6em 0em 0em 0.6em;
+}
+
+#content .suche h2 {
+  margin-bottom: 1.2em;
+}
+
+/*
+by ps
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .suche div.label label {
+    display: block;
+    margin-bottom: 0.6em;
+  }
+}
+*/
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .suche fieldset .form__group-date:before, .suche fieldset .form__group-date:after,
+  .form__group-date:before,
+  .form__group-date:after {
+    content: " ";
+    display: table;
+  }
+  .suche fieldset .form__group-date:after,
+  .form__group-date:after {
+    clear: both;
+  }
+  .suche fieldset .form__group-date input,
+  .form__group-date input {
+    margin-bottom: 0.3em;
+  }
+  .suche fieldset .form__group-date img.inputExtension,
+  .form__group-date img.inputExtension {
+    display: none;
+    float: right;
+    margin-right: 0;
+    margin-top: 0.6em;
+  }
+  .suche fieldset .form__group-date label.datum,
+  .form__group-date label.datum {
+    display: block;
+    float: none;
+    margin-bottom: 0.4em;
+  }
+  .suche fieldset .form__group-date div.label,
+  .form__group-date div.label {
+    margin-bottom: 0.6em;
+    width: 100%;
+  }
+}
+
+.form__actionbar-right {
+  float: right;
+  margin-right: 1em;
+  margin-top: 0.15em;
+}
+
+@media screen and (min-width: 1025px) {
+  .form__group-date {
+    display: inline-block;
+  }
+}
+
+.formularZeile:before, .formularZeile:after {
+  content: " ";
+  display: table;
+}
+
+.formularZeile:after {
+  clear: both;
+}
+
+.waehleDatumSfe {
+  margin-right: 0.7em;
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  input.hasInfobox {
+    float: left;
+    width: calc(100% - 2.2em);
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .infobox {
+    float: right;
+    padding-top: 0.46em;
+  }
+  .infobox img {
+    margin-right: 0;
+  }
+}
+
+/**
+  Module Header
+  
+  .header-mobile*
+ */
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  #header, #utilities, #navigation, #headerMinimal {
+    display: none;
+  }
+  /* Never display Desktopsearch on mobile */
+  #searchDesktop {
+        display:none !important;
+  }
+
+}
+
+.header-mobile {
+  margin-bottom: 0;
+  margin-left: -1.1em;
+  margin-right: -1.1em;
+  position: relative;
+  width: calc(100% + 2.2em);
+}
+
+@media screen and (min-width: 350px) {
+  .header-mobile {
+    margin-left: -2em;
+    margin-right: -2em;
+    width: calc(100% + 4em);
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .header-mobile,#header-mobile-meta {
+    display: none;
+  }
+}
+
+.header-mobile__top {
+  background-color: #FFF;
+  left: 0;
+  min-width: 320px;
+  right: 0;
+  z-index: 300;
+}
+
+.header-mobile__top:before, .header-mobile__top:after {
+  content: " ";
+  display: table;
+}
+
+.header-mobile__top:after {
+  clear: both;
+}
+
+.header-mobile__logo {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img1/Header.svg");
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  float: left;
+  height: 52px;
+  margin-left: 2em;
+  margin-top: 0.6em;
+  width: 100%;
+  max-width: 60%;
+  -webkit-background-size: contain;
+}
+
+.header-mobile__logo.en {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img1/Header_en.png");
+}
+
+.header-mobile__logo.fr {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img1/Header_fr.png");
+}
+
+.header-mobile__search, .header-mobile__menu {
+  box-sizing: border-box;
+  display: block;
+  float: right;
+  height: 7em;
+  padding-top: 1.6em;
+  text-align: center;
+  width: 5.6em;
+  max-width: 15%;
+}
+
+.header-mobile__search:hover, .header-mobile__search:active, .header-mobile__search:focus, .header-mobile__menu:hover, .header-mobile__menu:active, .header-mobile__menu:focus {
+  background-color: #C8102E;
+  text-decoration: none;
+}
+
+.header-mobile__search:hover span, .header-mobile__search:active span, .header-mobile__search:focus span, .header-mobile__menu:hover span, .header-mobile__menu:active span, .header-mobile__menu:focus span {
+  color: #FFF;
+}
+
+.header-mobile__search span, .header-mobile__menu span {
+  color: #898989;
+  display: block;
+  font-size: 1.2em;
+}
+
+.header-mobile__search:before, .header-mobile__menu:before {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: '';
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-background-size: contain;
+}
+
+@media screen and (min-width: 350px) {
+  .header-mobile__search, .header-mobile__menu {
+    width: 7em;
+  }
+}
+
+.header-mobile__menu span {
+  color: #C8102E;
+  margin-top: 11px;
+}
+
+.header-mobile__menu:before {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/menu.png");
+  display: block;
+  height: 18px;
+  width: 30px;
+}
+
+.header-mobile__menu:hover:before, .header-mobile__menu:active:before, .header-mobile__menu:focus:before {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/menu--active.png");
+}
+
+.header-mobile__search span {
+  margin-top: 5px;
+}
+
+.header-mobile__search:before {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/search.png");
+  height: 24px;
+  width: 50px;
+}
+
+.header-mobile__search:hover:before, .header-mobile__search:active:before, .header-mobile__search:focus:before {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/search--active.png");
+}
+
+.header-mobile__wrap-search, .header-mobile__wrap-menu {
+  display: none;
+  max-width: 375px;
+  right: 0;
+  top: 70px;
+  z-index: 200;
+}
+
+.header-mobile__wrap-menu {
+  background-color: red;
+  height: calc(100% - 70px);
+  overflow: auto;
+  position: absolute;
+  transform: translateX(0%);
+  -webkit-transform: translateX(0%);
+  transition: -webkit-transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.header-mobile__wrap {
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 30000;
+}
+
+.header-mobile__backdrop {
+  background-color: rgba(0, 0, 0, 0.18);
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 150;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+@media screen and (min-width: 1025px) {
+  .header-mobile__backdrop {
+    display: none;
+  }  
+  .praesBildBox {
+	height: 7.5em;
+	overflow: hidden;
+  }  
+}
+@media screen and (max-width: 1024px) {
+	#biogr_Portrait .hideInMobileApp {
+		display: none;
+	}
+}
+
+body.body--mobile-search--active .header-mobile__backdrop,
+body.body--mobile-menu--active .header-mobile__backdrop {
+  display: block;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+body.body--mobile-search--active,
+body.body--mobile-menu--active {
+  overflow: hidden;
+}
+
+body.body--mobile-search--active .header-mobile__search {
+  background-color: #C8102E;
+}
+
+body.body--mobile-search--active .header-mobile__search:before {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/search--active.png");
+}
+
+body.body--mobile-search--active .header-mobile__search span {
+  color: #FFF;
+}
+
+body.body--mobile-search--active .header-mobile__wrap-search {
+  background-color: #C8102E;
+  border-top: 5px solid #C8102E;
+  display: block;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+body.body--mobile-menu--active .header-mobile__menu {
+  background-color: #C8102E;
+}
+
+body.body--mobile-menu--active .header-mobile__menu:before {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/menu--active.png");
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/menu--open.png");
+  height: 24px;
+}
+
+body.body--mobile-menu--active .header-mobile__menu span {
+  color: #FFF;
+  margin-top: 5px;
+}
+
+body.body--mobile-menu--active .header-mobile__wrap-menu {
+  background-color: #FFF;
+  border-top: 5px solid #C8102E;
+  display: block;
+  height: calc(100% - 70px);
+  position: fixed;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.258824) -6px 1px 4px -2px;
+  box-shadow: rgba(0, 0, 0, 0.258824) -6px 1px 4px -2px;
+  width: 100%;
+  z-index: 20001;
+}
+
+/*
+div.header-mobile
+  .header-mobile__top
+    .header-mobile__logo
+      
+    a.header-mobile__search Suche
+    a.header-mobile__menu MenÃ¼
+    
+  .header-mobile__wrap-search
+  .header-mobile__wrap-menu
+    
+*/
+/**
+  Module header-headroom
+  
+  General Classes/Stylings for Headroom.js
+ */
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .header-mobile.headroom.headroom--not-top .header-mobile__top {
+    left: 0;
+    position: fixed;
+    top: -70px;
+	background-size: 20em;
+    width: 100%;
+    z-index: 200;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  .header-mobile.headroom.header-mobile--pinned .header-mobile__top {
+    top: 0px;
+  }
+  .header-mobile.headroom.header-mobile--unpinned .header-mobile__top {
+    top: -70px;
+  }
+  .header-mobile.headroom.headroom--not-top .header-mobile__logo {
+    height: 52px;
+    margin-bottom: 0;
+  }
+  body.body--mobile-search--active .header-mobile.headroom .header-mobile__top,
+  body.body--mobile-menu--active .header-mobile.headroom .header-mobile__top {
+    top: 0px !important;
+  }
+}
+
+/**
+  Module search-mobile
+ */
+.search-mobile {
+  padding: 2em;
+  padding-bottom: 1.7em;
+}
+
+.search-mobile__input {
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
+  display: block;
+  float: left;
+  font-size: 2em;
+  height: 2em;
+  line-height: 2em;
+  margin: 0;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  width: calc(100% - 2em);
+}
+
+.search-mobile__submit {
+  background-color: #878787;
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/search-mobile__submit.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 8px 12px;
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
+  display: block;
+  height: 4em;
+  margin: 0;
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 4em;
+  -webkit-background-size: 8px 12px;
+}
+
+.search-mobile__form {
+  margin-bottom: 1.7em;
+}
+
+.search-mobile__form:before, .search-mobile__form:after {
+  content: " ";
+  display: table;
+}
+
+.search-mobile__form:after {
+  clear: both;
+}
+
+.search-mobile__link {
+  color: #FFF;
+}
+
+.search-mobile__link:before, .search-mobile__link:after {
+  content: " ";
+  display: table;
+}
+
+.search-mobile__link:after {
+  clear: both;
+}
+
+.search-mobile__link a {
+  font-size: 1.4em;
+  color: #FFF;
+}
+
+.search-mobile__link a:hover, .search-mobile__link a:focus, .search-mobile__link a:active {
+  color: #FFF;
+  text-decoration: underline;
+}
+
+
+/**
+  Module nav-mobile
+ */
+.nav-mobile__wrap-navigation {
+  padding: 1.1em;
+  padding-top: 0.9em;
+}
+
+.nav-mobile__wrap-navigation > ul {
+  list-style-type: none;
+}
+
+.nav-mobile__wrap-navigation > ul > li {
+  margin-bottom: 0.1em;
+}
+
+.nav-mobile__wrap-navigation > ul > li.closed {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/nav-mobile--closed.png");
+}
+
+.nav-mobile__wrap-navigation > ul > li.open > a {
+  background-color: #C8102E;
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/nav-mobile--open.png") !important;
+  color: #FFF;
+  text-decoration: none;
+}
+
+.nav-mobile__wrap-navigation > ul > li > a {
+  background-color: #F0F0F0;
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/nav-mobile--closed.png");
+  background-position: center right 18px;
+  background-repeat: no-repeat;
+  background-size: 12px 8px;
+  color: #C8102E;
+  display: block;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.4em;
+  line-height: 3.57143em;
+  padding: 0 2em 0 .8em;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  -webkit-background-size: 12px 8px;
+}
+
+.nav-mobile__wrap-navigation > ul > li > a:hover, .nav-mobile__wrap-navigation > ul > li > a:active, .nav-mobile__wrap-navigation > ul > li > a:focus {
+  background-color: #C8102E;
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/nav-mobile--closed-white.png");
+  color: #FFF;
+  text-decoration: none;
+}
+
+/* msteindl: wenn EU Ratsvorsitz mobil blau im Menü sein soll */
+.nav-mobile__wrap-navigation > ul > li > a.euvorsitz {
+  background-color: #F0F0F0;
+  color: #034ea1;
+}
+.nav-mobile__wrap-navigation > ul > li > a.euvorsitz:hover, .nav-mobile__wrap-navigation > ul > li > a.euvorsitz:active, .nav-mobile__wrap-navigation > ul > li > a.euvorsitz:focus {
+  background-color: #034ea1;
+  color: #fff;
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/nav-mobile--closed-white.png");
+}
+.nav-mobile__wrap-navigation > ul > li.open > a.euvorsitz {
+  background-color: #034ea1;
+  color: #fff;  
+}
+/*end euvorsitz*/
+
+.nav-mobile__wrap-navigation > ul > li > ul {
+  list-style-type: none;
+}
+
+.nav-mobile__wrap-navigation > ul > li > ul > li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-mobile__wrap-navigation > ul > li > ul > li:last-child {
+  border-bottom: 0;
+}
+
+.nav-mobile__wrap-navigation > ul > li > ul > li > a {
+  color: #5A5A5A;
+  display: block;
+  font-size: 1.4em;
+  padding: 0.8em 1.3em;
+  text-decoration: none;
+}
+
+.nav-mobile__wrap-navigation > ul > li > ul > li > a:hover, .nav-mobile__wrap-navigation > ul > li > ul > li > a:active, .nav-mobile__wrap-navigation > ul > li > ul > li > a:focus {
+  text-decoration: underline;
+}
+
+.nav-mobile__wrap-bookmarks a {
+  display: none;
+}
+.nav-mobile__wrap-bookmarks ul a {
+  display: block;
+}
+
+.nav-mobile__wrap-bookmarks {
+  background-color: #3C556E;
+  margin: 0em 1em;
+  padding: 1em;
+  padding-bottom: 1.5em;
+  font-size: 1.4em;
+}
+
+.nav-mobile__wrap-bookmarks ul {
+  list-style: none;
+}
+/* msteindl: Bearbeiten-Button & Info-Tooltip ausblenden
+*/
+.nav-mobile__wrap-bookmarks a img,.nav-mobile__wrap-bookmarks .lesezeichen .zeigeTooltip {
+  display: none;
+}
+.nav-mobile__wrap-bookmarks a {
+  padding-left:1em;
+  background: url('/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/Link_White@2x.png') no-repeat 1px;
+    background-size: 8px 10px;
+}
+
+.nav-mobile__wrap-bookmarks a {
+  color:#fff; 
+}
+
+.nav-mobile__wrap-bookmarks-select {
+  width: 100%;
+}
+
+.nav-mobile__wrap-bookmarks-select select {
+  background-color: #FFF;
+  background-image: none;
+  border: none;
+  border-radius: 0;
+  color: #3C556E;
+  display: block;
+  font-size: 1.4em;
+  height: auto;
+  padding: 1em;
+  width: 100%;
+}
+
+.nav-mobile__wrap-bookmarks-select select::-ms-expand {
+  background-color: transparent;
+  border: 0;
+}
+
+.nav-mobile__wrap-bookmarks-link {
+  margin-top: 1.7em;
+}
+
+.nav-mobile__wrap-bookmarks-link a {
+  font-size: 1.4em;
+  color: #FFF;
+}
+
+.nav-mobile__wrap-bookmarks-link a:hover, .nav-mobile__wrap-bookmarks-link a:focus, .nav-mobile__wrap-bookmarks-link a:active {
+  color: #FFF;
+  text-decoration: underline;
+}
+
+.nav-mobile__wrap-profile {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0em 2em;
+  padding-bottom: 3.5em;
+}
+
+.nav-mobile__wrap-profile a {
+  font-size: 1.4em;
+  color: #C8102E;
+  float: right;
+}
+
+.nav-mobile__wrap-profile a:hover, .nav-mobile__wrap-profile a:focus, .nav-mobile__wrap-profile a:active {
+  color: #C8102E;
+  text-decoration: underline;
+}
+
+.nav-mobile__wrap-language {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0em 2em;
+  padding: 0.9em 0;
+  padding-bottom: 0.2em;
+}
+
+.nav-mobile__wrap-language:before, .nav-mobile__wrap-language:after {
+  content: " ";
+  display: table;
+}
+
+.nav-mobile__wrap-language:after {
+  clear: both;
+}
+
+.nav-mobile__wrap-language > ul {
+  list-style-type: none;
+}
+
+.nav-mobile__wrap-language > ul > li {
+  display: inline-block;
+  width: 49%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.nav-mobile__wrap-language > ul > li a {
+  font-size: 1.4em;
+  line-height: 2em;
+}
+
+.nav-mobile__wrap-meta {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0em 2em;
+  padding: 0.9em 0;
+  padding-bottom: 0.2em;
+}
+
+.nav-mobile__wrap-meta:before, .nav-mobile__wrap-meta:after {
+  content: " ";
+  display: table;
+}
+
+.nav-mobile__wrap-meta:after {
+  clear: both;
+}
+
+.nav-mobile__wrap-meta > ul {
+  list-style-type: none;
+}
+
+.nav-mobile__wrap-meta > ul > li {
+  display: inline-block;
+  width: 49%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.nav-mobile__wrap-meta > ul > li a {
+  font-size: 1.4em;
+  font-weight: bold;
+  line-height: 2em;
+}
+
+.nav-mobile__wrap-social {
+  margin: 0em 2em;
+  padding: 2em 0;
+}
+
+#header-mobile .nav-mobile__wrap-social {
+  border:none;
+}
+
+.nav-mobile__wrap-social:before, .nav-mobile__wrap-social:after {
+  content: " ";
+  display: table;
+}
+
+.nav-mobile__wrap-social:after {
+  clear: both;
+}
+
+.nav-mobile__wrap-social > ul {
+  list-style-type: none;
+}
+
+.nav-mobile__wrap-social > ul > li {
+  display: inline-block;
+  margin-right: 1.3em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.nav-mobile__wrap-profile span {
+  font-size: 1.4em;
+  display: block;
+}
+
+.nav-mobile__wrap-profile .loggedIn span {
+  float: left;
+}
+
+/**
+  Module Breadcrumb
+  
+  Changes Breadcrumb Styles for Mobile/Tablet
+ */
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  /*byps, adaptiert für Geschichtsseiten-Breadcrumbs 16.07.2018 [msteindl] */
+  span.bcContent>a {
+    display:none;
+  }
+  span.bcContent span:last-of-type {
+    display:inline !important;
+  }
+  /*
+  span.bcContent span:last-child {
+    display:inline !important;
+  }
+  */
+  .contentBlock p.breadcrumb {
+    float: none;
+    overflow: hidden;
+    width: auto;
+  }
+  .contentBlock p.breadcrumb a {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    color: #838383;
+    color: #838383;
+    font-size: 1.2em;
+    white-space: normal !important;
+  }
+  .contentBlock p.breadcrumb a:hover, .contentBlock p.breadcrumb a:focus, .contentBlock p.breadcrumb a:active {
+    color: #838383;
+    text-decoration: underline;
+  }
+  .contentBlock p.breadcrumb a img {
+    margin-right: 0.5em;
+  }
+}
+
+/**
+  Module subnav-mobile
+ */
+@media screen and (min-width: 1025px) {
+  .subnav-mobile {
+    display: none;
+  }
+}
+
+/**
+  Module Content
+  
+  Content Paddings/Margins, Column Settings for Mobile/Tablet
+ */
+.bildContainerOverflow {
+  overflow: hidden;
+}
+
+#content li {
+  padding-left: 0;
+  text-indent: 0;
+}
+#content .content__paragraph {
+  margin-bottom: 0.8em;
+}
+
+#content .content__paragraph a {
+  margin-right: 0.5em;
+  color: #3C556E;
+}
+
+#content .content__paragraph a:hover, #content .content__paragraph a:focus, #content .content__paragraph a:active {
+  color: #3C556E;
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 1025px) {
+  #content .content__paragraph {
+    display: none !important;
+  }
+}
+
+.contentBlock:before, .contentBlock:after {
+  content: " ";
+  display: table;
+}
+
+.contentBlock:after {
+  clear: both;
+}
+
+.contentBlock #vorlesePlayerPlatzhalter {
+  display: block;
+  margin: 1em 0;
+  margin-bottom: 0.4em;
+}
+
+#content .content__paragraph {
+    display: none;
+}
+@media screen and (min-width: 768px) {
+  .contentBlock #vorlesePlayerPlatzhalter {
+    text-align: right;
+  }
+}
+
+.contentBlock #vorlesePlayerPlatzhalter audio {
+  max-width: 100%;
+}
+
+.contentRow:before, .contentRow:after {
+  content: " ";
+  display: table;
+}
+
+.contentRow:after {
+  clear: both;
+}
+
+
+/**************************** MSTEINDL TESTS ****************************/
+/**************************** MSTEINDL TESTS ****************************/
+/**************************** MSTEINDL TESTS ****************************/
+/**************************** MSTEINDL TESTS ****************************/
+/**************************** MSTEINDL TESTS ****************************/
+/**************************** MSTEINDL TESTS ****************************/
+/**************************** MSTEINDL TESTS ****************************/
+@media screen and (max-width: 767px){
+  table table.historieDetail thead {
+    display: none;
+  }
+  table table.historieDetail,
+  table table.historieDetail tbody,
+  table table.historieDetail th,
+  table table.historieDetail td,
+  table table.historieDetail tr {
+    display: block;
+    border: none !important;
+  }
+  table table.historieDetail td, table table.historieDetail td.table-responsive__header {
+    /*background: none !important;*/
+    background: #e8e8e8 !important;
+    padding: 0 .5em !important;
+  }  
+  table table.historieDetail td span.table-responsive__inner {
+    width: 100%;
+  }  
+}
+/**************************** MSTEINDL TESTS ****************************/
+/**************************** MSTEINDL TESTS ****************************/
+/**************************** MSTEINDL TESTS ****************************/
+/**************************** MSTEINDL TESTS ****************************/
+/**************************** MSTEINDL TESTS ****************************/
+/**************************** MSTEINDL TESTS ****************************/
+
+@media screen and (min-width: 0) and (max-width: 480px) {
+  .contentBlock.h_1 {
+    font-size: 14.3px;
+  }
+  #content p img {
+    height: auto;
+    max-width: 100%;
+  }
+  #content h2 {
+    margin-left: 0;
+    text-indent: 0;
+	/* msteindl: for responsive - better: shy; */
+	word-wrap: break-word;
+  }
+  .contentBlock {
+    padding: 1em 0.7em;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 1025px) {
+  .contentBlock {
+    padding: 1em 1.4em;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  div.reiterBlock div {
+  	padding-left:0;
+  }
+  .contentBlock p, .contentBlock div, .contentBlock a {
+    max-height: 5000em;
+  }
+  .videoContainer video {
+    height: auto;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 480px) {
+  
+  /** SITZPLAN LINKS */
+  a.seat_plan_detail,a.seat_plan_normal {
+    display:block;
+    margin-left: 0;
+    margin-bottom: 0.5em;
+  }
+  #sitzplan_fullscreen {
+    float: none !important;
+    margin-bottom: 0.5em;
+  }
+
+#content form fieldset .rf-p table td input {
+  display: none;
+}
+#content form fieldset .rf-p table label:after {
+    position: relative;
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 8px;
+    border: solid 3px #3d3d3d;
+    margin-top: 4px;
+    margin-left: 1px;
+    top: .2em;
+    left: 1em;
+}
+  
+#content form fieldset .rf-p table input[type="radio"]:checked+label:after {
+    background-color: #da394a;
+    border-color: #3d3d3d;
+}
+  
+  .rf-p-b td {
+    display: block;
+    width: auto;
+    overflow: hidden;
+  }
+  .rf-p-b table,.rf-p-b tbody {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .linkeSpalte,
+  .rechteSpalte,
+  .contentBlock .linkeSpalte,
+  .contentBlock .rechteSpalte {
+    float: none;
+    width: 100%;
+  }
+  .linkeSpalte:before, .linkeSpalte:after,
+  .rechteSpalte:before,
+  .rechteSpalte:after,
+  .contentBlock .linkeSpalte:before,
+  .contentBlock .linkeSpalte:after,
+  .contentBlock .rechteSpalte:before,
+  .contentBlock .rechteSpalte:after {
+    content: " ";
+    display: table;
+  }
+  .linkeSpalte:after,
+  .rechteSpalte:after,
+  .contentBlock .linkeSpalte:after,
+  .contentBlock .rechteSpalte:after {
+    clear: both;
+  }
+}
+
+.linkeSpalte .contentBlock,
+.rechteSpalte .contentBlock,
+.contentBlock .linkeSpalte .contentBlock,
+.contentBlock .rechteSpalte .contentBlock {
+  padding: 1em 0.7em;
+}
+
+@media screen and (min-width: 1025px) {
+  .linkeSpalte .contentBlock,
+  .rechteSpalte .contentBlock,
+  .contentBlock .linkeSpalte .contentBlock,
+  .contentBlock .rechteSpalte .contentBlock {
+    padding: 1em 1.4em;
+  }
+  
+  ul.reiterNavigation li, ul.reiterKalNavigation li{
+	/*nur am Desktop anders darstellen*/
+	padding-left:0.4em !important;
+  }
+}
+
+.linkeSpalte .contentBlock p, .linkeSpalte .contentBlock div, .linkeSpalte .contentBlock a,
+.rechteSpalte .contentBlock p,
+.rechteSpalte .contentBlock div,
+.rechteSpalte .contentBlock a,
+.contentBlock .linkeSpalte .contentBlock p,
+.contentBlock .linkeSpalte .contentBlock div,
+.contentBlock .linkeSpalte .contentBlock a,
+.contentBlock .rechteSpalte .contentBlock p,
+.contentBlock .rechteSpalte .contentBlock div,
+.contentBlock .rechteSpalte .contentBlock a {
+  max-height: 5000em;
+}
+
+a.recommend-indicator {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/icons/small/hand-recommend-thumbs-up.gif");
+  background-repeat: no-repeat;
+  padding-left: 1.4em;
+}
+
+a.link-indicator {
+ /*msteindl do we need this?
+  display: inline-block;*/
+  padding-left: 1em;
+  position: relative;
+}
+
+a.link-indicator:before {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/Link@2x.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: auto 80%;
+  content: ' ';
+  display: inline-block;
+  height: 1em;
+  left: -1em;
+  left: 0;
+  position: absolute;
+  vertical-align: top;
+  width: 1em;
+  -webkit-background-size: auto 80%;
+}
+
+@media screen and (min-width: 1025px) {
+  a.link-indicator {
+    padding-left: 1.4em;
+  }
+  a.link-indicator:before {
+    background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/icons/small/Link.gif");
+    background-size: auto;
+    height: 14px;
+    width: 14px;
+    -webkit-background-size: auto;
+  }
+  h2 a.link-indicator:before {
+    height: 24px;
+  }
+}
+
+.button--rss {
+  background-color: transparent;
+  border: none;
+  border: 0.1em solid transparent;
+  font-size: 0.8em;
+  margin-right: 0.5em;
+  text-align: center;
+}
+
+#content .content-plenum {
+  margin: 0;
+  margin-bottom: 1.5em;
+  padding: 0;
+}
+
+#content .content-plenum > *:last-child {
+  margin-bottom: 0;
+}
+
+#content .content-plenum h3 {
+  margin-bottom: 0.6em;
+}
+
+#content .content-plenum a {
+  margin-bottom: 1em;
+}
+
+#content .content-ausschuss {
+  margin: 0;
+  margin-bottom: 1.5em;
+  padding: 0;
+}
+
+#content .content-ausschuss > *:last-child {
+  margin-bottom: 0;
+}
+
+#content .content-ausschuss h3 {
+  margin-bottom: 0.6em;
+}
+
+#content .content-ausschuss a {
+  margin-bottom: 1em;
+}
+
+/**
+  Module 'content-pictures'
+  Here we define the content picture rules
+ */
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  /*
+    1. In 2 column layouts the .image__container should always have 100% width
+   */
+  .linkeSpalte .image__container, .rechteSpalte .image__container {
+    max-width: 100%;
+    /* [1] */
+  }
+  /*
+    1. if we are in a .bildContainer - we won't max width to 50%, because we're missing a container
+  */
+  
+  div.panel-image-wrapper .image__container,
+  div.bildContainer .image__container,
+  div.bildContainerFull .image__container,
+  div.slideShowContainer .image__container {
+    margin-left: 0;
+    max-width: none;
+    /* [1] */
+  }
+  /*
+   On its own the image__container is totally fluid
+   1. On its own the image__container is totally fluid
+   */
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 481px) {
+  .image__container {
+    max-width: 50%;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .image__container img {
+    max-width: 100%;
+    width: auto;
+  }
+  /* does not work in Organigramm!
+  #content ul {
+    overflow: inherit;
+  }
+  */
+  
+  .contentBlock div.bildContainer,
+  .contentBlock div.bildContainerFull,
+  .contentBlock div.slideShowContainer {
+    box-sizing: border-box;
+    margin: 0 !important;
+    margin-bottom: 0.8em;
+    width: 100%;
+  }
+  
+  .contentBlock div.bildContainer div.image-container,
+  .contentBlock div.bildContainerFull div.image-container,
+  .contentBlock div.slideShowContainer div.image-container {
+    display: block;
+    width: 100%;
+  }
+  
+  .contentBlock div.bildContainer div.image-container img,
+  .contentBlock div.bildContainerFull div.image-container img,
+  .contentBlock div.slideShowContainer div.image-container img {
+    box-sizing: border-box;
+    margin: 0 !important;
+    margin-bottom: 0.8em !important;
+    width: 100%;
+  }
+  
+  .contentBlock div.bildContainer a img:not(.icon),
+  .contentBlock div.bildContainer a img:not(.icon),
+  .contentBlock div.bildContainer.teaserLarge img:not(.icon),
+  .contentBlock div.bildContainer.teaserPortrait img:not(.icon),
+  .contentBlock div.bildContainer.teaserPortraitLarge img:not(.icon),
+  .contentBlock div.teaserFull a img:not(.icon),
+  .contentBlock div.teaserLarge a img:not(.icon),
+  .contentBlock div.teaserPortrait a img:not(.icon),
+  .contentBlock div.teaserPortraitLarge a img:not(.icon),
+  .contentBlock div.teaserSmall a img:not(.icon),
+  .contentBlock div.bildContainerFull.teaserFull a img:not(.icon),
+  .contentBlock div.bildContainer.teaserLarge a img:not(.icon),
+  .contentBlock div.teaserSmall a img:not(.icon),
+  .contentBlock div.teaserSmallWide a img:not(.icon),
+  .contentBlock div.bildContainerFull a img:not(.icon),
+  .contentBlock div.slideShowContainer .slide a img:not(.icon),
+  .contentBlock #sidebar .imgTeaser img {
+    height: auto;
+    margin: 0;
+    width: 100%;
+  }
+  
+  .contentBlock .linkeSpalte div.bildContainer,
+  .contentBlock .linkeSpalte div.bildContainerFull,
+  .contentBlock .linkeSpalte div.slideShowContainer,
+  .contentBlock .rechteSpalte div.bildContainer,
+  .contentBlock .rechteSpalte div.bildContainerFull,
+  .contentBlock .rechteSpalte div.slideShowContainer {
+    margin: 0;
+    max-width: none;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 481px) {
+  
+  .contentBlock div.bildContainer,
+  .contentBlock div.bildContainerFull,
+  .contentBlock div.slideShowContainer {
+    float: left;
+    max-width: 50%;
+    width: auto;
+    margin: 0 1em 0.8em 0 !important;
+  }
+  .contentBlock .slideShowContainer1 .image__container,
+  .contentBlock div.slideShowContainer1 {
+    max-width: 100%;
+  }  
+  .bildOverlay {
+    max-width: 90%;
+  }
+   
+   /* msteindl - Bilder innerhalb von Zellen dürfen mobil auch größer werden als 50%, siehe z.B.: /SERV/FOTO/FOTOS_PD/*/
+  .contentBlock td div.bildContainer,
+  .contentBlock td div.bildContainerFull,
+  .contentBlock td div.slideShowContainer {
+    max-width: 100%;
+  }
+  
+  .contentBlock div.bildContainer.floatRight,
+  .contentBlock div.bildContainerFull.floatRight,
+  .contentBlock div.slideShowContainer.floatRight {
+    float: right;
+    margin: 0 0em 0.8em 1em !important;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 768px) and (max-width: 1024px) {
+  
+  .contentBlock div.bildContainer,
+  .contentBlock div.bildContainerFull,
+  .contentBlock div.slideShowContainer {
+    display: inline-block;
+    float: left;
+  }
+  
+  .contentBlock div.bildContainer.floatLeft {
+    clear: left;
+  }
+  
+  .contentBlock .linkeSpalte div.bildContainer,
+  .contentBlock .linkeSpalte div.bildContainerFull,
+  .contentBlock .linkeSpalte div.slideShowContainer,
+  .contentBlock .rechteSpalte div.bildContainer,
+  .contentBlock .rechteSpalte div.bildContainerFull,
+  .contentBlock .rechteSpalte div.slideShowContainer {
+    margin: 0 !important;
+  }
+}
+
+div.bildContainer.teaser.floatLeft {
+  margin-right: 1em;
+}
+
+a.tooltip {
+  background-color: #FFF;
+  bottom: auto !important;
+  left: auto !important;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  position: absolute;
+  right: 0em !important;
+  top: 0.3em !important;
+  display: block;
+}
+
+.sitzplan a.tooltip {
+  right: auto !important;
+  top: auto !important;
+}
+
+.image-container {
+  display: inline-block;
+  margin: auto;
+  position: relative;
+  right: auto !important;
+  top: auto !important;
+}
+
+/*msteindl changes
+.image-container .lightboxCopyright, .image-container span, .image-container a.tooltip {
+  background-color: #FFF;
+  bottom: auto !important;
+  left: auto !important;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  position: absolute;
+  right: 1em !important;
+  top: 0em !important;
+  display: block;
+}
+*/
+
+
+div.bildContainer,
+div.bildContainerFull,
+div.slideShowContainer {
+  margin: 0 1em 0.8em 0 !important;
+}
+
+
+div.bildContainer.floatRight,
+div.bildContainerFull.floatRight,
+div.slideShowContainer.floatRight {
+  margin: 0 0em 0.8em 1em !important;
+}
+
+/**
+  Module Footer
+ */
+.footer__wrap {
+  padding: 1.1em;
+  padding-bottom: 2.125em;
+  background-color: #fff;
+  margin-top: 1.5em;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__wrap {
+    padding-bottom: 1.1em;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .footer__wrap {
+    margin-top: 0 !important;
+  }
+  #footer {
+    margin-top: 0;
+	background-color: #fff;
+  }
+  a#nachoben {
+	margin-bottom: 1em;
+	margin-top: 1em;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .footer__wrap {
+    padding: 1.7em 2em;
+  }
+}
+
+.footer__dm {
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  height: 35px;
+  width: 100%;
+  -webkit-background-size: auto 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__dm {
+    height: 55px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .footer__dm {
+    background-size: 100% auto;
+    height: 58px;
+    -webkit-background-size: 100% auto;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .footer__menu {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  #footer {
+    font-size: 1em;
+    margin-bottom: 0;
+    margin-left: -1.1em;
+    margin-right: -1.1em;
+    width: calc(100% + 2.2em);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 350px) {
+  #footer {
+    margin-left: -2em;
+    margin-right: -2em;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 350px) {
+  #footer {
+    width: calc(100% + 4em);
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  #footer .footer__wrap {
+    font-size: 1.3em;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 767px) {
+  a#nachoben {
+    display: block;
+    float: none;
+    margin-bottom: 2.75em;
+    margin-top: 0.25em;
+    text-align: right;
+  }
+}
+
+/**
+  Module Table
+ */
+.table-responsive .table-responsive__prefix, .table-responsive .table-responsive__appendix {
+  color: #232323;
+}
+
+@media screen and (min-width: 0) and (max-width: 767px) {	
+  .tabelle {
+    border-width: 0.5em;
+  }
+  .table-responsive * * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+  .table-responsive__inner {
+    display: block;
+    float: left;
+    width: 50%;
+  }
+  .table-responsive thead {
+    display: none;
+  }
+  .table-responsive tr {
+    display: block;
+  }
+  .table-responsive.t_2 tr {
+    display: inherit;
+  }
+  .table-responsive tr td {
+    padding: 0.7em;
+  }
+  .table-responsive__header,
+  .table-responsive .table-responsive__header {
+    background: #EFEFEF url(/web/20210722193045im_/https://www.parlament.gv.at/img/design/verlaufTabelle.gif) repeat-x !important;
+    border: none;
+    border-bottom: none;
+    border-top: none;
+    color: #BE2A3C;
+    display: block;
+    padding-bottom: 0.7em;
+    padding-top: 0.7em;
+    width: 100%;
+  }
+  .table-responsive__header-tableheader {
+    background-color: #F0F0F0 !important;
+    background-image: none !important;
+  }
+  .table-responsive__header-history {
+    background: #EFEFEF url(/web/20210722193045im_/https://www.parlament.gv.at/img/design/verlaufTabelle.gif) repeat-x !important;
+    border: none;
+    border-bottom: none;
+    border-top: none;
+    color: #BE2A3C;
+    padding-bottom: 0.7em !important;
+    padding-top: 0.7em !important;
+  }
+  .table-responsive--tabled tbody tr:not(:last-child) {
+    border-bottom: 0.5em solid #EFEFEF;
+  }
+  .table-responsive--tabled tbody tr td:not(.table-responsive__header) {
+    border-bottom-width: 1px;
+    border-top: none;
+    display: block;
+    width: 100%;
+  }
+  .table-responsive--tabled tbody tr td:not(.table-responsive__header):before, .table-responsive--tabled tbody tr td:not(.table-responsive__header):after {
+    content: " ";
+    display: table;
+  }
+  .table-responsive--tabled tbody tr td:not(.table-responsive__header):after {
+    clear: both;
+  }
+  .table-responsive--tabled tbody tr td:not(.table-responsive__header):last-child {
+    border-bottom: none;
+  }
+  
+  /** START	-	DISPLAY NO PREFIXES! **/
+  .table-noprefix .table-responsive__prefix {
+    display: none!important;
+  }
+  .table-noprefix .table-responsive__inner {
+    width: 100% !important;
+  }    
+  /** END	-	DISPLAY NO PREFIXES! **/
+  
+  .table-responsive--tabled tbody tr td:not(.table-responsive__header) .table-responsive__prefix {
+    display: block;
+    float: left;
+    width: 50%;
+    padding-right: 1em;
+  }
+  .table-responsive--tabled tbody tr td:not(.table-responsive__header).table-responsive__td-empty {
+    display: none;
+  }
+  .table-responsive--listed tbody tr {
+    padding-bottom: 0.7em;
+  }
+  .table-responsive--listed tbody tr:not(:last-child) {
+    border-bottom: 0.5em solid #EFEFEF;
+  }
+  .table-responsive--listed tbody tr td.table-responsive__header + td {
+    padding-top: 0.7em;
+  }
+  .table-responsive--listed tbody tr td:not(.table-responsive__header) {
+    border: none;
+    display: block;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+  .table-responsive--listed tbody tr td:not(.table-responsive__header) .table-responsive__prefix {
+    display: block;
+    float: left;
+  }
+  .table-responsive--listed tbody tr td:not(.table-responsive__header) .table-responsive__prefix:after {
+    content: ' ';
+    display: inline-block;
+  }
+  .table-responsive--listed tbody tr td:not(.table-responsive__header).table-responsive__td-empty {
+    display: none;
+  }
+  .table-responsive--inlined tbody tr {
+    padding-bottom: 0.7em;
+    padding-left: 0.7em;
+  }
+  .table-responsive--inlined tbody tr:not(:last-child) {
+    border-bottom: 0.5em solid #EFEFEF;
+  }
+  .table-responsive--inlined tbody tr td {
+    margin-left: -0.7em;
+  }
+  .table-responsive--inlined tbody tr td.table-responsive__header {
+    margin-bottom: 0.7em;
+    width: calc(100% + 0.7em);
+  }
+  .table-responsive--inlined tbody tr td:not(.table-responsive__header) {
+    border: none;
+    display: inline-block;
+    display: inline;
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+  }
+  .table-responsive--inlined tbody tr td:not(.table-responsive__header):last-child .table-responsive__appendix {
+    display: none;
+  }
+  .table-responsive--inlined tbody tr td:not(.table-responsive__header).table-responsive__td-empty {
+    display: none;
+  }
+  .table-responsive__header.table-responsive__td-empty {
+	display:none;	
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .table-responsive .table-responsive__prefix, .table-responsive .table-responsive__appendix {
+    display: none;
+  }
+}
+
+table.filter.filter-removed-padding td, table.filter.filter-removed-padding th {
+  padding-left: 0.5em;
+}
+
+table.filter.filter-removed-padding th a img.icon,
+table.filter.filter-removed-padding td a img.icon {
+  margin-left: 0 !important;
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+
+  .tabelle.tabelleHistorieResponsive {
+    border-width: 0.51em;
+  }
+  .tabelle.tabelleHistorieResponsive thead > tr > th:nth-child(3),
+  .tabelle.tabelleHistorieResponsive thead > tr > th:nth-child(4),
+  .tabelle.tabelleHistorieResponsive thead > tr > th:nth-child(5),
+  .tabelle.tabelleHistorieResponsive thead > tr > th:nth-child(6) {
+    display: none;
+  }
+  .tabelle.tabelleHistorieResponsive thead > tr > th:nth-child(2) .floatRight,
+  .tabelle.tabelleHistorie thead > tr > th:nth-child(2) .floatRight {
+    float: left;
+  }
+  .tabelle.tabelleHistorieResponsive thead > tr > th:nth-child(2) .floatLeft,
+  .tabelle.tabelleHistorie thead > tr > th:nth-child(2) .floatLeft {
+    display: none;
+  }
+  .tabelle.tabelleHistorieResponsive .historyHeader td.borderLeft {
+    display: none;
+  }
+  .tabelle.tabelleHistorieResponsive > tbody > tr > td:nth-child(3),
+  .tabelle.tabelleHistorieResponsive > tbody > tr > td:nth-child(4),
+  .tabelle.tabelleHistorieResponsive > tbody > tr > td:nth-child(5),
+  .tabelle.tabelleHistorieResponsive > tbody > tr > td:nth-child(6) {
+    display: none;
+  }
+    
+  .tabelle td {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }
+  .tabelle tbody.open .historyHeader td:nth-child(2) {
+    border-left: #A8A8A8 solid 0.1em;
+    border-right: #A8A8A8 solid 0.1em;
+  }
+  .tabelle tbody.open tr > td:nth-child(2) {
+    border-right: #A8A8A8 solid 0.1em;
+  }
+  .tabelle .table-history-mobile {
+    margin-left: 0;
+  }
+  .tabelle .table-history-mobile a:not(.link-indicator) {
+    text-decoration: underline;
+  }
+  .tabelle .table-history-mobile a:not(.link-indicator):hover, .tabelle .table-history-mobile a:not(.link-indicator):focus, .tabelle .table-history-mobile a:not(.link-indicator):active {
+    text-decoration: none;
+  }
+  .tabelle .table-history-mobile > td {
+    border-bottom: #EFEFEF solid 0.1em;
+    border-left: #A8A8A8 solid 0.1em;
+    border-right: #A8A8A8 solid 0.1em;
+  }
+  .tabelle .table-history-mobile__detail {
+    margin-left: 0;
+  }
+  .tabelle .table-history-mobile__entry {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .table-history-mobile {
+    display: none !important;
+  }
+}
+
+/**
+  Module table-filter
+ */
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .paginationContainerGlossar, .paginationContainer {
+    height: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .paginationContainer {
+    background-color: transparent;
+  }
+  .paginationRechts {
+    padding-top: 0.75em;
+  }
+}
+
+.table-filter {
+  float: left;
+  position: relative;
+}
+
+.table-filter--calendar {
+  float: none;
+  margin: 1em 0;
+  text-align: center;
+}
+
+.table-filter--right {
+  display: none;
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .table-filter--right {
+    display: block;
+    float: right;
+  }
+}
+
+.table-filter__select {
+  display: inline-block;
+  min-width: 6em;
+  vertical-align: bottom;
+  width: auto;
+}
+
+.table-filter__select-label {
+  display: block;
+  margin-bottom: 0.4em;
+  width: 100%;
+}
+
+.table-filter__headline {
+  color: #BE2A3C;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 2.14286em;
+  min-width: 6em;
+  text-align: center;
+  width: auto;
+}
+
+.table-filter__prev, .table-filter__next {
+  background-size: contain;
+  display: inline-block;
+  height: 2.14286em;
+  overflow: hidden;
+  text-indent: -9999px;
+  vertical-align: bottom;
+  width: 2.14286em;
+  -webkit-background-size: contain;
+}
+
+.table-filter__prev {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/table-filter__prev.png");
+  margin-right: 0.6em;
+}
+
+.table-filter__next {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/table-filter__next.png");
+  margin-left: 0.6em;
+}
+
+/**
+  Module table-glossar
+ */
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  #content .glossar {
+    padding: 0.5em;
+    width: auto;
+  }
+  #content .glossar * * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+  #content .glossar h3 {
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 0.6em;
+    width: 2.5em;
+  }
+  #content .glossar dl {
+    background-color: transparent;
+    width: calc(100% - 25px);
+  }
+  #content .glossar dl dt {
+    background: #EFEFEF url(/web/20210722193045im_/https://www.parlament.gv.at/img/design/verlaufTabelle.gif) repeat-x;
+    border: none;
+    border-bottom: none;
+    border-top: none;
+    color: #BE2A3C;
+    display: block;
+    float: none;
+    padding: 0.7em;
+    padding-bottom: 0.7em;
+    padding-top: 0.7em;
+    width: auto;
+  }
+  #content .glossar dl dd {
+    background-color: #FFF;
+    display: block;
+    float: none;
+    margin-bottom: 0.5em;
+    padding: 0.7em;
+    width: auto;
+  }
+  #content .glossar dl dd *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+  Module table-filterletters
+ */
+@media screen and (min-width: 0) and (max-width: 767px) {
+  .tabelle.filterLetters {
+    background-color: #EFEFEF;
+    border: #EFEFEF solid 0.5em;
+  }
+  .tabelle.filterLetters * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+  .tabelle.filterLetters thead {
+    display: none;
+  }
+  .tabelle.filterLetters tbody tr th {
+    display: block;
+    float: left;
+    padding: 0;
+    text-align: center;
+    width: 25px;
+  }
+  .tabelle.filterLetters tbody tr td {
+    display: block;
+    float: right;
+    width: calc(100% - 25px);
+  }
+  .tabelle.filterLetters tbody tr td:first-of-type {
+    background: #EFEFEF url(/web/20210722193045im_/https://www.parlament.gv.at/img/design/verlaufTabelle.gif) repeat-x;
+    border: none;
+    border-bottom: none;
+    border-top: none;
+    color: #BE2A3C;
+    display: block;
+    float: right;
+    padding: 0.7em;
+    padding-bottom: 0.7em;
+    padding-top: 0.7em;
+    width: calc(100% - 25px);
+  }
+  .tabelle.filterLetters tbody tr td:first-of-type .table-responsive__prefix {
+    display: none;
+  }
+  .tabelle.filterLetters tbody tr td:last-of-type {
+    border-bottom: 0.5em solid #EFEFEF;
+  }
+}
+
+/**
+  Module tabs-responsive
+ */
+.tabs-responsive {
+   /*display: none; */
+}
+.tabs-responsive__menu ul {
+  margin: 0 !important;
+}
+
+li.reiterAktiv > a {
+  color: #BE2A3C !important;
+}
+
+li.reiterAktiv > a:hover, li.reiterAktiv > a:focus, li.reiterAktiv > a:active {
+  cursor: default;
+  text-decoration: none;
+}
+
+.reiterBlock {
+  font-size: 14.3px;
+}
+
+.reiterBlock:before, .reiterBlock:after {
+  content: " ";
+  display: table;
+}
+
+.reiterBlock:after {
+  clear: both;
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+	
+	#content .tabs-responsive__menu-more > li.tabs-responsive__tab:not(:last-child) {
+		width: 100%;
+	}
+	
+  ul.reiterNavigation.tabs-responsive__menu.zweizeilig {
+    height: 4em; 
+  }
+  ul.reiterNavigation.tabs-responsive__menu.zweizeilig li,ul.reiterNavigation.tabs-responsive__menu.zweizeilig li a {
+    height: 100%;
+  }
+	
+	
+  #content .reiterNavigationContainer {
+    /*display: none;*/
+  }
+  #content .tabs-responsive {
+    background-color: #F0F0F0;
+    display: block;
+    margin-bottom: 1em;
+  }
+  #content .tabs-responsive * * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+  #content .tabs-responsive__contentBlock {
+    margin-top: 4.1em;
+  }
+  #content .tabs-responsive--contentBlock-header {
+    margin-left: -0.7em;
+    margin-top: -4.1em;
+    position: relative;
+  }
+  #content .tabs-responsive__menu {
+    margin: 0;
+    overflow: visible !important;
+    padding: 0;
+  }
+  #content .tabs-responsive__tab {
+    border: 0;
+    display: inline-block;
+    margin: 0;
+    margin-right: 0.5em;
+    padding: 0;
+    text-indent: 0;
+	background: none;
+  }
+  #content .tabs-responsive__tab.active a {
+    background-color: white;
+    color: #C8102E !important;
+  }
+  #content .tabs-responsive__tab > a {
+    background-color: #DCDCDC;
+    color: #5A5A5A;
+    display: inline-block;
+    padding: 1em 1em;
+    text-indent: 0;
+  }
+  #content .tabs-responsive__tab > a:hover, #content .tabs-responsive__tab > a:active, #content .tabs-responsive__tab > a:focus {
+    background-color: white;
+    color: #C8102E !important;
+    text-decoration: none;
+  }
+  #content .tabs-responsive__tab--more {
+    background-color: #DCDCDC;
+    display: inline-block;
+    margin-right: 0;
+    position: relative;
+    padding: 0px !important;
+  }
+  #content .tabs-responsive__tab--more.has-active-child:not(.active) a {
+    background-color: white;
+    background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/tabs-responsive--has-active-child.png");
+    color: #C8102E !important;
+  }
+  #content .tabs-responsive__tab--more > a {
+    background-color: #5A5A5A;
+    background-color: #DCDCDC;
+    background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/tabs-responsive--closed.png");
+    background-position: center right 8px;
+    background-repeat: no-repeat;
+    background-size: 10px auto;
+    color: #FFF;
+    color: #5A5A5A;
+    padding-right: 1.8em;
+    -webkit-background-size: 10px auto;
+  }
+  #content .tabs-responsive__tab--more > a:hover, #content .tabs-responsive__tab--more > a:active, #content .tabs-responsive__tab--more > a:focus {
+    background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/tabs-responsive--has-active-child.png");
+  }
+  #content .tabs-responsive__tab--more.active > a {
+    background-color: #5A5A5A;
+    background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/tabs-responsive--active.png");
+    color: #FFF !important;
+  }
+  #content .tabs-responsive__tab--more.active .tabs-responsive__menu-more {
+    display: block;
+  }
+  #content .tabs-responsive__menu-more {
+    display: none;
+    left: 0;
+    margin: 0;
+    margin-left: 0 !important;
+    padding: 0;
+    position: absolute;
+    top: 3em;
+    z-index: 20000;
+  }
+  
+  #content .zweizeilig.tabs-responsive__menu-more {
+	top: 4em;
+  }
+  
+  #content .tabs-responsive__menu-more.active {
+    display: block;
+  }
+  #content .tabs-responsive__menu-more > li.tabs-responsive__tab {
+    display: block !important;
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-indent: 0 !important;
+  }
+  #content .tabs-responsive__menu-more > li.tabs-responsive__tab:not(:last-child) {
+    border-bottom: 1px solid #949494;
+  }
+  #content .tabs-responsive__menu-more > li.tabs-responsive__tab.active a {
+    background-color: #C8102E;
+    color: #FFF !important;
+    text-decoration: none;
+  }
+  #content .tabs-responsive__menu-more > li.tabs-responsive__tab a {
+    background-color: #5A5A5A;
+    color: #FFF !important;
+    display: block;
+  }
+  #content .tabs-responsive__menu-more > li.tabs-responsive__tab a:hover, #content .tabs-responsive__menu-more > li.tabs-responsive__tab a:active, #content .tabs-responsive__menu-more > li.tabs-responsive__tab a:focus {
+    background-color: #C8102E;
+    color: #FFF !important;
+    text-decoration: none;
+  }
+  #content .tabs-responsive__menu-more.is-right {
+    left: auto;
+    right: 0;
+  }
+}
+
+/**
+  Module table-mobile
+ */
+img.icon.icon-mail {
+  position: relative;
+  top: -1px;
+}
+
+.table-mobile {
+  border: #EFEFEF solid 0.33em;
+  margin-bottom: 1em;
+}
+
+.table-mobile__image {
+  margin-bottom: 1em;
+}
+
+.table-mobile__action {
+  float: right;
+  text-align: right;
+  width: 4em;
+}
+
+.table-mobile__entry {
+  background-position: center right 0.7em;
+  background-repeat: no-repeat;
+  background-size: auto 14px;
+  padding: 0.7em;
+  -webkit-background-size: auto 14px;
+}
+
+.table-mobile__entry:before, .table-mobile__entry:after {
+  content: " ";
+  display: table;
+}
+
+.table-mobile__entry:after {
+  clear: both;
+}
+
+.table-mobile__entry-border--full {
+  border: 1px solid #F5AA2C;
+}
+
+.table-mobile__entry-border--full:before, .table-mobile__entry-border--full:after {
+  content: " ";
+  display: table;
+}
+
+.table-mobile__entry-border--full:after {
+  clear: both;
+}
+
+.table-mobile__entry-border, .table-mobile__entry-border--full {
+  overflow: hidden;
+  padding: 0.7em;
+  padding-right: 1.7em;
+  position: relative;
+}
+
+.table-mobile__entry-border:before, .table-mobile__entry-border:after, .table-mobile__entry-border--full:before, .table-mobile__entry-border--full:after {
+  content: " ";
+  display: table;
+}
+
+.table-mobile__entry-border:after, .table-mobile__entry-border--full:after {
+  clear: both;
+}
+
+.table-mobile__entry-border:before, .table-mobile__entry-border--full:before {
+  background-color: #F5AA2C;
+  content: '';
+  display: block;
+  height: 100%;
+  left: -0;
+  position: absolute;
+  top: 0;
+  width: 4px;
+}
+
+.table-mobile__entry-border--full:before {
+  width: 3px;
+}
+
+.table-mobile__entry-border--nr {
+  border-color: #F5AA2C;
+}
+
+.table-mobile__entry-border--nr:before {
+  background-color: #F5AA2C;
+}
+
+.table-mobile__entry-border--br, .table-mobile__entry-border--bp {
+  border-color: #44A351;
+}
+
+.table-mobile__entry-border--br:before, .table-mobile__entry-border--bp:before {
+  background-color: #44A351;
+}
+
+.table-mobile__entry-border--in {
+  border-color: #3F56CA;
+}
+
+.table-mobile__entry-border--in:before {
+  background-color: #3F56CA;
+}
+
+.table-mobile__entry-border--vs {
+  border-color: #BB43C8;
+}
+
+.table-mobile__entry-border--vs:before {
+  background-color: #BB43C8;
+}
+
+.table-mobile__entry-border--kv {
+  border-color: #1BA5B5;
+}
+
+.table-mobile__entry-border--kv:before {
+  background-color: #1BA5B5;
+}
+
+.table-mobile__entry--bordered {
+  padding: 0 !important;
+}
+
+.table-mobile__entry--bordered:before, .table-mobile__entry--bordered:after {
+  content: " ";
+  display: table;
+}
+
+.table-mobile__entry--bordered:after {
+  clear: both;
+}
+
+.table-mobile__entry--action {
+  background-image: none;
+  padding-right: 0.7em;
+}
+
+.table-mobile__entry--action .table-mobile__details {
+  color: inherit !important;
+  float: left;
+  width: calc(100% - 4em);
+}
+
+.table-mobile__entry--action .table-mobile__details a {
+  color: inherit !important;
+  text-decoration: none;
+}
+
+.table-mobile__entry--action .table-mobile__details a:hover, .table-mobile__entry--action .table-mobile__details a:focus, .table-mobile__entry--action .table-mobile__details a:active {
+  color: #5A5A5A !important;
+  text-decoration: underline;
+}
+
+.table-mobile__entry:not(:last-child) {
+  border-bottom: #EFEFEF solid 0.33em;
+}
+
+.table-mobile__entry[data-arrow-url] {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/Link@2x.png");
+  padding-right: 1.7em;
+  position: relative;
+}
+
+.table-mobile__entry[data-arrow-url]:after {
+  content: '';
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1.7em;
+}
+
+.table-mobile__meta {
+  display: block;
+  margin-bottom: 0.7em;
+}
+
+.table-mobile__meta:before, .table-mobile__meta:after {
+  content: " ";
+  display: table;
+}
+
+.table-mobile__meta:after {
+  clear: both;
+}
+
+.table-mobile__date {
+  color: #5A5A5A;
+  float: left;
+}
+
+.table-mobile__category {
+  color: #5A5A5A;
+  float: right;
+}
+
+.table-mobile__status {
+  float: right;
+}
+
+.table-mobile__status span {
+  color: #5A5A5A;
+  margin-right: 0.3em;
+}
+
+.table-mobile__title {
+  color: #000 !important;
+  display: inline-block;
+  margin-bottom: 0.7em;
+  max-width: calc(100% - 3em);
+}
+
+.table-mobile__details {
+  color: #5A5A5A !important;
+  display: block;
+}
+
+.table-mobile__details a {
+  color: #5A5A5A !important;
+  text-decoration: underline;
+}
+
+.table-mobile__details a:hover, .table-mobile__details a:focus, .table-mobile__details a:active {
+  color: #5A5A5A !important;
+  text-decoration: none;
+}
+
+/*
+Table "Veranstaltungen"
+*/
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  /*
+    1. hide Image in Responsive 
+   */
+  td.VeranstaltungBild, th.VeranstaltungBild {
+	/* msteindl: do NOT hide Veranstaltungsbild on Tablet / mobile */
+    /*display: none;*/
+    /* [1] */
+  }
+}
+
+/**
+  Module table-mobile-inline
+  
+  This Variant of Table-mobile can be set into the first column of a table, and will automatically adapt.
+  
+  
+ */
+.table-mobile-inline td, .table-mobile-inline th, .table-mobile-inline thead {
+  /*
+    By default we hide all td's and th's on responsive breakpoints.
+    1. hide on Responsive
+    */
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .table-mobile-inline td, .table-mobile-inline th, .table-mobile-inline thead {
+    display: none;
+    /* [1] */
+  }
+}
+
+.table-mobile-inline th.table-mobile-inline__th {
+  /*
+    The __td Elment holds the Header Placeholder
+    1. Its hidden in every Breakpoint
+    */
+  display: none;
+  /* [1] */
+}
+
+.table-mobile-inline td div {
+  /*
+    Reset the margin left for .tabelle td div ..
+    */
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .table-mobile-inline td div {
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .table-mobile-inline tr.table-mobile-inline__tr--hidden {
+    display: none;
+  }
+}
+
+.table-mobile-inline td.table-mobile-inline__td {
+  /*
+    The __td Element holds the table-mobile Row
+    1. visible in Responsive modes
+    2. hidden on desktop
+    3. reset td cell
+    */
+  display: none;
+  /* [2] */
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .table-mobile-inline td.table-mobile-inline__td {
+    border: none;
+    /* [3] */
+    display: block;
+    /* [1] */
+    padding: 0;
+    /* [3] */
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .table-mobile-inline tr {
+    border-bottom: #EFEFEF solid 0.33em;
+    display: block;
+  }
+  .table-mobile-inline tr:last-child {
+    border-bottom: none;
+  }
+}
+
+/**
+  Module table-search
+ */
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .suche hr {
+    margin: 0.5em 0;
+  }
+  .suche fieldset div.label {
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  #search_result_container_head {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .formularContainerSearch {
+    display: none;
+  }
+}
+
+#search_result_and_navi .search_result_text-mobile {
+  display: block;
+}
+
+@media screen and (min-width: 1025px) {
+  #search_result_and_navi .search_result_text-mobile {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+/* by ps
+  #search_result_and_navi .search_result_text, #search_result_and_navi .search_result_collapseddocs, #search_result_and_navi .search_result_options {
+    display: none;
+  }
+*/
+}
+
+/**
+  Module Lightbox
+  
+  Changes Breadcrumb Styles for Mobile/Tablet
+ */
+#overlay {
+  overflow-y: auto;
+}
+
+#lightbox {
+  height: auto;
+  max-height: calc(100% - 2em);
+  max-height: calc(100% - 4em);
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
+#lightbox .galerieTopActions {
+  margin-bottom: 1em;
+  text-align: right;
+}
+
+#lightbox div.bildContainer.centerContainer {
+  float: none;
+  max-width: none;
+  width: 100%;
+}
+
+/***msteindl: lightbox fix (temporär)
+*****/
+@media screen and (min-width: 0) and (max-width: 480px) {
+  #content div.LBbreiteRe {
+    display: block;
+    clear: both;
+    text-align: center;
+    width: 100%;
+    margin-top: 1em;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 767px) {
+  #content div.LBbreiteRe {
+    float: right;
+  }
+  #content div.LBbreiteRe span.submitButton {
+    display: inline-block;
+    padding: 1em 0;
+    width: 6em;
+    font-size: 1em;
+  }
+}
+
+
+@media screen and (min-width: 0) and (max-width: 767px) {
+  #lightbox {
+    border: none;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0;
+    right: 0;
+    top: 0;
+    width: auto;
+    width: 100%;
+  }
+  #lightbox .slideshowBildBeschreibung {
+    margin-top: 1em;
+    padding: 0;
+    width: 100%;
+  }
+  #lightbox .slideshowCurrentDownloadLink {
+    float: left;
+  }
+}
+
+#lightbox .slideShowTriggerContainer {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  #lightbox .slideShowTriggerContainer {
+    display: block;
+  }
+}
+
+#lightbox .slideshowBildBeschreibung {
+  height: auto;
+  position: relative;
+}
+
+#lightbox .slideshowBildBeschreibung > *:last-child {
+  margin-bottom: 0;
+}
+
+#lightbox .bildContainerInner {
+  margin: auto;
+  position: relative;
+}
+
+#lightbox .bildContainerInner img {
+  height: auto;
+  width: auto;
+  max-width: 100%;
+}
+
+#lightbox .slideshowControls {
+  margin: 1em;
+}
+
+@media screen and (min-width: 768px) {
+  #lightbox .slideshowControls {
+    margin: 0;
+  }
+}
+
+#lightbox .slideshowControls .slideshowPrev {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/lightbox__slider--prev.png");
+  left: -0.7em;
+}
+
+@media screen and (min-width: 1025px) {
+  #lightbox .slideshowControls .slideshowPrev {
+    left: -1.8%;
+  }
+}
+
+#lightbox .slideshowControls .slideshowNext {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/lightbox__slider--next.png");
+  right: -0.7em;
+}
+
+@media screen and (min-width: 1025px) {
+  #lightbox .slideshowControls .slideshowNext {
+    right: -1.8%;
+  }
+}
+
+#lightbox .slideshowControls .slideshowPrev, #lightbox .slideshowControls .slideshowNext {
+  background-color: #C8102E;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: auto 80%;
+  border: none;
+  cursor: pointer;
+  height: 3em;
+  margin-top: -2em;
+  overflow: hidden;
+  position: relative;
+  position: absolute;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  text-indent: -9999px;
+  top: 50%;
+  width: 3em;
+  -webkit-background-size: auto 80%;
+}
+
+#lightbox .slideshowControls .slideshowPrev:hover, #lightbox .slideshowControls .slideshowPrev:focus, #lightbox .slideshowControls .slideshowPrev:active, #lightbox .slideshowControls .slideshowNext:hover, #lightbox .slideshowControls .slideshowNext:focus, #lightbox .slideshowControls .slideshowNext:active {
+  outline: none;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+
+#lightbox .slideshowPfeilContainer {
+  height: auto;
+  display: none;
+}
+
+#lightbox .slideshowThumbnailContainer {
+  white-space: nowrap;
+}
+
+#lightbox .slideshowSlide {
+  display: inline-block;
+}
+
+#lightbox .slideshowSlide:before, #lightbox .slideshowSlide:after {
+  content: " ";
+  display: table;
+}
+
+#lightbox .slideshowSlide:after {
+  clear: both;
+}
+
+#lightbox .slideshowSlide:last-child {
+  margin-right: 0;
+}
+
+#lightbox .slideshowSlide img {
+  border: none;
+  box-sizing: border-box;
+}
+
+#lightbox .slideshowSlide a {
+  display: block;
+}
+
+#lightbox .slideshowThumbnailTopContainer {
+  width: auto;
+}
+
+#lightbox .slideshowThumbnailFusszeile {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#lightbox .slideshowThumbnailFusszeile:before, #lightbox .slideshowThumbnailFusszeile:after {
+  content: " ";
+  display: table;
+}
+
+#lightbox .slideshowThumbnailFusszeile:after {
+  clear: both;
+}
+
+#lightbox .slideshowThumbnailTopContainer {
+  box-sizing: border-box;
+  height: auto;
+  margin-left: 0;
+  margin-right: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+}
+
+#lightbox .slideshowThumbnailTopContainer * * {
+  box-sizing: border-box;
+}
+
+#lightbox .slideshowThumbnailActions:before, #lightbox .slideshowThumbnailActions:after {
+  content: " ";
+  display: table;
+}
+
+#lightbox .slideshowThumbnailActions:after {
+  clear: both;
+}
+
+/**
+  Module Organigram
+ */
+#content .organigram__footnote {
+  font-size: 1em;
+  margin-top: 1em;
+}
+
+#content .organigram__fallback-container {
+  margin: auto;
+  width: 47em;
+}
+
+#content .organigram * * {
+  box-sizing: border-box;
+}
+
+#content .organigram__end:after {
+  border-left: 1px solid #FFF;
+  content: '';
+  height: 50%;
+  left: -20px;
+  margin-top: 1px;
+  position: absolute;
+  top: 50%;
+  width: 1px;
+  z-index: 10;
+  z-index: 100;
+}
+
+#content .organigram > ul,
+#content .organigram > ul > li {
+  padding-left: 0 !important;
+}
+
+#content .organigram > ul:before,
+#content .organigram > ul > li:before {
+  display: none;
+}
+
+#content .organigram ul {
+  margin: 0;
+  padding: 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+#content .organigram ul:before {
+  border-left: 1px solid #CCC;
+  content: '';
+  height: 100%;
+  left: 5px;
+  left: 0px;
+  position: absolute;
+  width: 0;
+}
+
+#content .organigram ul ul:before {
+  border-color: #D8D8D8;
+}
+
+#content .organigram ul li {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  text-indent: 0;
+}
+
+#content .organigram ul li:before {
+  border-top: 1px solid #D8D8D8;
+  content: '';
+  height: 1px;
+  left: -20px;
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  z-index: 10;
+}
+
+#content .organigram ul li:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+#content .organigram ul li:first-child {
+  margin-top: 1em;
+}
+
+#content .organigram__section-star {
+  background-color: #FFF;
+  border: 1px solid #D8D8D8;
+  border-radius: 100%;
+  height: 32px;
+  line-height: 32px;
+  position: absolute;
+  right: -16px;
+  text-align: center;
+  top: -16px;
+  width: 32px;
+}
+
+#content .organigram ul.skipEbene {
+  padding-left: 40px;
+}
+
+#content .organigram ul.skipEbene li::before {
+  width: 40px;
+  left: -40px;
+}
+
+#content .organigram__section {
+  background-image: url(/web/20210722193045im_/https://www.parlament.gv.at/img/icons/Box3.png);
+  background-repeat: repeat-x;
+  border: thin solid;
+  border-color: #D8D8D8;
+  font-size: 1em;
+  height: auto;
+  padding: 1em;
+  position: relative;
+}
+
+#content .organigram__section > *:last-child {
+  /* msteindl deaktiviert: was hat das für einen Sinn?
+  margin-bottom: 0;
+  */ 
+}
+
+#content .organigram__section--rounded {
+  background-color: #F2F2F2;
+  background-image: none;
+  border-radius: 20px;
+}
+
+#content .organigram__section--single + .organigram__chart {
+  margin-top: -1em;
+}
+
+#content .organigram__section--single {
+  margin-bottom: 1em;
+}
+
+#content .organigram__section h2 {
+  font-size: 1.3em;
+  margin-bottom: 0.7em;
+  margin-left: 0;
+  text-indent: 0;
+}
+
+#content .organigram__section h3 {
+  font-size: 1em;
+}
+
+#content .organigram__section h3 + a {
+  margin-bottom: 0.5em;
+}
+
+#content .organigram__section span {
+  display: block;
+  font-size: 0.9em;
+  margin-bottom: 0.3em;
+}
+
+#content .organigram__section > a {
+  color: #000;
+  text-decoration: none;
+}
+
+#content .organigram__section > a:hover, #content .organigram__section > a:focus, #content .organigram__section > a:active {
+  text-decoration: underline;
+}
+
+/**
+  Module Startpage
+ */
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .homepage#main #content {
+    float: none;
+    margin: 0 !important;
+    width: 100%;
+  }
+  .current-topic {
+    background-color: #FFF;
+    box-sizing: border-box;
+    clear: both;
+    float: none;
+    height: auto;
+    padding: 0;
+    position: relative;
+  }
+  .current-topic:before, .current-topic:after {
+    content: " ";
+    display: table;
+  }
+  .current-topic:after {
+    clear: both;
+  }
+  .current-topic * * {
+    box-sizing: border-box;
+  }
+  .current-topic-fixed {
+    padding: 1em 1.5em;
+    padding-bottom: 1.5em;
+    padding-top: 0;
+    position: static;
+    width: auto;
+  }
+  .current-topic-fixed:before, .current-topic-fixed:after {
+    content: " ";
+    display: table;
+  }
+  .current-topic-fixed:after {
+    clear: both;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 768px) {
+  .current-topic-fixed {
+    padding: 1em;
+    padding-top: 1em;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .current-topic-fixed-inner {
+    margin-left: 0;
+  }
+  .current-topic-itemlist {
+    position: relative;
+  }
+  .current-topic-itemlist:before, .current-topic-itemlist:after {
+    content: " ";
+    display: table;
+  }
+  .current-topic-itemlist:after {
+    clear: both;
+  }
+  .current-topic-item:before, .current-topic-item:after {
+    content: " ";
+    display: table;
+  }
+  .current-topic-item:after {
+    clear: both;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 0) and (max-width: 767px) {
+  .current-topic-item {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .current-topic-left {
+    background: none;
+    background-color: #FFF;
+    float: none;
+    height: auto;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 768px) {
+  .current-topic-left {
+    padding-right: 1.1em;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .current-topic-left a img {
+    max-width: 100%;
+  }
+  .current-topic-left .image-container {
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 768px) {
+  .current-topic-left {
+    float: left;
+    width: calc(50% - 0.8em);
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .current-topic-left:before, .current-topic-left:after {
+    content: " ";
+    display: table;
+  }
+  .current-topic-left:after {
+    clear: both;
+  }
+  .current-topic-right {
+    height: auto;
+    padding-left: 0;
+    width: 100%;
+    padding: 1em 1.5em;
+    padding-bottom: 1.5em;
+    /*added by mweber2*/
+    float: left;
+    /*****************/ 
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 768px) {
+  .current-topic-right {
+    float: left;
+    padding-left: 0;
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .current-topic-right-content {
+    padding: 0;
+  }
+  .current-topic-right-content > h2 {
+    font-size: 1.82em !important;
+    line-height: 1.4em !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 768px) {
+  .current-topic-right-content > h2 {
+    margin-bottom: 0.6em !important;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 0) and (max-width: 767px) {
+  .current-topic-right-content p {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .current-topic-points {
+    bottom: auto;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 0) and (max-width: 767px) {
+  .homepage#main #col1,
+  .homepage#main #col2 {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .homepage#main #sidebar {
+    float: none;
+    width: 100%;
+  }
+}
+
+.current-topic {
+  margin-bottom: 10px;
+  padding-bottom: 0;
+}
+
+.current-topic:before, .current-topic:after {
+  content: " ";
+  display: table;
+}
+
+.current-topic:after {
+  clear: both;
+}
+
+.current-topic-fixed-inner {
+  padding: 1em 1.6em 0.8em 1.6em;
+}
+
+.current-topic-points {
+  width: 100%;
+  max-width:560px;
+}
+
+@media screen and (min-width: 0) and (max-width: 767px) {
+  .current-topic-points-inner {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .current-topic-fixed {
+    margin-top: 0.8em;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .current-topic-fixed-inner {
+    padding: 0;
+  }
+}
+
+.current-topic-fixed li {
+  border-top: 0.1em #D9D9D9 solid;
+  padding: 0.9em 0;
+}
+
+.current-topic-fixed li:last-child {
+  padding-bottom: 0;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .current-topic-fixed li {
+    display: inline-block;
+    float: left;
+    padding-bottom: 0;
+    padding-left: 0;
+    width: 50%;
+    /*added by mweber2: */
+    margin-top: 1em;
+  }
+}
+
+.current-topic-controls-prev, .current-topic-controls-next {
+  background-color: #C8102E;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: auto 80%;
+  border: none;
+  cursor: pointer;
+  height: 3em;
+  margin-top: -2em;
+  overflow: hidden;
+  position: relative;
+  position: absolute;
+  text-indent: -9999px;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  top: 50%;
+  width: 3em;
+  z-index: 200;
+  -webkit-background-size: auto 80%;
+}
+
+.current-topic-controls-prev:hover, .current-topic-controls-prev:focus, .current-topic-controls-prev:active, .current-topic-controls-next:hover, .current-topic-controls-next:focus, .current-topic-controls-next:active {
+  outline: none;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+
+.current-topic-controls-prev {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/lightbox__slider--prev.png");
+  left: -0.9em;
+}
+
+@media screen and (min-width: 768px) {
+  .current-topic-controls-prev {
+    left: -1.6em;
+  }
+}
+
+.current-topic-controls-next {
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/lightbox__slider--next.png");
+  right: -0.9em;
+}
+
+@media screen and (min-width: 768px) {
+  .current-topic-controls-next {
+    right: -1.6em;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .current-topic-controls {
+    display: none !important;
+  }
+}
+
+/* Ausblenden für Bibliothek-SlideBox */
+.contentBlock.slideBox .current-topic-controls {
+	display: none !important;
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .imgTeaser__list {
+    box-sizing: border-box;
+    margin: auto;
+    max-width: 560px;
+    text-align: center;
+  }
+  .imgTeaser__list:before, .imgTeaser__list:after {
+    content: " ";
+    display: table;
+  }
+  .imgTeaser__list:after {
+    clear: both;
+  }
+  .imgTeaser__list .imgTeaser {
+    box-sizing: border-box;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: 260px;
+  }
+  .imgTeaser__list .imgTeaser:before, .imgTeaser__list .imgTeaser:after {
+    content: " ";
+    display: table;
+  }
+  .imgTeaser__list .imgTeaser:after {
+    clear: both;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 600px) {
+  .imgTeaser__list .imgTeaser {
+    float: left;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .imgTeaser__list .imgTeaser.teaserbox {
+    border: none !important;
+  }
+  .imgTeaser__list .imgTeaser img {
+    width: auto;
+  }
+}
+
+.imgTeaser__list .imgTeaser:before, .imgTeaser__list .imgTeaser:after {
+  content: " ";
+  display: table;
+}
+
+.imgTeaser__list .imgTeaser:after {
+  clear: both;
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .faqTeaser.teaserbox {
+    text-align: center;
+  }
+  .faqTeaser.teaserbox p {
+    display: inline-block;
+  }
+}
+
+/**
+  Module Top Topic
+ */
+.top-topic {
+  position: relative;
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .top-topic {
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding-top: 1.5em;
+    padding: 1em 1.5em;
+    padding-bottom: 1.5em;
+  }
+  .top-topic-inner {
+    display: block;
+    width: auto;
+  }
+  .top-topic-paragraph {
+    display: block;
+    float: right;
+    padding-right: 0;
+    width: auto;
+  }
+  .top-topic-left {
+    display: block;
+    width: auto;
+  }
+  .top-topic-lead {
+    margin-bottom: 0.5em;
+    margin-bottom: 1.1em;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 768px) {
+  .top-topic-title {
+    font-size: 2em;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .top-topic-right {
+    border-left: none;
+    border-top: solid 1px #ED9CA6;
+    display: block;
+    white-space: normal;
+    margin-top: 1em;
+    padding-left: 0;
+    padding-top: 1em;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 768px) {
+  .top-topic {
+    float: left;
+    margin-right: 20px;
+    width: 100%;
+  }
+}
+
+/**
+  Module home-terminteaser
+ */
+.home-terminteaser {
+  background-color: #FFF;
+  border-bottom: #D9D9D9 0.0833em solid;
+  border-right: #D9D9D9 0.0833em solid;
+  box-sizing: border-box;
+  font-size: 1.3em;
+  margin-bottom: 20px;
+  margin-top: 0.833em;
+  overflow: auto;
+  padding: 0.9em 0.7em;
+  padding: 1.5em;
+}
+
+.home-terminteaser div.scrolling {
+  height: 12em !important;
+}
+
+.home-terminteaser__all {
+  border-top: 1px solid #DCDCDC;
+  margin-top: 1em;
+}
+
+@media screen and (min-width: 768px) {
+  .home-terminteaser {
+    float: left;
+    width: calc(50% - 10px);
+  }
+}
+
+.home-terminteaser #terminteaser.teaserbox h4, .home-terminteaser #terminteaser.teaserbox h4 a, .home-terminteaser #terminteaser.teaserbox strong, .home-terminteaser #terminteaser.teaserbox strong a {
+  color: #BE2A3C;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.home-terminteaser #terminteaser.teaserbox h3 {
+  color: #BE2A3C;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.53em;
+  font-weight: normal;
+  margin-bottom: 0.2em;
+  margin-left: 0.85em;
+  text-indent: -0.85em;
+}
+
+/**
+  Module vtabs
+ */
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .vtabs {
+    background: none;
+    background-color: #FFF;
+    border: none;
+  }
+  .vtabs:before, .vtabs:after {
+    content: " ";
+    display: table;
+  }
+  .vtabs:after {
+    clear: both;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  #vtabs-front .vtabs-panels-inner {
+    padding-left: 0;
+  }
+  #vtabs-front .vtabs-inner {
+    background-color: #FFF;
+    display: block;
+  }
+  #vtabs-front .vtabs-tabs {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 768px) {
+  #vtabs-front .vtabs-tabs {
+    float: left;
+    margin-right: 20px;
+    width: calc(50% - 10px);
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  #vtabs-front .vtabs-panels {
+    box-sizing: border-box;
+    display: block;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 768px) {
+  #vtabs-front .vtabs-panels {
+    float: left;
+    width: calc(50% - 10px);
+  }
+}
+
+.vtabs-mobile {
+  background-color: #FFF;
+  position: relative;
+}
+
+.vtabs-mobile #startInternetAbgSuche .formBox {
+  margin-top: 0.6em;
+  padding: 0.6em;
+}
+
+.vtabs-mobile #startInternetAbgSuche .formBox input {
+  box-sizing: border-box;
+  display: inline-block;
+  height: 21px;
+  padding-bottom: 0;
+  padding-top: 0;
+  width: auto;
+}
+
+.vtabs-mobile #startInternetAbgSuche .formBox input.submitButton {
+  background: none;
+  background-color: #C8102E;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+.vtabs-mobile #startInternetAbgSuche ul {
+  float: none;
+}
+
+.vtabs-mobile #startInternetAbgSuche ul li {
+  padding-left: 0;
+  text-indent: 0;
+}
+
+.vtabs-mobile-tab {
+  font-size: 1.3em !important;
+}
+
+.vtabs-mobile-tab.selected .vtabs-mobile-tab-body .panel {
+  display: block !important;
+}
+
+.vtabs-mobile-tab-heading {
+  font-size: 1em;
+}
+
+.vtabs-mobile-tab-heading:hover span {
+  background-color: #FFF;
+}
+
+/* changed/added by mweber2 */
+@media screen and (max-width: 767px) {
+	.vtabs-mobile-tab-heading span,
+	h2.panel-heading
+	 {
+	  background: transparent url(/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/vtabs-mobile__closed.png) right center no-repeat !important;
+	  background-color: #FAFAFA !important;
+	  background-position: center right 1em !important;
+	  background-size: 12px auto !important;
+	  color: #BE2A3C !important;
+	  cursor: pointer;
+	  display: block;
+	  font-family: "Times New Roman", Ã¢â‚¬â€¹Times, Ã¢â‚¬â€¹serif !important;
+	  font-size: 1.5em !important;
+	  margin: 0 !important;
+	  padding: 0.6em 0.8em !important;
+	  padding-right: 50px !important;
+	  text-indent: 0 !important;
+	  -webkit-background-size: 12px auto !important;
+	  border-bottom: 1px solid #DCDCDC;
+	}
+	
+	.panel.selected .panel-heading {
+	  background-color: #FFF !important;
+	  background-image: none !important;
+	  background-image: url(/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/vtabs-mobile__opened.png) !important;
+	  border-right-color: #FFF !important;
+	  color: #555 !important;
+	}
+	
+	#vtabs-front .panel {
+		padding-bottom: 0em;
+	}
+}
+/**********************/
+
+.vtabs-mobile-tab-heading:not(:last-child) {
+  border-bottom: 1px solid #DCDCDC;
+}
+
+.vtabs-mobile-tab-body .panel {
+  background-color: #FFF;
+  margin: 0;
+  padding: 1.1em;
+  padding-bottom: 0.8em;
+  position: relative;
+}
+
+.vtabs-mobile-tab-body .panel:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+
+.vtabs-mobile-tab-body .panel.selected {
+  display: block;
+}
+
+.vtabs-mobile-tab-body .panel h2 {
+  display: none;
+}
+
+.vtabs-mobile-tab-body .panel .panel-bottom {
+  margin: 1em 10px 0 6px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+}
+
+.vtabs-mobile-tab-body .panel .panel-bottom ul.zweiSpaltig li {
+  width: 45%;
+}
+
+.vtabs-mobile-tab-body .panel .panel-bottom p {
+  margin-bottom: 1em;
+}
+
+.vtabs-mobile-tab-body .panel .panel-bottom ul li {
+  padding-left: 0 !important;
+}
+
+.vtabs-mobile-tab-body .panel-image-wrapper {
+  width: 100%;
+}
+
+.vtabs-mobile-tab-body .panel-image-wrapper img {
+  height: auto;
+  width: 100%;
+}
+
+@media screen and (min-width: 0) and (max-width: 767px) {
+  .vtabs-mobile-tab-body .panel h2 {
+    display: none;
+  }
+  .vtabs-mobile-tab-body .panel .panel-image-wrapper img {
+    width: 100%;
+  }
+}
+
+.vtabs-mobile-tab-body .panel img {
+  max-width: 100%;
+}
+
+#startInternetAbgSuche .formBox {
+  margin-top: 0.6em;
+  padding: 0.6em;
+}
+
+#startInternetAbgSuche .formBox input {
+  box-sizing: border-box;
+  display: inline-block;
+  height: 21px;
+  padding-bottom: 0;
+  padding-top: 0;
+  width: auto;
+}
+
+#startInternetAbgSuche .formBox input.submitButton {
+  background: none;
+  background-color: #C8102E;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+#startInternetAbgSuche ul {
+  float: none;
+}
+
+#startInternetAbgSuche ul li {
+  padding-left: 0;
+  text-indent: 0;
+}
+
+/**
+  Module Person
+  
+  (profile + biography)
+ */
+div#biogr_Portrait {
+  height: auto;
+}
+
+div#biogr_Einleitung {
+  float: none;
+  width: auto;
+}
+
+div#biogr_FotoLinks {
+  height: auto;
+  max-width: 25em;
+  width: auto;
+}
+
+/** msteindl - wozu??
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  div.teaserPortraitLarge span {
+    right: auto;
+    top: auto;
+  }
+  .contentBlock .bildContainer.teaserPortraitLarge {
+    padding: 0;
+  }
+  .contentBlock .bildContainer.teaserPortraitLarge img {
+    margin: 0;
+    margin-right: 0;
+  }
+}
+*/
+
+/**
+  Module mobile-calendar
+ */
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .labelLangRechts {
+    width: 91%;
+  }
+}
+
+.mobile-calendar__change-form {
+  margin: 0.6em 0;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .mobile-calendar__wrap input[type="submit"] {
+    float: right;
+    width: auto;
+  }
+}
+
+.mobile-calendar__wrap fieldset legend {
+  margin-bottom: 0.6em;
+}
+
+.mobile-calendar__wrap h2 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.mobile-calendar__wrap .legende {
+  margin-bottom: 0.5em;
+}
+
+.mobile-calendar__wrap .legende ul li {
+  display: inline-block;
+  margin-bottom: 0.1em;
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .mobile-calendar__wrap div.terminAuswahl {
+    float: none;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 0) and (max-width: 767px) {
+  .mobile-calendar__wrap .linkeSpalte, .mobile-calendar__wrap .rechteSpalte {
+    width: 100%;
+  }
+  .mobile-calendar__wrap .rechteSpalte {
+    margin-top: 1em;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .mobile-calendar__wrap .rechteSpalte br {
+    display: none;
+  }
+}
+
+/**
+  Module Footer
+ */
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .sitemap:before, .sitemap:after {
+    content: " ";
+    display: table;
+  }
+  .sitemap:after {
+    clear: both;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 0) and (max-width: 767px) {
+  .sitemap .drittel1,
+  .sitemap .drittel2,
+  .sitemap .drittel3 {
+    float: none;
+    margin: 1em 0;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 768px) and (max-width: 1024px) {
+  .sitemap {
+    box-sizing: border-box;
+  }
+  .sitemap .clearFix {
+    display: none;
+  }
+  .sitemap .drittel1,
+  .sitemap .drittel2,
+  .sitemap .drittel3 {
+    box-sizing: border-box;
+    margin: 0;
+    width: 50%;
+  }
+}
+
+/**
+  Module Search
+  
+ */
+@media screen and (min-width: 0) and (max-width: 767px) {
+/* by ps
+  .HeadResults {
+    display: none;
+  }
+*/
+  #search_navi {
+    display: none;
+  }
+  #search_result_and_pagination {
+    float: none;
+    width: auto !important;
+  }
+  #search_result_and_pagination .paginationLinks {
+    float: none;
+    margin: 1em 0;
+    margin-bottom: 0;
+  }
+  #search_result_and_pagination .paginationLinks .links {
+    text-align: center;
+  }
+  #search_result_and_navi {
+    margin-right: 0 !important;
+  }
+/* by ps
+  #search_result_and_navi .search_result_collapseddocs, #search_result_and_navi .search_result_options {
+    display: none;
+  }
+*/
+  #search_result_and_navi .text2 {
+    margin-left: 0;
+    text-indent: 0;
+  }
+  #search_result_and_navi .src_head.src_kategorie {
+    display: none;
+  }
+/* by ps
+  #search_result_and_navi .src_kategorie {
+    display: none;
+  }
+*/
+}
+
+/**
+  Module contentFull
+ */
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .registrierung .formularZeile .checkboxAndLabel input[type="checkbox"] {
+    float: left;
+    margin-right: 0.6em;
+    width: auto !important;
+  }
+  .registrierung .formularZeileKompakt, .registrierung .formularZeile {
+    margin-bottom: 0.6em;
+  }
+  .registrierung .formularZeileKompakt > div > label, .registrierung .formularZeile > div > label {
+    display: block;
+    margin-bottom: 0.6em;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 0) and (max-width: 767px) {
+  .registrierung .formularZeileKompakt, .registrierung .formularZeile,.captchaForm .formularZeileKompakt {
+    float: none;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 768px) and (max-width: 1024px) {
+  .registrierung .formularZeileKompakt, .registrierung .formularZeile,.captchaForm .formularZeileKompakt {
+    float: none;
+    width: calc(50% - 0.25em);
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .registrierung * * {
+    box-sizing: border-box;
+  }
+  .registrierung .linkeSpalte66 {
+    width: 100%;
+  }
+  .registrierung .linkeSpalte66 input {
+    width: 100% !important;
+  }
+  .registrierung .linkeSpalte66 div.labelWide {
+    margin-bottom: 0.6em;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) and (min-width: 0) and (max-width: 767px) {
+  .registrierung .linkeSpalte66 div.labelWide {
+    float: none;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  .registrierung .linkeSpalte66 div.formularZeile p {
+    margin-left: 0;
+  }
+  .registrierung .rechteSpalte33 {
+    width: 100%;
+  }
+}
+
+/**
+  Module Tooltip
+ */
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  body.is-responsive #toolTipContainer div.tooltip img {
+    display: none;
+  }
+}
+
+a.tooltip {
+  display: block;
+  padding: 0 !important;
+}
+
+.zeigeTooltip {
+  /*! background-color: #FFF; */
+  bottom: auto !important;
+  left: auto !important;
+  /*
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+
+  ps -> kein element unter bild_container (overlays werden verschoben)
+
+  */
+/*   
+  position: absolute;
+  right: 0em !important;
+  top: 0.3em !important;
+  display: block;
+  
+  msteindl -> NOT BLOCK (wrong Display, if used in Content (see PAKT))
+  
+ */
+  display: initial;
+}
+
+.tooltip-lightbox {
+  overflow: hidden;
+  text-indent: -9999px;
+  padding: 0 !important;
+  -webkit-background-size: 75%;
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/tooltip-lightbox--red.png");
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .tooltip-lightbox {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .tooltip-lightbox {
+    background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/tooltip-lightbox.png");
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/**
+  Module Sidebar
+  
+  Custom Sidebar Logic for responsive breakpoints
+ */
+@media screen and (min-width: 0) and (max-width: 1024px) {
+  #sidebar {
+    /*
+      1. By Default we hide all first level children of #sidebar, which have not the class .teaserbox--responsive
+    */
+  }
+  #sidebar > div:not(.teaserbox--responsive) {
+    display: none;
+    /* [1] */
+  }
+}
+
+
+/* start byps byms */
+
+@media screen and (max-width: 1024px) {
+	
+/** TODO: better Link styles */
+.filter td a img.icon
+{
+	margin-left: 0 !important;
+}
+	
+        #content #unternavigation {
+                display:block;
+        }
+        #content #unternavigation li.navAktiv{
+                display: block !important;
+        }
+        #content #unternavigation li.navAktiv li{
+                display: block;
+        }
+        #content #unternavigation li,#content #unternavigation a.navAktiv{
+                display: none;
+        }
+        #content #unternavigation {
+                float: none;
+                margin: 0em;
+                padding: 0em;
+                width: auto;
+                border: none;
+                background-color: transparent;
+        }
+		#content #unternavigation ul {
+                padding-top:0em;
+        }
+        #content #unternavigation li {
+                margin-left:0em;
+                margin-top:0em;
+        }
+        #content #unternavigation ul ul {
+                margin:0em;
+                padding:0em;
+                border: none;
+        }
+        #content #unternavigation ul ul a {
+				background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/Link@2x.png");
+				background-size: 8px;
+				background-position: 2px 3px;
+				background-repeat: no-repeat;
+				font-size: 1.1em;
+				line-height: 1.3em;
+				padding-left: 1em;
+				margin: 0;
+        }
+}
+@media screen and (min-width: 1025px) {
+        #content #unternavigation {
+                display: none;
+        }
+}
+/* end byps */
+
+
+
+.tooltip-lightbox {
+        overflow: hidden;
+        text-indent: -9999px;
+        padding: 0 !important;
+        -webkit-background-size: 75%;
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/tooltip-lightbox.png");
+        width: 16px;
+        height: 16px;
+        cursor:pointer !important;
+}
+
+.tooltip-copyright {
+        overflow: hidden;
+        text-indent: -9999px;
+        padding: 0 !important;
+        -webkit-background-size: 75%;
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: url("/web/20210722193045im_/https://www.parlament.gv.at/img/responsive/tooltip-copyright.png");
+        width: 16px;
+        height: 16px;
+        cursor:pointer !important;
+}
+
+div.bildContainer div {
+        padding-top: 0;
+}
+
+
+.tabelle td div.image-container,.tabelle td div.image__container{
+   margin:0 !important;
+}
+
+div.current-topic-left span.tooltip-lightbox {
+        /*display:none;*/
+}
+
+
+.originalLink {
+	padding-left: 5em;
+	float:left;
+}
+
+
+
+
+/*mslightbox*/
+
+#lightbox.lightBoxHdBild img {
+	max-width: 100%;
+}
+
+@media screen and (min-width: 1025px) {
+	#lightbox.lightBoxHdBild {
+		width: 115em;
+		top: 1em;
+	  left: 35em;
+		height:100%;
+		max-height: 100%;
+	}
+	#lightbox.lightBoxHdBild img {
+		max-height: 666px;
+	}
+}
+
+li.euvorsitz a {
+  clear:both;
+}
+li.euvorsitz a {
+  color:#034ea1 !important;
+}
+li.euvorsitz.navAktiv a {
+  background-color: #034ea1 !important;
+  color:#fff !important;
+}
+
+@media screen and (max-width: 1024px) {		
+  
+  li.euvorsitz a:hover {
+    background-color: #034ea1 !important;
+    color:#fff !important;
+  }
+
+  .mobile-date {
+    float: right;
+    clear: both;
+    color: #949494;
+  }
+
+	li#sitz_li_reg,li#sitz_li_prae {
+		display:none;
+	}
+	
+	#lbContentHD .lightboxCopyright,#lbContent .lightboxCopyright {
+	        float: right;
+	        left:  -0.5em !important;
+	        top:  -2em !important;
+			
+			
+	} 
+	
+	#lbContentHD .lightboxCopyright,#lbContent .lightboxCopyright,.lightboxPANORAMACopyright {
+		/** TODO : sollte besser gelöst werden **/			
+		display: none;
+	}	
+	
+}
+/*end mslightbox*/
+
+/*start lberger /PAKT/TERM */
+
+
+.labelLangLinks {
+	width: auto;
+	margin-right: 0.6em;
+}
+		
+@media screen and (min-width : 0px) and (max-width: 1024px){
+	.desktop_date, .desktop_head, .desktop_meta {
+		display: none !important;
+	}	
+	tr.termin td.descr {
+		padding: 0.7em;
+	}
+	label.datum span {
+		position: inherit;
+		top:0;
+		left:0;
+		padding-left: 1em;
+	}	
+	.calIconSpalte {
+		text-align: right;
+	}
+	#termineIntranetContainer {
+		width: 100%;
+	}
+	.tabelle td .mobile_meta {
+		margin-left: 0em;
+	}
+	.mobile_head .descr {
+		min-width: .2em;
+	}
+	.mobile_meta .mobile_meta_info span {
+		padding-right: 1.5em;
+		white-space: nowrap;
+	}
+	.mobile_meta td {
+		border-bottom: 0;
+	}
+	.termin td .detail {
+		margin-top: .4em
+	}	
+	.terminDetails {
+		width: 100%;
+	}
+	.reiterKalNavigationLinksDavor{
+		margin-top: 3.5em;
+	}
+	.reiterKalNavigationLinksDavor.unten_ohne_margin {
+		margin-top: 0em;
+	}
+}	
+
+@media screen and ( min-width : 1025px) {
+	.mobile_head, .termin td .to {
+		display: none;
+	}
+	.mobile_meta {
+		display: none!important;
+	}
+}
+
+@media screen and (min-width: 0px) and (max-width: 1024px){
+	.reiterKalNavigationContainer ul.reiterKalNavigation.reiterKalNavigationLinksDavor{
+		margin-right: 0;
+		width: 100%;
+	}
+		
+	.terminAuswahlMonat{
+		display: none;
+	}
+
+	.terminAuswahl{
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.terminAuswahl input[type="text"].waehleDatum{
+		display: inline;
+		width:	60%;
+	}
+
+	td.descr{
+		padding: 0.25em!important;
+	}
+	
+	.kalenderNavigation{
+		padding-top: .5em;
+	}
+}
+
+@media screen and (min-width: 0px) and (max-width: 1024px) {
+	.desktop_cal {
+		display: none;
+	}
+	.termin td {
+		border-top: 0;
+	}
+}
+
+.weitere_lokale +tr td{
+  margin-top: 0px;
+}
+
+.desktop_meta.ort div{
+  margin-left: 0;
+}
+
+/* resetted die Einrückung der Daten unter der Uhrzeit eines Termins */ 
+.tabelle .mobile_meta_info div{
+            margin-left: 0;
+}
+
+/*end lberger /PAKT/TERM */
+
+/*added by mweber2*/
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+	.contentBlock div.current-topic-left.bildContainer {
+        	max-width: 50%;
+        }
+}
+
+@media screen and (max-width: 767px) and (min-width: 481px) {
+	.contentBlock div.current-topic-left.bildContainer {
+        	max-width: 100%;
+        	width: 100%;
+        }
+}
+
+@media screen and (max-width:1024px) {
+	.contentBlock div.current-topic-left.bildContainer {
+		margin: 0em !important;
+	}
+	
+	.panel-image-wrapper div.image-container {
+		display: inline-block !important;
+		width: auto !important; 
+	}
+}
+
+@media screen and (max-width: 1024px) and (min-width: 481px) {
+	
+	.panel-content .bildContainer {
+		max-width: 100% !important;
+	}
+	
+}
+/* iOS Zooming Input Fix
+https://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
+*/
+
+@supports (-webkit-overflow-scrolling: touch) {
+/*@media screen and (-webkit-min-device-pixel-ratio:0) {*/
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+	/*
+    transform-origin: top left;
+    transform: scale(0.875);
+	*/
+  }
+  .search-mobile__submit {
+    font-size: 10px;
+  }
+}
+  
+@media screen and (max-width: 767px) {
+		
+	#vtabs-front {
+		margin-bottom: 0.833em;
+	}
+	
+	#vtabs-front .panel h2 {
+		position: relative !important;
+	}
+	
+	.vtabs-tabs {
+		display: none !important;
+	}
+	
+	.panel {
+		display: block !important;;
+	}
+	
+	.vtabs-panels {
+		width: 100% !important;
+	}
+	
+}
+
+.fullwidth .table-responsive__inner {
+  width: 100%;
+}
+.fullwidth .table-responsive__prefix {
+  display: none !important;
+}
+
+.table-nonresponsive .table-responsive__inner {
+  width: 100%;
+}
+.table-nonresponsive .table-responsive__prefix {
+	display:none !important;
+}
+
+
+
+
+/****************
+MSTEINDL ANPASSUNGEN LIGHTBOX v0.1
+*****************/
+
+.slideshowThumbnailContainerFallBack {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.slideshowThumbnailContainerFallBack a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+/****************
+MSTEINDL ANPASSUNGEN LIGHTBOX v0.1
+*****************/
+
+
+/*************
+MSTEINDL TESTING FOR LINK-Styles
+***************
+td a img.icon[src="/img/icons/small/Link.gif"] {   
+ margin-left: 1em;
+    margin-right: -2.2em;
+    position: relative;
+    left: -2.5em;
+    background-position: 10px -10px;
+}    
+*************
+MSTEINDL TESTING FOR LINK-Styles
+***************/
+
+
+
+
+
+
+
+
+
+
+/*
+     FILE ARCHIVED ON 19:30:45 Jul 22, 2021 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 19:30:53 Jan 28, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  exclusion.robots: 0.067
+  exclusion.robots.policy: 0.057
+  cdx.remote: 0.096
+  esindex: 0.011
+  LoadShardBlock: 96.125 (6)
+  PetaboxLoader3.datanode: 125.592 (8)
+  load_resource: 207.463 (2)
+  PetaboxLoader3.resolve: 100.874 (2)
+*/

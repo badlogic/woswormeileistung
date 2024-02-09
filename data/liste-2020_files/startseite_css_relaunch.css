@@ -1,0 +1,672 @@
+/*
+ @DESC CSS Files für Startseite
+ @AUTH Fonda, überarbeitet u.a. von Harald Niederhuber
+*/
+#siteFunction {
+  white-space: nowrap;
+}
+a.streamButton {
+  position: absolute;
+  bottom: 10px;
+  left:10px;
+  display: block;
+  background-color:rgb(255,255,255);
+  background-color:rgba(255,255,255,0.85);
+  border-radius: 0.4em;
+  padding: 0.3em 0.5em 0.2em 0.3em;
+  font-weight: bold;
+  text-decoration: none;
+}
+a.streamButton:hover {
+  background-color:rgb(255,255,255);
+}
+.streamButton img {
+  width: 25px !important;
+  vertical-align: middle;
+  padding: 0 0.5em 0 0.2em;
+}
+.red, a.red, a.red:visited  {
+  color: #C8102E !important;
+}
+
+/* CURRENT TOPIC ------------------------------ */
+.current-topic {
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 315px;
+}
+body.no-js .current-topic {  
+  overflow: auto;
+}  
+.current-topic-points {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 11;
+}
+.current-topic-points-inner {
+  padding: 1.5em;
+}
+.current-topic-points ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.current-topic-points li {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 1em;
+  border: solid 2px rgb(255,255,255);
+  border-color: rgba(255,255,255,0.75);
+  /*width: 0.6em;
+  height: 0.6em;
+  EM leads to diffent end width/height
+  */
+  width: 8px;
+  height: 8px;
+  margin-right: 5px;
+  overflow: hidden;
+}
+.current-topic-points li.active,
+.current-topic-points li.active:hover {
+  background-color: #fff;
+  border-color: #fff;
+}
+.current-topic-points li:hover {
+  background-color: #C8102E;
+  border-color: #fff;
+}
+.current-topic-right a {
+  text-decoration: underline;
+}
+.current-topic-fixed {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+.current-topic-fixed-inner {
+  margin-left: 560px;
+  padding: 1em 1.6em 0.8em 1.6em;
+}
+.current-topic-fixed ul {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  list-style-type: none;
+}
+
+
+body.no-js .current-topic-fixed {
+  width: 560px;  
+} 
+body.no-js .current-topic-fixed-inner {
+  margin-left: 0;      
+  background-color: rgba(255,255,255,0.8);
+  padding: 0.9em 1.6em 0.5em 1.6em;  
+} 
+body.no-js .current-topic-fixed-inner hr {
+  display: none;
+} 
+body.no-js .current-topic-fixed-inner li {
+  margin-bottom: 0.4em;
+} 
+
+.current-topic-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index:1;
+}
+body.no-js .current-topic-item {
+  position: static;
+  display: block;
+}
+body.no-js .current-topic-points {
+  display: none;
+}
+body.no-js .current-topic-item.first {
+  display: block;
+}
+.current-topic-item.ng-hide-add,
+.current-topic-item.ng-hide-remove {
+  transition: 0.3s linear all;
+  display: block !important;
+}
+.current-topic-item.ng-hide-remove {
+  opacity: 0;
+}
+.current-topic-item.ng-hide-remove.ng-hide-remove-active {
+  opacity: 0.5;
+}
+.current-topic-item.ng-hide-add {
+  opacity: 0.5;
+}
+.current-topic-item.ng-hide-add.ng-hide-add-active {
+  opacity: 0;
+}
+.current-topic-left {
+  float: left;
+  width: 560px;
+  height: 315px;
+  overflow: hidden;
+  background: #EBEBEB url(/web/20210722193045im_/https://www.parlament.gv.at/img/design/bg.jpg) no-repeat 0 0;
+  background-size: cover;
+}
+/*
+body.no-js .current-topic-left {  
+  display: none;
+} */ 
+
+body.no-js .current-topic-left {  
+  display: none;
+} 
+body.no-js .current-topic-item.first .current-topic-left {
+  display: block;  
+}
+
+.current-topic-left img {
+	width:auto;
+	max-width:100%;
+	height:auto;
+/*	width:560px;
+	height:auto; */
+/*	max-height: 315px;
+	width: auto;*/
+}
+.current-topic-right {
+  padding-left: 560px;
+}
+/*body.no-js .current-topic-right {  
+  padding-left: 0;
+}  
+*/
+.current-topic-right-inner {
+  width: 100%;
+}
+.current-topic-right-content {
+  padding: 1.2em 1.6em;
+}
+body.no-js .current-topic-right-content {
+  padding-bottom: 0.0em;
+}
+
+/* TOP TOPIC ------------------------------ */
+.top-topic {
+  background-color: #C8102E;
+  color: #fff;
+  padding: 0.77em 1em;
+}
+.top-topic a {
+  color: #fff !important;
+}
+.top-topic-inner {
+  width: 100%;
+  display: table;
+}
+.top-topic-title {
+  font-size: 1.23em;
+  margin-top: 0.2em;
+}
+.top-topic-paragraph {
+  font-size: 2em;
+  line-height: 120%;
+  display: table-cell;
+  width: 1px;
+  vertical-align: top;
+  padding-right: 0.35em;
+  color: #f8d7db;
+}
+.top-topic-left {
+  display: table-cell;
+  vertical-align: top;
+}
+.top-topic-right {
+  display: table-cell;
+  width: 1px;
+  white-space: nowrap;
+  border-left: solid 1px #ed9ca6;
+  padding-left: 0.5em;
+  vertical-align: middle;
+}
+
+/* VERTICAL TABS: FRONT ------------------------------ */
+#vtabs-front.vtabs {
+  padding:0;
+  background-color: #fff;
+}
+#vtabs-front .vtabs-inner {
+  width: 100%;
+  display: table;
+}
+#vtabs-front .vtabs-tabs {
+  vertical-align: top;
+  width: 50%;
+  display: table-cell;
+  background: #fafafa url(/web/20210722193045im_/https://www.parlament.gv.at/img/design/vtabs_border.gif) repeat-y top right;
+}
+#vtabs-front .vtabs-panels {
+  vertical-align: top;
+  display: table-cell;
+  width: 50%;
+}
+body.no-js #vtabs-front .vtabs-tabs {
+  display: none;
+}
+#vtabs-front .vtabs-tabs ul {
+  margin: 0;
+  padding: 0 0 1.3em 0;
+}
+#vtabs-front .vtabs-tabs ul li {
+  border-bottom: solid 1px #e2e2e2;
+  border-right: solid 1px #dadada;
+  padding: 0.6em 0.8em;
+  margin: 0;
+  font-size: 1.5em;
+  text-indent: 0;
+  cursor: pointer;
+  color: #C8102E;
+  font-family: "Times New Roman",â€‹Times,â€‹serif;
+  background: transparent url(/web/20210722193045im_/https://www.parlament.gv.at/img/icons/small/vtabs_arrow.gif) right center no-repeat;
+  padding-right: 50px;
+}
+#vtabs-front .vtabs-tabs ul li.selected {
+  color: #555;
+  border-right-color: #fff;
+  background-color: #fff;
+  background-image: none;
+}
+#vtabs-front .vtabs-tabs ul li:hover {
+  background-color: #fff;
+}
+.thumbs {
+  width: 14px;
+  height: 16px;
+  display: inline-block;
+  background: transparent url(/web/20210722193045im_/https://www.parlament.gv.at/img/icons/small/thumbs_up.gif) no-repeat 0 0;
+  margin-left: 3px;
+  position: relative;
+  top: 1px;
+}
+#vtabs-front .vtabs-tabs ul li.selected .thumbs {
+  background-position: 0 -16px;
+}
+#vtabs-front .vtabs-panels-inner {
+  background-color: #fff;
+  padding-left: 8px;
+}
+body.no-js #vtabs-front .vtabs-panels {
+  float: none;
+  width: 100%;
+}
+#vtabs-front .panel {
+  display: none;
+  background-color: #fff;
+  position: relative;
+  padding-bottom: 0.8em;
+}
+#vtabs-front .panel:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+#vtabs-front .panel.selected {
+  display: block;
+}
+body.no-js #vtabs-front .panel {
+  display: block;
+  padding-bottom: 2em;
+}
+#vtabs-front .panel h2 {
+  position: absolute;
+  top: 0px;
+  margin: 0;
+  text-indent: 0;
+  padding: 0.5em 0.7em;
+  z-index: 1;
+  /* http://www.colorzilla.com/gradient-editor/ */
+  background-color: rgb(255,255,255);
+  background-color: rgba(255,255,255,0.95);
+  background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0.8))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.8) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.8) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.8) 100%); /* IE10+ */
+  background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.8) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#b3ffffff',GradientType=1 ); /* IE6-9 */
+}
+#vtabs-front .panel h2 span {
+  margin-top: 0.5em;
+  font-size: 0.53em;
+/*  display: block;  ps deaktiviert thumb 20141020 */
+  font-weight: bold;
+  font-family:helvetica,arial,sans-serif !important;
+}
+#vtabs-front .panel-image-wrapper  {
+  width: 100%;
+}
+#vtabs-front .panel-image-wrapper img {
+  width: 100%;
+  height: auto;
+}
+#vtabs-front .panel .panel-bottom {
+  margin: 1em 10px 0 6px;
+
+}
+
+/**
+#vtabs-front .panel .panel-bottom ul.zweiSpaltig li {
+  width: 45%;
+}
+*/
+-- MSTEINDL UPDATE
+#vtabs-front .panel .panel-bottom ul.zweiSpaltig li {
+  width: auto;
+}
+
+/* REAL CLEARFIX (suffixed with 2 as another one is already there) ------------------------------ */
+.clearfix2:after { content: "\00A0"; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+.clearfix2{ display: inline-block;}
+html[xmlns] .clearfix2 { display: block;}
+* html .clearfix2{ height: 1%;}
+.clearfix2 {display: block}
+
+
+/* added by ps */
+
+.current-topic-right h2 a {
+    color: #C8102E;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.current-topic-right h2 a:hover, .current-topic-right h2 a:focus, .current-topic-right h2 a:active {
+    text-decoration: underline;
+}
+
+.current-topic-right h2 .icon {
+    font-size: 0.48em;
+    vertical-align: 0;
+    margin-left: -0.6em;
+}
+
+.panel-image-wrapper span.zeigeTooltip,
+.panel-image-wrapper span.tooltip-lightbox {
+	cursor: default;
+	padding: 0.1em 0.25em 0.05em 0.2em;
+	position: absolute;
+	right: 0.3em;
+	top: 0.3em;
+	background-color: #fff;
+}
+.current-topic-left span.zeigeTooltip,
+.current-topic-left span.tooltip-lightbox {
+	cursor: default;
+	padding: 0.1em 0.25em 0.05em 0.2em;
+	position: absolute;
+	/* left: 541px !important; */
+	right: 0.3em; /* #5153 */ 
+	top: 0.3em;
+	background-color: #fff;
+}
+
+div.panel-image-wrapper div.slideShowContainer div.playButton {
+	bottom: 0.7em !important;
+	/*top: 20.8em !important;*/
+}
+
+div.panel-image-wrapper div.bildOverlay {
+    background-color: #fff;
+    bottom: 0.7em;
+    left: 0;
+    padding: 0.5em 0.5em 0.5em 0.9em !important;
+    position: absolute;
+    text-indent: -0.8em;
+    z-index: 99;
+	max-width: 20em;
+}
+
+#vtabs-front .panel-image-wrapper img.icon {
+	width: auto;
+}
+
+h2 span.laeuft {
+	display: block;
+}
+
+.vtabs-panels div#parlamentlive_href, .vtabs-panels div#parlamentlive {
+  height: auto !important;
+}
+
+
+/* by ps Start für Bibliothek Slide */
+
+.contentBlock.slideBox {
+	padding-bottom: 0px;
+}
+
+.contentBlock.slideBox .bildContainer {
+	/* width: 9em; */
+}
+
+.contentBlock.slideBox .current-topic-left img {
+	/* width: auto; */
+	/* width: 100%; */
+}
+
+.contentBlock.slideBox .current-topic-left .image-container img {
+	/*width: 120px;*/
+}
+
+.contentBlock.slideBox .current-topic-left .image-container a.zeigeTooltip {
+	padding: 0em;
+}
+
+.contentBlock.slideBox .current-topic-left .playButton img {
+	/*width:25px;*/
+}
+
+.contentBlock.slideBox .current-topic {
+	/* height: initial; bug ie box immer 315px hoch */
+	height: auto;
+	min-height: 200px;
+	margin-bottom: 0em;
+}
+
+.contentBlock.slideBox .current-topic-points-inner li{
+	margin-left: 5px;
+	text-indent: 0em;
+	padding-left: 0em;
+}
+
+.contentBlock.slideBox .current-topic-right-content {
+	padding: 0 1.6em 1.2em 1.6em;
+}
+
+.contentBlock.slideBox .current-topic-right-content p.li {
+    margin: 0.35em 0 0.35em;
+}
+
+.contentBlock.slideBox .current-topic-points-inner {
+	padding: 0.5em;
+}
+
+.contentBlock.slideBox .current-topic-left {
+	/* width: 160px; */
+	/* height: 250px; */
+	width: auto;
+	height: auto;
+	background:none;
+}
+
+@media screen and (min-width: 481px) {
+	.contentBlock.slideBox .current-topic-right {
+		/* padding-left: 130px; */
+		padding: 0 0 0 9em;
+	}
+}
+
+@media screen and (max-width: 482px) {
+	.contentBlock.slideBox .current-topic-right {
+		/* padding-left: 130px; */
+		padding: 0 0 0 0em;
+	}
+}
+
+#content .contentBlock.slideBox .current-topic-right-content h2 {
+	clear: none;
+	margin-left:0em;
+	text-indent:0em;
+}
+
+.contentBlock.slideBox .current-topic-left.slideSmall {
+	/*width: 9em;*/
+	
+	width: auto;
+    max-height: 180px;
+    max-width: 9em;
+    overflow: hidden;
+    
+    /* height: 180px; */
+}
+
+@media screen and (min-width: 0) and (max-width: 482px) {
+	.contentBlock.slideBox .current-topic-left.slideSmall {
+		max-height: none;
+    	max-width: none;
+    	margin-right: 0em !important;
+	}
+}
+
+@media screen and (min-width: 481px) and (max-width: 1023px) {
+	.contentBlock.slideBox .current-topic-left.slideSmall {
+		margin: 0 1em 0.8em 0 !important; /*override*/
+	}
+}
+
+.contentBlock.slideBox .current-topic-left span.zeigeTooltip, .contentBlock.slideBox .current-topic-left span.tooltip-lightbox {
+	left: auto;
+	right: 0.3em;
+}
+
+.contentBlock.slideBox .current-topic-points {
+	/*display: none;*/
+}
+
+.contentBlock.slideBox .current-topic-fixed {
+	display:none;
+}
+
+/* for responsive */
+
+@media screen and (min-width: 0) and (max-width: 1023px) {
+
+	.contentBlock.slideBox .current-topic-right {
+		/* padding: 0 0 0 9em; */
+		float: none;
+		width: initial;
+	}
+
+	.contentBlock.slideBox .current-topic-left .image-container img {
+		margin-bottom:0em !important; /*override*/
+	}
+
+	.contentBlock.slideBox .current-topic-right .current-topic-right-content p {
+    	display: block;
+	}
+}
+
+@media screen and (min-width: 0) and (max-width: 1023px) and (min-width: 768px) {
+
+	.contentBlock.slideBox .current-topic-left {
+		padding-right: 0em; /*override*/
+	}
+
+}
+
+/* by ps Ende für Bibliothek Slide */
+
+
+/* Teaser in mobiler Ansicht */
+@media screen and (min-width: 0) and (max-width: 1023px) {
+ 
+  div.teaserbox .image__container {
+    max-width: 220px;
+  }
+  
+  div.teaserbox span.zeigeTooltip {
+    text-indent: 9999px;
+  }
+  
+  #sidebar {
+    padding-top: 2em;
+  }
+
+  #sidebar .imgTeaser {
+    display: block!important;
+    width: 49%;
+    border: 0px;
+  }
+  
+  #sidebar .faqTeaser {
+    display: block!important;
+    padding-top: 2em;
+    clear: both;
+  }
+ 
+  #sidebar .imgTeaser:nth-child(even) {
+    text-align: left;
+    float: right;
+    clear:right;
+    
+  }
+  
+  #sidebar .imgTeaser:nth-child(odd) {
+    text-align: right;
+    float: left;
+    clear:left;
+  }
+  
+}
+
+@media screen and (min-width: 0) and (max-width: 482px) {
+  
+  #sidebar .imgTeaser {
+    width: 100%;
+    text-align: center!important;
+  }
+  
+  #sidebar .faqTeaser p{
+    max-width:220px;
+  }
+  
+}
+
+/*by mweber2 - Ende Teaser in mobiler Ansicht */
+
+
+/*
+     FILE ARCHIVED ON 19:30:45 Jul 22, 2021 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 19:30:53 Jan 28, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  exclusion.robots: 0.073
+  exclusion.robots.policy: 0.064
+  cdx.remote: 0.112
+  esindex: 0.011
+  LoadShardBlock: 324.285 (6)
+  PetaboxLoader3.datanode: 195.811 (8)
+  load_resource: 199.564 (2)
+  PetaboxLoader3.resolve: 130.688 (2)
+*/
