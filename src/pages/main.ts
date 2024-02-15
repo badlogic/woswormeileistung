@@ -146,7 +146,7 @@ ${code(`
         "https://parlament.gv.at/dokument/XXVII/NRSITZ/216/fnameorig_1598900.html"
     ],
     "sections": [
-        ... Sprecher Sektionen ...
+        ... SprecherInnen Sektionen ...
     ]
   },
   {
@@ -185,12 +185,12 @@ ${code(`
                         </li>
                     </ul>
 
-                    <h2>SpecherInnen Sektionen</h2>
+                    <h2>SprecherInnen Sektionen</h2>
                     <p>
                         Jede Sitzung, für die ein stenographisches Protokoll existiert, hat eine oder mehrere SpecherInnen-Sektionen. Diese sind für
                         eine Sitzung in chronologischer Reihenfolge im Feld <code>sections</code> abgelegt.
                     </p>
-                    <p>Eine SprecherInnen-Sektion in der <code>sections</code> Lisste hat folgende Struktur:</p>
+                    <p>Eine SprecherInnen-Sektion in der <code>sections</code> Liste hat folgende Struktur:</p>
                     <pre><code>
 ${code(`
 {
@@ -251,7 +251,7 @@ ${code(`
                             class="text-blue-400"
                             href="https://www.parlament.gv.at/recherchieren/open-data/daten-und-lizenz/parlamentarierinnen/index.html"
                             >Open Data API des Parlaments für ParlamentarierInnen ab 1918</a
-                        >. Über diesen werden die ParlamentarierInnen für die untersuchten Legislaturperioden ab 20.12.2002 extrahiert. Die von der
+                        >. Über diese API werden die ParlamentarierInnen für die untersuchten Legislaturperioden ab 20.12.2002 extrahiert. Die von der
                         API returnierten Daten beinhalten den Namen der Person, die Legislaturperioden in denen die Person im Plenum teilgenommen hat,
                         sowie rudimentäre und uneinheitlich kodierte Information über die Klubzugehörigkeit der Person. Aus diesen Daten werden die
                         Legislaturperiodeninformation sowie Klubzugehörigkeit verwendet, wobei letzters normiert wird (vgl. Feld
@@ -263,16 +263,15 @@ ${code(`
                             >https://www.parlament.gv.at/person/18140?json=true</a
                         >. Aus diesen Daten werden die normierten Namen der Personen verwendet. Weiters wird in diesen Daten nach weiteren Hinweisen
                         zur Parteizugehörigkeit gesucht. So befinden sich in den Biographie-Daten meist Parteinamen, die auf eine Parteizugehörigkeit
-                        Hinweisen. Auch werden aus diesen Daten die URLs der Bilder für jede Person extrahiert.
+                        hinweisen. Auch werden aus diesen Daten die URLs der Bilder für jede Person extrahiert.
                     </p>
                     <p>
                         Der transformierte Datensatz wurde stichprobenartig überprüft, um die Extraktions-Pipeline zu validieren. Es wurden aus den
                         insgesamt 681 Personen des Datensatzes 10% randomisiert ausgewählt und mit den Rohdaten verglichen.
                     </p>
                     <p>
-                        Die Zuweisung der Personen-ID an eine SprecherInnen-Sektion ist immer korrekt, da die IDs eindeutig in den Rohdaten
-                        ausgewiesen sind. Entsprechend sind auch die URLs der Seiten zu Personen auf der Parlamentsseite, sowie die Bild URLs immer
-                        korrekt.
+                        Die Zuweisung der Personen-ID an eine Person ist immer korrekt, da die IDs eindeutig in den Rohdaten ausgewiesen sind.
+                        Entsprechend sind auch die URLs der Seiten zu Personen auf der Parlamentsseite, sowie die Bild URLs immer korrekt.
                     </p>
                     <p>Die Extraktion des Namens einer Person war in allen geprüften Fällen (68) korrekt.</p>
                     <p>Die Extraktion der Klub- bzw. Parteizugehörigkeit war in allen Fällen (68) korrekt.</p>
@@ -314,7 +313,7 @@ ${code(`
                     <p>
                         Die Extraktion von Situationsbeschreibungen wies stellenweise Fehler auf. Z.B. werden in den Rohdaten manche Phrasen, bei
                         denen es sich nicht um Situationsbeschreibungen handelt, gleich markiert wie Situationsbeschreibungen, z.B.
-                        <code>zur Geschäftsbehandling</code>. Diese Fehler können maschinell nicht, oder nur mit erheblichem Aufwand bereinigt werden.
+                        <code>zur Geschäftsbehandlung</code>. Diese Fehler können maschinell nicht, oder nur mit erheblichem Aufwand bereinigt werden.
                         Da es sich bei Situationsbeschreibungen um nicht-kritische Daten handelt, wurde hier keine weitere Zeit investiert, um diese
                         Fehler bestmöglichst zu bereinigen.
                     </p>
@@ -322,12 +321,12 @@ ${code(`
                     <p>
                         Der Code zur Extraktion der Sitzungen ist in der Datei
                         <a class="text-blue-400" href="https://github.com/badlogic/woswormeileistung/blob/main/src/server/sessions.ts">sessions.ts</a>
-                        auf GitHub zu finden
+                        auf GitHub zu finden.
                     </p>
 
                     <h2>Open Source</h2>
                     <p>
-                        Zur Reproduzierbarkeit ist Code für dieses Projekt auf
+                        Zur Reproduzierbarkeit ist der gesamte Code für dieses Projekt auf
                         <a class="text-blue-400" href="https://github.com/badlogic/woswormeileistung/tree/main">GitHub</a> verfügbar. Der Code ist
                         unter der BSD-2-Clause Lizenz lizensiert und damit frei für kommerzielle als auch nicht-kommerzielle Projekte verwendbar.
                     </p>
