@@ -1,6 +1,16 @@
-# app-template
+# worwormeileistung
 
-Used to create new (progressive) web apps and deploy them to a server running Docker and nginx-proxy for SSL cert generation.
+Data extraction and analysis project for stenographic protocols of sessions in the Austrian parlament. See [woswormeileistung.marioslab.io](https://woswormeileistung.marioslab.io) for more information.
+
+### Data extraction
+
+You can run the data extraction pipeline locally to generate the `persons.json` and `sessions.json` files yourself.
+
+1. Install NodeJS +19
+2. Run `npm run build`
+3. Run `node build/sessions.js`
+
+You can find the files in the `data/` directory after successful completion.
 
 ### Development
 
@@ -11,9 +21,4 @@ Used to create new (progressive) web apps and deploy them to a server running Do
 npm run dev
 ```
 
-In VS Code run the `server` and `client` launch configurations.
-
-### Deployment
-
-1. Deploy backend & frontend: `./publish.sh server`
-1. Deploy just the frontend: `./publish.sh`
+In VS Code run the `dev`` launch configurations.

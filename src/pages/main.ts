@@ -278,6 +278,12 @@ ${code(`
                     <p>Die Extraktion der Klub- bzw. Parteizugehörigkeit war in allen Fällen (68) korrekt.</p>
                     <p>Die Extraktion der Legislaturperioden, in denen die Person im Parlament vertreten war, war in allen Fällen (68) korrekt.</p>
 
+                    <p>
+                        Der Code zur Extraktion personenbezogener Daten ist in der Datei
+                        <a class="text-blue-400" href="https://github.com/badlogic/woswormeileistung/blob/main/src/server/persons.ts">persons.ts</a>
+                        auf GitHub zu finden
+                    </p>
+
                     <p></p>
                     <h3>Sitzungs Datensatz</h3>
                     <p>
@@ -313,7 +319,18 @@ ${code(`
                         Fehler bestmöglichst zu bereinigen.
                     </p>
 
-                    <p></p>
+                    <p>
+                        Der Code zur Extraktion der Sitzungen ist in der Datei
+                        <a class="text-blue-400" href="https://github.com/badlogic/woswormeileistung/blob/main/src/server/sessions.ts">sessions.ts</a>
+                        auf GitHub zu finden
+                    </p>
+
+                    <h2>Open Source</h2>
+                    <p>
+                        Zur Reproduzierbarkeit ist Code für dieses Projekt auf
+                        <a class="text-blue-400" href="https://github.com/badlogic/woswormeileistung/tree/main">GitHub</a> verfügbar. Der Code ist
+                        unter der BSD-2-Clause Lizenz lizensiert und damit frei für kommerzielle als auch nicht-kommerzielle Projekte verwendbar.
+                    </p>
 
                     <h2>API</h2>
                     <p>To be defined</p>
