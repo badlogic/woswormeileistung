@@ -24,17 +24,12 @@ export class App extends LitElement {
         router.addRoute(
             "/",
             () => html`<main-page></main-page>`,
-            () => "app"
+            () => "Wos wor mei Leistung"
         );
         router.addRoute(
             "/404",
             () => renderError(i18n("Whoops, that page doesn't exist")),
             () => "404"
-        );
-        router.addRoute(
-            "/settings",
-            () => html`<settings-page></settings-page>`,
-            () => "Settings"
         );
 
         router.setRootRoute("/");

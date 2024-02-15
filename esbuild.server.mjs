@@ -6,8 +6,11 @@ let watch = process.argv.length >= 3 && process.argv[2] == "--watch";
 
 const config = {
     entryPoints: {
-        data: "src/cli/data.ts",
-        "nr-processor": "src/cli/nr-processor.ts",
+        sessions: "src/cli/sessions.ts",
+        persons: "src/cli/persons.ts",
+        plaque: "src/cli/plaque.ts",
+        screamer: "src/cli/screamers.ts",
+        server: "src/server/server.ts",
     },
     bundle: true,
     sourcemap: true,

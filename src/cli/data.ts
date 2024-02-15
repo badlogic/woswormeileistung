@@ -126,11 +126,11 @@ async function main() {
         }
     }
 
-    fs.writeFileSync("html/data/persons.json", JSON.stringify(persons, null, 2), "utf-8");
+    fs.writeFileSync("./data/persons.json", JSON.stringify(persons, null, 2), "utf-8");
 }
 
 async function stats() {
-    const persons: Person[] = JSON.parse(fs.readFileSync("html/data/persons.json", "utf-8"));
+    const persons: Person[] = JSON.parse(fs.readFileSync("./data/persons.json", "utf-8"));
     persons.sort((a, b) => {
         return b.sideIncome[4].from - a.sideIncome[4].from + (b.sideIncome[4].to - a.sideIncome[4].to);
     });
@@ -149,7 +149,7 @@ async function stats() {
 }
 
 (async () => {
-    fs.mkdirSync("html/data/", { recursive: true });
+    fs.mkdirSync("./data/", { recursive: true });
     await main();
     await stats();
 })();

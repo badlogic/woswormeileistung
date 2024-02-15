@@ -1,3 +1,4 @@
+@import "highlight.js/styles/atom-one-dark.min.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -66,6 +67,19 @@
 
     iframe {
         outline: none;
+    }
+
+    p code,
+    li code {
+        @apply text-sm border border-white px-1 rounded;
+    }
+
+    ul {
+        @apply space-y-2;
+    }
+
+    pre {
+        @apply max-w-full text-xs rounded-md overflow-auto hljs w-full px-4;
     }
 }
 
