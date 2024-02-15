@@ -2,8 +2,8 @@ version: "3"
 services:
     web:
         environment:
-            VIRTUAL_HOST: wowormeileistung.marioslab.io
-            LETSENCRYPT_HOST: wowormeileistung.marioslab.io
+            VIRTUAL_HOST: woswormeileistung.marioslab.io
+            LETSENCRYPT_HOST: woswormeileistung.marioslab.io
             LETSENCRYPT_EMAIL: badlogicgames@gmail.com
         networks:
             - reverse_proxy
