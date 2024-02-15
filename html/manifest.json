@@ -1,7 +1,7 @@
 {
-    "name": "wowormeileistung",
-    "short_name": "wowormeileistung",
-    "description": "Wo wor mei Leistung?",
+    "name": "woswormeileistung",
+    "short_name": "woswormeileistung",
+    "description": "Wos wor mei Leistung?",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#000c15",

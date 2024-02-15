@@ -1,11 +1,11 @@
 {
   "app": {
     "description": "Wo wor mei Leistung?",
-    "domain": "wowormeileistung.marioslab.io",
+    "domain": "woswormeileistung.marioslab.io",
     "email": "badlogicgames@gmail.com",
     "host": "slayer.marioslab.io",
     "hostDir": "/home/badlogic",
-    "name": "wowormeileistung",
+    "name": "woswormeileistung",
     "serverPort": 3333
   },
   "dependencies": {
@@ -48,7 +48,7 @@
     "tailwindcss": "3.4.0"
   },
   "license": "MIT",
-  "name": "wowormeileistung",
+  "name": "woswormeileistung",
   "scripts": {
     "build": "npm run build:css && npm run build:site && npm run build:server",
     "build:css": "npx tailwindcss -i html/styles.css -o html/build/styles-bundle.css",

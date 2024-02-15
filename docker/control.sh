@@ -2,7 +2,7 @@
 
 set -e
 
-project=wowormeileistung
+project=woswormeileistung
 
 printHelp () {
 	echo "Usage: control.sh <command>"

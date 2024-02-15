@@ -2,7 +2,7 @@
 set -e
 npm run build
 host=slayer.marioslab.io
-host_dir=/home/badlogic/wowormeileistung.marioslab.io
+host_dir=/home/badlogic/woswormeileistung.marioslab.io
 
 ssh -t $host "mkdir -p $host_dir/data"
 rsync -avz --exclude node_modules --exclude .git --exclude docker/data ./ $host:$host_dir
