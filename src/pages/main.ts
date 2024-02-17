@@ -23,7 +23,7 @@ export class MainPage extends LitElement {
             <div class="${pageContentStyle} h-[100vh]">
                 <div class="flex-grow flex flex-col w-full mt-4 gap-4 px-4">
                     <theme-toggle class="self-end"></theme-toggle>
-                    <img class="max-h-12" src="https://www.parlament.gv.at/static/img/logo.svg" />
+                    <!--<img class="max-h-12" src="https://www.parlament.gv.at/static/img/logo.svg" />-->
                     <h1 class="text-center">Wos wor mei Leistung?</h1>
                     <p class="text-center italic text-sm">
                         Ein Datenprojekt basierend auf den stenographischen Protokollen aller Sitzungen des Österreichischen Parlaments ab dem
@@ -123,7 +123,7 @@ ${code(`
 
                     <h2>Sitzungs Daten</h2>
                     <p class="italic text-sm">
-                        <span class="font-semibold">ACHTUNG</span>: Protokolle für Sitzungen nach dem 25.5.2023 sind in diesem Datensatz noch nicht
+                        <span class="font-semibold">ACHTUNG</span>: Protokolle für Sitzungen ab dem 24.5.2023 sind in diesem Datensatz noch nicht
                         enthalten, da es sich um vorläufige Protokolle handelt. Mehr Informationen in diesem
                         <a class="text-blue-400" href="https://twitter.com/OeParl/status/1757021460227313695">Tweet</a> des Österreichischen
                         Parlaments.

@@ -10,6 +10,7 @@ const config = {
         persons: "src/cli/persons.ts",
         plaque: "src/cli/plaque.ts",
         screamer: "src/cli/screamers.ts",
+        search: "src/cli/search.ts",
         server: "src/server/server.ts",
     },
     bundle: true,
