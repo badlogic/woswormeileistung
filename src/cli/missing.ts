@@ -1,11 +1,11 @@
-import { Person, Session } from "../common/common";
+import { Person, Session, getPartiesForPeriods, partiesPerPeriod } from "../common/common";
 import { Persons } from "../server/persons";
 import * as fs from "fs";
 import { initQueries, querySpeakerSections } from "../server/query";
 
 export type Missing = { missing: string; date: string; period: string; session: number; persons: ({ nameInText: string } & Person)[] };
 
-function computeMissing(persons: Persons, sessions: Session[]) {
+function computeMissing(persons: Persons, sessions: Session[], periods: Set<string>) {
     const extractPattern = (str: string): string | null => {
         const match = str.match(/Als verhindert gemeldet sind (.*?)\n/s);
         return match ? match[1] : null;
@@ -21,7 +21,8 @@ function computeMissing(persons: Persons, sessions: Session[]) {
     const result = querySpeakerSections([], [], [], [], undefined, undefined, ["Als verhindert gemeldet sind"]);
     const output: Missing[] = [];
     for (const section of result.sections) {
-        const missing = extractPattern(section.section.text);
+        if (periods.size > 0 && !periods.has(section.period)) continue;
+        let missing = extractPattern(section.section.text);
         if (!missing) {
             console.log(">>>");
             console.log(section.date.split("T")[0] + "-" + section.period + "-" + section.sessionNumber);
@@ -29,6 +30,7 @@ function computeMissing(persons: Persons, sessions: Session[]) {
             console.log(">>>");
             throw new Error("Pattern did not match");
         }
+        missing = missing.substring(0, missing.lastIndexOf(".") > 0 ? missing.lastIndexOf(".") : missing.length);
         // Can't catch 4-5 with the following code. Exclude for now. FIXME
         let splitter: string | undefined;
         for (const s of splitters) {
@@ -73,7 +75,15 @@ function computeMissing(persons: Persons, sessions: Session[]) {
     const persons = new Persons(JSON.parse(fs.readFileSync("./data/persons.json", "utf-8")) as Person[]);
     const sessions = JSON.parse(fs.readFileSync("./data/sessions.json", "utf-8")) as Session[];
     initQueries(persons, sessions);
-    let output = computeMissing(persons, sessions);
+    const periods = new Set<string>(["XXVII"]);
+    // const periods = new Set<string>([]);
+    const possibleParties = new Set<string>(getPartiesForPeriods(periods.values()));
+    if (possibleParties.size > 0) {
+        for (const person of persons.persons) {
+            person.parties = person.parties.filter((party) => possibleParties.has(party));
+        }
+    }
+    let output = computeMissing(persons, sessions, periods);
     fs.writeFileSync("data/missing.json", JSON.stringify(output, null, 2));
     output = JSON.parse(fs.readFileSync("data/missing.json", "utf-8")) as Missing[];
 
@@ -87,6 +97,7 @@ function computeMissing(persons: Persons, sessions: Session[]) {
                 if (!missingParty[party]) {
                     personsPerParty[party] = 0;
                     for (const person of persons.persons) {
+                        if (periods.size > 0 && !person.periods.some((period) => periods.has(period))) continue;
                         if (person.parties.some((other) => other == party)) personsPerParty[party]++;
                     }
                 }
@@ -94,7 +105,7 @@ function computeMissing(persons: Persons, sessions: Session[]) {
             }
             const personKey = (person.parties[0] ?? "parteilos") + " " + person.name;
             missingPersons[personKey] = missingPersons[personKey] == undefined ? 1 : missingPersons[personKey] + 1;
-            missingPersonsPeriods[personKey] = person.periods.length;
+            missingPersonsPeriods[personKey] = periods.size == 0 ? person.periods.length : periods.size;
         }
     }
     console.log("Number of absences per party (absolute)");

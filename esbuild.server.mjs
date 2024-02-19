@@ -11,6 +11,7 @@ const config = {
         plaque: "src/cli/plaque.ts",
         screamer: "src/cli/screamers.ts",
         search: "src/cli/search.ts",
+        missing: "src/cli/missing.ts",
         server: "src/server/server.ts",
     },
     bundle: true,
