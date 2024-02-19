@@ -9,11 +9,19 @@ import WebSocket, { WebSocketServer } from "ws";
 import { Persons, processPersons } from "./persons";
 import { Session } from "../common/common";
 import { processSessions } from "./sessions";
+import { initQueries, isAllDigits, querySpeakerSections } from "./query";
 
 const port = process.env.PORT ?? 3333;
 
-let persons = new Persons([]);
-let sessions: Session[] = [];
+export let persons = new Persons([]);
+export let sessions: Session[] = [];
+
+function toArray(queryParam: string[] | string | any | undefined): string[] {
+    if (queryParam == undefined) return [];
+    if (typeof queryParam == "string") return [queryParam];
+    if (Array.isArray(queryParam)) return queryParam;
+    throw new Error("Unknown query parameter type");
+}
 
 function loadData() {
     try {
@@ -21,6 +29,7 @@ function loadData() {
         persons = new Persons(JSON.parse(fs.readFileSync("/data/persons.json", "utf-8")));
         sessions = JSON.parse(fs.readFileSync("/data/sessions.json", "utf-8")) as Session[];
         console.log(`Loaded ${persons.persons.length} persons, ${sessions.length} sessions`);
+        initQueries(persons, sessions);
     } catch (e) {
         console.error("Could not load data", e);
         persons = new Persons([]);
@@ -50,8 +59,20 @@ async function updateData() {
             if (!id) {
                 res.json(persons.persons);
             } else {
-                const result = persons.byId(id);
-                if (!result) res.status(400);
+                if (isAllDigits(id)) {
+                    const person = persons.byId(id);
+                    if (!person) throw new Error();
+                    return res.json([{ person, score: 1 }]);
+                }
+
+                const result = persons.search(id);
+                if (!result) {
+                    res.status(400).json({});
+                    return;
+                }
+                for (const r of result) {
+                    r.score = r.score == 0 ? 1 : 1 / (r.score + 1);
+                }
                 res.json(result);
             }
         } catch (e) {
@@ -83,6 +104,46 @@ async function updateData() {
         }
     });
 
+    app.get("/api/sections", (req, res) => {
+        try {
+            const start = performance.now();
+            const periods = toArray(req.query.period);
+            const sessions = toArray(req.query.session).map((session) => parseInt(session));
+            const parties = toArray(req.query.party);
+            const persons = toArray(req.query.person);
+            const fromDate = req.query.from ? new Date(req.query.from as string) : undefined;
+            const toDate = req.query.to ? new Date(req.query.to as string) : undefined;
+            const keywords = toArray(req.query.keyword);
+            const result = querySpeakerSections(periods, sessions, parties, persons, fromDate, toDate, keywords);
+            if (req.query.stats == "true") {
+                const periods = new Set<string>();
+                const sessions = new Set<string>();
+                for (const section of result.sections) {
+                    periods.add(section.period);
+                    sessions.add(section.period + "-" + section.sessionNumber);
+                }
+                res.json({
+                    took: ((performance.now() - start) / 1000).toFixed(3),
+                    persons: result.persons,
+                    periods: Array.from(periods.values()),
+                    sessions: Array.from(sessions.values()),
+                    counts: {
+                        periods: periods.size,
+                        sessions: sessions.size,
+                        sections: result.sections.length,
+                        persons: result.persons.length,
+                    },
+                });
+            } else {
+                res.json({ took: ((performance.now() - start) / 1000).toFixed(3), ...result });
+            }
+        } catch (e) {
+            const params = JSON.stringify(req.query, null, 2);
+            console.error("Could not answer query, params:\n" + params, e);
+            res.status(400).json({ error: "Could not answer query, params:\n" + params });
+        }
+    });
+
     const server = http.createServer(app);
     server.listen(port, async () => {
         console.log(`App listening on port ${port}`);
@@ -94,10 +155,9 @@ async function updateData() {
         updateData();
         setTimeout(update, 24 * 60 * 60 * 1000);
     };
-    if (process.env.DEV) {
-        if (persons.persons.length == 0) setTimeout(updateData, 0);
-        else setTimeout(update, 24 * 60 * 60 * 1000);
-    }
+
+    if (persons.persons.length == 0) setTimeout(updateData, 0);
+    else setTimeout(update, 24 * 60 * 60 * 1000);
 })();
 
 function setupLiveReload(server: http.Server) {

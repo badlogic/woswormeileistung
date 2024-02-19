@@ -218,7 +218,6 @@ export class Persons {
 
         // Sort by total score (sum of best matches for all query parts), then by name length for similarly scored names
         scoredNames.sort((a, b) => a.score - b.score || a.person.name.length - b.person.name.length);
-        // Filter or threshold as needed; for now, we return all but could limit to best matches
         return scoredNames.slice(0, 5);
     }
 }
