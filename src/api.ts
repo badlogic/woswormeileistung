@@ -1,3 +1,4 @@
+import { MissingPerson, Person, Plaque, PlaqueCallout, SessionSection, SpeakerSection, SectionScreams } from "./common/common.js";
 import { error } from "./utils/utils.js";
 
 export interface JsonValue {
@@ -79,7 +80,44 @@ export function toUrlBody(params: JsonValue) {
 }
 
 export class Api {
-    static async hello() {
-        return apiGet<{ message: string }>("hello");
+    static async person(idOrQuery: string) {
+        return await apiGet<{ score: number; person: Person }[]>("persons/" + encodeURIComponent(idOrQuery));
+    }
+
+    static async personSections(id: string, periods: string[]) {
+        const params = new URLSearchParams();
+        params.append("person", id);
+        for (const period of periods) {
+            params.append("period", period);
+        }
+        return await apiGet<{ sections: SessionSection[] }>("sections?" + params.toString());
+    }
+
+    static async personPlaques(id: string) {
+        return await apiGet<PlaqueCallout[]>("plaques/" + encodeURIComponent(id));
+    }
+
+    static async personMissing(id: string) {
+        return await apiGet<MissingPerson>("missing/" + +encodeURIComponent(id));
+    }
+
+    static async personScreams(id: string) {
+        const params = new URLSearchParams();
+        params.append("person", id);
+        return await apiGet<SectionScreams[]>("screams/" + +encodeURIComponent(id));
+    }
+
+    static async personScreamsAt(id: string) {
+        const params = new URLSearchParams();
+        params.append("person", id);
+        return await apiGet<SectionScreams[]>("screamsat/" + +encodeURIComponent(id));
+    }
+
+    static async section(period: string, session: number, section: number) {
+        const params = new URLSearchParams();
+        params.append("period", period);
+        params.append("session", session.toString());
+        params.append("section", section.toString());
+        return await apiGet<SpeakerSection>("section?" + params.toString());
     }
 }

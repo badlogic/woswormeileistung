@@ -27,6 +27,16 @@ export class App extends LitElement {
             () => "Wos wor mei Leistung"
         );
         router.addRoute(
+            "/persons",
+            () => html`<persons-page></persons-page>`,
+            () => "Wos wor mei Leistung"
+        );
+        router.addRoute(
+            "/person/:id",
+            () => html`<person-page></person-page>`,
+            () => "Wos wor mei Leistung"
+        );
+        router.addRoute(
             "/404",
             () => renderError(i18n("Whoops, that page doesn't exist")),
             () => "404"

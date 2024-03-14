@@ -30,7 +30,6 @@
     "id": "83119",
     "name": "Mag. Nikolaus Alm",
     "parties": [
-      "LIF",
       "NEOS"
     ],
     "periods": [
@@ -51,25 +50,6 @@
     ],
     "url": "https://parlament.gv.at/person/51879",
     "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069643_384.jpg"
-  },
-  {
-    "id": "2819",
-    "name": "Werner Amon, MBA",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XIX",
-      "XX",
-      "XXI",
-      "XXII",
-      "XXIII",
-      "XXIV",
-      "XXV",
-      "XXVI"
-    ],
-    "url": "https://parlament.gv.at/person/2819",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/90356/9035616_384.jpg"
   },
   {
     "id": "2819",
@@ -261,22 +241,6 @@
     "imageUrl": "https://parlament.gv.at/dokument/bild/21018/2101887_384.jpg"
   },
   {
-    "id": "76",
-    "name": "Dipl.-Kfm. Dr. Hannes Bauer",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XVII",
-      "XVIII",
-      "XXI",
-      "XXII",
-      "XXIII"
-    ],
-    "url": "https://parlament.gv.at/person/76",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/21018/2101887_384.jpg"
-  },
-  {
     "id": "1974",
     "name": "Angela Baumgartner",
     "parties": [
@@ -366,22 +330,6 @@
     "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069624_384.jpg"
   },
   {
-    "id": "35468",
-    "name": "Dr. Dagmar Belakowitsch",
-    "parties": [
-      "FPÖ"
-    ],
-    "periods": [
-      "XXIII",
-      "XXIV",
-      "XXV",
-      "XXVI",
-      "XXVII"
-    ],
-    "url": "https://parlament.gv.at/person/35468",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069624_384.jpg"
-  },
-  {
     "id": "2996",
     "name": "Ricarda Berger",
     "parties": [
@@ -411,7 +359,6 @@
     "id": "83124",
     "name": "Michael Bernhard",
     "parties": [
-      "LIF",
       "NEOS"
     ],
     "periods": [
@@ -421,23 +368,6 @@
     ],
     "url": "https://parlament.gv.at/person/83124",
     "imageUrl": "https://parlament.gv.at/dokument/bild/200697/20069722_384.jpg"
-  },
-  {
-    "id": "118",
-    "name": "Gabriele Binder-Maier",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XVIII",
-      "XX",
-      "XXI",
-      "XXII",
-      "XXIII",
-      "XXIV"
-    ],
-    "url": "https://parlament.gv.at/person/118",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/34889/3488929_384.jpg"
   },
   {
     "id": "118",
@@ -554,7 +484,7 @@
       "XXVII"
     ],
     "url": "https://parlament.gv.at/person/26343",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/201126/20112659_384.jpg"
+    "imageUrl": "https://parlament.gv.at/dokument/bild/201238/20123875_384.jpg"
   },
   {
     "id": "2867",
@@ -1347,18 +1277,6 @@
     "imageUrl": "https://parlament.gv.at/dokument/bild/201117/20111788_384.jpg"
   },
   {
-    "id": "87146",
-    "name": "Dr. Ewa Ernst-Dziedzic",
-    "parties": [
-      "GRÜNE"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "url": "https://parlament.gv.at/person/87146",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200697/20069742_384.jpg"
-  },
-  {
     "id": "83433",
     "name": "Rouven Ertlschweiger, MSc",
     "parties": [
@@ -1483,7 +1401,7 @@
       "XXVII"
     ],
     "url": "https://parlament.gv.at/person/2189",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069600_384.jpg"
+    "imageUrl": "https://parlament.gv.at/dokument/bild/201238/20123876_384.jpg"
   },
   {
     "id": "83298",
@@ -1528,20 +1446,6 @@
     ],
     "url": "https://parlament.gv.at/person/15530",
     "imageUrl": "https://parlament.gv.at/dokument/bild/21013/2101387_384.jpg"
-  },
-  {
-    "id": "3130",
-    "name": "Dr. Benita Ferrero-Waldner",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XX",
-      "XXI",
-      "XXII"
-    ],
-    "url": "https://parlament.gv.at/person/3130",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/20996/2099698_384.jpg"
   },
   {
     "id": "3130",
@@ -1858,20 +1762,6 @@
     "imageUrl": "https://parlament.gv.at/dokument/bild/72615/7261549_384.jpg"
   },
   {
-    "id": "51559",
-    "name": "Carmen Gartelgruber",
-    "parties": [
-      "FPÖ"
-    ],
-    "periods": [
-      "XXIV",
-      "XXV",
-      "XXVI"
-    ],
-    "url": "https://parlament.gv.at/person/51559",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/72615/7261549_384.jpg"
-  },
-  {
     "id": "357",
     "name": "Ing. Kurt Gartlehner",
     "parties": [
@@ -1969,7 +1859,7 @@
       "XXVII"
     ],
     "url": "https://parlament.gv.at/person/5653",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200505/20050519_384.jpg"
+    "imageUrl": "https://parlament.gv.at/dokument/bild/201236/20123690_384.jpg"
   },
   {
     "id": "14758",
@@ -1984,22 +1874,6 @@
     ],
     "url": "https://parlament.gv.at/person/14758",
     "imageUrl": "https://parlament.gv.at/dokument/bild/34913/3491373_384.jpg"
-  },
-  {
-    "id": "8240",
-    "name": "Dr. Eva Glawischnig-Piesczek",
-    "parties": [
-      "GRÜNE"
-    ],
-    "periods": [
-      "XXI",
-      "XXII",
-      "XXIII",
-      "XXIV",
-      "XXV"
-    ],
-    "url": "https://parlament.gv.at/person/8240",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/63466/6346696_384.jpg"
   },
   {
     "id": "8240",
@@ -2070,24 +1944,6 @@
     ],
     "url": "https://parlament.gv.at/person/444",
     "imageUrl": "https://parlament.gv.at/dokument/bild/20997/2099765_384.jpg"
-  },
-  {
-    "id": "2834",
-    "name": "Mag. Dr. Martin Graf",
-    "parties": [
-      "FPÖ"
-    ],
-    "periods": [
-      "XIX",
-      "XX",
-      "XXI",
-      "XXIII",
-      "XXIV",
-      "XXVI",
-      "XXVII"
-    ],
-    "url": "https://parlament.gv.at/person/2834",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069618_384.jpg"
   },
   {
     "id": "2834",
@@ -2282,20 +2138,6 @@
     "imageUrl": "https://parlament.gv.at/dokument/bild/200695/20069588_384.jpg"
   },
   {
-    "id": "14757",
-    "name": "Mag. Silvia Grünberger",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XXII",
-      "XXIII",
-      "XXIV"
-    ],
-    "url": "https://parlament.gv.at/person/14757",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/34898/3489817_384.jpg"
-  },
-  {
     "id": "8241",
     "name": "Dr. Kurt Grünewald",
     "parties": [
@@ -2368,7 +2210,6 @@
     "id": "83120",
     "name": "Dr. Rainer Hable",
     "parties": [
-      "LIF",
       "NEOS"
     ],
     "periods": [
@@ -2596,7 +2437,7 @@
       "XXVII"
     ],
     "url": "https://parlament.gv.at/person/83148",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200697/20069730_384.jpg"
+    "imageUrl": "https://parlament.gv.at/dokument/bild/201238/20123877_384.jpg"
   },
   {
     "id": "12741",
@@ -2922,21 +2763,6 @@
     "imageUrl": "https://parlament.gv.at/dokument/bild/71843/7184352_384.jpg"
   },
   {
-    "id": "83111",
-    "name": "Daniela Holzinger-Vogtenhuber, BA",
-    "parties": [
-      "Ohne Klub",
-      "PILZ",
-      "SPÖ"
-    ],
-    "periods": [
-      "XXV",
-      "XXVI"
-    ],
-    "url": "https://parlament.gv.at/person/83111",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/71843/7184352_384.jpg"
-  },
-  {
     "id": "2309",
     "name": "Eva Maria Holzleitner, BSc",
     "parties": [
@@ -2959,7 +2785,7 @@
       "XXVII"
     ],
     "url": "https://parlament.gv.at/person/5010",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069636_384.jpg"
+    "imageUrl": "https://parlament.gv.at/dokument/bild/201238/20123878_384.jpg"
   },
   {
     "id": "35489",
@@ -3586,18 +3412,6 @@
     "imageUrl": "https://parlament.gv.at/dokument/bild/22672/2267265_384.jpg"
   },
   {
-    "id": "30352",
-    "name": "Mag. Gertraud Knoll",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XXIII"
-    ],
-    "url": "https://parlament.gv.at/person/30352",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/22672/2267265_384.jpg"
-  },
-  {
     "id": "5640",
     "name": "Klaus Köchl",
     "parties": [
@@ -3917,7 +3731,7 @@
       "XXVII"
     ],
     "url": "https://parlament.gv.at/person/83113",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/201134/20113473_384.jpg"
+    "imageUrl": "https://parlament.gv.at/dokument/bild/201238/20123879_384.jpg"
   },
   {
     "id": "1986",
@@ -3943,7 +3757,7 @@
       "XXVII"
     ],
     "url": "https://parlament.gv.at/person/1987",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200695/20069594_384.jpg"
+    "imageUrl": "https://parlament.gv.at/dokument/bild/201238/20123880_384.jpg"
   },
   {
     "id": "998",
@@ -4343,7 +4157,7 @@
       "XXVII"
     ],
     "url": "https://parlament.gv.at/person/51577",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200877/20087770_384.jpg"
+    "imageUrl": "https://parlament.gv.at/dokument/bild/201238/20123881_384.jpg"
   },
   {
     "id": "2001",
@@ -4439,7 +4253,6 @@
     "id": "83121",
     "name": "Mag. Gerald Loacker",
     "parties": [
-      "LIF",
       "NEOS"
     ],
     "periods": [
@@ -4764,7 +4577,6 @@
     "id": "83122",
     "name": "Mag. Beate Meinl-Reisinger, MES",
     "parties": [
-      "LIF",
       "NEOS"
     ],
     "periods": [
@@ -4885,7 +4697,6 @@
     "id": "83123",
     "name": "Mag. Dr. Angelika Mlinar, LL.M.",
     "parties": [
-      "LIF",
       "NEOS"
     ],
     "periods": [
@@ -5568,22 +5379,6 @@
     "imageUrl": "https://parlament.gv.at/dokument/bild/43844/4384415_384.jpg"
   },
   {
-    "id": "8245",
-    "name": "Dipl.-Ing. Dr. Wolfgang Pirklhuber",
-    "parties": [
-      "GRÜNE"
-    ],
-    "periods": [
-      "XXI",
-      "XXII",
-      "XXIII",
-      "XXIV",
-      "XXV"
-    ],
-    "url": "https://parlament.gv.at/person/8245",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/43844/4384415_384.jpg"
-  },
-  {
     "id": "2295",
     "name": "Claudia Plakolm",
     "parties": [
@@ -5637,21 +5432,6 @@
     ],
     "url": "https://parlament.gv.at/person/51549",
     "imageUrl": "https://parlament.gv.at/dokument/bild/71839/7183996_384.jpg"
-  },
-  {
-    "id": "83124",
-    "name": "Michael Bernhard",
-    "parties": [
-      "LIF",
-      "NEOS"
-    ],
-    "periods": [
-      "XXV",
-      "XXVI",
-      "XXVII"
-    ],
-    "url": "https://parlament.gv.at/person/83124",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200697/20069722_384.jpg"
   },
   {
     "id": "59908",
@@ -6140,18 +5920,6 @@
     "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069619_384.jpg"
   },
   {
-    "id": "35496",
-    "name": "Sylvia Rinner",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XXIII"
-    ],
-    "url": "https://parlament.gv.at/person/35496",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/21018/2101849_384.jpg"
-  },
-  {
     "id": "2297",
     "name": "Dipl.-Ing. Alois Rosenberger",
     "parties": [
@@ -6162,21 +5930,6 @@
     ],
     "url": "https://parlament.gv.at/person/2297",
     "imageUrl": "https://parlament.gv.at/dokument/bild/71826/7182640_384.jpg"
-  },
-  {
-    "id": "14693",
-    "name": "Barbara Rosenkranz, MA",
-    "parties": [
-      "BZÖ",
-      "FPÖ"
-    ],
-    "periods": [
-      "XXII",
-      "XXIII",
-      "XXV"
-    ],
-    "url": "https://parlament.gv.at/person/14693",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/44447/4444797_384.jpg"
   },
   {
     "id": "14693",
@@ -6422,7 +6175,7 @@
       "XXVII"
     ],
     "url": "https://parlament.gv.at/person/5629",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069656_384.jpg"
+    "imageUrl": "https://parlament.gv.at/dokument/bild/201238/20123882_384.jpg"
   },
   {
     "id": "8181",
@@ -6508,7 +6261,7 @@
       "XXVII"
     ],
     "url": "https://parlament.gv.at/person/84056",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/92328/9232825_384.jpg"
+    "imageUrl": "https://parlament.gv.at/dokument/bild/201233/20123322_384.jpg"
   },
   {
     "id": "36907",
@@ -6541,7 +6294,6 @@
     "id": "83125",
     "name": "Dr. Nikolaus Scherak, MA",
     "parties": [
-      "LIF",
       "NEOS"
     ],
     "periods": [
@@ -6627,26 +6379,6 @@
     "imageUrl": "https://parlament.gv.at/dokument/bild/21002/2100289_384.jpg"
   },
   {
-    "id": "1613",
-    "name": "Dr. h.c. Peter Schieder",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XII",
-      "XIII",
-      "XIX",
-      "XVI",
-      "XVII",
-      "XVIII",
-      "XX",
-      "XXI",
-      "XXII"
-    ],
-    "url": "https://parlament.gv.at/person/1613",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/21002/2100289_384.jpg"
-  },
-  {
     "id": "14771",
     "name": "Notburga Schiefermair",
     "parties": [
@@ -6657,20 +6389,6 @@
     ],
     "url": "https://parlament.gv.at/person/14771",
     "imageUrl": "https://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg"
-  },
-  {
-    "id": "51559",
-    "name": "Carmen Schimanek",
-    "parties": [
-      "FPÖ"
-    ],
-    "periods": [
-      "XXIV",
-      "XXV",
-      "XXVI"
-    ],
-    "url": "https://parlament.gv.at/person/51559",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/72615/7261549_384.jpg"
   },
   {
     "id": "36908",
@@ -6734,7 +6452,7 @@
       "XXVII"
     ],
     "url": "https://parlament.gv.at/person/25188",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/201054/20105486_384.jpg"
+    "imageUrl": "https://parlament.gv.at/dokument/bild/201238/20123883_384.jpg"
   },
   {
     "id": "1944",
@@ -6774,7 +6492,7 @@
       "XXVII"
     ],
     "url": "https://parlament.gv.at/person/5630",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069657_384.jpg"
+    "imageUrl": "https://parlament.gv.at/dokument/bild/201238/20123884_384.jpg"
   },
   {
     "id": "64022",
@@ -7296,7 +7014,7 @@
       "XXVII"
     ],
     "url": "https://parlament.gv.at/person/2327",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069605_384.jpg"
+    "imageUrl": "https://parlament.gv.at/dokument/bild/201238/20123885_384.jpg"
   },
   {
     "id": "35492",
@@ -7339,24 +7057,6 @@
     ],
     "url": "https://parlament.gv.at/person/83135",
     "imageUrl": "https://parlament.gv.at/dokument/bild/200697/20069729_384.jpg"
-  },
-  {
-    "id": "2018",
-    "name": "Ridi Maria Steibl",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XIX",
-      "XVIII",
-      "XX",
-      "XXI",
-      "XXII",
-      "XXIII",
-      "XXIV"
-    ],
-    "url": "https://parlament.gv.at/person/2018",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/34895/3489551_384.jpg"
   },
   {
     "id": "2018",
@@ -7459,19 +7159,6 @@
     "imageUrl": "https://parlament.gv.at/dokument/bild/43850/4385099_384.jpg"
   },
   {
-    "id": "59247",
-    "name": "Mag. Sonja Steßl",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XXIV",
-      "XXV"
-    ],
-    "url": "https://parlament.gv.at/person/59247",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/43850/4385099_384.jpg"
-  },
-  {
     "id": "5439",
     "name": "Dr. Christian Stocker",
     "parties": [
@@ -7542,18 +7229,6 @@
     "imageUrl": "https://parlament.gv.at/dokument/bild/72606/7260602_384.jpg"
   },
   {
-    "id": "44127",
-    "name": "Pia Philippa Beck",
-    "parties": [
-      "Ohne Klub"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "url": "https://parlament.gv.at/person/44127",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069635_384.jpg"
-  },
-  {
     "id": "8657",
     "name": "Dr. Ernst Strasser",
     "parties": [
@@ -7583,7 +7258,6 @@
     "id": "10304",
     "name": "Mag. Dr. Matthias Strolz",
     "parties": [
-      "LIF",
       "NEOS"
     ],
     "periods": [
@@ -7903,7 +7577,6 @@
     "id": "83126",
     "name": "Mag. Christoph Vavrik",
     "parties": [
-      "LIF",
       "NEOS",
       "ÖVP"
     ],
@@ -8007,18 +7680,6 @@
     ],
     "url": "https://parlament.gv.at/person/5679",
     "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069685_384.jpg"
-  },
-  {
-    "id": "5647",
-    "name": "Petra Tanzler",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "url": "https://parlament.gv.at/person/5647",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069670_384.jpg"
   },
   {
     "id": "1794",
@@ -8446,19 +8107,6 @@
     "imageUrl": "https://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg"
   },
   {
-    "id": "8238",
-    "name": "Mag. Dr. Andrea Wolfmayr",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XXI",
-      "XXII"
-    ],
-    "url": "https://parlament.gv.at/person/8238",
-    "imageUrl": "https://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg"
-  },
-  {
     "id": "2768",
     "name": "Mag. Gisela Wurm",
     "parties": [
@@ -8654,5 +8302,896 @@
     ],
     "url": "https://parlament.gv.at/person/2887",
     "imageUrl": "https://parlament.gv.at/dokument/bild/21004/2100458_384.jpg"
+  },
+  {
+    "id": "20449",
+    "parties": [],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Dr. Martin Polaschek",
+    "url": "https://parlament.gv.at/person/20449",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200692/20069283_384.jpg"
+  },
+  {
+    "id": "21029",
+    "parties": [
+      "GRÜNE"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Johannes Rauch",
+    "url": "https://parlament.gv.at/person/21029",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200775/20077540_384.jpg"
+  },
+  {
+    "id": "20445",
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Mag. Gerhard Karner",
+    "url": "https://parlament.gv.at/person/20445",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200692/20069285_384.jpg"
+  },
+  {
+    "id": "55727",
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Dr. Magnus Brunner, LL.M.",
+    "url": "https://parlament.gv.at/person/55727",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/201040/20104091_384.jpg"
+  },
+  {
+    "id": "10778",
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Mag. Norbert Totschnig, MSc",
+    "url": "https://parlament.gv.at/person/10778",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200639/20063986_384.jpg"
+  },
+  {
+    "id": "18140",
+    "parties": [],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Mag. Dr. Martin Kocher",
+    "url": "https://parlament.gv.at/person/18140",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200504/20050490_384.jpg"
+  },
+  {
+    "id": "21406",
+    "parties": [],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Mag. Susanne Kraus-Winkler",
+    "url": "https://parlament.gv.at/person/21406",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200639/20063989_384.jpg"
+  },
+  {
+    "id": "24385",
+    "parties": [],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Roberta Metsola",
+    "url": "https://parlament.gv.at/person/24385",
+    "imageUrl": "https://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg"
+  },
+  {
+    "id": "2510",
+    "parties": [
+      "GRÜNE"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Thomas Waitz",
+    "url": "https://parlament.gv.at/person/2510",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200710/20071002_384.jpg"
+  },
+  {
+    "id": "21407",
+    "parties": [],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Florian Tursky, MBA MSc",
+    "url": "https://parlament.gv.at/person/21407",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200639/20063990_384.jpg"
+  },
+  {
+    "id": "6486",
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "MMag. Dr. Susanne Raab",
+    "url": "https://parlament.gv.at/person/6486",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200505/20050522_384.jpg"
+  },
+  {
+    "id": "6485",
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Mag. Klaudia Tanner",
+    "url": "https://parlament.gv.at/person/6485",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200882/20088269_384.jpg"
+  },
+  {
+    "id": "88771",
+    "parties": [],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Dr. Margit Kraker",
+    "url": "https://parlament.gv.at/person/88771",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070983_384.jpg"
+  },
+  {
+    "id": "5502",
+    "parties": [],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Mag. Bernhard Achitz",
+    "url": "https://parlament.gv.at/person/5502",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070980_384.jpg"
+  },
+  {
+    "id": "5430",
+    "parties": [],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Mag. Alexander Schallenberg, LL.M.",
+    "url": "https://parlament.gv.at/person/5430",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200504/20050481_384.jpg"
+  },
+  {
+    "id": "772",
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Dr. Othmar Karas, MBL-HSG",
+    "url": "https://parlament.gv.at/person/772",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070985_384.jpg"
+  },
+  {
+    "id": "10346",
+    "parties": [
+      "GRÜNE"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Dr. Monika Vana",
+    "url": "https://parlament.gv.at/person/10346",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070988_384.jpg"
+  },
+  {
+    "id": "22718",
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Theresa Bielowski, BA MA",
+    "url": "https://parlament.gv.at/person/22718",
+    "imageUrl": "https://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg"
+  },
+  {
+    "id": "2979",
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Mag. Karoline Edtstadler",
+    "url": "https://parlament.gv.at/person/2979",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/201040/20104092_384.jpg"
+  },
+  {
+    "id": "5492",
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Hannes Heide",
+    "url": "https://parlament.gv.at/person/5492",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070994_384.jpg"
+  },
+  {
+    "id": "7267",
+    "parties": [],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Mag. Andrea Mayer",
+    "url": "https://parlament.gv.at/person/7267",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200505/20050502_384.jpg"
+  },
+  {
+    "id": "5493",
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Mag. Dr. Günther Sidl",
+    "url": "https://parlament.gv.at/person/5493",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070997_384.jpg"
+  },
+  {
+    "id": "5490",
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Dipl.-Ing. Alexander Bernhuber",
+    "url": "https://parlament.gv.at/person/5490",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070991_384.jpg"
+  },
+  {
+    "id": "16347",
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Mag. Christian Sagartz, BA",
+    "url": "https://parlament.gv.at/person/16347",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200710/20071001_384.jpg"
+  },
+  {
+    "id": "19043",
+    "parties": [],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Dr. Wolfgang Mückstein",
+    "url": "https://parlament.gv.at/person/19043",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200118/20011886_384.jpg"
+  },
+  {
+    "id": "2975",
+    "parties": [],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Dr. Heinz Faßmann",
+    "url": "https://parlament.gv.at/person/2975",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200026/20002605_384.jpg"
+  },
+  {
+    "id": "20175",
+    "parties": [],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Dr. Michael Linhart",
+    "url": "https://parlament.gv.at/person/20175",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200222/20022229_384.jpg"
+  },
+  {
+    "id": "5494",
+    "parties": [
+      "GRÜNE"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Sarah Wiener",
+    "url": "https://parlament.gv.at/person/5494",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070999_384.jpg"
+  },
+  {
+    "id": "84053",
+    "parties": [
+      "FPÖ"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Mag. Dr. Georg Mayer, MBL-HSG",
+    "url": "https://parlament.gv.at/person/84053",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070987_384.jpg"
+  },
+  {
+    "id": "5491",
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Mag. Dr. Bettina Vollath",
+    "url": "https://parlament.gv.at/person/5491",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/90325/9032591_384.jpg"
+  },
+  {
+    "id": "5488",
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Simone Schmiedtbauer",
+    "url": "https://parlament.gv.at/person/5488",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070996_384.jpg"
+  },
+  {
+    "id": "24",
+    "parties": [
+      "GRÜNE"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Rudolf Anschober",
+    "url": "https://parlament.gv.at/person/24",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200026/20002602_384.jpg"
+  },
+  {
+    "id": "10301",
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Mag. Lukas Mandl",
+    "url": "https://parlament.gv.at/person/10301",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070990_384.jpg"
+  },
+  {
+    "id": "57489",
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Mag. Evelyn Regner",
+    "url": "https://parlament.gv.at/person/57489",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070986_384.jpg"
+  },
+  {
+    "id": "6484",
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Mag. (FH) Christine Aschbacher",
+    "url": "https://parlament.gv.at/person/6484",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200026/20002622_384.jpg"
+  },
+  {
+    "id": "5489",
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Barbara Thaler",
+    "url": "https://parlament.gv.at/person/5489",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070998_384.jpg"
+  },
+  {
+    "id": "5432",
+    "parties": [],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Mag. Ines Stilling",
+    "url": "https://parlament.gv.at/person/5432",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/87921/8792101_384.jpg"
+  },
+  {
+    "id": "5429",
+    "parties": [],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Dr. Wolfgang Peschorn",
+    "url": "https://parlament.gv.at/person/5429",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/87924/8792446_384.jpg"
+  },
+  {
+    "id": "5427",
+    "parties": [],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Eduard Müller, MBA",
+    "url": "https://parlament.gv.at/person/5427",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/90320/9032032_384.jpg"
+  },
+  {
+    "id": "17147",
+    "parties": [],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Clemens Jabloner",
+    "url": "https://parlament.gv.at/person/17147",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/87924/8792499_384.jpg"
+  },
+  {
+    "id": "5425",
+    "parties": [],
+    "periods": [
+      "XXVII"
+    ],
+    "name": "Dipl.-Ing. Maria Patek, MBA",
+    "url": "https://parlament.gv.at/person/5425",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/89140/8914057_384.jpg"
+  },
+  {
+    "id": "5426",
+    "parties": [],
+    "periods": [
+      "XXVI"
+    ],
+    "name": "Mag. Dr. Brigitte Zarfl",
+    "url": "https://parlament.gv.at/person/5426",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/88482/8848250_384.jpg"
+  },
+  {
+    "id": "5423",
+    "parties": [],
+    "periods": [
+      "XXVI"
+    ],
+    "name": "Mag. Elisabeth Udolf-Strobl",
+    "url": "https://parlament.gv.at/person/5423",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/87923/8792357_384.jpg"
+  },
+  {
+    "id": "12479",
+    "parties": [],
+    "periods": [
+      "XXVI"
+    ],
+    "name": "Mag. Andreas Reichhardt",
+    "url": "https://parlament.gv.at/person/12479",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/90533/9053344_384.jpg"
+  },
+  {
+    "id": "5431",
+    "parties": [],
+    "periods": [
+      "XXVI"
+    ],
+    "name": "Mag. Dr. Iris Eliisa Rauskala",
+    "url": "https://parlament.gv.at/person/5431",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/87924/8792464_384.jpg"
+  },
+  {
+    "id": "5434",
+    "parties": [],
+    "periods": [
+      "XXVI"
+    ],
+    "name": "Liliane Maury Pasquier",
+    "url": "https://parlament.gv.at/person/5434",
+    "imageUrl": "https://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg"
+  },
+  {
+    "id": "5422",
+    "parties": [],
+    "periods": [
+      "XXVI"
+    ],
+    "name": "Dr. Brigitte Bierlein",
+    "url": "https://parlament.gv.at/person/5422",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/87921/8792117_384.jpg"
+  },
+  {
+    "id": "5428",
+    "parties": [],
+    "periods": [
+      "XXVI"
+    ],
+    "name": "Mag. Thomas Starlinger",
+    "url": "https://parlament.gv.at/person/5428",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/87923/8792339_384.jpg"
+  },
+  {
+    "id": "8188",
+    "parties": [],
+    "periods": [
+      "XXVI"
+    ],
+    "name": "Mag. Beate Hartinger-Klein",
+    "url": "https://parlament.gv.at/person/8188",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/73249/7324914_384.jpg"
+  },
+  {
+    "id": "2976",
+    "parties": [],
+    "periods": [
+      "XXVI"
+    ],
+    "name": "Dr. Karin Kneissl",
+    "url": "https://parlament.gv.at/person/2976",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/76380/7638089_384.jpg"
+  },
+  {
+    "id": "2977",
+    "parties": [],
+    "periods": [
+      "XXVI"
+    ],
+    "name": "Hartwig Löger",
+    "url": "https://parlament.gv.at/person/2977",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/74359/7435986_384.jpg"
+  },
+  {
+    "id": "57490",
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XXVI"
+    ],
+    "name": "Karin Ingeborg Kadenbach",
+    "url": "https://parlament.gv.at/person/57490",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/31688/3168895_384.jpg"
+  },
+  {
+    "id": "84308",
+    "parties": [],
+    "periods": [
+      "XXV"
+    ],
+    "name": "Dr. Harald Mahrer",
+    "url": "https://parlament.gv.at/person/84308",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/53804/5380448_384.jpg"
+  },
+  {
+    "id": "83295",
+    "parties": [],
+    "periods": [
+      "XXV"
+    ],
+    "name": "Dr. Wolfgang Brandstetter",
+    "url": "https://parlament.gv.at/person/83295",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/53700/5370025_384.jpg"
+  },
+  {
+    "id": "83297",
+    "parties": [],
+    "periods": [
+      "XXV"
+    ],
+    "name": "MMag. Dr. Sophie Karmasin",
+    "url": "https://parlament.gv.at/person/83297",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/47257/4725791_384.jpg"
+  },
+  {
+    "id": "10300",
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XXV"
+    ],
+    "name": "Heinz Kurt Becker",
+    "url": "https://parlament.gv.at/person/10300",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/32062/3206245_384.jpg"
+  },
+  {
+    "id": "87429",
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XXV"
+    ],
+    "name": "Mag. Hans Peter Doskozil",
+    "url": "https://parlament.gv.at/person/87429",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200690/20069005_384.jpg"
+  },
+  {
+    "id": "86673",
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XXV"
+    ],
+    "name": "Karoline Graswander-Hainz",
+    "url": "https://parlament.gv.at/person/86673",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/75519/7551900_384.jpg"
+  },
+  {
+    "id": "84052",
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XXV"
+    ],
+    "name": "Mag. Claudia Schmidt",
+    "url": "https://parlament.gv.at/person/84052",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/48389/4838977_384.jpg"
+  },
+  {
+    "id": "52707",
+    "parties": [],
+    "periods": [
+      "XXV"
+    ],
+    "name": "Dr. Josef Ostermayer",
+    "url": "https://parlament.gv.at/person/52707",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/46673/4667335_384.jpg"
+  },
+  {
+    "id": "84051",
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XXV"
+    ],
+    "name": "Eugen Freund",
+    "url": "https://parlament.gv.at/person/84051",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/50711/5071134_384.jpg"
+  },
+  {
+    "id": "15161",
+    "parties": [],
+    "periods": [
+      "XXV"
+    ],
+    "name": "Mag. Jochen Danninger",
+    "url": "https://parlament.gv.at/person/15161",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/46128/4612899_384.jpg"
+  },
+  {
+    "id": "36447",
+    "parties": [],
+    "periods": [
+      "XXIV"
+    ],
+    "name": "Dr. Claudia Schmied",
+    "url": "https://parlament.gv.at/person/36447",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/42417/4241749_384.jpg"
+  },
+  {
+    "id": "930",
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XXIV"
+    ],
+    "name": "Dr. Peter Kostelka",
+    "url": "https://parlament.gv.at/person/930",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/20999/2099921_384.jpg"
+  },
+  {
+    "id": "65320",
+    "parties": [],
+    "periods": [
+      "XXIV"
+    ],
+    "name": "Dr. Wolfgang Waldner",
+    "url": "https://parlament.gv.at/person/65320",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/36262/3626231_384.jpg"
+  },
+  {
+    "id": "53727",
+    "parties": [],
+    "periods": [
+      "XXIV"
+    ],
+    "name": "Mag. Claudia Bandion-Ortner",
+    "url": "https://parlament.gv.at/person/53727",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/24011/2401194_384.jpg"
+  },
+  {
+    "id": "62379",
+    "parties": [],
+    "periods": [
+      "XXIV"
+    ],
+    "name": "Mag. Verena Remler",
+    "url": "https://parlament.gv.at/person/62379",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/43472/4347293_384.jpg"
+  },
+  {
+    "id": "36449",
+    "parties": [],
+    "periods": [
+      "XXIII"
+    ],
+    "name": "Dr. Erwin Buchinger",
+    "url": "https://parlament.gv.at/person/36449",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/22837/2283790_384.jpg"
+  },
+  {
+    "id": "36448",
+    "parties": [],
+    "periods": [
+      "XXIII"
+    ],
+    "name": "Dr. Andrea Kdolsky",
+    "url": "https://parlament.gv.at/person/36448",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/22838/2283805_384.jpg"
+  },
+  {
+    "id": "28371",
+    "parties": [],
+    "periods": [
+      "XXIII"
+    ],
+    "name": "Dr. Hans Winkler",
+    "url": "https://parlament.gv.at/person/28371",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/48330/4833078_384.jpg"
+  },
+  {
+    "id": "4279",
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XXIII"
+    ],
+    "name": "Dr. Maria Berger",
+    "url": "https://parlament.gv.at/person/4279",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/21013/2101332_384.jpg"
+  },
+  {
+    "id": "36452",
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XXIII"
+    ],
+    "name": "Christa Kranzl",
+    "url": "https://parlament.gv.at/person/36452",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/48330/4833090_384.jpg"
+  },
+  {
+    "id": "751",
+    "parties": [
+      "FPÖ"
+    ],
+    "periods": [
+      "XXIII"
+    ],
+    "name": "Mag. Hilmar Kabas",
+    "url": "https://parlament.gv.at/person/751",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/21006/2100665_384.jpg"
+  },
+  {
+    "id": "80",
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XXIII"
+    ],
+    "name": "Rosemarie Bauer",
+    "url": "https://parlament.gv.at/person/80",
+    "imageUrl": "https://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg"
+  },
+  {
+    "id": "8656",
+    "parties": [
+      "FPÖ"
+    ],
+    "periods": [
+      "XXII"
+    ],
+    "name": "Mag. Karl-Heinz Grasser",
+    "url": "https://parlament.gv.at/person/8656",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/50483/5048332_384.jpg"
+  },
+  {
+    "id": "15464",
+    "parties": [
+      "FPÖ",
+      "BZÖ"
+    ],
+    "periods": [
+      "XXII"
+    ],
+    "name": "Hubert Gorbach",
+    "url": "https://parlament.gv.at/person/15464",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/44045/4404571_384.jpg"
+  },
+  {
+    "id": "22269",
+    "parties": [
+      "BZÖ"
+    ],
+    "periods": [
+      "XXII"
+    ],
+    "name": "Mag. Karin Gastinger",
+    "url": "https://parlament.gv.at/person/22269",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/21008/2100849_384.jpg"
+  },
+  {
+    "id": "25260",
+    "parties": [],
+    "periods": [
+      "XXII"
+    ],
+    "name": "Liese Prokop",
+    "url": "https://parlament.gv.at/person/25260",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/21008/2100899_384.jpg"
+  },
+  {
+    "id": "2801",
+    "parties": [],
+    "periods": [
+      "XXII"
+    ],
+    "name": "Dr. Franz Fiedler",
+    "url": "https://parlament.gv.at/person/2801",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/65176/6517628_384.jpg"
+  },
+  {
+    "id": "8675",
+    "parties": [
+      "FPÖ"
+    ],
+    "periods": [
+      "XXII"
+    ],
+    "name": "Dr. Reinhart Waneck",
+    "url": "https://parlament.gv.at/person/8675",
+    "imageUrl": "https://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg"
+  },
+  {
+    "id": "1688",
+    "parties": [
+      "FPÖ"
+    ],
+    "periods": [
+      "XXII"
+    ],
+    "name": "Dr. Susanne Riess-Passer",
+    "url": "https://parlament.gv.at/person/1688",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/21002/2100256_384.jpg"
   }
 ]

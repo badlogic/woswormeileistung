@@ -94,9 +94,9 @@ export async function processPersons(baseDir: string) {
                     case "F":
                         return ["FPÖ"];
                     case "F-BZÖ":
-                        return ["FPÖ", "BZÖ"];
+                        return ["BZÖ"];
                     case "NEOS-LIF":
-                        return ["NEOS", "LIF"];
+                        return ["NEOS"];
                     case "OK":
                         return ["Ohne Klub"];
                     case "JETZT":
@@ -164,7 +164,7 @@ export class Persons {
             .replace(/ı/g, "i") // Replace dotless 'ı' with 'i'
             .split(",")[0]
             .split(/\s+/)
-            .filter((part) => !part.includes(".") && !part.includes("("))
+            .filter((part) => !part.includes("("))
             .map((part) => [...part.split("-"), part])
             .flat();
         this.idToNameParts.set(person.id, nameParts);
@@ -197,7 +197,7 @@ export class Persons {
         return matrix[b.length][a.length];
     }
 
-    search(query: string, period?: string) {
+    /*search(query: string, period?: string) {
         const normalizedQuery = query
             .toLowerCase()
             .replace(/ı/g, "i") // Replace dotless 'ı' with 'i'
@@ -217,6 +217,50 @@ export class Persons {
         });
 
         // Sort by total score (sum of best matches for all query parts), then by name length for similarly scored names
+        scoredNames.sort((a, b) => a.score - b.score || a.person.name.length - b.person.name.length);
+        return scoredNames.slice(0, 5);
+    }*/
+
+    search(query: string, period?: string) {
+        const normalizedQuery = query
+            .toLowerCase()
+            .replace(/ı/g, "i") // Replace dotless 'ı' with 'i'
+            .split(/\s+/)
+            .filter((part) => part);
+
+        const persons = period ? this.persons.filter((p) => p.periods.includes(period)) : this.persons;
+        const scoredNames = persons.map((person) => {
+            const nameParts = this.idToNameParts.get(person.id)!;
+            let score = 0;
+            let lastIndex = -1;
+
+            for (const queryPart of normalizedQuery) {
+                // Initialize high score for comparison; lower scores are better
+                let bestMatchScore = Infinity;
+                let bestMatchIndex = -1;
+
+                for (let i = lastIndex + 1; i < nameParts.length; i++) {
+                    const currentScore = Persons.levenshtein(queryPart, nameParts[i]);
+                    if (currentScore < bestMatchScore) {
+                        bestMatchScore = currentScore;
+                        bestMatchIndex = i;
+                    }
+                }
+
+                // Update score and last index if a match was found
+                if (bestMatchIndex !== -1) {
+                    score += bestMatchScore;
+                    lastIndex = bestMatchIndex;
+                } else {
+                    // If no match was found in the remaining name parts, penalize heavily
+                    score += 100;
+                }
+            }
+
+            return { person, score };
+        });
+
+        // Sort by total score, then by name length for similarly scored names
         scoredNames.sort((a, b) => a.score - b.score || a.person.name.length - b.person.name.length);
         return scoredNames.slice(0, 5);
     }

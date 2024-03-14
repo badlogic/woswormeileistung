@@ -23,12 +23,22 @@ export class MainPage extends LitElement {
             <div class="${pageContentStyle} h-[100vh]">
                 <div class="flex-grow flex flex-col w-full mt-4 gap-4 px-4">
                     <theme-toggle class="self-end"></theme-toggle>
-                    <!--<img class="max-h-12" src="https://www.parlament.gv.at/static/img/logo.svg" />-->
                     <h1 class="text-center">Wos wor mei Leistung?</h1>
                     <p class="text-center italic text-sm">
                         Ein Datenprojekt basierend auf den stenographischen Protokollen aller Sitzungen des Österreichischen Parlaments ab dem
                         20.12.2002
                     </p>
+                    <h1>Recherche Tools</h1>
+                    <div>
+                        Hier entstehen verschiedene Recherche bzw. Analyse Tools, basierend auf den unten beschrieben Daten. Einfach auf das
+                        entsprechende Kasterl klicken :D
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a class="flex flex-col gap-2 max-w-[50%] border border-primary rounded-md p-4 text-center" href="/persons">
+                            <span class="text-lg font-bold">Personen Recherche</span>
+                            <p>Personen suchen und deren Zwischenrufe, Abwesenheiten, Taferln und Redebeiträge analysieren.</p>
+                        </a>
+                    </div>
                     <h1>Daten</h1>
                     <p>
                         Im Rahmen des Projekts werden die
@@ -39,19 +49,24 @@ export class MainPage extends LitElement {
                         übergeführt. Der Fokus liegt hierbei auf Daten zu im Parlament vertretenen Personen sowie den stenographischen Protokollen der
                         Nationalratssitzungen ab dem 20.12.2002.
                     </p>
+
                     <p>Die Daten sollen für wissenschaftliche Arbeiten sowie Daten-Journalismus zugänglicher gemacht werden.</p>
+                    <h2>Lizenz</h2>
                     <p>
                         Die originalen Datensätze unterliegen der
                         <a class="text-blue-400" href="https://creativecommons.org/licenses/by/4.0/deed.de">CC BY 4.0 Lizenz</a>. Die hier zur
                         Verfügung gestellten transformierten Daten unterliegen ebenfalls der CC BY 4.0 Lizenz.
                     </p>
                     <h2>Personen Daten</h2>
-                    <p>Der Personen-Datensatz ist im JSON-Format unter folgendem Link verfügbar</p>
-                    <a class="text-blue-400" href="/data/persons.json">persons.json (192KB)</a>
                     <p>
-                        Der Datensatz beinhaltet informationen zu allen Personen die ab dem 20.12.2002 im Parlament zumindest eine Wortmeldung
+                        Der Personen-Datensatz ist im JSON-Format unter folgendem Link verfügbar:
+                        <a class="text-blue-400" href="/data/persons.json">persons.json (192KB)</a>
+                    </p>
+                    <p>
+                        Der Datensatz beinhaltet Informationen zu allen Personen, die ab dem 20.12.2002 im Parlament zumindest eine Wortmeldung
                         getätigt haben (entweder am Podium oder per Zuruf).
                     </p>
+
                     <p>Die JSON-Datei hat folgende Struktur:</p>
                     <pre><code>
 ${code(`
@@ -97,12 +112,11 @@ ${code(`
                         <li>
                             <b>parties</b>: Parteizugehörigkeit, so in den Parlamentsdaten eruierbar. Bei mehreren Einträgen gibt die Reihenfolge der
                             Liste nicht die chronologische Reihenfolge wieder! Mögliche Werte: <code>ÖVP</code>, <code>SPÖ</code>, <code>FPÖ</code>,
-                            <code>GRÜNE</code>, <code>NEOS</code>, <code>LIF</code> (Liberales Forum), <code>BZÖ</code>, <code>STRONACH</code>,
-                            <code>PILZ</code> (Liste Pilz/JETZT), <code>Ohne Klub</code>. Bei Personen, die ohne Parteizugehörigkeit und vorheriges
-                            Nationalratsmandat zu Regierungsmitgliedern ernannt wurden, ist diese Liste leer. Das ist z.B. bei den
-                            Regierungsmitgliedern der
+                            <code>GRÜNE</code>, <code>NEOS</code>, <code>BZÖ</code>, <code>STRONACH</code>, <code>PILZ</code> (Liste Pilz/JETZT),
+                            <code>Ohne Klub</code>. Bei Personen, die ohne Parteizugehörigkeit und vorheriges Nationalratsmandat zu
+                            Regierungsmitgliedern ernannt wurden, ist diese Liste leer. Das ist z.B. bei den Regierungsmitgliedern der
                             <a class="text-blue-400" href="https://de.wikipedia.org/wiki/Bundesregierung_Bierlein">Bundesregierung Bierlein</a> der
-                            Fall, oder auch bei parteilosen MinisterInnen, die von einer Partei nominiert wurden, wie z.B. Mag. Dr. Martin Kocher.
+                            Fall, oder auch bei parteilosen MinisterInnen, die von einer Partei nominiert wurden, wie z.B. Mag. Dr. Martin Kocher.
                         </li>
                         <li>
                             <b>periods</b>: Legislaturperioden während derer die Person Abgeordnete(r) im Parlament war. Bei Personen ohne Mandat ist
@@ -128,10 +142,11 @@ ${code(`
                         <a class="text-blue-400" href="https://twitter.com/OeParl/status/1757021460227313695">Tweet</a> des Österreichischen
                         Parlaments.
                     </p>
-                    <p>Der Sitzungs-Datensatz ist im JSON-Format unter folgendem Link verfügbar</p>
+                    <p>Der Sitzungs-Datensatz ist im JSON-Format unter folgendem Link verfügbar:</p>
                     <a class="text-blue-400" href="/data/sessions.json">sessions.json (440MB)</a>
                     <p>Der Datensatz beinhaltet alle stenographischen Protokolle aller Nationalratssitzungen seit dem 20.12.2002.</p>
                     <p>Die JSON-Datei hat folgende Struktur:</p>
+
                     <pre><code>
 ${code(`
 [
@@ -191,6 +206,7 @@ ${code(`
                         eine Sitzung in chronologischer Reihenfolge im Feld <code>sections</code> abgelegt.
                     </p>
                     <p>Eine SprecherInnen-Sektion in der <code>sections</code> Liste hat folgende Struktur:</p>
+
                     <pre><code>
 ${code(`
 {
@@ -225,20 +241,20 @@ ${code(`
 }
 `)}
                     </code></pre>
-                    <p>Eine SprecherInnen-Sektion hat dabei folgende Felder</p>
+                    <p>Eine SprecherInnen-Sektion hat dabei folgende Felder:</p>
                     <ul class="px-4">
                         <li>
                             <b>speaker</b>: Die Parlaments-ID der Person, die spricht. Mit dieser ID können die Details zur Person im
                             Personen-Datensatz gefunden werden (vgl. oben).
                         </li>
-                        <li><b>text</b>: Das Transkript der Rede der Person, inklusive Zwischenrufen und Beschreibungen der Situation im Plenum</li>
+                        <li><b>text</b>: Das Transkript der Rede der Person, inklusive Zwischenrufen und Beschreibungen der Situation im Plenum.</li>
                         <li>
                             <b>callouts</b>: Eine Liste von Zwischenrufen und Situationsbeschreibungen. Bei einem Zwischenruf gibt das Feld
                             <code>caller</code> die Parlaments-ID der Person, die den Zwischenruf getätigt hat, an. Bei Situationsbeschreibungen fehlt
                             dieses Feld. Das Feld <code>text</code> gibt das Transkript des Zwischenrufes oder die Situationsbeschreibung wieder.
                         </li>
                         <li>
-                            <b>links</b>: Eine Liste an Links, die im stenographischen Protokol in dieser SprecherInnen-Sektion gefunden wurden. Das
+                            <b>links</b>: Eine Liste an Links, die im stenographischen Protokoll in dieser SprecherInnen-Sektion gefunden wurden. Das
                             Feld <code>label</code> gibt den Text des Links wieder, das Feld <code>url</code> den Link selbst.
                         </li>
                     </ul>
@@ -246,7 +262,7 @@ ${code(`
                     <h2>Datenerhebung und Qualität</h2>
                     <h3>Personen Datensatz</h3>
                     <p>
-                        Als Basis des transfomierten Datensatzes dient die
+                        Als Basis des transformierten Datensatzes dient die
                         <a
                             class="text-blue-400"
                             href="https://www.parlament.gv.at/recherchieren/open-data/daten-und-lizenz/parlamentarierinnen/index.html"
@@ -254,7 +270,7 @@ ${code(`
                         >. Über diese API werden die ParlamentarierInnen für die untersuchten Legislaturperioden ab 20.12.2002 extrahiert. Die von der
                         API returnierten Daten beinhalten den Namen der Person, die Legislaturperioden in denen die Person im Plenum teilgenommen hat,
                         sowie rudimentäre und uneinheitlich kodierte Information über die Klubzugehörigkeit der Person. Aus diesen Daten werden die
-                        Legislaturperiodeninformation sowie Klubzugehörigkeit verwendet, wobei letzters normiert wird (vgl. Feld
+                        Legislaturperiodeninformation sowie Klubzugehörigkeit verwendet, wobei letzteres normiert wird (vgl. Feld
                         <code>parties</code> im Personen Datensatz oben).
                     </p>
                     <p>
@@ -276,14 +292,12 @@ ${code(`
                     <p>Die Extraktion des Namens einer Person war in allen geprüften Fällen (68) korrekt.</p>
                     <p>Die Extraktion der Klub- bzw. Parteizugehörigkeit war in allen Fällen (68) korrekt.</p>
                     <p>Die Extraktion der Legislaturperioden, in denen die Person im Parlament vertreten war, war in allen Fällen (68) korrekt.</p>
-
                     <p>
                         Der Code zur Extraktion personenbezogener Daten ist in der Datei
                         <a class="text-blue-400" href="https://github.com/badlogic/woswormeileistung/blob/main/src/server/persons.ts">persons.ts</a>
-                        auf GitHub zu finden
+                        auf GitHub zu finden.
                     </p>
 
-                    <p></p>
                     <h3>Sitzungs Datensatz</h3>
                     <p>
                         Als Basis des transformierten Datensatzes dienen die im HTML-Format abgespeicherten stenographischen Protokolle von der
@@ -297,7 +311,7 @@ ${code(`
                     </p>
 
                     <p>
-                        Der transfomierte Datensatz wurde daher stichprobenartig überprüft, um die Extraktions-Pipeline zu validieren. Es wurden pro
+                        Der transformierte Datensatz wurde daher stichprobenartig überprüft, um die Extraktions-Pipeline zu validieren. Es wurden pro
                         Legislaturperiode jeweils 4 Sitzungen mit stenographischem Protokoll ausgewählt und manuell mit den Rohdaten der
                         Parlamentsseite verglichen. Dabei wurden für jede Sitzung jeweils 20 SprecherInnen-Sektionen, verteilt über das ganze
                         Protokoll, verglichen.
@@ -306,7 +320,7 @@ ${code(`
                         Die Zuweisung der Personen-ID an eine SprecherInnen-Sektion ist immer korrekt, da die IDs eindeutig in den Rohdaten
                         ausgewiesen sind.
                     </p>
-                    <p>Die Extraktionen des Transkripts einer SprecherInnen-Sektion war in allen geprüften Fällen (480) korrekt</p>
+                    <p>Die Extraktionen des Transkripts einer SprecherInnen-Sektion war in allen geprüften Fällen (480) korrekt.</p>
                     <p>
                         Die Extraktion von Zwischenrufen und die Zuweisung der dazugehörigen Personen-IDs war in allen geprüften Fällen (480) korrekt.
                     </p>
@@ -333,9 +347,19 @@ ${code(`
 
                     <h2>API</h2>
                     <p>To be defined</p>
+                    <h2>Zitat</h2>
+                    <pre><code>
+@software{zechner2024wwml,
+    title={Wos wor mei Leistung? - Ein Datenprojekt basierend auf den stenographischen Protokollen aller Sitzungen des Österreichischen Parlaments ab dem 20.12.2002},
+    author={Mario Zechner},
+    year={2024},
+    url={https://woswormeileistung.marioslab.io},
+    note={License: CC BY 4.0}
+}
+                    </code></pre>
                 </div>
 
-                <span class="text-xs text-center text-fg-muted pb-4 mt-8"
+                <span class="text-xs text-center text-fg-muted pb-4 px-4 mt-8"
                     >Mit Spucke und Tixo gebaut von <a href="https://twitter.com/badlogicgames" class="text-blue-400">Mario Zechner</a><br />Es werden
                     keine Daten gesammelt, nicht einmal deine IP Adresse</span
                 >

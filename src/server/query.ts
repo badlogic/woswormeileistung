@@ -1,17 +1,10 @@
-import { Person, Session, SpeakerSection } from "../common/common";
+import { Person, Session, SessionSection, SpeakerSection } from "../common/common";
 import { Persons } from "./persons";
 
 let personsDb: Persons = new Persons([]);
 let sessionsDb: Session[] = [];
 
 export const isAllDigits = (str: string): boolean => /^\d+$/.test(str);
-
-export interface QueryResult {
-    date: string;
-    period: string;
-    sessionNumber: number;
-    section: SpeakerSection;
-}
 
 export function initQueries(_persons: Persons, _sessions: Session[]) {
     console.log("Initializing query system");
@@ -43,7 +36,7 @@ export function querySpeakerSections(
     fromDate: Date | undefined,
     toDate: Date | undefined,
     keywords: string[]
-) {
+): { persons: Person[]; sections: SessionSection[] } {
     let periodsLookup = new Set<string>(periods);
     let sessionsLookup = new Set<number>(sessions);
     let personLookup = queryPersons(persons);
@@ -53,20 +46,24 @@ export function querySpeakerSections(
     filteredSessions = fromDate ? filteredSessions.filter((session) => new Date(session.date) >= fromDate) : filteredSessions;
     filteredSessions = toDate ? filteredSessions.filter((session) => new Date(session.date) >= toDate) : filteredSessions;
 
-    const resultSections: QueryResult[] = [];
+    const resultSections: SessionSection[] = [];
     const resultPersons = new Map<string, Person>();
     for (const session of filteredSessions) {
         if (sessions.length > 0 && !sessionsLookup.has(session.sessionNumber)) continue;
-        for (const section of session.sections) {
+        for (let i = 0; i < session.sections.length; i++) {
+            const section = session.sections[i];
             const speaker = personsDb.byId(section.speaker as string)!;
+
             if (parties.length > 0 && !speaker.parties.some((party) => partiesLookup.has(party))) continue;
             if (persons.length > 0 && !personLookup.has(speaker?.id)) continue;
             if (keywords.length > 0 && !keywords.some((keyword) => section.text.includes(keyword))) continue;
+
             resultPersons.set(speaker.id, speaker);
             resultSections.push({
                 date: session.date,
                 period: session.period,
-                sessionNumber: session.sessionNumber,
+                session: session.sessionNumber,
+                sectionIndex: i,
                 section: section,
             });
         }

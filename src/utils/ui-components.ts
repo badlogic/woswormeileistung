@@ -4,6 +4,7 @@ import { map } from "lit/directives/map.js";
 import { errorIcon, arrowUpDoubleIcon, spinnerIcon, upDownIcon, moonIcon, sunIcon, settingsIcon, arrowLeftIcon, arrowRightIcon } from "./icons.js";
 import { router } from "./routing.js";
 import { Store, Theme } from "./store.js";
+import { repeat } from "lit-html/directives/repeat.js";
 
 export function dom(template: TemplateResult, container?: HTMLElement | DocumentFragment): HTMLElement[] {
     if (container) {
@@ -689,6 +690,11 @@ export function fixLinksAndVideos(container: HTMLElement, collapsed = false) {
     const links = container.querySelectorAll("a");
     if (links) {
         links.forEach((link) => {
+            if (link.host == location.host && link.href.includes("/api/")) {
+                link.setAttribute("target", "_blank");
+                return;
+            }
+
             if (collapsed) {
                 link.addEventListener("click", (ev) => ev.preventDefault());
                 return;
@@ -703,8 +709,6 @@ export function fixLinksAndVideos(container: HTMLElement, collapsed = false) {
                     ev.stopPropagation();
                     ev.stopImmediatePropagation();
                     if (link.pathname == location.pathname) return;
-                    const navs = new Set<string>(["/home", "/settings", "/hashtags", "/lists", "/feeds", "/search", "/notifications"]);
-
                     router.push(link.pathname);
                 });
             }
@@ -755,5 +759,46 @@ export class ThemeToggle extends LitElement {
         return html`<button class="flex items-center justify-center w-full h-full primary" @click=${this.toggleTheme}>
             <i class="icon !w-6 !h-6">${this.theme == "dark" ? moonIcon : sunIcon}</i>
         </button>`;
+    }
+}
+
+@customElement("expandable-list")
+export abstract class ExpandableList<T> extends BaseElement {
+    @property()
+    list: T[] = [];
+
+    @state()
+    stepSize = 0;
+
+    @state()
+    numVisible = 5;
+
+    abstract itemId(item: T): string;
+    abstract renderItem(item: T): TemplateResult;
+
+    render() {
+        if (this.stepSize > 0) {
+            return html`<div class="flex flex-col gap-4">
+                ${repeat(
+                    [...this.list].splice(0, this.numVisible),
+                    (item) => this.itemId(item),
+                    (item) => this.renderItem(item)
+                )}
+                ${this.numVisible < this.list.length
+                    ? html`<button class="self-center button-muted" @click=${() => (this.numVisible += this.stepSize)}>Mehr anzeigen</button>`
+                    : nothing}
+            </div>`;
+        } else {
+            return html`<div class="flex flex-col gap-4">
+                ${repeat(
+                    [...this.list].splice(0, this.numVisible),
+                    (item) => this.itemId(item),
+                    (item) => this.renderItem(item)
+                )}
+                ${this.numVisible < this.list.length
+                    ? html`<button class="self-center button-muted" @click=${() => (this.numVisible = this.list.length)}>Alle anzeigen</button>`
+                    : nothing}
+            </div>`;
+        }
     }
 }
