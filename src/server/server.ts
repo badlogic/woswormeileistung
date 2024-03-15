@@ -278,6 +278,15 @@ async function updateData() {
         }
     });
 
+    app.get("/api/plaques", async (req, res) => {
+        try {
+            res.json(Array.from(plaques.values()).sort((a, b) => b.callouts.length - a.callouts.length));
+        } catch (e) {
+            console.error("Could not get plaques", e);
+            res.status(400).json({ error: "Could not get plaques" });
+        }
+    });
+
     app.get("/api/missing/:id", async (req, res) => {
         try {
             const missingPerson = missingPerPerson.get(req.params.id as string);

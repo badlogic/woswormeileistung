@@ -1,5 +1,5 @@
 import { Missing, Person, Persons, Plaque, Screamer, Session } from "../common/common";
-import { querySpeakerSections } from "../common/query";
+import { initQueries, querySpeakerSections } from "../common/query";
 import * as fs from "fs";
 
 export function extractMissing(persons: Persons, sessions: Session[], periods = new Set<string>()) {
@@ -23,6 +23,7 @@ export function extractMissing(persons: Persons, sessions: Session[], periods = 
         "ist Abgeordnete ",
         " – und zwar für diese Sitzung –:",
     ];
+    initQueries(persons, sessions);
     const result = querySpeakerSections([], [], [], [], undefined, undefined, `+"verhindert gemeldet"`);
     const output: Missing[] = [];
     const cleanOutput: string[] = [];
