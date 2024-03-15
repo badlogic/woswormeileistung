@@ -10,7 +10,7 @@ export class PageFooter extends BaseElement {
     render() {
         return html`<div class="flex flex-col text-xs text-center text-fg-muted pb-4 px-4 mt-8">
             <span>Mit Spucke und Tixo gebaut von <a href="https://twitter.com/badlogicgames" class="text-blue-400">Mario Zechner</a></span>
-            <span>Logo von <a href="https://twitter.com/badlogicgames" class="text-blue-400">Raffael Reithofer</a></span>
+            <span>Logo von <a href="https://twitter.com/RaffiReithofer" class="text-blue-400">Raffael Reithofer</a></span>
             <span>Es werden keine Daten gesammelt, nicht einmal deine IP Adresse</span>
         </div>`;
     }
