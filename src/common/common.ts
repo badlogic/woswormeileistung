@@ -1,10 +1,13 @@
 export interface Person {
     id: string;
     name: string;
-    parties: string[];
     url: string;
+    parties: string[];
     imageUrl?: string;
     periods: string[];
+    givenName: string;
+    familyName: string;
+    titles: string[];
 }
 
 export interface SpeakerSection {
@@ -123,4 +126,130 @@ export function getPartiesForPeriods(periods: string[] | Iterable<string>) {
         parties.push(...ps!);
     }
     return parties;
+}
+
+export class Persons {
+    idToPerson = new Map<string, Person>();
+    idToNameParts = new Map<string, string[]>();
+
+    constructor(public persons: Person[]) {
+        this.addAll(this.persons);
+    }
+
+    addAll(persons: Person[]) {
+        for (const person of persons) {
+            this.add(person);
+        }
+    }
+
+    add(person: Person) {
+        if (this.idToPerson.has(person.id)) {
+            return;
+        }
+        this.idToPerson.set(person.id, person);
+        const nameParts = person.name
+            .toLowerCase()
+            .replace(/ı/g, "i") // Replace dotless 'ı' with 'i'
+            .split(",")[0]
+            .split(/\s+/)
+            .filter((part) => !part.includes("("))
+            .map((part) => [...part.split("-"), part])
+            .flat();
+        this.idToNameParts.set(person.id, nameParts);
+    }
+
+    byId(id: string) {
+        return this.idToPerson.get(id);
+    }
+
+    private static levenshtein(a: string, b: string): number {
+        const matrix = [];
+
+        for (let i = 0; i <= b.length; i++) {
+            matrix[i] = [i];
+        }
+        for (let j = 0; j <= a.length; j++) {
+            matrix[0][j] = j;
+        }
+
+        for (let i = 1; i <= b.length; i++) {
+            for (let j = 1; j <= a.length; j++) {
+                if (b.charAt(i - 1) == a.charAt(j - 1)) {
+                    matrix[i][j] = matrix[i - 1][j - 1];
+                } else {
+                    matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, Math.min(matrix[i][j - 1] + 1, matrix[i - 1][j] + 1));
+                }
+            }
+        }
+
+        return matrix[b.length][a.length];
+    }
+
+    /*search(query: string, period?: string) {
+        const normalizedQuery = query
+            .toLowerCase()
+            .replace(/ı/g, "i") // Replace dotless 'ı' with 'i'
+            .split(/\s+/)
+            .filter((part) => part);
+
+        const persons = period ? this.persons.filter((p) => p.periods.includes(period)) : this.persons;
+        const scoredNames = persons.map((person) => {
+            const nameParts = this.idToNameParts.get(person.id)!;
+            const score = normalizedQuery.reduce((acc, queryPart) => {
+                // Find the best match for each query part in name parts
+                const partScores = nameParts.map((namePart) => Persons.levenshtein(queryPart, namePart));
+                const bestMatch = Math.min(...partScores);
+                return acc + bestMatch;
+            }, 0);
+            return { person, score };
+        });
+
+        // Sort by total score (sum of best matches for all query parts), then by name length for similarly scored names
+        scoredNames.sort((a, b) => a.score - b.score || a.person.name.length - b.person.name.length);
+        return scoredNames.slice(0, 5);
+    }*/
+
+    search(query: string, period?: string) {
+        const normalizedQuery = query
+            .toLowerCase()
+            .replace(/ı/g, "i") // Replace dotless 'ı' with 'i'
+            .split(/\s+/)
+            .filter((part) => part);
+
+        const persons = period ? this.persons.filter((p) => p.periods.includes(period)) : this.persons;
+        const scoredNames = persons.map((person) => {
+            const nameParts = this.idToNameParts.get(person.id)!;
+            let score = 0;
+            let lastIndex = -1;
+
+            for (const queryPart of normalizedQuery) {
+                // Initialize high score for comparison; lower scores are better
+                let bestMatchScore = Infinity;
+                let bestMatchIndex = -1;
+
+                for (let i = lastIndex + 1; i < nameParts.length; i++) {
+                    const currentScore = Persons.levenshtein(queryPart, nameParts[i]);
+                    if (currentScore < bestMatchScore) {
+                        bestMatchScore = currentScore;
+                        bestMatchIndex = i;
+                    }
+                }
+
+                // Update score and last index if a match was found
+                if (bestMatchIndex !== -1) {
+                    score += bestMatchScore;
+                    lastIndex = bestMatchIndex;
+                } else {
+                    // If no match was found in the remaining name parts, penalize heavily
+                    score += 100;
+                }
+            }
+
+            return { person, score };
+        });
+
+        // Sort by total score, then by name length for similarly scored names
+        scoredNames.sort((a, b) => a.score - b.score || a.person.name.length - b.person.name.length);
+        return scoredNames.slice(0, 5);
+    }
 }

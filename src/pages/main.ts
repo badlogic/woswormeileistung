@@ -3,6 +3,18 @@ import { LitElement, PropertyValueMap, html } from "lit";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 import { customElement } from "lit/decorators.js";
 import { pageContainerStyle, pageContentStyle } from "../utils/styles.js";
+import { BaseElement } from "../app.js";
+
+@customElement("page-footer")
+export class PageFooter extends BaseElement {
+    render() {
+        return html`<div class="flex flex-col text-xs text-center text-fg-muted pb-4 px-4 mt-8">
+            <span>Mit Spucke und Tixo gebaut von <a href="https://twitter.com/badlogicgames" class="text-blue-400">Mario Zechner</a></span>
+            <span>Logo von <a href="https://twitter.com/badlogicgames" class="text-blue-400">Raffael Reithofer</a></span>
+            <span>Es werden keine Daten gesammelt, nicht einmal deine IP Adresse</span>
+        </div>`;
+    }
+}
 
 @customElement("main-page")
 export class MainPage extends LitElement {
@@ -23,10 +35,29 @@ export class MainPage extends LitElement {
             <div class="${pageContentStyle} h-[100vh]">
                 <div class="flex-grow flex flex-col w-full mt-4 gap-4 px-4">
                     <theme-toggle class="self-end"></theme-toggle>
-                    <h1 class="text-center">Wos wor mei Leistung?</h1>
+                    <div class="flex gap-4 items-center justify-center text-4xl">
+                        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+                            <g id="layer1">
+                                <g id="g113">
+                                    <path
+                                        id="path2"
+                                        fill-rule="evenodd"
+                                        d="m121.5 114.6c0 1.7-2.6 3-5.8 3h-40.5c-22.1 0-44.2-0.7-66.2-2.2-0.7-0.1-1.1-0.4-1.1-0.8-1.4-0.7-1.1-4 0.5-7.7 1-1.8 1.8-3.8 2.9-5.7 0.3-0.5 0.6-0.9 0.9-1.4l0.9-1.6c0.5-1 1.3-1.6 2.2-1.9 0.4-0.1 0.9-0.2 1.4-0.2 0.4 0 0.5 0 0.8 0 1.5-0.3 3-0.4 4.6-0.5v-16.6c0-8.7 0.6-17.5 1.7-26.1-0.6 0-1.2 0-1.9 0.1-1.5 0.1-2.9 0.3-4.8 0-0.7-0.1-1.4-0.3-2-0.6-0.7-0.1-1.3-0.5-1.7-0.9-1-0.9-1.2-2.3-1.1-3.8l0.1-0.9v-1.5l-0.1-2.3c0-0.4 0.1-1.3 0.3-1.9 0.1-0.7 0.5-1.4 0.9-2 1-1.1 1.4-1.4 2.2-2 2.5-2.1 5.3-3.2 7.7-4.4 9.9-5.5 19.7-11 29.5-16.4 2.3-1.3 4.6-3.1 7.3-4.5 1.3-0.8 2.7-1.5 4.5-1.7 0.9-0.2 2-0.1 2.9 0.2 0.7 0.2 1.4 0.6 2.2 0.9 2.7 1.5 4.9 3.4 7.2 4.9 1.1 0.7 2.4 1.5 3.5 2.2l3.6 2.3c9.6 6 19.2 12.1 28.7 18.2 1.2 0.7 1.7 1.4 1.5 1.8q1 0 1.9 2.5c0.3 0.9 0.6 1.9 0.8 3.1l0.1 0.5c0.1 0.1 0.1 0.2 0.1 0.6 0 0.5 0.1 1.1 0 1.7-0.1 0.2-0.1 0.6-0.2 0.8-0.1 0.3-0.1 0.6-0.2 0.9-0.1 0.1-0.1 0.3-0.2 0.4l-0.2 0.3-0.6 0.7c-0.3 0.2-0.6 0.4-1 0.6-0.4 0.2-0.8 0.2-1.2 0.2-0.9 0.1-2.2 0-2.5 0l-3.7-0.2v17.1c0 9-0.6 18.1-1.9 27.1h1.1c1.2 0.1 2.6 0.2 3.7 0.2 0.7 0 1.4 0 2.2 0.1 0.7 0 1.7 0.4 2.5 1.1 0.7 0.6 1.1 1.2 1.4 1.9 0.3 0.7 0.6 1.4 0.9 2 0.4 1.2 0.9 2.5 1.3 3.7 0.2 0.6 0.5 1.1 0.7 1.7l0.8 1.8 1.6 3.6c0.4 0.8 0.3 1.3-0.2 1.6zm-84.6-18.9l4.3 0.2c1.3 0 2.6 0 3.9 0v-17.1c0-8.7 0.7-17.5 1.8-26.1h-8.3v17.1c0 8.6-0.5 17.3-1.7 25.9zm-3.8-25.9v-17.1h-7.1c1.1 8.6 1.8 17.4 1.8 26.1v16.6q0.9 0 1.8 0l5.2 0.2c-1.1-8.6-1.7-17.3-1.7-25.8zm17.5 9v17.1q1.1 0 2.2 0c1.6 0 3.4 0 5 0-1.1-8.7-1.7-17.4-1.7-26.1v-17.1h-7.2c1.2 8.6 1.7 17.4 1.7 26.1zm9.2 17.1c2.8 0.1 5.6 0.1 8.3 0.1v-17.2c0-8.7 0.6-17.5 1.7-26.1h-8.2v17.1c0 8.7-0.7 17.4-1.8 26.1zm13.8-17v17.2c2.4 0 4.8 0 7.2 0.1-1.1-8.8-1.8-17.6-1.8-26.4v-17.1h-7.1c1.2 8.6 1.7 17.4 1.7 26.2zm9.1 17.2c0.3 0 0.6 0 0.8 0q3.8 0.2 7.6 0.3c0 0 0-17.5 0-17.6 0-8.7 0.6-17.5 1.7-26.1h-8.3v17.1c0 8.8-0.6 17.6-1.8 26.3zm14-17.2c0 0.1 0 17.7 0 17.8 0.7 0 1.5 0 2.3 0l4.9 0.2c-1.3-9.1-1.9-18.1-1.9-27.1v-17.1h-7.2c1.2 8.6 1.8 17.4 1.9 26.2zm-70.8-32.2h83.5c0.4 0 0.6 0.1 0.9 0.1l1.2 0.1c0.7 0.1 0.4 0.1 0.5 0.1l0.1 0.1c0 0 0 0 0.1 0 0 0 0.1-0.1 0.1-0.2 0.1 0 0.1-0.2 0.1-0.3l0.1-0.4c0.1-1.1 0.3-2.2 0.4-3 0.3-1.3 0.7-2.3 1.1-2.6-0.4 0-1-0.3-1.8-0.7q-14.7-8.3-29.5-16.6l-3.7-2.1c-1.1-0.7-2.3-1.3-3.7-2.1-2.4-1.5-4.7-3.2-7-4.3-0.5-0.3-1.1-0.5-1.6-0.6-0.5-0.1-0.7-0.1-1.3 0-0.9 0.1-2.1 0.6-3.2 1.3-2.3 1.4-4.4 3.2-7.1 4.8l-14.7 8.6-7.3 4.4-3.7 2.1-1.8 1.1c-0.7 0.4-1.3 0.7-2 1.1-2.6 1.3-5 2.4-6.9 4-0.1 0.1-0.4 0.4-0.6 0.6-0.2 0.1-0.4 0.3-0.3 0.3v0.3l0.1 2.2v2c0 0 0 0 0 0 0.9 0.2 2.2 0.1 3.6-0.1 0.7-0.1 1.4-0.1 2.3-0.1zm49.5 64.6h40.6c1.4 0 2.7 0.4 3.8 0.8l-1.2-2-0.9-1.7c-0.3-0.5-0.7-1.2-0.9-1.7-0.6-1.2-1.1-2.4-1.7-3.5-0.2-0.5-0.5-1-0.9-1.6-0.3-0.5-0.7-0.9-0.9-1.1-0.2-0.1-0.5-0.2-1-0.2-0.5 0-1.1 0-1.8 0.1-1.4 0.1-2.5 0.1-3.9 0.1l-7.7 0.3c-5.1 0.1-10.2 0.3-15.3 0.4-10.2 0.3-20.5 0.4-30.8 0.4-3.9 0-7.7 0-11.7 0l-11.6-0.5c-3.9 0-7.6 0-11.3 0.5l-0.7 0.1-0.6 1.1q-0.4 0.6-0.7 1.2c-1 1.7-1.8 3.5-2.7 5.4-0.8 1.8-1.9 3.3-2.9 4.2 21.5-1.4 43.2-2.1 64.8-2.1zm-42.3-70.8c-0.3-0.9-0.4-1.9-0.6-2.8l11.6-6.5 13.7-7.5 1.6-0.8c0.4-0.3 1-0.7 1.5-1.1 0.6-0.3 1.2-0.7 1.8-1.1 0.6-0.2 1.8-0.8 2.9-0.8 0.5 0 1.1 0.2 1.7 0.5 0.3 0.3 0.4 0.3 0.6 0.4l0.6 0.4c0.6 0.5 1.2 1 1.7 1.3 0.1 0.1 0.2 0.2 0.3 0.3l0.5 0.2 0.9 0.6 1.8 1.2 7.3 4.8c4.5 2.9 8.9 5.9 13.3 8.9 0.6 0.2 1 0.5 1.3 0.8 0.5 0.4 0.6 0.9 0.5 1.1 0 1.6-3.1 3-6.9 3h-55.6zm11.5-3.1c-0.1 0-0.1 0 0 0.1 0.1 0 44.6 0 44.6 0-3.2-1.7-6.4-3.4-9.6-5.1l-10.4-5.6-0.4-0.2c-0.2-0.1-0.4-0.3-0.6-0.4-0.7-0.4-1.2-0.8-1.8-1.1l-0.4-0.3c-0.1-0.1-0.3-0.2-0.3-0.2-0.1-0.1-0.2-0.1-0.2-0.1-0.2 0-0.2 0-0.7 0.4-0.4 0.2-1 0.7-1.5 1-0.5 0.3-1 0.8-1.6 1.2-0.4 0.2-0.7 0.4-1 0.6l-0.8 0.5-6.7 4-6.7 4-1.6 1-0.3 0.2q0 0 0 0zm0 0q0 0 0 0 0 0 0 0 0 0 0 0z"
+                                    />
+                                </g>
+                            </g>
+                        </svg>
+                        <div class="text-center">
+                            Wos wor mei <br />
+                            Leistung?
+                        </div>
+                    </div>
                     <p class="text-center italic text-sm">
                         Ein Datenprojekt basierend auf den stenographischen Protokollen aller Sitzungen des Österreichischen Parlaments ab dem
                         20.12.2002
+                    </p>
+                    <p class="text-center text-xs italic">
+                        Ja, das Meischberger Zitat lautet "Wo wor mei Leistung". Hier wollen wir aber wissen "wos" die Leistung war.
                     </p>
                     <h1>Recherche Tools</h1>
                     <div>
@@ -359,10 +390,7 @@ ${code(`
                     </code></pre>
                 </div>
 
-                <span class="text-xs text-center text-fg-muted pb-4 px-4 mt-8"
-                    >Mit Spucke und Tixo gebaut von <a href="https://twitter.com/badlogicgames" class="text-blue-400">Mario Zechner</a><br />Es werden
-                    keine Daten gesammelt, nicht einmal deine IP Adresse</span
-                >
+                <page-footer></page-footer>
             </div>
         </div>`;
     }

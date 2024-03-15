@@ -113,11 +113,7 @@ export class Api {
         return await apiGet<SectionScreams[]>("screamsat/" + +encodeURIComponent(id));
     }
 
-    static async section(period: string, session: number, section: number) {
-        const params = new URLSearchParams();
-        params.append("period", period);
-        params.append("session", session.toString());
-        params.append("section", section.toString());
-        return await apiGet<SpeakerSection>("section?" + params.toString());
+    static async section(period: string, session: number | string, section: number | string) {
+        return await apiGet<SessionSection>(`section/${period}/${session}/${section}`);
     }
 }

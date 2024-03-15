@@ -126,3 +126,8 @@ export function downloadFile(filename: string, content: any) {
     document.body.removeChild(element);
     URL.revokeObjectURL(element.href);
 }
+
+export function download(prefix: string, obj: any) {
+    prefix = prefix.replace(/[^\w\s-]/gi, "").replace(/\s+/g, "_");
+    downloadFile(prefix + ".json", JSON.stringify(obj, null, 2));
+}

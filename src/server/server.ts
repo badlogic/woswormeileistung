@@ -6,9 +6,9 @@ import express from "express";
 import * as fs from "fs";
 import * as http from "http";
 import WebSocket, { WebSocketServer } from "ws";
-import { Missing, MissingPerson, Plaque, Scream, Screamer, SectionScreams, Session } from "../common/common";
-import { Persons, processPersons } from "./persons";
-import { initQueries, isAllDigits, querySpeakerSections } from "./query";
+import { Missing, MissingPerson, Persons, Plaque, Scream, Screamer, SectionScreams, Session, SessionSection } from "../common/common";
+import { processPersons } from "./persons";
+import { initQueries, isAllDigits, querySpeakerSections } from "../common/query";
 import { processSessions } from "./sessions";
 
 const port = process.env.PORT ?? 3333;
@@ -213,8 +213,8 @@ async function updateData() {
             const persons = toArray(req.query.person);
             const fromDate = req.query.from ? new Date(req.query.from as string) : undefined;
             const toDate = req.query.to ? new Date(req.query.to as string) : undefined;
-            const keywords = toArray(req.query.keyword);
-            const result = querySpeakerSections(periods, sessions, parties, persons, fromDate, toDate, keywords);
+            const query = (req.query.query as string) ?? "";
+            const result = querySpeakerSections(periods, sessions, parties, persons, fromDate, toDate, query);
             const uniquePeriods = new Set<string>();
             const uniqueSessions = new Set<string>();
             for (const section of result.sections) {
@@ -236,14 +236,28 @@ async function updateData() {
         }
     });
 
-    app.get("/api/section", async (req, res) => {
+    app.get("/api/section/:period/:session/:section", async (req, res) => {
         try {
-            const period = req.query.period as string;
-            const session = req.query.session as string;
-            const sectionIndex = parseInt(req.query.section as string);
-            const section = sessionsById.get(period + "-" + session)?.sections[sectionIndex];
+            const period = req.params.period as string;
+            const sessionNumber = req.params.session as string;
+            const sectionIndex = parseInt(req.params.section as string);
+            const session = sessionsById.get(period + "-" + sessionNumber);
+            if (!session) throw new Error();
+            const section = session.sections[sectionIndex];
             if (!section) throw new Error();
-            res.json(section);
+            const person = persons.byId(section.speaker as string);
+            if (!person) throw new Error();
+            const sessionSection: SessionSection = {
+                date: session.date,
+                period,
+                session: session.sessionNumber,
+                sectionIndex,
+                section: {
+                    ...section,
+                    speaker: person,
+                },
+            };
+            res.json(sessionSection);
         } catch (e) {
             console.error("Could not get section", e);
             res.status(400).json({ error: "Could not get section" });

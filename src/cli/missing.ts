@@ -1,8 +1,7 @@
 import * as fs from "fs";
-import { Person, Session, getPartiesForPeriods } from "../common/common";
+import { Person, Persons, Session, getPartiesForPeriods } from "../common/common";
 import { extractMissing } from "../server/extraction";
-import { Persons } from "../server/persons";
-import { initQueries } from "../server/query";
+import { initQueries } from "../common/query";
 
 if (require.main === module) {
     (async () => {

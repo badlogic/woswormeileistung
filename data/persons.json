@@ -2,6 +2,9 @@
   {
     "id": "3612",
     "name": "Sonja Ablinger",
+    "givenName": "Sonja",
+    "familyName": "Ablinger",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -16,6 +19,11 @@
   {
     "id": "14854",
     "name": "Dipl.-Ing. Elke Achleitner",
+    "givenName": "Elke",
+    "familyName": "Achleitner",
+    "titles": [
+      "Dipl.-Ing."
+    ],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -29,6 +37,11 @@
   {
     "id": "83119",
     "name": "Mag. Nikolaus Alm",
+    "givenName": "Nikolaus",
+    "familyName": "Alm",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "NEOS"
     ],
@@ -41,6 +54,12 @@
   {
     "id": "51879",
     "name": "Mag. Hannes Amesbauer, BA",
+    "givenName": "Hannes",
+    "familyName": "Amesbauer",
+    "titles": [
+      "Mag.",
+      "BA"
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -54,6 +73,35 @@
   {
     "id": "2819",
     "name": "Werner Amon, MBA",
+    "givenName": "Werner",
+    "familyName": "Amon",
+    "titles": [
+      "MBA"
+    ],
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XIX",
+      "XX",
+      "XXI",
+      "XXII",
+      "XXIII",
+      "XXIV",
+      "XXV",
+      "XXVI"
+    ],
+    "url": "https://parlament.gv.at/person/2819",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/90356/9035616_384.jpg"
+  },
+  {
+    "id": "2819",
+    "name": "Werner Amon, MBA",
+    "givenName": "Werner",
+    "familyName": "Amon",
+    "titles": [
+      "MBA"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -73,6 +121,11 @@
   {
     "id": "73000",
     "name": "Ing. Maurice Androsch",
+    "givenName": "Maurice",
+    "familyName": "Androsch",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -85,6 +138,9 @@
   {
     "id": "84060",
     "name": "Erwin Angerer",
+    "givenName": "Erwin",
+    "familyName": "Angerer",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -99,6 +155,9 @@
   {
     "id": "83107",
     "name": "Konrad Antoni",
+    "givenName": "Konrad",
+    "familyName": "Antoni",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -112,6 +171,11 @@
   {
     "id": "83105",
     "name": "Mag. Aygül Berivan Aslan",
+    "givenName": "Aygül Berivan",
+    "familyName": "Aslan",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -124,6 +188,11 @@
   {
     "id": "8375",
     "name": "Dr. Robert Aspöck",
+    "givenName": "Robert",
+    "familyName": "Aspöck",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -136,6 +205,11 @@
   {
     "id": "35467",
     "name": "Mag. Gertrude Aubauer",
+    "givenName": "Gertrude",
+    "familyName": "Aubauer",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -150,6 +224,9 @@
   {
     "id": "39",
     "name": "Jakob Auer",
+    "givenName": "Jakob",
+    "familyName": "Auer",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -171,6 +248,11 @@
   {
     "id": "51507",
     "name": "Mag. Josef Auer",
+    "givenName": "Josef",
+    "familyName": "Auer",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -183,6 +265,11 @@
   {
     "id": "14733",
     "name": "Dipl.-Ing. Klaus Hubert Auer",
+    "givenName": "Klaus Hubert",
+    "familyName": "Auer",
+    "titles": [
+      "Dipl.-Ing."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -196,6 +283,9 @@
   {
     "id": "83108",
     "name": "Walter Bacher",
+    "givenName": "Walter",
+    "familyName": "Bacher",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -209,6 +299,11 @@
   {
     "id": "60",
     "name": "Dr. Martin Bartenstein",
+    "givenName": "Martin",
+    "familyName": "Bartenstein",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -227,6 +322,34 @@
   {
     "id": "76",
     "name": "Dipl.-Kfm. Dr. Hannes Bauer",
+    "givenName": "Hannes",
+    "familyName": "Bauer",
+    "titles": [
+      "Dipl.-Kfm.",
+      "Dr."
+    ],
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XVII",
+      "XVIII",
+      "XXI",
+      "XXII",
+      "XXIII"
+    ],
+    "url": "https://parlament.gv.at/person/76",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/21018/2101887_384.jpg"
+  },
+  {
+    "id": "76",
+    "name": "Dipl.-Kfm. Dr. Hannes Bauer",
+    "givenName": "Hannes",
+    "familyName": "Bauer",
+    "titles": [
+      "Dipl.-Kfm.",
+      "Dr."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -243,6 +366,9 @@
   {
     "id": "1974",
     "name": "Angela Baumgartner",
+    "givenName": "Angela",
+    "familyName": "Baumgartner",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -256,6 +382,11 @@
   {
     "id": "8208",
     "name": "Dr. Ulrike Baumgartner-Gabitzer",
+    "givenName": "Ulrike",
+    "familyName": "Baumgartner-Gabitzer",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -270,6 +401,12 @@
   {
     "id": "14835",
     "name": "Petra Bayr, MA MLS",
+    "givenName": "Petra",
+    "familyName": "Bayr",
+    "titles": [
+      "MA",
+      "MLS"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -287,6 +424,11 @@
   {
     "id": "14836",
     "name": "Mag. Ruth Becher",
+    "givenName": "Ruth",
+    "familyName": "Becher",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -304,6 +446,9 @@
   {
     "id": "44127",
     "name": "Pia Philippa Beck",
+    "givenName": "Pia Philippa",
+    "familyName": "Beck",
+    "titles": [],
     "parties": [
       "Ohne Klub"
     ],
@@ -316,6 +461,32 @@
   {
     "id": "35468",
     "name": "Dr. Dagmar Belakowitsch",
+    "givenName": "Dagmar",
+    "familyName": "Belakowitsch",
+    "titles": [
+      "Dr."
+    ],
+    "parties": [
+      "FPÖ"
+    ],
+    "periods": [
+      "XXIII",
+      "XXIV",
+      "XXV",
+      "XXVI",
+      "XXVII"
+    ],
+    "url": "https://parlament.gv.at/person/35468",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069624_384.jpg"
+  },
+  {
+    "id": "35468",
+    "name": "Dr. Dagmar Belakowitsch",
+    "givenName": "Dagmar",
+    "familyName": "Belakowitsch",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -332,6 +503,9 @@
   {
     "id": "2996",
     "name": "Ricarda Berger",
+    "givenName": "Ricarda",
+    "familyName": "Berger",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -344,6 +518,11 @@
   {
     "id": "52688",
     "name": "Dipl.-Ing. Nikolaus Berlakovich",
+    "givenName": "Nikolaus",
+    "familyName": "Berlakovich",
+    "titles": [
+      "Dipl.-Ing."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -358,6 +537,9 @@
   {
     "id": "83124",
     "name": "Michael Bernhard",
+    "givenName": "Michael",
+    "familyName": "Bernhard",
+    "titles": [],
     "parties": [
       "NEOS"
     ],
@@ -372,6 +554,29 @@
   {
     "id": "118",
     "name": "Gabriele Binder-Maier",
+    "givenName": "Gabriele",
+    "familyName": "Binder-Maier",
+    "titles": [],
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XVIII",
+      "XX",
+      "XXI",
+      "XXII",
+      "XXIII",
+      "XXIV"
+    ],
+    "url": "https://parlament.gv.at/person/118",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/34889/3488929_384.jpg"
+  },
+  {
+    "id": "118",
+    "name": "Gabriele Binder-Maier",
+    "givenName": "Gabriele",
+    "familyName": "Binder-Maier",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -389,6 +594,11 @@
   {
     "id": "2349",
     "name": "Dipl.-Ing. (FH) Martha Bißmann",
+    "givenName": "Martha",
+    "familyName": "Bißmann",
+    "titles": [
+      "Dipl.-Ing. (FH)"
+    ],
     "parties": [
       "Ohne Klub",
       "PILZ"
@@ -402,6 +612,12 @@
   {
     "id": "14855",
     "name": "Mag. Dr. Magda Bleckmann",
+    "givenName": "Magda",
+    "familyName": "Bleckmann",
+    "titles": [
+      "Mag.",
+      "Dr."
+    ],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -415,6 +631,11 @@
   {
     "id": "5649",
     "name": "Mag. Eva Blimlinger",
+    "givenName": "Eva",
+    "familyName": "Blimlinger",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -427,6 +648,12 @@
   {
     "id": "31011",
     "name": "Mag. Gernot Blümel, MBA",
+    "givenName": "Gernot",
+    "familyName": "Blümel",
+    "titles": [
+      "Mag.",
+      "MBA"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -439,6 +666,12 @@
   {
     "id": "1975",
     "name": "Mag. Dr. Juliane Bogner-Strauß",
+    "givenName": "Juliane",
+    "familyName": "Bogner-Strauß",
+    "titles": [
+      "Mag.",
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -452,6 +685,9 @@
   {
     "id": "14753",
     "name": "Franz Xaver Böhm",
+    "givenName": "Franz Xaver",
+    "familyName": "Böhm",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -464,6 +700,11 @@
   {
     "id": "8875",
     "name": "Dr. Dieter Böhmdorfer",
+    "givenName": "Dieter",
+    "familyName": "Böhmdorfer",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -477,6 +718,9 @@
   {
     "id": "26343",
     "name": "Ulrike Maria Böker",
+    "givenName": "Ulrike Maria",
+    "familyName": "Böker",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -489,6 +733,11 @@
   {
     "id": "2867",
     "name": "Dr. Reinhard Eugen Bösch",
+    "givenName": "Reinhard Eugen",
+    "familyName": "Bösch",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -507,6 +756,12 @@
   {
     "id": "2820",
     "name": "Mag. Dr. Alfred Brader",
+    "givenName": "Alfred",
+    "familyName": "Brader",
+    "titles": [
+      "Mag.",
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -522,6 +777,11 @@
   {
     "id": "5682",
     "name": "Dr. Helmut Brandstätter",
+    "givenName": "Helmut",
+    "familyName": "Brandstätter",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "NEOS"
     ],
@@ -534,6 +794,9 @@
   {
     "id": "5683",
     "name": "Henrike Brandstötter",
+    "givenName": "Henrike",
+    "familyName": "Brandstötter",
+    "titles": [],
     "parties": [
       "NEOS"
     ],
@@ -546,6 +809,9 @@
   {
     "id": "5438",
     "name": "Lukas Brandweiner",
+    "givenName": "Lukas",
+    "familyName": "Brandweiner",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -559,6 +825,11 @@
   {
     "id": "75",
     "name": "Dr. Gertrude Brinek",
+    "givenName": "Gertrude",
+    "familyName": "Brinek",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -576,6 +847,11 @@
   {
     "id": "8239",
     "name": "Dieter Brosz, MSc",
+    "givenName": "Dieter",
+    "familyName": "Brosz",
+    "titles": [
+      "MSc"
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -592,6 +868,9 @@
   {
     "id": "14837",
     "name": "Josef Broukal",
+    "givenName": "Josef",
+    "familyName": "Broukal",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -605,6 +884,11 @@
   {
     "id": "61639",
     "name": "Hermann Brückl, MA",
+    "givenName": "Hermann",
+    "familyName": "Brückl",
+    "titles": [
+      "MA"
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -619,6 +903,11 @@
   {
     "id": "51586",
     "name": "Mag. Christiane Brunner",
+    "givenName": "Christiane",
+    "familyName": "Brunner",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -632,6 +921,9 @@
   {
     "id": "14856",
     "name": "Josef Bucher",
+    "givenName": "Josef",
+    "familyName": "Bucher",
+    "titles": [],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -647,6 +939,9 @@
   {
     "id": "63179",
     "name": "Harry Buchmayr",
+    "givenName": "Harry",
+    "familyName": "Buchmayr",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -660,6 +955,9 @@
   {
     "id": "145",
     "name": "Doris Bures",
+    "givenName": "Doris",
+    "familyName": "Bures",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -681,6 +979,11 @@
   {
     "id": "6501",
     "name": "Mag. Georg Bürstmayr",
+    "givenName": "Georg",
+    "familyName": "Bürstmayr",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -693,6 +996,11 @@
   {
     "id": "178",
     "name": "Dr. Josef Cap",
+    "givenName": "Josef",
+    "familyName": "Cap",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -714,6 +1022,11 @@
   {
     "id": "51551",
     "name": "Mag. Katharina Cortolezis-Schlager",
+    "givenName": "Katharina",
+    "familyName": "Cortolezis-Schlager",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -726,6 +1039,11 @@
   {
     "id": "2340",
     "name": "Stephanie Cox, BA",
+    "givenName": "Stephanie",
+    "familyName": "Cox",
+    "titles": [
+      "BA"
+    ],
     "parties": [
       "PILZ"
     ],
@@ -738,6 +1056,9 @@
   {
     "id": "11957",
     "name": "Renate Csörgits",
+    "givenName": "Renate",
+    "familyName": "Csörgits",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -753,6 +1074,11 @@
   {
     "id": "22030",
     "name": "Mag. Norbert Darabos",
+    "givenName": "Norbert",
+    "familyName": "Darabos",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -768,6 +1094,11 @@
   {
     "id": "35469",
     "name": "Mag. Gernot Darmann",
+    "givenName": "Gernot",
+    "familyName": "Darmann",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -783,6 +1114,11 @@
   {
     "id": "6506",
     "name": "Mag. Romana Deckenbacher",
+    "givenName": "Romana",
+    "familyName": "Deckenbacher",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -795,6 +1131,11 @@
   {
     "id": "51557",
     "name": "Dipl.-Ing. Gerhard Deimek",
+    "givenName": "Gerhard",
+    "familyName": "Deimek",
+    "titles": [
+      "Dipl.-Ing."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -810,6 +1151,12 @@
   {
     "id": "21251",
     "name": "Dr. Karl-Heinz Dernoscheg, MBA",
+    "givenName": "Karl-Heinz",
+    "familyName": "Dernoscheg",
+    "titles": [
+      "Dr.",
+      "MBA"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -822,6 +1169,9 @@
   {
     "id": "16218",
     "name": "Martina Diesner-Wais",
+    "givenName": "Martina",
+    "familyName": "Diesner-Wais",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -836,6 +1186,11 @@
   {
     "id": "83140",
     "name": "Ing. Waltraud Dietrich",
+    "givenName": "Waltraud",
+    "familyName": "Dietrich",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "Ohne Klub",
       "STRONACH"
@@ -849,6 +1204,9 @@
   {
     "id": "5406",
     "name": "Thomas Dim",
+    "givenName": "Thomas",
+    "familyName": "Dim",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -861,6 +1219,11 @@
   {
     "id": "5650",
     "name": "Mag. Meri Disoski",
+    "givenName": "Meri",
+    "familyName": "Disoski",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -873,6 +1236,9 @@
   {
     "id": "8175",
     "name": "Karl Dobnigg",
+    "givenName": "Karl",
+    "familyName": "Dobnigg",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -887,6 +1253,9 @@
   {
     "id": "231",
     "name": "Sigisbert Dolinschek",
+    "givenName": "Sigisbert",
+    "familyName": "Dolinschek",
+    "titles": [],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -906,6 +1275,9 @@
   {
     "id": "2821",
     "name": "Karl Donabauer",
+    "givenName": "Karl",
+    "familyName": "Donabauer",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -923,6 +1295,11 @@
   {
     "id": "47067",
     "name": "Efgani Dönmez, PMM",
+    "givenName": "Efgani",
+    "familyName": "Dönmez",
+    "titles": [
+      "PMM"
+    ],
     "parties": [
       "Ohne Klub",
       "ÖVP"
@@ -936,6 +1313,11 @@
   {
     "id": "11955",
     "name": "Mag. Heribert Donnerbauer",
+    "givenName": "Heribert",
+    "familyName": "Donnerbauer",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -951,6 +1333,11 @@
   {
     "id": "91141",
     "name": "Dipl.-Ing. Karin Doppelbauer",
+    "givenName": "Karin",
+    "familyName": "Doppelbauer",
+    "titles": [
+      "Dipl.-Ing."
+    ],
     "parties": [
       "NEOS"
     ],
@@ -965,6 +1352,9 @@
   {
     "id": "21211",
     "name": "Anton Doppler",
+    "givenName": "Anton",
+    "familyName": "Doppler",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -977,6 +1367,9 @@
   {
     "id": "51558",
     "name": "Rupert Doppler",
+    "givenName": "Rupert",
+    "familyName": "Doppler",
+    "titles": [],
     "parties": [
       "FPÖ",
       "Ohne Klub"
@@ -991,6 +1384,11 @@
   {
     "id": "5638",
     "name": "Mag. Christian Drobits",
+    "givenName": "Christian",
+    "familyName": "Drobits",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -1003,6 +1401,11 @@
   {
     "id": "88629",
     "name": "Mag. Thomas Drozda",
+    "givenName": "Thomas",
+    "familyName": "Drozda",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -1016,6 +1419,9 @@
   {
     "id": "40627",
     "name": "Claudia Durchschlag",
+    "givenName": "Claudia",
+    "familyName": "Durchschlag",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -1030,6 +1436,11 @@
   {
     "id": "60446",
     "name": "Mag. Muna Duzdar",
+    "givenName": "Muna",
+    "familyName": "Duzdar",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -1043,6 +1454,11 @@
   {
     "id": "87146",
     "name": "Dr. Ewa Ernst-Dziedzic",
+    "givenName": "Ewa",
+    "familyName": "Ernst-Dziedzic",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -1055,6 +1471,9 @@
   {
     "id": "83109",
     "name": "Cornelia Ecker",
+    "givenName": "Cornelia",
+    "familyName": "Ecker",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -1069,6 +1488,11 @@
   {
     "id": "87002",
     "name": "Rosa Ecker, MBA",
+    "givenName": "Rosa",
+    "familyName": "Ecker",
+    "titles": [
+      "MBA"
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -1081,6 +1505,9 @@
   {
     "id": "238",
     "name": "Kurt Eder",
+    "givenName": "Kurt",
+    "familyName": "Eder",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -1099,6 +1526,11 @@
   {
     "id": "35470",
     "name": "Dr. Sebastian Eder",
+    "givenName": "Sebastian",
+    "familyName": "Eder",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -1111,6 +1543,11 @@
   {
     "id": "35471",
     "name": "Dr. Andrea Eder-Gitschthaler",
+    "givenName": "Andrea",
+    "familyName": "Eder-Gitschthaler",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -1123,6 +1560,11 @@
   {
     "id": "83118",
     "name": "Dr. Astrid Monika Eder-Lindner",
+    "givenName": "Astrid Monika",
+    "familyName": "Eder-Lindner",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "Ohne Klub"
     ],
@@ -1135,6 +1577,11 @@
   {
     "id": "20056",
     "name": "Mag. (FH) Kurt Egger",
+    "givenName": "Kurt",
+    "familyName": "Egger",
+    "titles": [
+      "Mag. (FH)"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -1147,6 +1594,9 @@
   {
     "id": "36508",
     "name": "Michael Ehmann",
+    "givenName": "Michael",
+    "familyName": "Ehmann",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -1161,6 +1611,11 @@
   {
     "id": "2873",
     "name": "Dr. Caspar Einem",
+    "givenName": "Caspar",
+    "familyName": "Einem",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -1176,6 +1631,11 @@
   {
     "id": "24257",
     "name": "Ing. Reinhold Einwallner",
+    "givenName": "Reinhold",
+    "familyName": "Einwallner",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -1189,6 +1649,9 @@
   {
     "id": "30035",
     "name": "Thomas Einwallner",
+    "givenName": "Thomas",
+    "familyName": "Einwallner",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -1202,6 +1665,11 @@
   {
     "id": "36348",
     "name": "Mag. Peter Eisenschenk",
+    "givenName": "Peter",
+    "familyName": "Eisenschenk",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -1214,6 +1682,11 @@
   {
     "id": "83144",
     "name": "Asdin El Habbassi, BA",
+    "givenName": "Asdin El",
+    "familyName": "Habbassi",
+    "titles": [
+      "BA"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -1226,6 +1699,9 @@
   {
     "id": "303",
     "name": "Matthias Ellmauer",
+    "givenName": "Matthias",
+    "familyName": "Ellmauer",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -1241,6 +1717,11 @@
   {
     "id": "5651",
     "name": "Mag. Faika El-Nagashi",
+    "givenName": "Faika",
+    "familyName": "El-Nagashi",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -1253,6 +1734,11 @@
   {
     "id": "1976",
     "name": "Mag. Martin Engelberg",
+    "givenName": "Martin",
+    "familyName": "Engelberg",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -1266,6 +1752,11 @@
   {
     "id": "30653",
     "name": "Melanie Erasim, MSc",
+    "givenName": "Melanie",
+    "familyName": "Erasim",
+    "titles": [
+      "MSc"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -1277,8 +1768,30 @@
     "imageUrl": "https://parlament.gv.at/dokument/bild/201117/20111788_384.jpg"
   },
   {
+    "id": "87146",
+    "name": "Dr. Ewa Ernst-Dziedzic",
+    "givenName": "Ewa",
+    "familyName": "Ernst-Dziedzic",
+    "titles": [
+      "Dr."
+    ],
+    "parties": [
+      "GRÜNE"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "url": "https://parlament.gv.at/person/87146",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200697/20069742_384.jpg"
+  },
+  {
     "id": "83433",
     "name": "Rouven Ertlschweiger, MSc",
+    "givenName": "Rouven",
+    "familyName": "Ertlschweiger",
+    "titles": [
+      "MSc"
+    ],
     "parties": [
       "STRONACH",
       "ÖVP"
@@ -1292,6 +1805,9 @@
   {
     "id": "14755",
     "name": "Franz Leonhard Eßl",
+    "givenName": "Franz Leonhard",
+    "familyName": "Eßl",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -1309,6 +1825,11 @@
   {
     "id": "88288",
     "name": "Mag. Felix Eypeltauer",
+    "givenName": "Felix",
+    "familyName": "Eypeltauer",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "NEOS"
     ],
@@ -1321,6 +1842,11 @@
   {
     "id": "302",
     "name": "Dr. Werner Fasslabend",
+    "givenName": "Werner",
+    "familyName": "Fasslabend",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -1338,6 +1864,9 @@
   {
     "id": "8176",
     "name": "Christian Faul",
+    "givenName": "Christian",
+    "familyName": "Faul",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -1353,6 +1882,9 @@
   {
     "id": "22534",
     "name": "Markus Fauland",
+    "givenName": "Markus",
+    "familyName": "Fauland",
+    "titles": [],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -1366,6 +1898,9 @@
   {
     "id": "36450",
     "name": "Werner Faymann",
+    "givenName": "Werner",
+    "familyName": "Faymann",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -1379,6 +1914,9 @@
   {
     "id": "35493",
     "name": "Hannes Fazekas",
+    "givenName": "Hannes",
+    "familyName": "Fazekas",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -1393,6 +1931,12 @@
   {
     "id": "2189",
     "name": "Elisabeth Feichtinger, BEd BEd",
+    "givenName": "Elisabeth",
+    "familyName": "Feichtinger",
+    "titles": [
+      "BEd",
+      "BEd"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -1406,6 +1950,12 @@
   {
     "id": "83298",
     "name": "Mag. Dr. Klaus Uwe Feichtinger",
+    "givenName": "Klaus Uwe",
+    "familyName": "Feichtinger",
+    "titles": [
+      "Mag.",
+      "Dr."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -1419,6 +1969,12 @@
   {
     "id": "311",
     "name": "Mag. Dr. Maria Theresia Fekter",
+    "givenName": "Maria Theresia",
+    "familyName": "Fekter",
+    "titles": [
+      "Mag.",
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -1438,6 +1994,9 @@
   {
     "id": "15530",
     "name": "Carina Felzmann",
+    "givenName": "Carina",
+    "familyName": "Felzmann",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -1450,6 +2009,30 @@
   {
     "id": "3130",
     "name": "Dr. Benita Ferrero-Waldner",
+    "givenName": "Benita",
+    "familyName": "Ferrero-Waldner",
+    "titles": [
+      "Dr."
+    ],
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XX",
+      "XXI",
+      "XXII"
+    ],
+    "url": "https://parlament.gv.at/person/3130",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/20996/2099698_384.jpg"
+  },
+  {
+    "id": "3130",
+    "name": "Dr. Benita Ferrero-Waldner",
+    "givenName": "Benita",
+    "familyName": "Ferrero-Waldner",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -1464,6 +2047,11 @@
   {
     "id": "35517",
     "name": "Dr. Peter Fichtenbauer",
+    "givenName": "Peter",
+    "familyName": "Fichtenbauer",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -1477,6 +2065,9 @@
   {
     "id": "83146",
     "name": "Angela Fichtinger",
+    "givenName": "Angela",
+    "familyName": "Fichtinger",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -1490,6 +2081,11 @@
   {
     "id": "5684",
     "name": "Fiona Fiedler, BEd",
+    "givenName": "Fiona",
+    "familyName": "Fiedler",
+    "titles": [
+      "BEd"
+    ],
     "parties": [
       "NEOS"
     ],
@@ -1502,6 +2098,11 @@
   {
     "id": "8676",
     "name": "Dr. Alfred Finz",
+    "givenName": "Alfred",
+    "familyName": "Finz",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -1515,6 +2116,11 @@
   {
     "id": "334",
     "name": "Dr. Heinz Fischer",
+    "givenName": "Heinz",
+    "familyName": "Fischer",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -1536,6 +2142,11 @@
   {
     "id": "5652",
     "name": "Mag. Ulrike Fischer",
+    "givenName": "Ulrike",
+    "familyName": "Fischer",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -1548,6 +2159,9 @@
   {
     "id": "13125",
     "name": "Anita Fleckl",
+    "givenName": "Anita",
+    "familyName": "Fleckl",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -1561,6 +2175,9 @@
   {
     "id": "14756",
     "name": "Anna Franz",
+    "givenName": "Anna",
+    "familyName": "Franz",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -1575,6 +2192,11 @@
   {
     "id": "83141",
     "name": "Dr. Marcus Franz",
+    "givenName": "Marcus",
+    "familyName": "Franz",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "Ohne Klub",
       "STRONACH",
@@ -1589,6 +2211,9 @@
   {
     "id": "389",
     "name": "Karl Freund",
+    "givenName": "Karl",
+    "familyName": "Freund",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -1607,6 +2232,9 @@
   {
     "id": "2347",
     "name": "Klaudia Friedl",
+    "givenName": "Klaudia",
+    "familyName": "Friedl",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -1619,6 +2247,11 @@
   {
     "id": "398",
     "name": "Mag. Cordula Frieser",
+    "givenName": "Cordula",
+    "familyName": "Frieser",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -1636,6 +2269,12 @@
   {
     "id": "83127",
     "name": "MMag. DDr. Hubert Fuchs",
+    "givenName": "Hubert",
+    "familyName": "Fuchs",
+    "titles": [
+      "MMag.",
+      "DDr."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -1650,6 +2289,11 @@
   {
     "id": "14757",
     "name": "Mag. Silvia Grünberger",
+    "givenName": "Silvia",
+    "familyName": "Grünberger",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -1664,6 +2308,9 @@
   {
     "id": "35498",
     "name": "Christian Füller",
+    "givenName": "Christian",
+    "familyName": "Füller",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -1676,6 +2323,11 @@
   {
     "id": "72999",
     "name": "Mag. Klaus Fürlinger",
+    "givenName": "Klaus",
+    "familyName": "Fürlinger",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -1689,6 +2341,11 @@
   {
     "id": "1567",
     "name": "Dr. Susanne Fürst",
+    "givenName": "Susanne",
+    "familyName": "Fürst",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -1702,6 +2359,9 @@
   {
     "id": "343",
     "name": "Anton Gaál",
+    "givenName": "Anton",
+    "familyName": "Gaál",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -1719,6 +2379,9 @@
   {
     "id": "8209",
     "name": "Hermann Gahr",
+    "givenName": "Hermann",
+    "familyName": "Gahr",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -1737,6 +2400,11 @@
   {
     "id": "86976",
     "name": "Claudia Gamon, MSc (WU)",
+    "givenName": "Claudia",
+    "familyName": "Gamon",
+    "titles": [
+      "MSc (WU)"
+    ],
     "parties": [
       "NEOS"
     ],
@@ -1750,6 +2418,26 @@
   {
     "id": "51559",
     "name": "Carmen Schimanek",
+    "givenName": "Carmen",
+    "familyName": "Schimanek",
+    "titles": [],
+    "parties": [
+      "FPÖ"
+    ],
+    "periods": [
+      "XXIV",
+      "XXV",
+      "XXVI"
+    ],
+    "url": "https://parlament.gv.at/person/51559",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/72615/7261549_384.jpg"
+  },
+  {
+    "id": "51559",
+    "name": "Carmen Gartelgruber",
+    "givenName": "Carmen",
+    "familyName": "Gartelgruber",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -1764,6 +2452,11 @@
   {
     "id": "357",
     "name": "Ing. Kurt Gartlehner",
+    "givenName": "Kurt",
+    "familyName": "Gartlehner",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -1782,6 +2475,11 @@
   {
     "id": "4615",
     "name": "Mag. Kurt Gaßner",
+    "givenName": "Kurt",
+    "familyName": "Gaßner",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -1798,6 +2496,9 @@
   {
     "id": "3131",
     "name": "Elisabeth Gehrer",
+    "givenName": "Elisabeth",
+    "familyName": "Gehrer",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -1812,6 +2513,11 @@
   {
     "id": "67199",
     "name": "Mag. Wolfgang Gerstl",
+    "givenName": "Wolfgang",
+    "familyName": "Gerstl",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -1827,6 +2533,9 @@
   {
     "id": "1969",
     "name": "Peter Gerstner",
+    "givenName": "Peter",
+    "familyName": "Gerstner",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -1839,6 +2548,9 @@
   {
     "id": "51527",
     "name": "Andrea Gessl-Ranftl",
+    "givenName": "Andrea",
+    "familyName": "Gessl-Ranftl",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -1852,6 +2564,11 @@
   {
     "id": "5653",
     "name": "Leonore Gewessler, BA",
+    "givenName": "Leonore",
+    "familyName": "Gewessler",
+    "titles": [
+      "BA"
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -1864,6 +2581,9 @@
   {
     "id": "14758",
     "name": "Franz Glaser",
+    "givenName": "Franz",
+    "familyName": "Glaser",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -1878,6 +2598,32 @@
   {
     "id": "8240",
     "name": "Dr. Eva Glawischnig-Piesczek",
+    "givenName": "Eva",
+    "familyName": "Glawischnig-Piesczek",
+    "titles": [
+      "Dr."
+    ],
+    "parties": [
+      "GRÜNE"
+    ],
+    "periods": [
+      "XXI",
+      "XXII",
+      "XXIII",
+      "XXIV",
+      "XXV"
+    ],
+    "url": "https://parlament.gv.at/person/8240",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/63466/6346696_384.jpg"
+  },
+  {
+    "id": "8240",
+    "name": "Dr. Eva Glawischnig-Piesczek",
+    "givenName": "Eva",
+    "familyName": "Glawischnig-Piesczek",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -1894,6 +2640,11 @@
   {
     "id": "83409",
     "name": "Mag. Ernst Gödl",
+    "givenName": "Ernst",
+    "familyName": "Gödl",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -1907,6 +2658,11 @@
   {
     "id": "5654",
     "name": "Dr. Elisabeth Götze",
+    "givenName": "Elisabeth",
+    "familyName": "Götze",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -1919,6 +2675,9 @@
   {
     "id": "35502",
     "name": "Alois Gradauer",
+    "givenName": "Alois",
+    "familyName": "Gradauer",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -1932,6 +2691,9 @@
   {
     "id": "444",
     "name": "Heinz Gradwohl",
+    "givenName": "Heinz",
+    "familyName": "Gradwohl",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -1948,6 +2710,36 @@
   {
     "id": "2834",
     "name": "Mag. Dr. Martin Graf",
+    "givenName": "Martin",
+    "familyName": "Graf",
+    "titles": [
+      "Mag.",
+      "Dr."
+    ],
+    "parties": [
+      "FPÖ"
+    ],
+    "periods": [
+      "XIX",
+      "XX",
+      "XXI",
+      "XXIII",
+      "XXIV",
+      "XXVI",
+      "XXVII"
+    ],
+    "url": "https://parlament.gv.at/person/2834",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069618_384.jpg"
+  },
+  {
+    "id": "2834",
+    "name": "Mag. Dr. Martin Graf",
+    "givenName": "Martin",
+    "familyName": "Graf",
+    "titles": [
+      "Mag.",
+      "Dr."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -1966,6 +2758,9 @@
   {
     "id": "1977",
     "name": "Tanja Graf",
+    "givenName": "Tanja",
+    "familyName": "Graf",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -1979,6 +2774,9 @@
   {
     "id": "6755",
     "name": "Maria Grander",
+    "givenName": "Maria",
+    "familyName": "Grander",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -1992,6 +2790,9 @@
   {
     "id": "6504",
     "name": "Heike Grebien",
+    "givenName": "Heike",
+    "familyName": "Grebien",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -2004,6 +2805,11 @@
   {
     "id": "80479",
     "name": "Mag. Karin Greiner",
+    "givenName": "Karin",
+    "familyName": "Greiner",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -2019,6 +2825,9 @@
   {
     "id": "12907",
     "name": "Fritz Grillitsch",
+    "givenName": "Fritz",
+    "familyName": "Grillitsch",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -2034,6 +2843,11 @@
   {
     "id": "2342",
     "name": "Dr. Irmgard Griss",
+    "givenName": "Irmgard",
+    "familyName": "Griss",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "NEOS"
     ],
@@ -2046,6 +2860,12 @@
   {
     "id": "83147",
     "name": "Ing. Mag. Werner Groiß",
+    "givenName": "Werner",
+    "familyName": "Groiß",
+    "titles": [
+      "Ing.",
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -2058,6 +2878,9 @@
   {
     "id": "1978",
     "name": "Maria Großbauer",
+    "givenName": "Maria",
+    "familyName": "Großbauer",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -2071,6 +2894,9 @@
   {
     "id": "2964",
     "name": "Wolfgang Großruck",
+    "givenName": "Wolfgang",
+    "familyName": "Großruck",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -2088,6 +2914,11 @@
   {
     "id": "14839",
     "name": "Mag. Elisabeth Grossmann",
+    "givenName": "Elisabeth",
+    "familyName": "Grossmann",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -2103,6 +2934,9 @@
   {
     "id": "51574",
     "name": "Gerald Grosz",
+    "givenName": "Gerald",
+    "familyName": "Grosz",
+    "titles": [],
     "parties": [
       "BZÖ"
     ],
@@ -2115,6 +2949,9 @@
   {
     "id": "3445",
     "name": "Renate Gruber",
+    "givenName": "Renate",
+    "familyName": "Gruber",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -2127,6 +2964,9 @@
   {
     "id": "1979",
     "name": "Kira Grünberg",
+    "givenName": "Kira",
+    "familyName": "Grünberg",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -2138,8 +2978,32 @@
     "imageUrl": "https://parlament.gv.at/dokument/bild/200695/20069588_384.jpg"
   },
   {
+    "id": "14757",
+    "name": "Mag. Silvia Grünberger",
+    "givenName": "Silvia",
+    "familyName": "Grünberger",
+    "titles": [
+      "Mag."
+    ],
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XXII",
+      "XXIII",
+      "XXIV"
+    ],
+    "url": "https://parlament.gv.at/person/14757",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/34898/3489817_384.jpg"
+  },
+  {
     "id": "8241",
     "name": "Dr. Kurt Grünewald",
+    "givenName": "Kurt",
+    "familyName": "Grünewald",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -2155,6 +3019,12 @@
   {
     "id": "18665",
     "name": "Mag. Johann Gudenus, M.A.I.S.",
+    "givenName": "Johann",
+    "familyName": "Gudenus",
+    "titles": [
+      "Mag.",
+      "M.A.I.S."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -2167,6 +3037,11 @@
   {
     "id": "663",
     "name": "Dr. Alfred Gusenbauer",
+    "givenName": "Alfred",
+    "familyName": "Gusenbauer",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -2184,6 +3059,9 @@
   {
     "id": "83110",
     "name": "Marianne Gusenbauer-Jäger",
+    "givenName": "Marianne",
+    "familyName": "Gusenbauer-Jäger",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -2196,6 +3074,9 @@
   {
     "id": "35507",
     "name": "Wilhelm Haberzettl",
+    "givenName": "Wilhelm",
+    "familyName": "Haberzettl",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -2209,6 +3090,11 @@
   {
     "id": "83120",
     "name": "Dr. Rainer Hable",
+    "givenName": "Rainer",
+    "familyName": "Hable",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "NEOS"
     ],
@@ -2221,6 +3107,11 @@
   {
     "id": "59767",
     "name": "Ing. Heinz-Peter Hackl",
+    "givenName": "Heinz-Peter",
+    "familyName": "Hackl",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -2234,6 +3125,11 @@
   {
     "id": "78586",
     "name": "Christian Hafenecker, MA",
+    "givenName": "Christian",
+    "familyName": "Hafenecker",
+    "titles": [
+      "MA"
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -2248,6 +3144,9 @@
   {
     "id": "8256",
     "name": "Christoph Hagen",
+    "givenName": "Christoph",
+    "familyName": "Hagen",
+    "titles": [],
     "parties": [
       "BZÖ",
       "Ohne Klub",
@@ -2263,6 +3162,9 @@
   {
     "id": "2009",
     "name": "Marianne Hagenhofer",
+    "givenName": "Marianne",
+    "familyName": "Hagenhofer",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -2281,6 +3183,11 @@
   {
     "id": "5483",
     "name": "Mag. Doris Hager-Hämmerle",
+    "givenName": "Doris",
+    "familyName": "Hager-Hämmerle",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "NEOS"
     ],
@@ -2293,6 +3200,11 @@
   {
     "id": "36451",
     "name": "Dr. Johannes Hahn",
+    "givenName": "Johannes",
+    "familyName": "Hahn",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -2305,6 +3217,11 @@
   {
     "id": "51560",
     "name": "Mag. Roman Haider",
+    "givenName": "Roman",
+    "familyName": "Haider",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -2319,6 +3236,9 @@
   {
     "id": "2852",
     "name": "Theresia Haidlmayr",
+    "givenName": "Theresia",
+    "familyName": "Haidlmayr",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -2335,6 +3255,12 @@
   {
     "id": "35503",
     "name": "Mag. Dr. Manfred Haimbuchner",
+    "givenName": "Manfred",
+    "familyName": "Haimbuchner",
+    "titles": [
+      "Mag.",
+      "Dr."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -2348,6 +3274,9 @@
   {
     "id": "10256",
     "name": "Elisabeth Hakel",
+    "givenName": "Elisabeth",
+    "familyName": "Hakel",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -2361,6 +3290,11 @@
   {
     "id": "8695",
     "name": "Mag. Karin Hakl",
+    "givenName": "Karin",
+    "familyName": "Hakl",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -2376,6 +3310,11 @@
   {
     "id": "5668",
     "name": "Mag. Sibylle Hamann",
+    "givenName": "Sibylle",
+    "familyName": "Hamann",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -2388,6 +3327,9 @@
   {
     "id": "65219",
     "name": "Lukas Hammer",
+    "givenName": "Lukas",
+    "familyName": "Hammer",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -2400,6 +3342,11 @@
   {
     "id": "55227",
     "name": "Mag. Michael Hammer",
+    "givenName": "Michael",
+    "familyName": "Hammer",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -2415,6 +3362,12 @@
   {
     "id": "88631",
     "name": "Mag. Dr. Sonja Hammerschmid",
+    "givenName": "Sonja",
+    "familyName": "Hammerschmid",
+    "titles": [
+      "Mag.",
+      "Dr."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -2428,6 +3381,11 @@
   {
     "id": "83148",
     "name": "Mag. Andreas Hanger",
+    "givenName": "Andreas",
+    "familyName": "Hanger",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -2442,6 +3400,9 @@
   {
     "id": "12741",
     "name": "Peter Haubner",
+    "givenName": "Peter",
+    "familyName": "Haubner",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -2460,6 +3421,9 @@
   {
     "id": "2803",
     "name": "Ursula Haubner",
+    "givenName": "Ursula",
+    "familyName": "Haubner",
+    "titles": [],
     "parties": [
       "BZÖ"
     ],
@@ -2473,6 +3437,11 @@
   {
     "id": "533",
     "name": "Mag. Herbert Haupt",
+    "givenName": "Herbert",
+    "familyName": "Haupt",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -2490,6 +3459,11 @@
   {
     "id": "35515",
     "name": "Mag. Gerald Hauser",
+    "givenName": "Gerald",
+    "familyName": "Hauser",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -2505,6 +3479,11 @@
   {
     "id": "5623",
     "name": "Ing. Josef Hechenberger",
+    "givenName": "Josef",
+    "familyName": "Hechenberger",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -2517,6 +3496,9 @@
   {
     "id": "51547",
     "name": "Johann Hechtl",
+    "givenName": "Johann",
+    "familyName": "Hechtl",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -2530,6 +3512,9 @@
   {
     "id": "8177",
     "name": "Gabriele Heinisch-Hosek",
+    "givenName": "Gabriele",
+    "familyName": "Heinisch-Hosek",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -2547,6 +3532,9 @@
   {
     "id": "5076",
     "name": "Anton Heinzl",
+    "givenName": "Anton",
+    "familyName": "Heinzl",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -2564,6 +3552,9 @@
   {
     "id": "50187",
     "name": "Johann Hell",
+    "givenName": "Johann",
+    "familyName": "Hell",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -2578,6 +3569,9 @@
   {
     "id": "47187",
     "name": "Werner Herbert",
+    "givenName": "Werner",
+    "familyName": "Herbert",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -2592,6 +3586,9 @@
   {
     "id": "5639",
     "name": "Julia Elisabeth Herr",
+    "givenName": "Julia Elisabeth",
+    "familyName": "Herr",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -2604,6 +3601,11 @@
   {
     "id": "72959",
     "name": "Eva-Maria Himmelbauer, BSc",
+    "givenName": "Eva-Maria",
+    "familyName": "Himmelbauer",
+    "titles": [
+      "BSc"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -2619,6 +3621,9 @@
   {
     "id": "5624",
     "name": "Hans Stefan Hintner",
+    "givenName": "Hans Stefan",
+    "familyName": "Hintner",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -2631,6 +3636,11 @@
   {
     "id": "601",
     "name": "Dr. Elisabeth Hlavac",
+    "givenName": "Elisabeth",
+    "familyName": "Hlavac",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -2648,6 +3658,11 @@
   {
     "id": "51562",
     "name": "Ing. Christian Höbart",
+    "givenName": "Christian",
+    "familyName": "Höbart",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -2662,6 +3677,9 @@
   {
     "id": "2296",
     "name": "Irene Hochstetter-Lackner",
+    "givenName": "Irene",
+    "familyName": "Hochstetter-Lackner",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -2674,6 +3692,11 @@
   {
     "id": "35521",
     "name": "Ing. Norbert Hofer",
+    "givenName": "Norbert",
+    "familyName": "Hofer",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -2690,6 +3713,11 @@
   {
     "id": "83299",
     "name": "Ing. Manfred Hofinger",
+    "givenName": "Manfred",
+    "familyName": "Hofinger",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -2704,6 +3732,9 @@
   {
     "id": "16234",
     "name": "Johann Höfinger",
+    "givenName": "Johann",
+    "familyName": "Höfinger",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -2720,6 +3751,11 @@
   {
     "id": "2837",
     "name": "Dipl.-Ing. Maximilian Hofmann",
+    "givenName": "Maximilian",
+    "familyName": "Hofmann",
+    "titles": [
+      "Dipl.-Ing."
+    ],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -2736,6 +3772,9 @@
   {
     "id": "8855",
     "name": "Anna Höllerer",
+    "givenName": "Anna",
+    "familyName": "Höllerer",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -2750,6 +3789,31 @@
   {
     "id": "83111",
     "name": "Daniela Holzinger-Vogtenhuber, BA",
+    "givenName": "Daniela",
+    "familyName": "Holzinger-Vogtenhuber",
+    "titles": [
+      "BA"
+    ],
+    "parties": [
+      "Ohne Klub",
+      "PILZ",
+      "SPÖ"
+    ],
+    "periods": [
+      "XXV",
+      "XXVI"
+    ],
+    "url": "https://parlament.gv.at/person/83111",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/71843/7184352_384.jpg"
+  },
+  {
+    "id": "83111",
+    "name": "Daniela Holzinger-Vogtenhuber, BA",
+    "givenName": "Daniela",
+    "familyName": "Holzinger-Vogtenhuber",
+    "titles": [
+      "BA"
+    ],
     "parties": [
       "Ohne Klub",
       "PILZ",
@@ -2765,6 +3829,11 @@
   {
     "id": "2309",
     "name": "Eva Maria Holzleitner, BSc",
+    "givenName": "Eva Maria",
+    "familyName": "Holzleitner",
+    "titles": [
+      "BSc"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -2778,6 +3847,11 @@
   {
     "id": "5010",
     "name": "Dipl.-Ing. Andrea Holzner",
+    "givenName": "Andrea",
+    "familyName": "Holzner",
+    "titles": [
+      "Dipl.-Ing."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -2790,6 +3864,9 @@
   {
     "id": "35489",
     "name": "Franz Hörl",
+    "givenName": "Franz",
+    "familyName": "Hörl",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -2805,6 +3882,9 @@
   {
     "id": "8210",
     "name": "Erwin Hornek",
+    "givenName": "Erwin",
+    "familyName": "Hornek",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -2820,6 +3900,11 @@
   {
     "id": "8255",
     "name": "Mag. Dietmar Hoscher",
+    "givenName": "Dietmar",
+    "familyName": "Hoscher",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -2832,6 +3917,9 @@
   {
     "id": "2343",
     "name": "Douglas Hoyos-Trauttmansdorff",
+    "givenName": "Douglas",
+    "familyName": "Hoyos-Trauttmansdorff",
+    "titles": [],
     "parties": [
       "NEOS"
     ],
@@ -2845,6 +3933,9 @@
   {
     "id": "35511",
     "name": "Bettina Hradecsni",
+    "givenName": "Bettina",
+    "familyName": "Hradecsni",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -2857,6 +3948,11 @@
   {
     "id": "14759",
     "name": "Dr. Franz-Joseph Huainigg",
+    "givenName": "Franz-Joseph",
+    "familyName": "Huainigg",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -2872,6 +3968,9 @@
   {
     "id": "51575",
     "name": "Gerhard Huber",
+    "givenName": "Gerhard",
+    "familyName": "Huber",
+    "titles": [],
     "parties": [
       "BZÖ",
       "Ohne Klub"
@@ -2885,6 +3984,11 @@
   {
     "id": "51561",
     "name": "Dr. Johannes Hübner",
+    "givenName": "Johannes",
+    "familyName": "Hübner",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -2898,6 +4002,9 @@
   {
     "id": "52689",
     "name": "Rudolf Hundstorfer",
+    "givenName": "Rudolf",
+    "familyName": "Hundstorfer",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -2910,6 +4017,9 @@
   {
     "id": "42287",
     "name": "Christian Hursky",
+    "givenName": "Christian",
+    "familyName": "Hursky",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -2922,6 +4032,11 @@
   {
     "id": "14760",
     "name": "Dipl.-Ing. Günther Hütl",
+    "givenName": "Günther",
+    "familyName": "Hütl",
+    "titles": [
+      "Dipl.-Ing."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -2934,6 +4049,11 @@
   {
     "id": "15181",
     "name": "Mag. Peter Michael Ikrath",
+    "givenName": "Peter Michael",
+    "familyName": "Ikrath",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -2948,6 +4068,11 @@
   {
     "id": "1980",
     "name": "Mag. Johanna Jachs",
+    "givenName": "Johanna",
+    "familyName": "Jachs",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -2961,6 +4086,9 @@
   {
     "id": "83149",
     "name": "Brigitte Jank",
+    "givenName": "Brigitte",
+    "familyName": "Jank",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -2973,6 +4101,9 @@
   {
     "id": "51563",
     "name": "Harald Jannach",
+    "givenName": "Harald",
+    "familyName": "Jannach",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -2986,6 +4117,11 @@
   {
     "id": "57367",
     "name": "Mag. Helene Jarmer",
+    "givenName": "Helene",
+    "familyName": "Jarmer",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -2999,6 +4135,11 @@
   {
     "id": "2889",
     "name": "Dr. Johannes Jarolim",
+    "givenName": "Johannes",
+    "familyName": "Jarolim",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -3018,6 +4159,12 @@
   {
     "id": "1981",
     "name": "Mag. Carmen Jeitler-Cincelli, BA",
+    "givenName": "Carmen",
+    "familyName": "Jeitler-Cincelli",
+    "titles": [
+      "Mag.",
+      "BA"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -3031,6 +4178,11 @@
   {
     "id": "62360",
     "name": "Hans-Jörg Jenewein, MA",
+    "givenName": "Hans-Jörg",
+    "familyName": "Jenewein",
+    "titles": [
+      "MA"
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -3044,6 +4196,9 @@
   {
     "id": "51576",
     "name": "Josef Jury",
+    "givenName": "Josef",
+    "familyName": "Jury",
+    "titles": [],
     "parties": [
       "BZÖ",
       "FPÖ",
@@ -3058,6 +4213,9 @@
   {
     "id": "5669",
     "name": "Stefan Kaineder",
+    "givenName": "Stefan",
+    "familyName": "Kaineder",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -3070,6 +4228,9 @@
   {
     "id": "2998",
     "name": "Alois Kainz",
+    "givenName": "Alois",
+    "familyName": "Kainz",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -3083,6 +4244,9 @@
   {
     "id": "14761",
     "name": "Christoph Kainz",
+    "givenName": "Christoph",
+    "familyName": "Kainz",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -3096,6 +4260,11 @@
   {
     "id": "755",
     "name": "Ing. Erwin Kaipel",
+    "givenName": "Erwin",
+    "familyName": "Kaipel",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -3113,6 +4282,11 @@
   {
     "id": "1970",
     "name": "Mag. Gerhard Kaniak",
+    "givenName": "Gerhard",
+    "familyName": "Kaniak",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -3126,6 +4300,11 @@
   {
     "id": "14762",
     "name": "Ing. Norbert Kapeller",
+    "givenName": "Norbert",
+    "familyName": "Kapeller",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -3140,6 +4319,12 @@
   {
     "id": "35490",
     "name": "Mag. Dr. Beatrix Karl",
+    "givenName": "Beatrix",
+    "familyName": "Karl",
+    "titles": [
+      "Mag.",
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -3154,6 +4339,12 @@
   {
     "id": "51564",
     "name": "Dr. Andreas F. Karlsböck",
+    "givenName": "Andreas",
+    "familyName": "Karlsböck",
+    "titles": [
+      "Dr.",
+      "F."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -3167,6 +4358,12 @@
   {
     "id": "83129",
     "name": "MMMag. Dr. Axel Kassegger",
+    "givenName": "Axel",
+    "familyName": "Kassegger",
+    "titles": [
+      "MMMag.",
+      "Dr."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -3181,6 +4378,9 @@
   {
     "id": "32494",
     "name": "Wolfgang Katzian",
+    "givenName": "Wolfgang",
+    "familyName": "Katzian",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -3196,6 +4396,12 @@
   {
     "id": "1983",
     "name": "Martina Kaufmann, MMSc BA",
+    "givenName": "Martina",
+    "familyName": "Kaufmann",
+    "titles": [
+      "MMSc",
+      "BA"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -3209,6 +4415,9 @@
   {
     "id": "68819",
     "name": "Elisabeth Kaufmann-Bruckberger",
+    "givenName": "Elisabeth",
+    "familyName": "Kaufmann-Bruckberger",
+    "titles": [],
     "parties": [
       "BZÖ",
       "Ohne Klub",
@@ -3223,6 +4432,9 @@
   {
     "id": "14840",
     "name": "Dietmar Keck",
+    "givenName": "Dietmar",
+    "familyName": "Keck",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -3240,6 +4452,11 @@
   {
     "id": "2941",
     "name": "Mag. Christian Kern",
+    "givenName": "Christian",
+    "familyName": "Kern",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -3252,6 +4469,9 @@
   {
     "id": "6735",
     "name": "Georg Keuschnigg",
+    "givenName": "Georg",
+    "familyName": "Keuschnigg",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -3264,6 +4484,11 @@
   {
     "id": "799",
     "name": "Dr. Andreas Khol",
+    "givenName": "Andreas",
+    "familyName": "Khol",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -3282,6 +4507,9 @@
   {
     "id": "35520",
     "name": "Herbert Kickl",
+    "givenName": "Herbert",
+    "familyName": "Kickl",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -3298,6 +4526,9 @@
   {
     "id": "1984",
     "name": "Rebecca Kirchbaumer",
+    "givenName": "Rebecca",
+    "familyName": "Kirchbaumer",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -3311,6 +4542,9 @@
   {
     "id": "35495",
     "name": "Franz Kirchgatterer",
+    "givenName": "Franz",
+    "familyName": "Kirchgatterer",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -3325,6 +4559,9 @@
   {
     "id": "51565",
     "name": "Anneliese Kitzmüller",
+    "givenName": "Anneliese",
+    "familyName": "Kitzmüller",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -3339,6 +4576,12 @@
   {
     "id": "35523",
     "name": "Dipl.-Ing. Karlheinz Klement, MAS",
+    "givenName": "Karlheinz",
+    "familyName": "Klement",
+    "titles": [
+      "Dipl.-Ing.",
+      "MAS"
+    ],
     "parties": [
       "FPÖ",
       "Ohne Klub"
@@ -3352,6 +4595,9 @@
   {
     "id": "51552",
     "name": "Oswald Klikovits",
+    "givenName": "Oswald",
+    "familyName": "Klikovits",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -3364,6 +4610,11 @@
   {
     "id": "88857",
     "name": "Ing. Wolfgang Klinger",
+    "givenName": "Wolfgang",
+    "familyName": "Klinger",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -3377,6 +4628,11 @@
   {
     "id": "30036",
     "name": "Mag. Gerald Klug",
+    "givenName": "Gerald",
+    "familyName": "Klug",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -3389,6 +4645,9 @@
   {
     "id": "83112",
     "name": "Wolfgang Knes",
+    "givenName": "Wolfgang",
+    "familyName": "Knes",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -3402,6 +4661,28 @@
   {
     "id": "30352",
     "name": "Mag. Gertraud Knoll",
+    "givenName": "Gertraud",
+    "familyName": "Knoll",
+    "titles": [
+      "Mag."
+    ],
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XXIII"
+    ],
+    "url": "https://parlament.gv.at/person/30352",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/22672/2267265_384.jpg"
+  },
+  {
+    "id": "30352",
+    "name": "Mag. Gertraud Knoll",
+    "givenName": "Gertraud",
+    "familyName": "Knoll",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -3414,6 +4695,9 @@
   {
     "id": "5640",
     "name": "Klaus Köchl",
+    "givenName": "Klaus",
+    "familyName": "Köchl",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -3426,6 +4710,9 @@
   {
     "id": "83100",
     "name": "Matthias Köchl",
+    "givenName": "Matthias",
+    "familyName": "Köchl",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -3438,6 +4725,9 @@
   {
     "id": "35491",
     "name": "Gerhard Köfer",
+    "givenName": "Gerhard",
+    "familyName": "Köfer",
+    "titles": [],
     "parties": [
       "Ohne Klub",
       "SPÖ"
@@ -3452,6 +4742,11 @@
   {
     "id": "8242",
     "name": "Mag. Werner Kogler",
+    "givenName": "Werner",
+    "familyName": "Kogler",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -3469,6 +4764,11 @@
   {
     "id": "2346",
     "name": "Dr. Peter Kolba",
+    "givenName": "Peter",
+    "familyName": "Kolba",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "PILZ"
     ],
@@ -3481,6 +4781,11 @@
   {
     "id": "5641",
     "name": "Maximilian Köllner, MA",
+    "givenName": "Maximilian",
+    "familyName": "Köllner",
+    "titles": [
+      "MA"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -3493,6 +4798,9 @@
   {
     "id": "18666",
     "name": "Andreas Kollross",
+    "givenName": "Andreas",
+    "familyName": "Kollross",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -3506,6 +4814,9 @@
   {
     "id": "14841",
     "name": "Ulrike Königsberger-Ludwig",
+    "givenName": "Ulrike",
+    "familyName": "Königsberger-Ludwig",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -3522,6 +4833,11 @@
   {
     "id": "2019",
     "name": "DDr. Werner Königshofer",
+    "givenName": "Werner",
+    "familyName": "Königshofer",
+    "titles": [
+      "DDr."
+    ],
     "parties": [
       "FPÖ",
       "Ohne Klub"
@@ -3535,6 +4851,9 @@
   {
     "id": "2822",
     "name": "Karlheinz Kopf",
+    "givenName": "Karlheinz",
+    "familyName": "Kopf",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -3555,6 +4874,11 @@
   {
     "id": "51587",
     "name": "Mag. Alev Korun",
+    "givenName": "Alev",
+    "familyName": "Korun",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -3568,6 +4892,9 @@
   {
     "id": "8211",
     "name": "Günter Kößl",
+    "givenName": "Günter",
+    "familyName": "Kößl",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -3583,6 +4910,9 @@
   {
     "id": "57488",
     "name": "Elisabeth Köstinger",
+    "givenName": "Elisabeth",
+    "familyName": "Köstinger",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -3596,6 +4926,9 @@
   {
     "id": "2328",
     "name": "Christian Kovacevic",
+    "givenName": "Christian",
+    "familyName": "Kovacevic",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -3608,6 +4941,11 @@
   {
     "id": "5670",
     "name": "Mag. Markus Koza",
+    "givenName": "Markus",
+    "familyName": "Koza",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -3620,6 +4958,9 @@
   {
     "id": "14842",
     "name": "Kai Jan Krainer",
+    "givenName": "Kai Jan",
+    "familyName": "Krainer",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -3637,6 +4978,9 @@
   {
     "id": "1691",
     "name": "Maximilian Krauss",
+    "givenName": "Maximilian",
+    "familyName": "Krauss",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -3649,6 +4993,11 @@
   {
     "id": "946",
     "name": "Dr. Günther Kräuter",
+    "givenName": "Günther",
+    "familyName": "Kräuter",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -3667,6 +5016,9 @@
   {
     "id": "1985",
     "name": "Barbara Krenn",
+    "givenName": "Barbara",
+    "familyName": "Krenn",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -3679,6 +5031,11 @@
   {
     "id": "2344",
     "name": "Dr. Stephanie Krisper",
+    "givenName": "Stephanie",
+    "familyName": "Krisper",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "NEOS"
     ],
@@ -3692,6 +5049,9 @@
   {
     "id": "14843",
     "name": "Hermann Krist",
+    "givenName": "Hermann",
+    "familyName": "Krist",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -3708,6 +5068,9 @@
   {
     "id": "35908",
     "name": "Katharina Kucharowits",
+    "givenName": "Katharina",
+    "familyName": "Kucharowits",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -3722,6 +5085,9 @@
   {
     "id": "83113",
     "name": "Philip Kucher",
+    "givenName": "Philip",
+    "familyName": "Kucher",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -3736,6 +5102,11 @@
   {
     "id": "1986",
     "name": "Dr. Gudrun Kugler",
+    "givenName": "Gudrun",
+    "familyName": "Kugler",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -3749,6 +5120,9 @@
   {
     "id": "1987",
     "name": "Andreas Kühberger",
+    "givenName": "Andreas",
+    "familyName": "Kühberger",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -3762,6 +5136,11 @@
   {
     "id": "998",
     "name": "Mag. Helmut Kukacka",
+    "givenName": "Helmut",
+    "familyName": "Kukacka",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -3779,6 +5158,11 @@
   {
     "id": "2816",
     "name": "Dipl.-Ing. Werner Kummerer",
+    "givenName": "Werner",
+    "familyName": "Kummerer",
+    "titles": [
+      "Dipl.-Ing."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -3794,6 +5178,11 @@
   {
     "id": "86603",
     "name": "Mag. Günther Kumpitsch",
+    "givenName": "Günther",
+    "familyName": "Kumpitsch",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -3807,6 +5196,9 @@
   {
     "id": "51567",
     "name": "Mario Kunasek",
+    "givenName": "Mario",
+    "familyName": "Kunasek",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -3820,6 +5212,11 @@
   {
     "id": "5685",
     "name": "Mag. Martina Künsberg Sarre",
+    "givenName": "Martina Künsberg",
+    "familyName": "Sarre",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "NEOS"
     ],
@@ -3832,6 +5229,11 @@
   {
     "id": "8178",
     "name": "Mag. Andrea Kuntzl",
+    "givenName": "Andrea",
+    "familyName": "Kuntzl",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -3850,6 +5252,9 @@
   {
     "id": "65321",
     "name": "Sebastian Kurz",
+    "givenName": "Sebastian",
+    "familyName": "Kurz",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -3864,6 +5269,9 @@
   {
     "id": "2823",
     "name": "Johann Kurzbauer",
+    "givenName": "Johann",
+    "familyName": "Kurzbauer",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -3879,6 +5287,11 @@
   {
     "id": "5075",
     "name": "Dr. Gerhard Kurzmann",
+    "givenName": "Gerhard",
+    "familyName": "Kurzmann",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -3894,6 +5307,11 @@
   {
     "id": "3129",
     "name": "Angelika Kuss-Bergner, BEd",
+    "givenName": "Angelika",
+    "familyName": "Kuss-Bergner",
+    "titles": [
+      "BEd"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -3906,6 +5324,12 @@
   {
     "id": "35494",
     "name": "Ing. Mag. Hubert Kuzdas",
+    "givenName": "Hubert",
+    "familyName": "Kuzdas",
+    "titles": [
+      "Ing.",
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -3920,6 +5344,9 @@
   {
     "id": "3611",
     "name": "Manfred Lackner",
+    "givenName": "Manfred",
+    "familyName": "Lackner",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -3934,6 +5361,9 @@
   {
     "id": "2330",
     "name": "Robert Laimer",
+    "givenName": "Robert",
+    "familyName": "Laimer",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -3947,6 +5377,11 @@
   {
     "id": "12553",
     "name": "Mag. Hans Langreiter",
+    "givenName": "Hans",
+    "familyName": "Langreiter",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -3960,6 +5395,12 @@
   {
     "id": "11570",
     "name": "Mag. Christine Lapp, MA",
+    "givenName": "Christine",
+    "familyName": "Lapp",
+    "titles": [
+      "Mag.",
+      "MA"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -3975,6 +5416,9 @@
   {
     "id": "88823",
     "name": "David Lasar",
+    "givenName": "David",
+    "familyName": "Lasar",
+    "titles": [],
     "parties": [
       "FPÖ",
       "Ohne Klub"
@@ -3989,6 +5433,9 @@
   {
     "id": "51568",
     "name": "Christian Lausch",
+    "givenName": "Christian",
+    "familyName": "Lausch",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -4004,6 +5451,9 @@
   {
     "id": "50067",
     "name": "Hartmann Lautenschlager",
+    "givenName": "Hartmann",
+    "familyName": "Lautenschlager",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -4016,6 +5466,9 @@
   {
     "id": "5715",
     "name": "Johann Ledolter",
+    "givenName": "Johann",
+    "familyName": "Ledolter",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -4028,6 +5481,11 @@
   {
     "id": "22694",
     "name": "Mag. Jörg Leichtfried",
+    "givenName": "Jörg",
+    "familyName": "Leichtfried",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -4041,6 +5499,9 @@
   {
     "id": "2886",
     "name": "Edeltraud Lentsch",
+    "givenName": "Edeltraud",
+    "familyName": "Lentsch",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -4056,6 +5517,9 @@
   {
     "id": "5642",
     "name": "Maximilian Lercher",
+    "givenName": "Maximilian",
+    "familyName": "Lercher",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -4068,6 +5532,11 @@
   {
     "id": "51553",
     "name": "Mag. Josef Lettenbichler",
+    "givenName": "Josef",
+    "familyName": "Lettenbichler",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -4082,6 +5551,11 @@
   {
     "id": "22533",
     "name": "Dr. Richard Leutner",
+    "givenName": "Richard",
+    "familyName": "Leutner",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -4094,6 +5568,11 @@
   {
     "id": "8243",
     "name": "Dr. Evelin Lichtenberger",
+    "givenName": "Evelin",
+    "familyName": "Lichtenberger",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -4107,6 +5586,11 @@
   {
     "id": "18447",
     "name": "Dr. Ruperta Lichtenecker",
+    "givenName": "Ruperta",
+    "familyName": "Lichtenecker",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -4121,6 +5605,9 @@
   {
     "id": "15528",
     "name": "Elmar Lichtenegger",
+    "givenName": "Elmar",
+    "familyName": "Lichtenegger",
+    "titles": [],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -4134,6 +5621,11 @@
   {
     "id": "879",
     "name": "Dr. Vincenz Liechtenstein",
+    "givenName": "Vincenz",
+    "familyName": "Liechtenstein",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -4146,6 +5638,9 @@
   {
     "id": "51577",
     "name": "Maximilian Linder",
+    "givenName": "Maximilian",
+    "familyName": "Linder",
+    "titles": [],
     "parties": [
       "BZÖ",
       "FPÖ",
@@ -4162,6 +5657,12 @@
   {
     "id": "2001",
     "name": "Ing. Klaus Lindinger, BSc",
+    "givenName": "Klaus",
+    "familyName": "Lindinger",
+    "titles": [
+      "Ing.",
+      "BSc"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -4175,6 +5676,9 @@
   {
     "id": "86613",
     "name": "Mario Lindner",
+    "givenName": "Mario",
+    "familyName": "Lindner",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -4188,6 +5692,11 @@
   {
     "id": "83142",
     "name": "Dr. Jessi Lintl",
+    "givenName": "Jessi",
+    "familyName": "Lintl",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "FPÖ",
       "Ohne Klub",
@@ -4203,6 +5712,9 @@
   {
     "id": "51548",
     "name": "Hermann Lipitsch",
+    "givenName": "Hermann",
+    "familyName": "Lipitsch",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -4216,6 +5728,11 @@
   {
     "id": "5484",
     "name": "Ing. Daniela List",
+    "givenName": "Daniela",
+    "familyName": "List",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -4228,6 +5745,9 @@
   {
     "id": "51578",
     "name": "Kurt List",
+    "givenName": "Kurt",
+    "familyName": "List",
+    "titles": [],
     "parties": [
       "BZÖ"
     ],
@@ -4240,6 +5760,11 @@
   {
     "id": "5671",
     "name": "Ing. Martin Litschauer",
+    "givenName": "Martin",
+    "familyName": "Litschauer",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -4252,6 +5777,11 @@
   {
     "id": "83121",
     "name": "Mag. Gerald Loacker",
+    "givenName": "Gerald",
+    "familyName": "Loacker",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "NEOS"
     ],
@@ -4266,6 +5796,11 @@
   {
     "id": "36987",
     "name": "Mag. Rosa Lohfeyer",
+    "givenName": "Rosa",
+    "familyName": "Lohfeyer",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -4279,6 +5814,11 @@
   {
     "id": "15526",
     "name": "Dr. Reinhold Lopatka",
+    "givenName": "Reinhold",
+    "familyName": "Lopatka",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -4296,6 +5836,9 @@
   {
     "id": "22449",
     "name": "Angela Lueger",
+    "givenName": "Angela",
+    "familyName": "Lueger",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -4311,6 +5854,11 @@
   {
     "id": "51579",
     "name": "Ing. Robert Lugar",
+    "givenName": "Robert",
+    "familyName": "Lugar",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "BZÖ",
       "FPÖ",
@@ -4328,6 +5876,11 @@
   {
     "id": "8244",
     "name": "Mag. Ulrike Lunacek",
+    "givenName": "Ulrike",
+    "familyName": "Lunacek",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -4343,6 +5896,9 @@
   {
     "id": "14763",
     "name": "Helga Machne",
+    "givenName": "Helga",
+    "familyName": "Machne",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -4355,6 +5911,9 @@
   {
     "id": "2006",
     "name": "Karl Mahrer",
+    "givenName": "Karl",
+    "familyName": "Mahrer",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -4368,6 +5927,11 @@
   {
     "id": "6155",
     "name": "Dr. Ferdinand Maier",
+    "givenName": "Ferdinand",
+    "familyName": "Maier",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -4382,6 +5946,11 @@
   {
     "id": "3755",
     "name": "Mag. Johann Maier",
+    "givenName": "Johann",
+    "familyName": "Maier",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -4398,6 +5967,11 @@
   {
     "id": "7236",
     "name": "Mag. Eduard Mainoni",
+    "givenName": "Eduard",
+    "familyName": "Mainoni",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -4411,6 +5985,9 @@
   {
     "id": "14694",
     "name": "Sabine Mandak",
+    "givenName": "Sabine",
+    "familyName": "Mandak",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -4424,6 +6001,9 @@
   {
     "id": "2122",
     "name": "Nico Marchetti",
+    "givenName": "Nico",
+    "familyName": "Marchetti",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -4437,6 +6017,9 @@
   {
     "id": "14764",
     "name": "Christine Marek",
+    "givenName": "Christine",
+    "familyName": "Marek",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -4451,6 +6034,9 @@
   {
     "id": "2333",
     "name": "Doris Margreiter",
+    "givenName": "Doris",
+    "familyName": "Margreiter",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -4463,6 +6049,11 @@
   {
     "id": "5686",
     "name": "Dr. Johannes Margreiter",
+    "givenName": "Johannes",
+    "familyName": "Margreiter",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "NEOS"
     ],
@@ -4475,6 +6066,9 @@
   {
     "id": "1079",
     "name": "Peter Marizzi",
+    "givenName": "Peter",
+    "familyName": "Marizzi",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -4493,6 +6087,9 @@
   {
     "id": "51580",
     "name": "Stefan Markowitz",
+    "givenName": "Stefan",
+    "familyName": "Markowitz",
+    "titles": [],
     "parties": [
       "BZÖ",
       "Ohne Klub",
@@ -4507,6 +6104,11 @@
   {
     "id": "14844",
     "name": "Dr. Christoph Matznetter",
+    "givenName": "Christoph",
+    "familyName": "Matznetter",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -4524,6 +6126,11 @@
   {
     "id": "83101",
     "name": "Sigrid Maurer, BA",
+    "givenName": "Sigrid",
+    "familyName": "Maurer",
+    "titles": [
+      "BA"
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -4537,6 +6144,9 @@
   {
     "id": "35501",
     "name": "Elmar Mayer",
+    "givenName": "Elmar",
+    "familyName": "Mayer",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -4551,6 +6161,9 @@
   {
     "id": "51554",
     "name": "Peter Mayer",
+    "givenName": "Peter",
+    "familyName": "Mayer",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -4563,6 +6176,9 @@
   {
     "id": "35499",
     "name": "Leopold Mayerhofer",
+    "givenName": "Leopold",
+    "familyName": "Mayerhofer",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -4576,6 +6192,12 @@
   {
     "id": "83122",
     "name": "Mag. Beate Meinl-Reisinger, MES",
+    "givenName": "Beate",
+    "familyName": "Meinl-Reisinger",
+    "titles": [
+      "Mag.",
+      "MES"
+    ],
     "parties": [
       "NEOS"
     ],
@@ -4590,6 +6212,9 @@
   {
     "id": "5625",
     "name": "Alexander Melchior",
+    "givenName": "Alexander",
+    "familyName": "Melchior",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -4602,6 +6227,9 @@
   {
     "id": "8213",
     "name": "Werner Miedl",
+    "givenName": "Werner",
+    "familyName": "Miedl",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -4615,6 +6243,9 @@
   {
     "id": "15527",
     "name": "Herta Mikesch",
+    "givenName": "Herta",
+    "familyName": "Mikesch",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -4628,6 +6259,11 @@
   {
     "id": "8214",
     "name": "Mag. Johanna Mikl-Leitner",
+    "givenName": "Johanna",
+    "familyName": "Mikl-Leitner",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -4642,6 +6278,9 @@
   {
     "id": "5626",
     "name": "Andreas Minnich",
+    "givenName": "Andreas",
+    "familyName": "Minnich",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -4654,6 +6293,11 @@
   {
     "id": "5435",
     "name": "Dipl.-Ing. Hannes Missethon",
+    "givenName": "Hannes",
+    "familyName": "Missethon",
+    "titles": [
+      "Dipl.-Ing."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -4667,6 +6311,11 @@
   {
     "id": "8696",
     "name": "Dr. Reinhold Mitterlehner",
+    "givenName": "Reinhold",
+    "familyName": "Mitterlehner",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -4683,6 +6332,9 @@
   {
     "id": "25950",
     "name": "Marialuise Mittermüller",
+    "givenName": "Marialuise",
+    "familyName": "Mittermüller",
+    "titles": [],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -4696,6 +6348,13 @@
   {
     "id": "83123",
     "name": "Mag. Dr. Angelika Mlinar, LL.M.",
+    "givenName": "Angelika",
+    "familyName": "Mlinar",
+    "titles": [
+      "Mag.",
+      "Dr.",
+      "LL.M."
+    ],
     "parties": [
       "NEOS"
     ],
@@ -4708,6 +6367,11 @@
   {
     "id": "1226",
     "name": "Mag. Wilhelm Molterer",
+    "givenName": "Wilhelm",
+    "familyName": "Molterer",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -4726,6 +6390,9 @@
   {
     "id": "36187",
     "name": "Wendelin Mölzer",
+    "givenName": "Wendelin",
+    "familyName": "Mölzer",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -4739,6 +6406,9 @@
   {
     "id": "2826",
     "name": "Franz Morak",
+    "givenName": "Franz",
+    "familyName": "Morak",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -4755,6 +6425,9 @@
   {
     "id": "35488",
     "name": "Adelheid Irina Moretti",
+    "givenName": "Adelheid Irina",
+    "familyName": "Moretti",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -4768,6 +6441,11 @@
   {
     "id": "2853",
     "name": "Dr. Gabriela Moser",
+    "givenName": "Gabriela",
+    "familyName": "Moser",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -4786,6 +6464,11 @@
   {
     "id": "14845",
     "name": "Mag. Johann Moser",
+    "givenName": "Johann",
+    "familyName": "Moser",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -4798,6 +6481,11 @@
   {
     "id": "3896",
     "name": "Dr. Josef Moser",
+    "givenName": "Josef",
+    "familyName": "Moser",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -4811,6 +6499,9 @@
   {
     "id": "35497",
     "name": "Josef Muchitsch",
+    "givenName": "Josef",
+    "familyName": "Muchitsch",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -4827,6 +6518,11 @@
   {
     "id": "83102",
     "name": "Dr. Eva Mückstein",
+    "givenName": "Eva",
+    "familyName": "Mückstein",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -4839,6 +6535,9 @@
   {
     "id": "51569",
     "name": "Edith Mühlberghuber",
+    "givenName": "Edith",
+    "familyName": "Mühlberghuber",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -4854,6 +6553,9 @@
   {
     "id": "1295",
     "name": "Walter Murauer",
+    "givenName": "Walter",
+    "familyName": "Murauer",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -4871,6 +6573,11 @@
   {
     "id": "51588",
     "name": "Mag. Daniela Musiol",
+    "givenName": "Daniela",
+    "familyName": "Musiol",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -4884,6 +6591,11 @@
   {
     "id": "8179",
     "name": "Mag. Christine Muttonen",
+    "givenName": "Christine",
+    "familyName": "Muttonen",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -4900,6 +6612,11 @@
   {
     "id": "83139",
     "name": "Dr. Kathrin Nachbaur",
+    "givenName": "Kathrin",
+    "familyName": "Nachbaur",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "STRONACH",
       "ÖVP"
@@ -4913,6 +6630,11 @@
   {
     "id": "2136",
     "name": "Karl Nehammer, MSc",
+    "givenName": "Karl",
+    "familyName": "Nehammer",
+    "titles": [
+      "MSc"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -4926,6 +6648,12 @@
   {
     "id": "19681",
     "name": "Kurt Nekula, MA, MAS",
+    "givenName": "Kurt",
+    "familyName": "Nekula",
+    "titles": [
+      "MA",
+      "MAS"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -4938,6 +6666,9 @@
   {
     "id": "5672",
     "name": "Barbara Neßler",
+    "givenName": "Barbara",
+    "familyName": "Neßler",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -4950,6 +6681,11 @@
   {
     "id": "35522",
     "name": "Werner Neubauer, BA",
+    "givenName": "Werner",
+    "familyName": "Neubauer",
+    "titles": [
+      "BA"
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -4965,6 +6701,9 @@
   {
     "id": "8196",
     "name": "Detlev Neudeck",
+    "givenName": "Detlev",
+    "familyName": "Neudeck",
+    "titles": [],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -4979,6 +6718,9 @@
   {
     "id": "3604",
     "name": "Fritz Neugebauer",
+    "givenName": "Fritz",
+    "familyName": "Neugebauer",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -4994,6 +6736,9 @@
   {
     "id": "6498",
     "name": "Irene Neumann-Hartberger",
+    "givenName": "Irene",
+    "familyName": "Neumann-Hartberger",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -5006,6 +6751,11 @@
   {
     "id": "93132",
     "name": "Mag. Barbara Neuroth",
+    "givenName": "Barbara",
+    "familyName": "Neuroth",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -5018,6 +6768,11 @@
   {
     "id": "1052",
     "name": "DDr. Erwin Niederwieser",
+    "givenName": "Erwin",
+    "familyName": "Niederwieser",
+    "titles": [
+      "DDr."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -5035,6 +6790,13 @@
   {
     "id": "2242",
     "name": "Mag. Dr. Maria Theresia Niss, MBA",
+    "givenName": "Maria Theresia",
+    "familyName": "Niss",
+    "titles": [
+      "Mag.",
+      "Dr.",
+      "MBA"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -5048,6 +6810,12 @@
   {
     "id": "2336",
     "name": "Dr. Alfred J. Noll",
+    "givenName": "Alfred",
+    "familyName": "Noll",
+    "titles": [
+      "Dr.",
+      "J."
+    ],
     "parties": [
       "PILZ"
     ],
@@ -5060,6 +6828,9 @@
   {
     "id": "1062",
     "name": "Rudolf Nürnberger",
+    "givenName": "Rudolf",
+    "familyName": "Nürnberger",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -5078,6 +6849,11 @@
   {
     "id": "2334",
     "name": "Mag. Verena Nussbaum",
+    "givenName": "Verena",
+    "familyName": "Nussbaum",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -5091,6 +6867,9 @@
   {
     "id": "1066",
     "name": "Georg Oberhaidinger",
+    "givenName": "Georg",
+    "familyName": "Oberhaidinger",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -5107,6 +6886,12 @@
   {
     "id": "35509",
     "name": "Dr. Sabine Oberhauser, MAS",
+    "givenName": "Sabine",
+    "familyName": "Oberhauser",
+    "titles": [
+      "Dr.",
+      "MAS"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -5121,6 +6906,9 @@
   {
     "id": "35487",
     "name": "Gabriel Obernosterer",
+    "givenName": "Gabriel",
+    "familyName": "Obernosterer",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -5137,6 +6925,12 @@
   {
     "id": "5643",
     "name": "Mag. Dr. Petra Oberrauner",
+    "givenName": "Petra",
+    "familyName": "Oberrauner",
+    "titles": [
+      "Mag.",
+      "Dr."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -5149,6 +6943,11 @@
   {
     "id": "83300",
     "name": "Mag. Friedrich Ofenauer",
+    "givenName": "Friedrich",
+    "familyName": "Ofenauer",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -5163,6 +6962,9 @@
   {
     "id": "2854",
     "name": "Karl Öllinger",
+    "givenName": "Karl",
+    "familyName": "Öllinger",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -5181,6 +6983,9 @@
   {
     "id": "83150",
     "name": "Andreas Ottenschläger",
+    "givenName": "Andreas",
+    "familyName": "Ottenschläger",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -5195,6 +7000,9 @@
   {
     "id": "23167",
     "name": "Christian Oxonitsch",
+    "givenName": "Christian",
+    "familyName": "Oxonitsch",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -5207,6 +7015,9 @@
   {
     "id": "14765",
     "name": "Jochen Pack",
+    "givenName": "Jochen",
+    "familyName": "Pack",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -5221,6 +7032,9 @@
   {
     "id": "1155",
     "name": "Rudolf Parnigoni",
+    "givenName": "Rudolf",
+    "familyName": "Parnigoni",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -5240,6 +7054,11 @@
   {
     "id": "1158",
     "name": "Dr. Helene Partik-Pablé",
+    "givenName": "Helene",
+    "familyName": "Partik-Pablé",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -5259,6 +7078,9 @@
   {
     "id": "5375",
     "name": "Otto Pendl",
+    "givenName": "Otto",
+    "familyName": "Pendl",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -5276,6 +7098,12 @@
   {
     "id": "1186",
     "name": "MMag. Dr. Madeleine Petrovic",
+    "givenName": "Madeleine",
+    "familyName": "Petrovic",
+    "titles": [
+      "MMag.",
+      "Dr."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -5292,6 +7120,9 @@
   {
     "id": "51581",
     "name": "Stefan Petzner",
+    "givenName": "Stefan",
+    "familyName": "Petzner",
+    "titles": [],
     "parties": [
       "BZÖ"
     ],
@@ -5304,6 +7135,11 @@
   {
     "id": "1942",
     "name": "Ing. Christian Pewny",
+    "givenName": "Christian",
+    "familyName": "Pewny",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -5316,6 +7152,9 @@
   {
     "id": "2868",
     "name": "Katharina Pfeffer",
+    "givenName": "Katharina",
+    "familyName": "Pfeffer",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -5330,6 +7169,11 @@
   {
     "id": "83151",
     "name": "Dipl.-Kffr. (FH) Elisabeth Pfurtscheller",
+    "givenName": "Elisabeth",
+    "familyName": "Pfurtscheller",
+    "titles": [
+      "Dipl.-Kffr. (FH)"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -5344,6 +7188,11 @@
   {
     "id": "1210",
     "name": "Dr. Peter Pilz",
+    "givenName": "Peter",
+    "familyName": "Pilz",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "GRÜNE",
       "Ohne Klub",
@@ -5365,6 +7214,34 @@
   {
     "id": "8245",
     "name": "Dipl.-Ing. Dr. Wolfgang Pirklhuber",
+    "givenName": "Wolfgang",
+    "familyName": "Pirklhuber",
+    "titles": [
+      "Dipl.-Ing.",
+      "Dr."
+    ],
+    "parties": [
+      "GRÜNE"
+    ],
+    "periods": [
+      "XXI",
+      "XXII",
+      "XXIII",
+      "XXIV",
+      "XXV"
+    ],
+    "url": "https://parlament.gv.at/person/8245",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/43844/4384415_384.jpg"
+  },
+  {
+    "id": "8245",
+    "name": "Dipl.-Ing. Dr. Wolfgang Pirklhuber",
+    "givenName": "Wolfgang",
+    "familyName": "Pirklhuber",
+    "titles": [
+      "Dipl.-Ing.",
+      "Dr."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -5381,6 +7258,9 @@
   {
     "id": "2295",
     "name": "Claudia Plakolm",
+    "givenName": "Claudia",
+    "familyName": "Plakolm",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -5394,6 +7274,11 @@
   {
     "id": "24479",
     "name": "Dr. Ursula Plassnik",
+    "givenName": "Ursula",
+    "familyName": "Plassnik",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -5407,6 +7292,9 @@
   {
     "id": "2827",
     "name": "Günther Platter",
+    "givenName": "Günther",
+    "familyName": "Platter",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -5422,6 +7310,9 @@
   {
     "id": "51549",
     "name": "Rudolf Plessl",
+    "givenName": "Rudolf",
+    "familyName": "Plessl",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -5434,8 +7325,28 @@
     "imageUrl": "https://parlament.gv.at/dokument/bild/71839/7183996_384.jpg"
   },
   {
+    "id": "83124",
+    "name": "Michael Bernhard",
+    "givenName": "Michael",
+    "familyName": "Bernhard",
+    "titles": [],
+    "parties": [
+      "NEOS"
+    ],
+    "periods": [
+      "XXV",
+      "XXVI",
+      "XXVII"
+    ],
+    "url": "https://parlament.gv.at/person/83124",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200697/20069722_384.jpg"
+  },
+  {
     "id": "59908",
     "name": "Elmar Podgorschek",
+    "givenName": "Elmar",
+    "familyName": "Podgorschek",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -5449,6 +7360,11 @@
   {
     "id": "1278",
     "name": "Mag. Walter Posch",
+    "givenName": "Walter",
+    "familyName": "Posch",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -5465,6 +7381,9 @@
   {
     "id": "5486",
     "name": "Laurenz Pöttinger",
+    "givenName": "Laurenz",
+    "familyName": "Pöttinger",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -5478,6 +7397,11 @@
   {
     "id": "3614",
     "name": "Dr. Brigitte Povysil",
+    "givenName": "Brigitte",
+    "familyName": "Povysil",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -5492,6 +7416,9 @@
   {
     "id": "1288",
     "name": "Stefan Prähauser",
+    "givenName": "Stefan",
+    "familyName": "Prähauser",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -5507,6 +7434,11 @@
   {
     "id": "6502",
     "name": "Mag. Agnes Sirkka Prammer",
+    "givenName": "Agnes Sirkka",
+    "familyName": "Prammer",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -5519,6 +7451,11 @@
   {
     "id": "4476",
     "name": "Mag. Barbara Prammer",
+    "givenName": "Barbara",
+    "familyName": "Prammer",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -5535,6 +7472,9 @@
   {
     "id": "14766",
     "name": "Michael Praßl",
+    "givenName": "Michael",
+    "familyName": "Praßl",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -5549,6 +7489,9 @@
   {
     "id": "14875",
     "name": "Martin Preineder",
+    "givenName": "Martin",
+    "familyName": "Preineder",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -5561,6 +7504,9 @@
   {
     "id": "30011",
     "name": "Erwin Preiner",
+    "givenName": "Erwin",
+    "familyName": "Preiner",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -5575,6 +7521,9 @@
   {
     "id": "35496",
     "name": "Sylvia Rinner",
+    "givenName": "Sylvia",
+    "familyName": "Rinner",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -5587,6 +7536,9 @@
   {
     "id": "8235",
     "name": "Nikolaus Prinz",
+    "givenName": "Nikolaus",
+    "familyName": "Prinz",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -5605,6 +7557,11 @@
   {
     "id": "3613",
     "name": "Dipl.-Ing. Thomas Prinzhorn",
+    "givenName": "Thomas",
+    "familyName": "Prinzhorn",
+    "titles": [
+      "Dipl.-Ing."
+    ],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -5620,6 +7577,11 @@
   {
     "id": "15465",
     "name": "Dipl.-Ing. Josef Pröll",
+    "givenName": "Josef",
+    "familyName": "Pröll",
+    "titles": [
+      "Dipl.-Ing."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -5634,6 +7596,11 @@
   {
     "id": "14846",
     "name": "Dr. Christian Puswald",
+    "givenName": "Christian",
+    "familyName": "Puswald",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -5646,6 +7613,11 @@
   {
     "id": "2818",
     "name": "Dr. Robert Rada",
+    "givenName": "Robert",
+    "familyName": "Rada",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -5662,6 +7634,9 @@
   {
     "id": "14767",
     "name": "Johann Rädler",
+    "givenName": "Johann",
+    "familyName": "Rädler",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -5678,6 +7653,11 @@
   {
     "id": "1937",
     "name": "Mag. Christian Ragger",
+    "givenName": "Christian",
+    "familyName": "Ragger",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -5691,6 +7671,11 @@
   {
     "id": "2862",
     "name": "Dr. Erwin Rasinger",
+    "givenName": "Erwin",
+    "familyName": "Rasinger",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -5709,6 +7694,11 @@
   {
     "id": "83152",
     "name": "Mag. Johannes Rauch",
+    "givenName": "Johannes",
+    "familyName": "Rauch",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -5721,6 +7711,9 @@
   {
     "id": "83130",
     "name": "Walter Rauch",
+    "givenName": "Walter",
+    "familyName": "Rauch",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -5735,6 +7728,9 @@
   {
     "id": "1546",
     "name": "Maria Rauch-Kallat",
+    "givenName": "Maria",
+    "familyName": "Rauch-Kallat",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -5752,6 +7748,11 @@
   {
     "id": "14275",
     "name": "Mag. Bettina Rausch-Amon",
+    "givenName": "Bettina",
+    "familyName": "Rausch-Amon",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -5764,6 +7765,12 @@
   {
     "id": "15548",
     "name": "Dipl.-Ing. Mag. Roderich Regler",
+    "givenName": "Roderich",
+    "familyName": "Regler",
+    "titles": [
+      "Dipl.-Ing.",
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -5776,6 +7783,9 @@
   {
     "id": "6997",
     "name": "Gerhard Reheis",
+    "givenName": "Gerhard",
+    "familyName": "Reheis",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -5791,6 +7801,12 @@
   {
     "id": "3717",
     "name": "Ing. Mag. Volker Reifenberger",
+    "givenName": "Volker",
+    "familyName": "Reifenberger",
+    "titles": [
+      "Ing.",
+      "Mag."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -5804,6 +7820,11 @@
   {
     "id": "84054",
     "name": "Michel Reimon, MBA",
+    "givenName": "Michel",
+    "familyName": "Reimon",
+    "titles": [
+      "MBA"
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -5816,6 +7837,9 @@
   {
     "id": "5627",
     "name": "Carina Reiter",
+    "givenName": "Carina",
+    "familyName": "Reiter",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -5828,6 +7852,12 @@
   {
     "id": "91034",
     "name": "Dr. Pamela Rendi-Wagner, MSc",
+    "givenName": "Pamela",
+    "familyName": "Rendi-Wagner",
+    "titles": [
+      "Dr.",
+      "MSc"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -5841,6 +7871,9 @@
   {
     "id": "14696",
     "name": "Heidemarie Rest-Hinterseer",
+    "givenName": "Heidemarie",
+    "familyName": "Rest-Hinterseer",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -5853,6 +7886,11 @@
   {
     "id": "5673",
     "name": "Bedrana Ribo, MA",
+    "givenName": "Bedrana",
+    "familyName": "Ribo",
+    "titles": [
+      "MA"
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -5865,6 +7903,11 @@
   {
     "id": "61659",
     "name": "Josef A. Riemer",
+    "givenName": "Josef",
+    "familyName": "Riemer",
+    "titles": [
+      "A."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -5879,6 +7922,9 @@
   {
     "id": "14768",
     "name": "Barbara Riener",
+    "givenName": "Barbara",
+    "familyName": "Riener",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -5893,6 +7939,9 @@
   {
     "id": "3599",
     "name": "Franz Riepl",
+    "givenName": "Franz",
+    "familyName": "Riepl",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -5909,6 +7958,9 @@
   {
     "id": "2997",
     "name": "Christian Ries",
+    "givenName": "Christian",
+    "familyName": "Ries",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -5920,8 +7972,28 @@
     "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069619_384.jpg"
   },
   {
+    "id": "35496",
+    "name": "Sylvia Rinner",
+    "givenName": "Sylvia",
+    "familyName": "Rinner",
+    "titles": [],
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XXIII"
+    ],
+    "url": "https://parlament.gv.at/person/35496",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/21018/2101849_384.jpg"
+  },
+  {
     "id": "2297",
     "name": "Dipl.-Ing. Alois Rosenberger",
+    "givenName": "Alois",
+    "familyName": "Rosenberger",
+    "titles": [
+      "Dipl.-Ing."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -5934,6 +8006,31 @@
   {
     "id": "14693",
     "name": "Barbara Rosenkranz, MA",
+    "givenName": "Barbara",
+    "familyName": "Rosenkranz",
+    "titles": [
+      "MA"
+    ],
+    "parties": [
+      "BZÖ",
+      "FPÖ"
+    ],
+    "periods": [
+      "XXII",
+      "XXIII",
+      "XXV"
+    ],
+    "url": "https://parlament.gv.at/person/14693",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/44447/4444797_384.jpg"
+  },
+  {
+    "id": "14693",
+    "name": "Barbara Rosenkranz, MA",
+    "givenName": "Barbara",
+    "familyName": "Rosenkranz",
+    "titles": [
+      "MA"
+    ],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -5949,6 +8046,11 @@
   {
     "id": "51570",
     "name": "Dr. Walter Rosenkranz",
+    "givenName": "Walter",
+    "familyName": "Rosenkranz",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -5963,6 +8065,11 @@
   {
     "id": "5674",
     "name": "Dr. Astrid Rössler",
+    "givenName": "Astrid",
+    "familyName": "Rössler",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -5975,6 +8082,11 @@
   {
     "id": "35516",
     "name": "Mag. Bruno Rossmann",
+    "givenName": "Bruno",
+    "familyName": "Rossmann",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE",
       "Ohne Klub",
@@ -5992,6 +8104,9 @@
   {
     "id": "2845",
     "name": "Mares Rossmann",
+    "givenName": "Mares",
+    "familyName": "Rossmann",
+    "titles": [],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -6007,6 +8122,11 @@
   {
     "id": "36507",
     "name": "Mag. Laura Rudas",
+    "givenName": "Laura",
+    "familyName": "Rudas",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -6021,6 +8141,11 @@
   {
     "id": "83296",
     "name": "Dipl.-Ing. Andrä Rupprechter",
+    "givenName": "Andrä",
+    "familyName": "Rupprechter",
+    "titles": [
+      "Dipl.-Ing."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -6033,6 +8158,9 @@
   {
     "id": "1565",
     "name": "Ewald Sacher",
+    "givenName": "Ewald",
+    "familyName": "Sacher",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -6045,6 +8173,11 @@
   {
     "id": "3716",
     "name": "MMMag. Gertraud Salzmann",
+    "givenName": "Gertraud",
+    "familyName": "Salzmann",
+    "titles": [
+      "MMMag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -6058,6 +8191,9 @@
   {
     "id": "2335",
     "name": "Birgit Silvia Sandler",
+    "givenName": "Birgit Silvia",
+    "familyName": "Sandler",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -6070,6 +8206,12 @@
   {
     "id": "7106",
     "name": "Dr. Werner Saxinger, MSc",
+    "givenName": "Werner",
+    "familyName": "Saxinger",
+    "titles": [
+      "Dr.",
+      "MSc"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -6082,6 +8224,9 @@
   {
     "id": "14695",
     "name": "Michaela Sburny",
+    "givenName": "Michaela",
+    "familyName": "Sburny",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -6095,6 +8240,9 @@
   {
     "id": "86681",
     "name": "Jürgen Schabhüttl",
+    "givenName": "Jürgen",
+    "familyName": "Schabhüttl",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -6107,6 +8255,9 @@
   {
     "id": "35519",
     "name": "Veit Schalle",
+    "givenName": "Veit",
+    "familyName": "Schalle",
+    "titles": [],
     "parties": [
       "BZÖ"
     ],
@@ -6119,6 +8270,9 @@
   {
     "id": "5676",
     "name": "Ralph Schallmeiner",
+    "givenName": "Ralph",
+    "familyName": "Schallmeiner",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -6131,6 +8285,11 @@
   {
     "id": "1971",
     "name": "Dipl.-Ing. Christian Schandor",
+    "givenName": "Christian",
+    "familyName": "Schandor",
+    "titles": [
+      "Dipl.-Ing."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -6143,6 +8302,9 @@
   {
     "id": "14847",
     "name": "Erika Scharer",
+    "givenName": "Erika",
+    "familyName": "Scharer",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -6156,6 +8318,9 @@
   {
     "id": "3155",
     "name": "Andrea Michaela Schartel",
+    "givenName": "Andrea Michaela",
+    "familyName": "Schartel",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -6168,6 +8333,11 @@
   {
     "id": "5629",
     "name": "Mag. Corinna Scharzenberger",
+    "givenName": "Corinna",
+    "familyName": "Scharzenberger",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -6180,6 +8350,9 @@
   {
     "id": "8181",
     "name": "Beate Schasching",
+    "givenName": "Beate",
+    "familyName": "Schasching",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -6194,6 +8367,11 @@
   {
     "id": "35512",
     "name": "Mag. Birgit Schatz",
+    "givenName": "Birgit",
+    "familyName": "Schatz",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -6208,6 +8386,9 @@
   {
     "id": "2337",
     "name": "Sabine Schatz",
+    "givenName": "Sabine",
+    "familyName": "Schatz",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -6221,6 +8402,9 @@
   {
     "id": "1604",
     "name": "Herbert Scheibner",
+    "givenName": "Herbert",
+    "familyName": "Scheibner",
+    "titles": [],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -6240,6 +8424,11 @@
   {
     "id": "83132",
     "name": "Ing. Thomas Schellenbacher",
+    "givenName": "Thomas",
+    "familyName": "Schellenbacher",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -6252,6 +8441,9 @@
   {
     "id": "84056",
     "name": "Josef Schellhorn",
+    "givenName": "Josef",
+    "familyName": "Schellhorn",
+    "titles": [],
     "parties": [
       "NEOS"
     ],
@@ -6266,6 +8458,11 @@
   {
     "id": "36907",
     "name": "Dr. Johann Georg Schelling",
+    "givenName": "Johann Georg",
+    "familyName": "Schelling",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -6278,6 +8475,9 @@
   {
     "id": "51582",
     "name": "Martina Schenk",
+    "givenName": "Martina",
+    "familyName": "Schenk",
+    "titles": [],
     "parties": [
       "BZÖ",
       "Ohne Klub",
@@ -6293,6 +8493,12 @@
   {
     "id": "83125",
     "name": "Dr. Nikolaus Scherak, MA",
+    "givenName": "Nikolaus",
+    "familyName": "Scherak",
+    "titles": [
+      "Dr.",
+      "MA"
+    ],
     "parties": [
       "NEOS"
     ],
@@ -6307,6 +8513,11 @@
   {
     "id": "14893",
     "name": "Dipl.-Ing. Uwe Scheuch",
+    "givenName": "Uwe",
+    "familyName": "Scheuch",
+    "titles": [
+      "Dipl.-Ing."
+    ],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -6321,6 +8532,11 @@
   {
     "id": "14896",
     "name": "Mag. Elisabeth Scheucher-Pichler",
+    "givenName": "Elisabeth",
+    "familyName": "Scheucher-Pichler",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -6334,6 +8550,11 @@
   {
     "id": "61239",
     "name": "Mag. Michael Schickhofer",
+    "givenName": "Michael",
+    "familyName": "Schickhofer",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -6346,6 +8567,11 @@
   {
     "id": "35504",
     "name": "Mag. Andreas Schieder",
+    "givenName": "Andreas",
+    "familyName": "Schieder",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -6361,6 +8587,38 @@
   {
     "id": "1613",
     "name": "Dr. h.c. Peter Schieder",
+    "givenName": "Peter",
+    "familyName": "Schieder",
+    "titles": [
+      "Dr.",
+      "h.c."
+    ],
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XII",
+      "XIII",
+      "XIX",
+      "XVI",
+      "XVII",
+      "XVIII",
+      "XX",
+      "XXI",
+      "XXII"
+    ],
+    "url": "https://parlament.gv.at/person/1613",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/21002/2100289_384.jpg"
+  },
+  {
+    "id": "1613",
+    "name": "Dr. h.c. Peter Schieder",
+    "givenName": "Peter",
+    "familyName": "Schieder",
+    "titles": [
+      "Dr.",
+      "h.c."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -6381,6 +8639,9 @@
   {
     "id": "14771",
     "name": "Notburga Schiefermair",
+    "givenName": "Notburga",
+    "familyName": "Schiefermair",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -6391,8 +8652,28 @@
     "imageUrl": "https://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg"
   },
   {
+    "id": "51559",
+    "name": "Carmen Schimanek",
+    "givenName": "Carmen",
+    "familyName": "Schimanek",
+    "titles": [],
+    "parties": [
+      "FPÖ"
+    ],
+    "periods": [
+      "XXIV",
+      "XXV",
+      "XXVI"
+    ],
+    "url": "https://parlament.gv.at/person/51559",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/72615/7261549_384.jpg"
+  },
+  {
     "id": "36908",
     "name": "Dorothea Schittenhelm",
+    "givenName": "Dorothea",
+    "familyName": "Schittenhelm",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -6407,6 +8688,9 @@
   {
     "id": "83133",
     "name": "Gerhard Schmid",
+    "givenName": "Gerhard",
+    "familyName": "Schmid",
+    "titles": [],
     "parties": [
       "FPÖ",
       "Ohne Klub"
@@ -6420,6 +8704,11 @@
   {
     "id": "83103",
     "name": "Julian Schmid, BA",
+    "givenName": "Julian",
+    "familyName": "Schmid",
+    "titles": [
+      "BA"
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -6432,6 +8721,9 @@
   {
     "id": "5138",
     "name": "Karl Schmidhofer",
+    "givenName": "Karl",
+    "familyName": "Schmidhofer",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -6445,6 +8737,11 @@
   {
     "id": "25188",
     "name": "MMag. Michaela Schmidt",
+    "givenName": "Michaela",
+    "familyName": "Schmidt",
+    "titles": [
+      "MMag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -6457,6 +8754,9 @@
   {
     "id": "1944",
     "name": "Peter Schmiedlechner",
+    "givenName": "Peter",
+    "familyName": "Schmiedlechner",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -6470,6 +8770,9 @@
   {
     "id": "52727",
     "name": "Johannes Schmuckenschlager",
+    "givenName": "Johannes",
+    "familyName": "Schmuckenschlager",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -6485,6 +8788,9 @@
   {
     "id": "5630",
     "name": "Joachim Schnabel",
+    "givenName": "Joachim",
+    "familyName": "Schnabel",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -6497,6 +8803,9 @@
   {
     "id": "64022",
     "name": "Michael Schnedlitz",
+    "givenName": "Michael",
+    "familyName": "Schnedlitz",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -6509,6 +8818,11 @@
   {
     "id": "2315",
     "name": "Mag. Stefan Schnöll",
+    "givenName": "Stefan",
+    "familyName": "Schnöll",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -6521,6 +8835,9 @@
   {
     "id": "4716",
     "name": "Alfred Schöls",
+    "givenName": "Alfred",
+    "familyName": "Schöls",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -6533,6 +8850,11 @@
   {
     "id": "51555",
     "name": "Mag. Bernd Schönegger",
+    "givenName": "Bernd",
+    "familyName": "Schönegger",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -6546,6 +8868,9 @@
   {
     "id": "14848",
     "name": "Rosemarie Schönpass",
+    "givenName": "Rosemarie",
+    "familyName": "Schönpass",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -6560,6 +8885,9 @@
   {
     "id": "14849",
     "name": "Walter Schopf",
+    "givenName": "Walter",
+    "familyName": "Schopf",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -6575,6 +8903,11 @@
   {
     "id": "2978",
     "name": "Dr. Margarete Schramböck",
+    "givenName": "Margarete",
+    "familyName": "Schramböck",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -6587,6 +8920,11 @@
   {
     "id": "83134",
     "name": "Mag. Philipp Schrangl",
+    "givenName": "Philipp",
+    "familyName": "Schrangl",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -6601,6 +8939,9 @@
   {
     "id": "5644",
     "name": "Alois Schroll",
+    "givenName": "Alois",
+    "familyName": "Schroll",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -6613,6 +8954,9 @@
   {
     "id": "2320",
     "name": "Dominik Schrott",
+    "givenName": "Dominik",
+    "familyName": "Schrott",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -6625,6 +8969,11 @@
   {
     "id": "9775",
     "name": "Ing. Hermann Schultes",
+    "givenName": "Hermann",
+    "familyName": "Schultes",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -6641,6 +8990,11 @@
   {
     "id": "1781",
     "name": "Dr. Wolfgang Schüssel",
+    "givenName": "Wolfgang",
+    "familyName": "Schüssel",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -6662,6 +9016,9 @@
   {
     "id": "2326",
     "name": "Gabriela Schwarz",
+    "givenName": "Gabriela",
+    "familyName": "Schwarz",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -6675,6 +9032,13 @@
   {
     "id": "5677",
     "name": "Mag. Dr. Jakob Schwarz, BA",
+    "givenName": "Jakob",
+    "familyName": "Schwarz",
+    "titles": [
+      "Mag.",
+      "Dr.",
+      "BA"
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -6687,6 +9051,9 @@
   {
     "id": "8236",
     "name": "Johannes Schweisgut",
+    "givenName": "Johannes",
+    "familyName": "Schweisgut",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -6700,6 +9067,11 @@
   {
     "id": "1803",
     "name": "Mag. Karl Schweitzer",
+    "givenName": "Karl",
+    "familyName": "Schweitzer",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -6716,6 +9088,11 @@
   {
     "id": "51589",
     "name": "Mag. Judith Schwentner",
+    "givenName": "Judith",
+    "familyName": "Schwentner",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -6729,6 +9106,9 @@
   {
     "id": "5645",
     "name": "Michael Seemayer",
+    "givenName": "Michael",
+    "familyName": "Seemayer",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -6741,6 +9121,11 @@
   {
     "id": "19741",
     "name": "Mag. Julia Seidl",
+    "givenName": "Julia",
+    "familyName": "Seidl",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "NEOS"
     ],
@@ -6753,6 +9138,11 @@
   {
     "id": "5687",
     "name": "Mag. Yannick Shetty",
+    "givenName": "Yannick",
+    "familyName": "Shetty",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "NEOS"
     ],
@@ -6765,6 +9155,9 @@
   {
     "id": "14769",
     "name": "Norbert Sieber",
+    "givenName": "Norbert",
+    "familyName": "Sieber",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -6781,6 +9174,9 @@
   {
     "id": "2763",
     "name": "Heidrun Silhavy",
+    "givenName": "Heidrun",
+    "familyName": "Silhavy",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -6799,6 +9195,9 @@
   {
     "id": "5646",
     "name": "Rudolf Silvan",
+    "givenName": "Rudolf",
+    "familyName": "Silvan",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -6811,6 +9210,11 @@
   {
     "id": "8182",
     "name": "Mag. Ulrike Sima",
+    "givenName": "Ulrike",
+    "familyName": "Sima",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -6824,6 +9228,9 @@
   {
     "id": "51556",
     "name": "Johann Singer",
+    "givenName": "Johann",
+    "familyName": "Singer",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -6839,6 +9246,11 @@
   {
     "id": "3133",
     "name": "Mag. Maria Smodics-Neumann",
+    "givenName": "Maria",
+    "familyName": "Smodics-Neumann",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -6852,6 +9264,11 @@
   {
     "id": "3132",
     "name": "Dr. Josef Smolle",
+    "givenName": "Josef",
+    "familyName": "Smolle",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -6865,6 +9282,11 @@
   {
     "id": "88386",
     "name": "Mag. Wolfgang Sobotka",
+    "givenName": "Wolfgang",
+    "familyName": "Sobotka",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -6878,6 +9300,11 @@
   {
     "id": "18542",
     "name": "Dr. Peter Sonnberger",
+    "givenName": "Peter",
+    "familyName": "Sonnberger",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -6892,6 +9319,11 @@
   {
     "id": "51583",
     "name": "Dr. Wolfgang Spadiut",
+    "givenName": "Wolfgang",
+    "familyName": "Spadiut",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "BZÖ"
     ],
@@ -6904,6 +9336,9 @@
   {
     "id": "22847",
     "name": "Thomas Spalt",
+    "givenName": "Thomas",
+    "familyName": "Spalt",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -6916,6 +9351,9 @@
   {
     "id": "14850",
     "name": "Erwin Spindelberger",
+    "givenName": "Erwin",
+    "familyName": "Spindelberger",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -6931,6 +9369,11 @@
   {
     "id": "1817",
     "name": "Dr. Michael Spindelegger",
+    "givenName": "Michael",
+    "familyName": "Spindelegger",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -6950,6 +9393,9 @@
   {
     "id": "14851",
     "name": "Bettina Stadlbauer",
+    "givenName": "Bettina",
+    "familyName": "Stadlbauer",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -6963,6 +9409,9 @@
   {
     "id": "10342",
     "name": "Astrid Stadler",
+    "givenName": "Astrid",
+    "familyName": "Stadler",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -6977,6 +9426,11 @@
   {
     "id": "2849",
     "name": "Mag. Ewald Stadler",
+    "givenName": "Ewald",
+    "familyName": "Stadler",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "BZÖ",
       "FPÖ",
@@ -6994,6 +9448,9 @@
   {
     "id": "6503",
     "name": "Clemens Stammler",
+    "givenName": "Clemens",
+    "familyName": "Stammler",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -7006,6 +9463,9 @@
   {
     "id": "2327",
     "name": "Christoph Stark",
+    "givenName": "Christoph",
+    "familyName": "Stark",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -7019,6 +9479,9 @@
   {
     "id": "35492",
     "name": "Peter Stauber",
+    "givenName": "Peter",
+    "familyName": "Stauber",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -7032,6 +9495,11 @@
   {
     "id": "51571",
     "name": "Mag. Harald Stefan",
+    "givenName": "Harald",
+    "familyName": "Stefan",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -7047,6 +9515,9 @@
   {
     "id": "83135",
     "name": "Petra Steger",
+    "givenName": "Petra",
+    "familyName": "Steger",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -7061,6 +9532,30 @@
   {
     "id": "2018",
     "name": "Ridi Maria Steibl",
+    "givenName": "Ridi Maria",
+    "familyName": "Steibl",
+    "titles": [],
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XIX",
+      "XVIII",
+      "XX",
+      "XXI",
+      "XXII",
+      "XXIII",
+      "XXIV"
+    ],
+    "url": "https://parlament.gv.at/person/2018",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/34895/3489551_384.jpg"
+  },
+  {
+    "id": "2018",
+    "name": "Ridi Maria Steibl",
+    "givenName": "Ridi Maria",
+    "familyName": "Steibl",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -7079,6 +9574,9 @@
   {
     "id": "14852",
     "name": "Gerhard Steier",
+    "givenName": "Gerhard",
+    "familyName": "Steier",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -7093,6 +9591,11 @@
   {
     "id": "83059",
     "name": "Mag. Michaela Steinacker",
+    "givenName": "Michaela",
+    "familyName": "Steinacker",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -7107,6 +9610,9 @@
   {
     "id": "4395",
     "name": "Leopold Steinbichler",
+    "givenName": "Leopold",
+    "familyName": "Steinbichler",
+    "titles": [],
     "parties": [
       "Ohne Klub",
       "STRONACH"
@@ -7120,6 +9626,9 @@
   {
     "id": "14793",
     "name": "Konrad Steindl",
+    "givenName": "Konrad",
+    "familyName": "Steindl",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -7134,6 +9643,11 @@
   {
     "id": "40628",
     "name": "Mag. Albert Steinhauser",
+    "givenName": "Albert",
+    "familyName": "Steinhauser",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -7148,6 +9662,29 @@
   {
     "id": "59247",
     "name": "Mag. Sonja Steßl",
+    "givenName": "Sonja",
+    "familyName": "Steßl",
+    "titles": [
+      "Mag."
+    ],
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XXIV",
+      "XXV"
+    ],
+    "url": "https://parlament.gv.at/person/59247",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/43850/4385099_384.jpg"
+  },
+  {
+    "id": "59247",
+    "name": "Mag. Sonja Steßl",
+    "givenName": "Sonja",
+    "familyName": "Steßl",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -7161,6 +9698,11 @@
   {
     "id": "5439",
     "name": "Dr. Christian Stocker",
+    "givenName": "Christian",
+    "familyName": "Stocker",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -7174,6 +9716,11 @@
   {
     "id": "52687",
     "name": "Alois Stöger, diplômé",
+    "givenName": "Alois",
+    "familyName": "Stöger",
+    "titles": [
+      "diplômé"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -7187,6 +9734,9 @@
   {
     "id": "87001",
     "name": "David Stögmüller",
+    "givenName": "David",
+    "familyName": "Stögmüller",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -7199,6 +9749,11 @@
   {
     "id": "1902",
     "name": "Mag. Terezija Stoisits",
+    "givenName": "Terezija",
+    "familyName": "Stoisits",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -7216,6 +9771,9 @@
   {
     "id": "35518",
     "name": "Heinz-Christian Strache",
+    "givenName": "Heinz-Christian",
+    "familyName": "Strache",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -7229,8 +9787,28 @@
     "imageUrl": "https://parlament.gv.at/dokument/bild/72606/7260602_384.jpg"
   },
   {
+    "id": "44127",
+    "name": "Pia Philippa Beck",
+    "givenName": "Pia Philippa",
+    "familyName": "Beck",
+    "titles": [],
+    "parties": [
+      "Ohne Klub"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "url": "https://parlament.gv.at/person/44127",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069635_384.jpg"
+  },
+  {
     "id": "8657",
     "name": "Dr. Ernst Strasser",
+    "givenName": "Ernst",
+    "familyName": "Strasser",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -7243,6 +9821,11 @@
   {
     "id": "83153",
     "name": "Dipl.-Ing. Georg Strasser",
+    "givenName": "Georg",
+    "familyName": "Strasser",
+    "titles": [
+      "Dipl.-Ing."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -7257,6 +9840,12 @@
   {
     "id": "10304",
     "name": "Mag. Dr. Matthias Strolz",
+    "givenName": "Matthias",
+    "familyName": "Strolz",
+    "titles": [
+      "Mag.",
+      "Dr."
+    ],
     "parties": [
       "NEOS"
     ],
@@ -7270,6 +9859,9 @@
   {
     "id": "83138",
     "name": "Frank Stronach",
+    "givenName": "Frank",
+    "familyName": "Stronach",
+    "titles": [],
     "parties": [
       "STRONACH"
     ],
@@ -7282,6 +9874,11 @@
   {
     "id": "55147",
     "name": "Dr. Martin Strutz",
+    "givenName": "Martin",
+    "familyName": "Strutz",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "BZÖ",
       "FPÖ",
@@ -7296,6 +9893,12 @@
   {
     "id": "1933",
     "name": "Dipl.-Kfm. Dr. Günter Stummvoll",
+    "givenName": "Günter",
+    "familyName": "Stummvoll",
+    "titles": [
+      "Dipl.-Kfm.",
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -7316,6 +9919,11 @@
   {
     "id": "1442",
     "name": "Marlene Svazek, BA",
+    "givenName": "Marlene",
+    "familyName": "Svazek",
+    "titles": [
+      "BA"
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -7328,6 +9936,9 @@
   {
     "id": "78320",
     "name": "Irene Szep",
+    "givenName": "Irene",
+    "familyName": "Szep",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -7340,6 +9951,9 @@
   {
     "id": "51584",
     "name": "Erich Tadler",
+    "givenName": "Erich",
+    "familyName": "Tadler",
+    "titles": [],
     "parties": [
       "BZÖ",
       "Ohne Klub",
@@ -7354,6 +9968,9 @@
   {
     "id": "15531",
     "name": "Gabriele Tamandl",
+    "givenName": "Gabriele",
+    "familyName": "Tamandl",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -7369,6 +9986,11 @@
   {
     "id": "8237",
     "name": "Mag. Walter Tancsits",
+    "givenName": "Walter",
+    "familyName": "Tancsits",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -7382,6 +10004,12 @@
   {
     "id": "6505",
     "name": "Ing. Mag. (FH) Alexandra Tanda",
+    "givenName": "Alexandra",
+    "familyName": "Tanda",
+    "titles": [
+      "Ing.",
+      "Mag. (FH)"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -7394,6 +10022,9 @@
   {
     "id": "5647",
     "name": "Petra Tanzler",
+    "givenName": "Petra",
+    "familyName": "Tanzler",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -7406,6 +10037,12 @@
   {
     "id": "2329",
     "name": "Mag. Dr. Rudolf Taschner",
+    "givenName": "Rudolf",
+    "familyName": "Taschner",
+    "titles": [
+      "Mag.",
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -7419,6 +10056,9 @@
   {
     "id": "35524",
     "name": "Bernhard Themessl",
+    "givenName": "Bernhard",
+    "familyName": "Themessl",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -7433,6 +10073,11 @@
   {
     "id": "65319",
     "name": "Dr. Karlheinz Töchterle",
+    "givenName": "Karlheinz",
+    "familyName": "Töchterle",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -7445,6 +10090,11 @@
   {
     "id": "5678",
     "name": "Mag. Nina Tomaselli",
+    "givenName": "Nina",
+    "familyName": "Tomaselli",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -7457,6 +10107,13 @@
   {
     "id": "5632",
     "name": "MMag. Dr. Agnes Totter, BEd",
+    "givenName": "Agnes",
+    "familyName": "Totter",
+    "titles": [
+      "MMag.",
+      "Dr.",
+      "BEd"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -7469,6 +10126,12 @@
   {
     "id": "3602",
     "name": "Mag. Dr. Josef Trinkl",
+    "givenName": "Josef",
+    "familyName": "Trinkl",
+    "titles": [
+      "Mag.",
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -7483,6 +10146,11 @@
   {
     "id": "83114",
     "name": "Dr. Harald Troch",
+    "givenName": "Harald",
+    "familyName": "Troch",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -7497,6 +10165,11 @@
   {
     "id": "6817",
     "name": "Mag. Melitta Trunk",
+    "givenName": "Melitta",
+    "familyName": "Trunk",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -7510,6 +10183,11 @@
   {
     "id": "1972",
     "name": "Dr. Markus Tschank",
+    "givenName": "Markus",
+    "familyName": "Tschank",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -7522,6 +10200,9 @@
   {
     "id": "14834",
     "name": "Ingrid Turkovic-Wendl",
+    "givenName": "Ingrid",
+    "familyName": "Turkovic-Wendl",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -7534,6 +10215,11 @@
   {
     "id": "83115",
     "name": "Mag. (FH) Maximilian Unterrainer",
+    "givenName": "Maximilian",
+    "familyName": "Unterrainer",
+    "titles": [
+      "Mag. (FH)"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -7547,6 +10233,11 @@
   {
     "id": "51572",
     "name": "Mag. Heidemarie Unterreiner",
+    "givenName": "Heidemarie",
+    "familyName": "Unterreiner",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -7559,6 +10250,11 @@
   {
     "id": "2856",
     "name": "Dr. Alexander Van der Bellen",
+    "givenName": "Alexander Van der",
+    "familyName": "Bellen",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -7576,6 +10272,11 @@
   {
     "id": "83126",
     "name": "Mag. Christoph Vavrik",
+    "givenName": "Christoph",
+    "familyName": "Vavrik",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "NEOS",
       "ÖVP"
@@ -7589,6 +10290,9 @@
   {
     "id": "67839",
     "name": "Mathias Venier",
+    "givenName": "Mathias",
+    "familyName": "Venier",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -7601,6 +10305,9 @@
   {
     "id": "1347",
     "name": "Friedrich Verzetnitsch",
+    "givenName": "Friedrich",
+    "familyName": "Verzetnitsch",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -7618,6 +10325,11 @@
   {
     "id": "83143",
     "name": "Dr. Georg Vetter",
+    "givenName": "Georg",
+    "familyName": "Vetter",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "STRONACH",
       "ÖVP"
@@ -7631,6 +10343,9 @@
   {
     "id": "2708",
     "name": "Harald Vilimsky",
+    "givenName": "Harald",
+    "familyName": "Vilimsky",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -7645,6 +10360,9 @@
   {
     "id": "47147",
     "name": "Bernhard Vock",
+    "givenName": "Bernhard",
+    "familyName": "Vock",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -7658,6 +10376,11 @@
   {
     "id": "83116",
     "name": "Ing. Markus Vogl",
+    "givenName": "Markus",
+    "familyName": "Vogl",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -7672,6 +10395,11 @@
   {
     "id": "5679",
     "name": "Dipl.-Ing. Olga Voglauer",
+    "givenName": "Olga",
+    "familyName": "Voglauer",
+    "titles": [
+      "Dipl.-Ing."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -7682,8 +10410,26 @@
     "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069685_384.jpg"
   },
   {
+    "id": "5647",
+    "name": "Petra Tanzler",
+    "givenName": "Petra",
+    "familyName": "Tanzler",
+    "titles": [],
+    "parties": [
+      "SPÖ"
+    ],
+    "periods": [
+      "XXVII"
+    ],
+    "url": "https://parlament.gv.at/person/5647",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200696/20069670_384.jpg"
+  },
+  {
     "id": "1794",
     "name": "Petra Wagner",
+    "givenName": "Petra",
+    "familyName": "Wagner",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -7696,6 +10442,9 @@
   {
     "id": "14858",
     "name": "Maximilian Walch",
+    "givenName": "Maximilian",
+    "familyName": "Walch",
+    "titles": [],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -7709,6 +10458,11 @@
   {
     "id": "51590",
     "name": "Dr. Harald Walser",
+    "givenName": "Harald",
+    "familyName": "Walser",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -7722,6 +10476,9 @@
   {
     "id": "14853",
     "name": "Heidrun Walther",
+    "givenName": "Heidrun",
+    "familyName": "Walther",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -7734,6 +10491,9 @@
   {
     "id": "1866",
     "name": "Sandra Wassermann",
+    "givenName": "Sandra",
+    "familyName": "Wassermann",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -7746,6 +10506,9 @@
   {
     "id": "8204",
     "name": "Anton Wattaul",
+    "givenName": "Anton",
+    "familyName": "Wattaul",
+    "titles": [],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -7760,6 +10523,11 @@
   {
     "id": "5633",
     "name": "Ing. Johann Weber",
+    "givenName": "Johann",
+    "familyName": "Weber",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -7772,6 +10540,9 @@
   {
     "id": "50047",
     "name": "Hedwig Wechner",
+    "givenName": "Hedwig",
+    "familyName": "Wechner",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -7784,6 +10555,9 @@
   {
     "id": "15529",
     "name": "Susanne Wegscheider",
+    "givenName": "Susanne",
+    "familyName": "Wegscheider",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -7796,6 +10570,11 @@
   {
     "id": "2331",
     "name": "Mag. Peter Weidinger",
+    "givenName": "Peter",
+    "familyName": "Weidinger",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -7809,6 +10588,9 @@
   {
     "id": "83262",
     "name": "Ulrike Weigerstorfer",
+    "givenName": "Ulrike",
+    "familyName": "Weigerstorfer",
+    "titles": [],
     "parties": [
       "Ohne Klub",
       "STRONACH"
@@ -7822,6 +10604,11 @@
   {
     "id": "16238",
     "name": "Mag. Brigid Weinzinger",
+    "givenName": "Brigid",
+    "familyName": "Weinzinger",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -7835,6 +10622,9 @@
   {
     "id": "35500",
     "name": "Lutz Weinzinger",
+    "givenName": "Lutz",
+    "familyName": "Weinzinger",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -7848,6 +10638,9 @@
   {
     "id": "47087",
     "name": "Hannes Weninger",
+    "givenName": "Hannes",
+    "familyName": "Weninger",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -7862,6 +10655,12 @@
   {
     "id": "5680",
     "name": "Hermann Weratschnig, MBA MSc",
+    "givenName": "Hermann",
+    "familyName": "Weratschnig",
+    "titles": [
+      "MBA",
+      "MSc"
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -7874,6 +10673,12 @@
   {
     "id": "20281",
     "name": "MMag. Katharina Werner, Bakk.",
+    "givenName": "Katharina",
+    "familyName": "Werner",
+    "titles": [
+      "MMag.",
+      "Bakk."
+    ],
     "parties": [
       "NEOS"
     ],
@@ -7886,6 +10691,11 @@
   {
     "id": "2723",
     "name": "Ing. Peter Westenthaler",
+    "givenName": "Peter",
+    "familyName": "Westenthaler",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -7901,6 +10711,11 @@
   {
     "id": "51585",
     "name": "Mag. Rainer Widmann",
+    "givenName": "Rainer",
+    "familyName": "Widmann",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "BZÖ"
     ],
@@ -7913,6 +10728,9 @@
   {
     "id": "83104",
     "name": "Georg Willi",
+    "givenName": "Georg",
+    "familyName": "Willi",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -7925,6 +10743,9 @@
   {
     "id": "2338",
     "name": "Petra Wimmer",
+    "givenName": "Petra",
+    "familyName": "Wimmer",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -7938,6 +10759,9 @@
   {
     "id": "2013",
     "name": "Rainer Wimmer",
+    "givenName": "Rainer",
+    "familyName": "Wimmer",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -7958,6 +10782,9 @@
   {
     "id": "51591",
     "name": "Tanja Windbüchler-Souschill",
+    "givenName": "Tanja",
+    "familyName": "Windbüchler-Souschill",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -7971,6 +10798,9 @@
   {
     "id": "5098",
     "name": "Ernest Windholz",
+    "givenName": "Ernest",
+    "familyName": "Windholz",
+    "titles": [],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -7985,6 +10815,11 @@
   {
     "id": "71899",
     "name": "Ing. Franz Windisch",
+    "givenName": "Franz",
+    "familyName": "Windisch",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -7997,6 +10832,11 @@
   {
     "id": "14794",
     "name": "Ing. Josef Winkler",
+    "givenName": "Josef",
+    "familyName": "Winkler",
+    "titles": [
+      "Ing."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -8009,6 +10849,11 @@
   {
     "id": "51573",
     "name": "Dr. Susanne Winter",
+    "givenName": "Susanne",
+    "familyName": "Winter",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "FPÖ",
       "Ohne Klub"
@@ -8023,6 +10868,11 @@
   {
     "id": "60878",
     "name": "Dr. Angelika Winzig",
+    "givenName": "Angelika",
+    "familyName": "Winzig",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -8036,6 +10886,9 @@
   {
     "id": "13032",
     "name": "Klaus Wittauer",
+    "givenName": "Klaus",
+    "familyName": "Wittauer",
+    "titles": [],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -8050,6 +10903,11 @@
   {
     "id": "4477",
     "name": "Dr. Peter Wittmann",
+    "givenName": "Peter",
+    "familyName": "Wittmann",
+    "titles": [
+      "Dr."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -8067,6 +10925,9 @@
   {
     "id": "14795",
     "name": "August Wöginger",
+    "givenName": "August",
+    "familyName": "Wöginger",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -8084,6 +10945,9 @@
   {
     "id": "5485",
     "name": "Sandra Wohlschlager",
+    "givenName": "Sandra",
+    "familyName": "Wohlschlager",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -8096,6 +10960,31 @@
   {
     "id": "8238",
     "name": "Mag. Dr. Andrea Wolfmayr",
+    "givenName": "Andrea",
+    "familyName": "Wolfmayr",
+    "titles": [
+      "Mag.",
+      "Dr."
+    ],
+    "parties": [
+      "ÖVP"
+    ],
+    "periods": [
+      "XXI",
+      "XXII"
+    ],
+    "url": "https://parlament.gv.at/person/8238",
+    "imageUrl": "https://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg"
+  },
+  {
+    "id": "8238",
+    "name": "Mag. Dr. Andrea Wolfmayr",
+    "givenName": "Andrea",
+    "familyName": "Wolfmayr",
+    "titles": [
+      "Mag.",
+      "Dr."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -8109,6 +10998,11 @@
   {
     "id": "2768",
     "name": "Mag. Gisela Wurm",
+    "givenName": "Gisela",
+    "familyName": "Wurm",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -8127,6 +11021,9 @@
   {
     "id": "83137",
     "name": "Peter Wurm",
+    "givenName": "Peter",
+    "familyName": "Wurm",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -8141,6 +11038,11 @@
   {
     "id": "2339",
     "name": "Mag. Selma Yildirim",
+    "givenName": "Selma",
+    "familyName": "Yildirim",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -8154,6 +11056,9 @@
   {
     "id": "83117",
     "name": "Nurten Yılmaz",
+    "givenName": "Nurten",
+    "familyName": "Yılmaz",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -8168,6 +11073,9 @@
   {
     "id": "35508",
     "name": "Alexander Zach",
+    "givenName": "Alexander",
+    "familyName": "Zach",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -8180,6 +11088,12 @@
   {
     "id": "2345",
     "name": "Dr. Alma Zadić, LL.M.",
+    "givenName": "Alma",
+    "familyName": "Zadić",
+    "titles": [
+      "Dr.",
+      "LL.M."
+    ],
     "parties": [
       "GRÜNE",
       "Ohne Klub",
@@ -8195,6 +11109,11 @@
   {
     "id": "83154",
     "name": "Mag. Andreas Zakostelsky",
+    "givenName": "Andreas",
+    "familyName": "Zakostelsky",
+    "titles": [
+      "Mag."
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -8207,6 +11126,9 @@
   {
     "id": "35514",
     "name": "Wolfgang Zanger",
+    "givenName": "Wolfgang",
+    "familyName": "Zanger",
+    "titles": [],
     "parties": [
       "FPÖ"
     ],
@@ -8223,6 +11145,9 @@
   {
     "id": "2332",
     "name": "Christoph Zarits",
+    "givenName": "Christoph",
+    "familyName": "Zarits",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -8236,6 +11161,12 @@
   {
     "id": "22573",
     "name": "Mag. Dr. Wolfgang Zinggl",
+    "givenName": "Wolfgang",
+    "familyName": "Zinggl",
+    "titles": [
+      "Mag.",
+      "Dr."
+    ],
     "parties": [
       "GRÜNE",
       "Ohne Klub",
@@ -8254,6 +11185,9 @@
   {
     "id": "5634",
     "name": "Bettina Zopf",
+    "givenName": "Bettina",
+    "familyName": "Zopf",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -8266,6 +11200,9 @@
   {
     "id": "5681",
     "name": "Süleyman Zorba",
+    "givenName": "Süleyman",
+    "familyName": "Zorba",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -8278,6 +11215,9 @@
   {
     "id": "35513",
     "name": "Barbara Zwerschitz",
+    "givenName": "Barbara",
+    "familyName": "Zwerschitz",
+    "titles": [],
     "parties": [
       "GRÜNE"
     ],
@@ -8290,6 +11230,9 @@
   {
     "id": "2887",
     "name": "Johannes Zweytick",
+    "givenName": "Johannes",
+    "familyName": "Zweytick",
+    "titles": [],
     "parties": [
       "ÖVP"
     ],
@@ -8302,896 +11245,5 @@
     ],
     "url": "https://parlament.gv.at/person/2887",
     "imageUrl": "https://parlament.gv.at/dokument/bild/21004/2100458_384.jpg"
-  },
-  {
-    "id": "20449",
-    "parties": [],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Dr. Martin Polaschek",
-    "url": "https://parlament.gv.at/person/20449",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200692/20069283_384.jpg"
-  },
-  {
-    "id": "21029",
-    "parties": [
-      "GRÜNE"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Johannes Rauch",
-    "url": "https://parlament.gv.at/person/21029",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200775/20077540_384.jpg"
-  },
-  {
-    "id": "20445",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Mag. Gerhard Karner",
-    "url": "https://parlament.gv.at/person/20445",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200692/20069285_384.jpg"
-  },
-  {
-    "id": "55727",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Dr. Magnus Brunner, LL.M.",
-    "url": "https://parlament.gv.at/person/55727",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/201040/20104091_384.jpg"
-  },
-  {
-    "id": "10778",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Mag. Norbert Totschnig, MSc",
-    "url": "https://parlament.gv.at/person/10778",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200639/20063986_384.jpg"
-  },
-  {
-    "id": "18140",
-    "parties": [],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Mag. Dr. Martin Kocher",
-    "url": "https://parlament.gv.at/person/18140",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200504/20050490_384.jpg"
-  },
-  {
-    "id": "21406",
-    "parties": [],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Mag. Susanne Kraus-Winkler",
-    "url": "https://parlament.gv.at/person/21406",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200639/20063989_384.jpg"
-  },
-  {
-    "id": "24385",
-    "parties": [],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Roberta Metsola",
-    "url": "https://parlament.gv.at/person/24385",
-    "imageUrl": "https://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg"
-  },
-  {
-    "id": "2510",
-    "parties": [
-      "GRÜNE"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Thomas Waitz",
-    "url": "https://parlament.gv.at/person/2510",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200710/20071002_384.jpg"
-  },
-  {
-    "id": "21407",
-    "parties": [],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Florian Tursky, MBA MSc",
-    "url": "https://parlament.gv.at/person/21407",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200639/20063990_384.jpg"
-  },
-  {
-    "id": "6486",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "MMag. Dr. Susanne Raab",
-    "url": "https://parlament.gv.at/person/6486",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200505/20050522_384.jpg"
-  },
-  {
-    "id": "6485",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Mag. Klaudia Tanner",
-    "url": "https://parlament.gv.at/person/6485",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200882/20088269_384.jpg"
-  },
-  {
-    "id": "88771",
-    "parties": [],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Dr. Margit Kraker",
-    "url": "https://parlament.gv.at/person/88771",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070983_384.jpg"
-  },
-  {
-    "id": "5502",
-    "parties": [],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Mag. Bernhard Achitz",
-    "url": "https://parlament.gv.at/person/5502",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070980_384.jpg"
-  },
-  {
-    "id": "5430",
-    "parties": [],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Mag. Alexander Schallenberg, LL.M.",
-    "url": "https://parlament.gv.at/person/5430",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200504/20050481_384.jpg"
-  },
-  {
-    "id": "772",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Dr. Othmar Karas, MBL-HSG",
-    "url": "https://parlament.gv.at/person/772",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070985_384.jpg"
-  },
-  {
-    "id": "10346",
-    "parties": [
-      "GRÜNE"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Dr. Monika Vana",
-    "url": "https://parlament.gv.at/person/10346",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070988_384.jpg"
-  },
-  {
-    "id": "22718",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Theresa Bielowski, BA MA",
-    "url": "https://parlament.gv.at/person/22718",
-    "imageUrl": "https://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg"
-  },
-  {
-    "id": "2979",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Mag. Karoline Edtstadler",
-    "url": "https://parlament.gv.at/person/2979",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/201040/20104092_384.jpg"
-  },
-  {
-    "id": "5492",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Hannes Heide",
-    "url": "https://parlament.gv.at/person/5492",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070994_384.jpg"
-  },
-  {
-    "id": "7267",
-    "parties": [],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Mag. Andrea Mayer",
-    "url": "https://parlament.gv.at/person/7267",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200505/20050502_384.jpg"
-  },
-  {
-    "id": "5493",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Mag. Dr. Günther Sidl",
-    "url": "https://parlament.gv.at/person/5493",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070997_384.jpg"
-  },
-  {
-    "id": "5490",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Dipl.-Ing. Alexander Bernhuber",
-    "url": "https://parlament.gv.at/person/5490",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070991_384.jpg"
-  },
-  {
-    "id": "16347",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Mag. Christian Sagartz, BA",
-    "url": "https://parlament.gv.at/person/16347",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200710/20071001_384.jpg"
-  },
-  {
-    "id": "19043",
-    "parties": [],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Dr. Wolfgang Mückstein",
-    "url": "https://parlament.gv.at/person/19043",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200118/20011886_384.jpg"
-  },
-  {
-    "id": "2975",
-    "parties": [],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Dr. Heinz Faßmann",
-    "url": "https://parlament.gv.at/person/2975",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200026/20002605_384.jpg"
-  },
-  {
-    "id": "20175",
-    "parties": [],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Dr. Michael Linhart",
-    "url": "https://parlament.gv.at/person/20175",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200222/20022229_384.jpg"
-  },
-  {
-    "id": "5494",
-    "parties": [
-      "GRÜNE"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Sarah Wiener",
-    "url": "https://parlament.gv.at/person/5494",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070999_384.jpg"
-  },
-  {
-    "id": "84053",
-    "parties": [
-      "FPÖ"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Mag. Dr. Georg Mayer, MBL-HSG",
-    "url": "https://parlament.gv.at/person/84053",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070987_384.jpg"
-  },
-  {
-    "id": "5491",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Mag. Dr. Bettina Vollath",
-    "url": "https://parlament.gv.at/person/5491",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/90325/9032591_384.jpg"
-  },
-  {
-    "id": "5488",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Simone Schmiedtbauer",
-    "url": "https://parlament.gv.at/person/5488",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070996_384.jpg"
-  },
-  {
-    "id": "24",
-    "parties": [
-      "GRÜNE"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Rudolf Anschober",
-    "url": "https://parlament.gv.at/person/24",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200026/20002602_384.jpg"
-  },
-  {
-    "id": "10301",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Mag. Lukas Mandl",
-    "url": "https://parlament.gv.at/person/10301",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070990_384.jpg"
-  },
-  {
-    "id": "57489",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Mag. Evelyn Regner",
-    "url": "https://parlament.gv.at/person/57489",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070986_384.jpg"
-  },
-  {
-    "id": "6484",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Mag. (FH) Christine Aschbacher",
-    "url": "https://parlament.gv.at/person/6484",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200026/20002622_384.jpg"
-  },
-  {
-    "id": "5489",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Barbara Thaler",
-    "url": "https://parlament.gv.at/person/5489",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070998_384.jpg"
-  },
-  {
-    "id": "5432",
-    "parties": [],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Mag. Ines Stilling",
-    "url": "https://parlament.gv.at/person/5432",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/87921/8792101_384.jpg"
-  },
-  {
-    "id": "5429",
-    "parties": [],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Dr. Wolfgang Peschorn",
-    "url": "https://parlament.gv.at/person/5429",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/87924/8792446_384.jpg"
-  },
-  {
-    "id": "5427",
-    "parties": [],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Eduard Müller, MBA",
-    "url": "https://parlament.gv.at/person/5427",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/90320/9032032_384.jpg"
-  },
-  {
-    "id": "17147",
-    "parties": [],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Clemens Jabloner",
-    "url": "https://parlament.gv.at/person/17147",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/87924/8792499_384.jpg"
-  },
-  {
-    "id": "5425",
-    "parties": [],
-    "periods": [
-      "XXVII"
-    ],
-    "name": "Dipl.-Ing. Maria Patek, MBA",
-    "url": "https://parlament.gv.at/person/5425",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/89140/8914057_384.jpg"
-  },
-  {
-    "id": "5426",
-    "parties": [],
-    "periods": [
-      "XXVI"
-    ],
-    "name": "Mag. Dr. Brigitte Zarfl",
-    "url": "https://parlament.gv.at/person/5426",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/88482/8848250_384.jpg"
-  },
-  {
-    "id": "5423",
-    "parties": [],
-    "periods": [
-      "XXVI"
-    ],
-    "name": "Mag. Elisabeth Udolf-Strobl",
-    "url": "https://parlament.gv.at/person/5423",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/87923/8792357_384.jpg"
-  },
-  {
-    "id": "12479",
-    "parties": [],
-    "periods": [
-      "XXVI"
-    ],
-    "name": "Mag. Andreas Reichhardt",
-    "url": "https://parlament.gv.at/person/12479",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/90533/9053344_384.jpg"
-  },
-  {
-    "id": "5431",
-    "parties": [],
-    "periods": [
-      "XXVI"
-    ],
-    "name": "Mag. Dr. Iris Eliisa Rauskala",
-    "url": "https://parlament.gv.at/person/5431",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/87924/8792464_384.jpg"
-  },
-  {
-    "id": "5434",
-    "parties": [],
-    "periods": [
-      "XXVI"
-    ],
-    "name": "Liliane Maury Pasquier",
-    "url": "https://parlament.gv.at/person/5434",
-    "imageUrl": "https://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg"
-  },
-  {
-    "id": "5422",
-    "parties": [],
-    "periods": [
-      "XXVI"
-    ],
-    "name": "Dr. Brigitte Bierlein",
-    "url": "https://parlament.gv.at/person/5422",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/87921/8792117_384.jpg"
-  },
-  {
-    "id": "5428",
-    "parties": [],
-    "periods": [
-      "XXVI"
-    ],
-    "name": "Mag. Thomas Starlinger",
-    "url": "https://parlament.gv.at/person/5428",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/87923/8792339_384.jpg"
-  },
-  {
-    "id": "8188",
-    "parties": [],
-    "periods": [
-      "XXVI"
-    ],
-    "name": "Mag. Beate Hartinger-Klein",
-    "url": "https://parlament.gv.at/person/8188",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/73249/7324914_384.jpg"
-  },
-  {
-    "id": "2976",
-    "parties": [],
-    "periods": [
-      "XXVI"
-    ],
-    "name": "Dr. Karin Kneissl",
-    "url": "https://parlament.gv.at/person/2976",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/76380/7638089_384.jpg"
-  },
-  {
-    "id": "2977",
-    "parties": [],
-    "periods": [
-      "XXVI"
-    ],
-    "name": "Hartwig Löger",
-    "url": "https://parlament.gv.at/person/2977",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/74359/7435986_384.jpg"
-  },
-  {
-    "id": "57490",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XXVI"
-    ],
-    "name": "Karin Ingeborg Kadenbach",
-    "url": "https://parlament.gv.at/person/57490",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/31688/3168895_384.jpg"
-  },
-  {
-    "id": "84308",
-    "parties": [],
-    "periods": [
-      "XXV"
-    ],
-    "name": "Dr. Harald Mahrer",
-    "url": "https://parlament.gv.at/person/84308",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/53804/5380448_384.jpg"
-  },
-  {
-    "id": "83295",
-    "parties": [],
-    "periods": [
-      "XXV"
-    ],
-    "name": "Dr. Wolfgang Brandstetter",
-    "url": "https://parlament.gv.at/person/83295",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/53700/5370025_384.jpg"
-  },
-  {
-    "id": "83297",
-    "parties": [],
-    "periods": [
-      "XXV"
-    ],
-    "name": "MMag. Dr. Sophie Karmasin",
-    "url": "https://parlament.gv.at/person/83297",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/47257/4725791_384.jpg"
-  },
-  {
-    "id": "10300",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XXV"
-    ],
-    "name": "Heinz Kurt Becker",
-    "url": "https://parlament.gv.at/person/10300",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/32062/3206245_384.jpg"
-  },
-  {
-    "id": "87429",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XXV"
-    ],
-    "name": "Mag. Hans Peter Doskozil",
-    "url": "https://parlament.gv.at/person/87429",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/200690/20069005_384.jpg"
-  },
-  {
-    "id": "86673",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XXV"
-    ],
-    "name": "Karoline Graswander-Hainz",
-    "url": "https://parlament.gv.at/person/86673",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/75519/7551900_384.jpg"
-  },
-  {
-    "id": "84052",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XXV"
-    ],
-    "name": "Mag. Claudia Schmidt",
-    "url": "https://parlament.gv.at/person/84052",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/48389/4838977_384.jpg"
-  },
-  {
-    "id": "52707",
-    "parties": [],
-    "periods": [
-      "XXV"
-    ],
-    "name": "Dr. Josef Ostermayer",
-    "url": "https://parlament.gv.at/person/52707",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/46673/4667335_384.jpg"
-  },
-  {
-    "id": "84051",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XXV"
-    ],
-    "name": "Eugen Freund",
-    "url": "https://parlament.gv.at/person/84051",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/50711/5071134_384.jpg"
-  },
-  {
-    "id": "15161",
-    "parties": [],
-    "periods": [
-      "XXV"
-    ],
-    "name": "Mag. Jochen Danninger",
-    "url": "https://parlament.gv.at/person/15161",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/46128/4612899_384.jpg"
-  },
-  {
-    "id": "36447",
-    "parties": [],
-    "periods": [
-      "XXIV"
-    ],
-    "name": "Dr. Claudia Schmied",
-    "url": "https://parlament.gv.at/person/36447",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/42417/4241749_384.jpg"
-  },
-  {
-    "id": "930",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XXIV"
-    ],
-    "name": "Dr. Peter Kostelka",
-    "url": "https://parlament.gv.at/person/930",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/20999/2099921_384.jpg"
-  },
-  {
-    "id": "65320",
-    "parties": [],
-    "periods": [
-      "XXIV"
-    ],
-    "name": "Dr. Wolfgang Waldner",
-    "url": "https://parlament.gv.at/person/65320",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/36262/3626231_384.jpg"
-  },
-  {
-    "id": "53727",
-    "parties": [],
-    "periods": [
-      "XXIV"
-    ],
-    "name": "Mag. Claudia Bandion-Ortner",
-    "url": "https://parlament.gv.at/person/53727",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/24011/2401194_384.jpg"
-  },
-  {
-    "id": "62379",
-    "parties": [],
-    "periods": [
-      "XXIV"
-    ],
-    "name": "Mag. Verena Remler",
-    "url": "https://parlament.gv.at/person/62379",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/43472/4347293_384.jpg"
-  },
-  {
-    "id": "36449",
-    "parties": [],
-    "periods": [
-      "XXIII"
-    ],
-    "name": "Dr. Erwin Buchinger",
-    "url": "https://parlament.gv.at/person/36449",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/22837/2283790_384.jpg"
-  },
-  {
-    "id": "36448",
-    "parties": [],
-    "periods": [
-      "XXIII"
-    ],
-    "name": "Dr. Andrea Kdolsky",
-    "url": "https://parlament.gv.at/person/36448",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/22838/2283805_384.jpg"
-  },
-  {
-    "id": "28371",
-    "parties": [],
-    "periods": [
-      "XXIII"
-    ],
-    "name": "Dr. Hans Winkler",
-    "url": "https://parlament.gv.at/person/28371",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/48330/4833078_384.jpg"
-  },
-  {
-    "id": "4279",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XXIII"
-    ],
-    "name": "Dr. Maria Berger",
-    "url": "https://parlament.gv.at/person/4279",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/21013/2101332_384.jpg"
-  },
-  {
-    "id": "36452",
-    "parties": [
-      "SPÖ"
-    ],
-    "periods": [
-      "XXIII"
-    ],
-    "name": "Christa Kranzl",
-    "url": "https://parlament.gv.at/person/36452",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/48330/4833090_384.jpg"
-  },
-  {
-    "id": "751",
-    "parties": [
-      "FPÖ"
-    ],
-    "periods": [
-      "XXIII"
-    ],
-    "name": "Mag. Hilmar Kabas",
-    "url": "https://parlament.gv.at/person/751",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/21006/2100665_384.jpg"
-  },
-  {
-    "id": "80",
-    "parties": [
-      "ÖVP"
-    ],
-    "periods": [
-      "XXIII"
-    ],
-    "name": "Rosemarie Bauer",
-    "url": "https://parlament.gv.at/person/80",
-    "imageUrl": "https://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg"
-  },
-  {
-    "id": "8656",
-    "parties": [
-      "FPÖ"
-    ],
-    "periods": [
-      "XXII"
-    ],
-    "name": "Mag. Karl-Heinz Grasser",
-    "url": "https://parlament.gv.at/person/8656",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/50483/5048332_384.jpg"
-  },
-  {
-    "id": "15464",
-    "parties": [
-      "FPÖ",
-      "BZÖ"
-    ],
-    "periods": [
-      "XXII"
-    ],
-    "name": "Hubert Gorbach",
-    "url": "https://parlament.gv.at/person/15464",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/44045/4404571_384.jpg"
-  },
-  {
-    "id": "22269",
-    "parties": [
-      "BZÖ"
-    ],
-    "periods": [
-      "XXII"
-    ],
-    "name": "Mag. Karin Gastinger",
-    "url": "https://parlament.gv.at/person/22269",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/21008/2100849_384.jpg"
-  },
-  {
-    "id": "25260",
-    "parties": [],
-    "periods": [
-      "XXII"
-    ],
-    "name": "Liese Prokop",
-    "url": "https://parlament.gv.at/person/25260",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/21008/2100899_384.jpg"
-  },
-  {
-    "id": "2801",
-    "parties": [],
-    "periods": [
-      "XXII"
-    ],
-    "name": "Dr. Franz Fiedler",
-    "url": "https://parlament.gv.at/person/2801",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/65176/6517628_384.jpg"
-  },
-  {
-    "id": "8675",
-    "parties": [
-      "FPÖ"
-    ],
-    "periods": [
-      "XXII"
-    ],
-    "name": "Dr. Reinhart Waneck",
-    "url": "https://parlament.gv.at/person/8675",
-    "imageUrl": "https://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg"
-  },
-  {
-    "id": "1688",
-    "parties": [
-      "FPÖ"
-    ],
-    "periods": [
-      "XXII"
-    ],
-    "name": "Dr. Susanne Riess-Passer",
-    "url": "https://parlament.gv.at/person/1688",
-    "imageUrl": "https://parlament.gv.at/dokument/bild/21002/2100256_384.jpg"
   }
 ]

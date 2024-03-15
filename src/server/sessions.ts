@@ -1,8 +1,8 @@
 import * as fs from "fs";
 import * as cheerio from "cheerio";
 import { fetchAndSaveHtml } from "./utils";
-import { Persons, getMetadata } from "./persons";
-import { Callout, Person, Session, SpeakerSection, periods } from "../common/common";
+import { getMetadata, processName } from "./persons";
+import { Callout, Person, Persons, Session, SpeakerSection, periods } from "../common/common";
 
 interface RawSessions {
     pages: number;
@@ -150,7 +150,10 @@ function extractCallouts(text: string, period: string, persons: Persons) {
                         continue;
                     }
                     callouts.push({
-                        text: part.trim().replace(/\u00AD/g, ""),
+                        text: part
+                            .trim()
+                            .replace(/\u00AD/g, "")
+                            .replace(/\xa0/g, " "),
                     });
                 } else {
                     const name = caller
@@ -161,11 +164,13 @@ function extractCallouts(text: string, period: string, persons: Persons) {
                         .replace("Dr. ", "")
                         .replace("Mag.", "")
                         .replace(/\u00AD/g, "")
+                        .replace(/\xa0/g, " ")
                         .trim();
                     let person: Person | undefined = persons.search(name, period)[0].person;
                     const personFamilyName = person.name
                         .toLowerCase()
                         .replace(/\u00AD/g, "")
+                        .replace(/\xa0/g, " ")
                         .split(",")[0]
                         .split(/\s+/)
                         .filter((part) => !part.includes(".") && !part.includes("("))
@@ -173,6 +178,7 @@ function extractCallouts(text: string, period: string, persons: Persons) {
                     const calloutFamilyName = name
                         .toLowerCase()
                         .replace(/\u00AD/g, "")
+                        .replace(/\xa0/g, " ")
                         .split(",")[0]
                         .split(/\s+/)
                         .filter((part) => !part.includes(".") && !part.includes("("))
@@ -196,6 +202,7 @@ function extractCallouts(text: string, period: string, persons: Persons) {
                             const familyName = other.name
                                 .toLowerCase()
                                 .replace(/\u00AD/g, "")
+                                .replace(/\xa0/g, " ")
                                 .split(",")[0]
                                 .split(/\s+/)
                                 .filter((part) => !part.includes(".") && !part.includes("("))
@@ -208,20 +215,29 @@ function extractCallouts(text: string, period: string, persons: Persons) {
                         if (!person) {
                             console.log("Could not find caller " + name + ", " + part);
                             callouts.push({
-                                text: part.trim().replace(/\u00AD/g, ""),
+                                text: part
+                                    .trim()
+                                    .replace(/\u00AD/g, "")
+                                    .replace(/\xa0/g, " "),
                             });
                             continue;
                         }
                     }
                     callouts.push({
                         caller: person,
-                        text: call.trim().replace(/\u00AD/g, ""),
+                        text: call
+                            .trim()
+                            .replace(/\u00AD/g, "")
+                            .replace(/\xa0/g, " "),
                     });
                 }
             } else {
                 if (part.trim().length < 4) continue;
                 callouts.push({
-                    text: part.trim().replace(/\u00AD/g, ""),
+                    text: part
+                        .trim()
+                        .replace(/\u00AD/g, "")
+                        .replace(/\xa0/g, " "),
                 });
             }
         }
@@ -282,8 +298,9 @@ async function extractSections(session: Session, filePath: string, persons: Pers
             .find('a[href^="/WWER/"]')
             .text()
             .trim()
-            .replace(/\n/g, " ")
-            .replace(/\u00AD/g, "");
+            .replace(/\u00AD/g, "")
+            .replace(/\xa0/g, " ")
+            .replace(/\n/g, " ");
         const aTag = current.find('a[href^="/WWER/"]');
         const speakerUrl = "https://parlament.gv.at/" + aTag.attr("href");
         const links = extractLinks(current);
@@ -292,7 +309,8 @@ async function extractSections(session: Session, filePath: string, persons: Pers
             .text()
             .trim()
             .replace(/\n/g, " ")
-            .replace(/\u00AD/g, "");
+            .replace(/\u00AD/g, "")
+            .replace(/\xa0/g, " ");
         const callouts = extractCallouts(sectionText, session.period, persons);
         const colonIndex = sectionText.indexOf(":");
         if (colonIndex > 0) {
@@ -309,7 +327,8 @@ async function extractSections(session: Session, filePath: string, persons: Pers
                 .text()
                 .trim()
                 .replace(/\n/g, " ")
-                .replace(/\u00AD/g, "");
+                .replace(/\u00AD/g, "")
+                .replace(/\xa0/g, " ");
             sectionText += "\n\n" + currentText;
             callouts.push(...extractCallouts(currentText, session.period, persons));
             links.push(...extractLinks(current));
@@ -324,12 +343,16 @@ async function extractSections(session: Session, filePath: string, persons: Pers
                     ?.substring(4) || "";
             const speakerId = parseInt(extractId(speakerUrl)).toString();
             let person = persons.byId(speakerId)!;
+            const nameParts = processName(speaker);
             if (!person) {
                 person = {
                     id: speakerId,
                     parties: [],
                     periods: [session.period],
                     name: speaker,
+                    givenName: nameParts.givenName,
+                    familyName: nameParts.familyName,
+                    titles: nameParts.titles,
                     url: "https://parlament.gv.at/person/" + speakerId,
                 };
             }

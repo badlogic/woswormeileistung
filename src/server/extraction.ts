@@ -1,11 +1,10 @@
-import { Missing, Person, Plaque, Screamer, Session } from "../common/common";
-import { Persons } from "./persons";
-import { querySpeakerSections } from "./query";
+import { Missing, Person, Persons, Plaque, Screamer, Session } from "../common/common";
+import { querySpeakerSections } from "../common/query";
 import * as fs from "fs";
 
 export function extractMissing(persons: Persons, sessions: Session[], periods = new Set<string>()) {
     const extractPattern = (str: string): string | null => {
-        const match = str.match(/Als verhindert gemeldet sind (.*?)\n/s);
+        const match = str.match(/[Aa]ls verhindert gemeldet sind (.*?)\n/s);
         return match ? match[1] : null;
     };
 
@@ -16,7 +15,7 @@ export function extractMissing(persons: Persons, sessions: Session[], periods = 
         "Frau Abgeordnete ",
         "der Zweite Präsident des Nationalrates",
     ];
-    const result = querySpeakerSections([], [], [], [], undefined, undefined, ["Als verhindert gemeldet sind"]);
+    const result = querySpeakerSections([], [], [], [], undefined, undefined, `+"Als verhindert gemeldet sind"`);
     const output: Missing[] = [];
     for (const section of result.sections) {
         if (periods.size > 0 && !periods.has(section.period)) continue;
@@ -126,7 +125,7 @@ export async function extractPlaques(persons: Persons, sessions: Session[]) {
                 callout.text = callout.text
                     .trim()
                     .replace(/\u00AD/g, "")
-                    .replace(/\n/g, "");
+                    .replace(/\n/g, " ");
                 callout.text = callout.text.replace("Der Redner ", "Abg. " + speaker.name + " ");
                 callout.text = callout.text.replace("der Redner ", "Abg. " + speaker.name + " ");
                 callout.text = callout.text.replace("Der Abgeordnete ", "Abg. " + speaker.name + " ");

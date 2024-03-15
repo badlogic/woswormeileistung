@@ -57,10 +57,7 @@ export class PersonsPage extends BaseElement {
                         )}
                     </div>
                 </div>
-                <span class="text-xs text-center text-fg-muted pb-4 mt-8"
-                    >Mit Spucke und Tixo gebaut von <a href="https://twitter.com/badlogicgames" class="text-blue-400">Mario Zechner</a><br />Es werden
-                    keine Daten gesammelt, nicht einmal deine IP Adresse</span
-                >
+                <page-footer></page-footer>
             </div>
         </div>`;
     }

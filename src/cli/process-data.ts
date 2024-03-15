@@ -1,5 +1,6 @@
+import { Persons } from "../common/common";
 import { extractPlaques, extractMissing, extractScreamers } from "../server/extraction";
-import { Persons, processPersons } from "../server/persons";
+import { processPersons } from "../server/persons";
 import { processSessions } from "../server/sessions";
 
 if (require.main === module) {

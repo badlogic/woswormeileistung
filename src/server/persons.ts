@@ -15,6 +15,40 @@ function extractSpanInnerText(html: string) {
     return innerTexts;
 }
 
+export function processName(name: string): { givenName: string; familyName: string; titles: string[] } {
+    const tokens: string[] = [];
+    name.split(" ").forEach((token) => {
+        if (token.endsWith(",")) {
+            tokens.push(token.slice(0, -1), ",");
+        } else {
+            tokens.push(token);
+        }
+    });
+
+    const titleParts: string[] = [];
+    const nameParts: string[] = [];
+    let inTitleSuffix = false;
+    tokens.forEach((token) => {
+        if (token.includes(".")) {
+            titleParts.push(token);
+        } else if (token.includes("(")) {
+            titleParts[titleParts.length - 1] += " " + token;
+        } else if (token === ",") {
+            inTitleSuffix = true;
+        } else {
+            if (inTitleSuffix) {
+                titleParts.push(token);
+            } else {
+                nameParts.push(token);
+            }
+        }
+    });
+
+    const familyName = nameParts.pop() || "";
+    const givenName = nameParts.join(" ");
+    return { givenName, familyName, titles: titleParts };
+}
+
 const cache = new Map<string, { parties: string[]; imageUrl: string | undefined }>();
 export async function getMetadata(personId: string) {
     if (cache.has(personId)) return cache.get(personId)!;
@@ -114,9 +148,24 @@ export async function processPersons(baseDir: string) {
         }
         const json = await response.json();
         const imageUrl = json.content?.biografie?.portrait?.src ?? json.content?.banner?.portrait?.src;
+        const name =
+            json.content?.headingbox?.title
+                .trim()
+                .replace(/\u00AD/g, "")
+                .replace(/\xa0/g, " ")
+                .replace(/\n/g, " ") ??
+            row[2]
+                .trim()
+                .replace(/\u00AD/g, "")
+                .replace(/\xa0/g, " ")
+                .replace(/\n/g, " ");
+        const nameParts = processName(name);
         persons.push({
             id,
-            name: json.content?.headingbox?.title.replace(/\u00AD/g, "").replace(/\n/g, "") ?? row[2].replace(/\u00AD/g, "").replace(/\n/g, ""),
+            name,
+            givenName: nameParts.givenName,
+            familyName: nameParts.familyName,
+            titles: nameParts.titles,
             parties: Array.from(new Set<string>(parties)).sort(),
             periods: personPeriods.sort(),
             url: "https://parlament.gv.at/person/" + id,
@@ -128,6 +177,9 @@ export async function processPersons(baseDir: string) {
             persons.push({
                 id,
                 name: "Carmen Gartelgruber",
+                givenName: "Carmen",
+                familyName: "Gartelgruber",
+                titles: [],
                 parties: Array.from(new Set<string>(parties)).sort(),
                 periods: personPeriods.sort(),
                 url: "https://parlament.gv.at/person/" + id,
@@ -138,130 +190,4 @@ export async function processPersons(baseDir: string) {
     }
     fs.writeFileSync(`${baseDir}/persons.json`, JSON.stringify(persons, null, 2), "utf-8");
     return persons;
-}
-
-export class Persons {
-    idToPerson = new Map<string, Person>();
-    idToNameParts = new Map<string, string[]>();
-
-    constructor(public persons: Person[]) {
-        this.addAll(this.persons);
-    }
-
-    addAll(persons: Person[]) {
-        for (const person of persons) {
-            this.add(person);
-        }
-    }
-
-    add(person: Person) {
-        if (this.idToPerson.has(person.id)) {
-            return;
-        }
-        this.idToPerson.set(person.id, person);
-        const nameParts = person.name
-            .toLowerCase()
-            .replace(/ı/g, "i") // Replace dotless 'ı' with 'i'
-            .split(",")[0]
-            .split(/\s+/)
-            .filter((part) => !part.includes("("))
-            .map((part) => [...part.split("-"), part])
-            .flat();
-        this.idToNameParts.set(person.id, nameParts);
-    }
-
-    byId(id: string) {
-        return this.idToPerson.get(id);
-    }
-
-    private static levenshtein(a: string, b: string): number {
-        const matrix = [];
-
-        for (let i = 0; i <= b.length; i++) {
-            matrix[i] = [i];
-        }
-        for (let j = 0; j <= a.length; j++) {
-            matrix[0][j] = j;
-        }
-
-        for (let i = 1; i <= b.length; i++) {
-            for (let j = 1; j <= a.length; j++) {
-                if (b.charAt(i - 1) == a.charAt(j - 1)) {
-                    matrix[i][j] = matrix[i - 1][j - 1];
-                } else {
-                    matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, Math.min(matrix[i][j - 1] + 1, matrix[i - 1][j] + 1));
-                }
-            }
-        }
-
-        return matrix[b.length][a.length];
-    }
-
-    /*search(query: string, period?: string) {
-        const normalizedQuery = query
-            .toLowerCase()
-            .replace(/ı/g, "i") // Replace dotless 'ı' with 'i'
-            .split(/\s+/)
-            .filter((part) => part);
-
-        const persons = period ? this.persons.filter((p) => p.periods.includes(period)) : this.persons;
-        const scoredNames = persons.map((person) => {
-            const nameParts = this.idToNameParts.get(person.id)!;
-            const score = normalizedQuery.reduce((acc, queryPart) => {
-                // Find the best match for each query part in name parts
-                const partScores = nameParts.map((namePart) => Persons.levenshtein(queryPart, namePart));
-                const bestMatch = Math.min(...partScores);
-                return acc + bestMatch;
-            }, 0);
-            return { person, score };
-        });
-
-        // Sort by total score (sum of best matches for all query parts), then by name length for similarly scored names
-        scoredNames.sort((a, b) => a.score - b.score || a.person.name.length - b.person.name.length);
-        return scoredNames.slice(0, 5);
-    }*/
-
-    search(query: string, period?: string) {
-        const normalizedQuery = query
-            .toLowerCase()
-            .replace(/ı/g, "i") // Replace dotless 'ı' with 'i'
-            .split(/\s+/)
-            .filter((part) => part);
-
-        const persons = period ? this.persons.filter((p) => p.periods.includes(period)) : this.persons;
-        const scoredNames = persons.map((person) => {
-            const nameParts = this.idToNameParts.get(person.id)!;
-            let score = 0;
-            let lastIndex = -1;
-
-            for (const queryPart of normalizedQuery) {
-                // Initialize high score for comparison; lower scores are better
-                let bestMatchScore = Infinity;
-                let bestMatchIndex = -1;
-
-                for (let i = lastIndex + 1; i < nameParts.length; i++) {
-                    const currentScore = Persons.levenshtein(queryPart, nameParts[i]);
-                    if (currentScore < bestMatchScore) {
-                        bestMatchScore = currentScore;
-                        bestMatchIndex = i;
-                    }
-                }
-
-                // Update score and last index if a match was found
-                if (bestMatchIndex !== -1) {
-                    score += bestMatchScore;
-                    lastIndex = bestMatchIndex;
-                } else {
-                    // If no match was found in the remaining name parts, penalize heavily
-                    score += 100;
-                }
-            }
-
-            return { person, score };
-        });
-
-        // Sort by total score, then by name length for similarly scored names
-        scoredNames.sort((a, b) => a.score - b.score || a.person.name.length - b.person.name.length);
-        return scoredNames.slice(0, 5);
-    }
 }

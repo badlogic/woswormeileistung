@@ -1,7 +1,6 @@
 import * as fs from "fs";
-import { Person, Session } from "../common/common";
+import { Person, Persons, Session } from "../common/common";
 import { extractScreamers } from "../server/extraction";
-import { Persons } from "../server/persons";
 
 if (require.main === module) {
     (async () => {

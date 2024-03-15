@@ -19,7 +19,8 @@ import { renderBarChart } from "../utils/charts";
 import { arrowLeftIcon, arrowRightIcon } from "../utils/icons";
 import { router } from "../utils/routing";
 import { pageContainerStyle, pageContentStyle } from "../utils/styles";
-import { downloadFile } from "../utils/utils";
+import { download, downloadFile } from "../utils/utils";
+import { matchesQuery, prepareQuery } from "../common/query";
 
 function escapeRegExp(string: string): string {
     return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -82,9 +83,7 @@ export class MissingList extends ExpandableList<MissingEntry> {
 
         // prettier-ignore
         return html`<div class="flex flex-col gap-2 p-4 border border-divider rounded-md">
-            <a class="text-blue-400" href="https://www.parlament.gv.at/gegenstand/${item.period}/NRSITZ/${item.session}?selectedStage=111"
-                >${item.date.split("T")[0]} GP ${item.period}, Sitzung ${item.session.toString()}</a
-            >
+            <section-header .date=${item.date} .period=${item.period} .session=${item.session} .section=${0}></section-header>
             <div class="italic">${unsafeHTML(renderSectionText(section, new Set<string>([item.nameInText])))}</div>
         </div>`;
     }
@@ -122,9 +121,7 @@ export class PlaqueList extends ExpandableList<PlaqueCallout> {
 
         // prettier-ignore
         return html`<div class="flex flex-col gap-2 p-4 border border-divider rounded-md">
-            <a class="text-blue-400" href="https://www.parlament.gv.at/gegenstand/${item.period}/NRSITZ/${item.session}?selectedStage=111"
-                >${item.date.split("T")[0]} GP ${item.period}, Sitzung ${item.session.toString()}</a
-            >
+            <section-header .date=${item.date} .period=${item.period} .session=${item.session} .section=${item.section}></section-header>
             <div class="italic">${item.text}</div>
             ${plaqueSection
                 ? html`<button class="self-start button-muted" @click=${(ev: Event) => toggleSectionText(ev.target as HTMLButtonElement)}>
@@ -147,9 +144,7 @@ export class SectionList extends ExpandableList<SessionSection> {
 
     renderItem(item: SessionSection): TemplateResult {
         return html` <div class="flex flex-col gap-2 border border-divider rounded-md p-4">
-            <a class="font-bold text-blue-400" href="https://www.parlament.gv.at/gegenstand/${item.period}/NRSITZ/${item.session}?selectedStage=111"
-                >${item.date.split("T")[0]} GP ${item.period}, Sitzung ${item.session.toString()}</a
-            >
+            <section-header .date=${item.date} .period=${item.period} .session=${item.session} .section=${item.sectionIndex}></section-header>
             <div class="whitespace-pre-wrap">${unsafeHTML(renderSectionText(item.section, this.highlights))}</div>
         </div>`;
     }
@@ -190,7 +185,7 @@ export class SectionView extends BaseElement {
         try {
             const response = await Api.section(this.period, this.session, this.section);
             if (response instanceof Error) throw new Error();
-            this.text = renderSectionText(response, new Set<string>(this.highlights ? this.highlights : []));
+            this.text = renderSectionText(response.section, new Set<string>(this.highlights ? this.highlights : []));
         } catch (e) {
             this.text = "Konnte Redebeitrag nicht laden";
         } finally {
@@ -232,9 +227,7 @@ export class ScreamsList extends ExpandableList<SectionScreams> {
 
         // prettier-ignore
         return html`<div class="flex flex-col gap-2 p-4 border border-divider rounded-md">
-            <a class="text-blue-400" href="https://www.parlament.gv.at/gegenstand/${item.period}/NRSITZ/${item.session}?selectedStage=111"
-                >${item.date.split("T")[0]} GP ${item.period}, Sitzung ${item.session.toString()}</a
-            >
+            <section-header .date=${item.date} .period=${item.period} .session=${item.session} .section=${item.section}></section-header>
             <div class="flex items-center gap-2">
                 <a href="/person/${from.id}" class="flex gap-2 items-center text-blue-400">
                     <img class="w-8 h-8 rounded-full shadow-lg object-cover object-center" src=${from.imageUrl}/>
@@ -290,7 +283,7 @@ export class PerPersonScreamsList extends ExpandableList<ScreamsPerPerson> {
         const from = direction == "from" ? item.person : this.person;
         const to = direction == "from" ? this.person : item.person;
 
-        return html`<div class="flex flex-col gap-1">
+        return html`<div class="flex flex-col gap-2">
             <div class="flex items-center gap-2">
                 <a href="/person/${from.id}" class="flex gap-2 items-center text-blue-400">
                     <img class="w-8 h-8 rounded-full shadow-lg object-cover object-center" src=${from.imageUrl} />
@@ -320,6 +313,77 @@ export class PerPersonScreamsList extends ExpandableList<ScreamsPerPerson> {
                 <span class="ml-auto">${item.numScreams}</span>
             </div>
             <section-screams-list class="hidden" .person=${this.person} .list=${item.screams}></section-screams-list>
+        </div>`;
+    }
+}
+
+@customElement("person-header")
+export class PersonHeader extends BaseElement {
+    @property()
+    person!: Person;
+
+    render() {
+        return html`<div class="flex items-center">
+            ${this.person.imageUrl
+                ? html`<img src=${this.person.imageUrl} class="flex-shrink-0 w-24 h-24 rounded-full object-cover object-center shadow-md" />`
+                : nothing}
+            <div class="flex flex-col px-4">
+                <h2 class="flex gap-2">
+                    ${this.person.name}
+                    <json-api-boxes .prefix=${this.person.name + "-person"} .obj=${this.person} api="/api/persons/${this.person.id}"></json-api-boxes>
+                </h2>
+                <span>${this.person.parties.join(", ")}</span>
+                <span class="text-xs">Gesetzgebungs-Perioden: ${this.person.periods.join(", ")}</span>
+                <a href="https://parlament.gv.at/person/${this.person.id}" class="text-blue-400">Parlamentsseite</a>
+            </div>
+        </div>`;
+    }
+}
+
+@customElement("json-api-boxes")
+export class JsonApiBoxes extends BaseElement {
+    @property()
+    prefix!: string;
+
+    @property()
+    obj: any;
+
+    @property()
+    api!: string;
+
+    render() {
+        return html` <div class="flex gap-2">
+            <div
+                class="inline cursor-pointer button-muted px-1 py-1 border border-divider rounded text-sm font-semibold"
+                @click=${() => download(this.prefix, this.obj)}
+            >
+                JSON
+            </div>
+            <a href="${this.api}" class="button-muted px-1 py-1 border border-divider rounded text-sm font-semibold">API</a>
+        </div>`;
+    }
+}
+
+@customElement("section-header")
+export class SectionHeader extends BaseElement {
+    @property()
+    date!: string;
+
+    @property()
+    period!: string;
+
+    @property()
+    session!: string | number;
+
+    @property()
+    section!: string | number;
+
+    render() {
+        const section = typeof this.section == "string" ? parseInt(this.section) : this.section;
+        return html` <div class="flex gap-2">
+            <a class="text-blue-400" href="/section/${this.period}/${this.session}/${this.section}"
+                >${this.date.split("T")[0]} GP ${this.period}, Sitzung ${this.session.toString()}, Redebeitrag ${section + 1}</a
+            >
         </div>`;
     }
 }
@@ -613,46 +677,14 @@ export class PersonPage extends BaseElement {
                     </div>
                     ${this.loading ? html`<loading-spinner></loading-spinner>` : nothing}
                     ${this.person
-                        ? html`<div class="flex items-center">
-                                  ${this.person.imageUrl
-                                      ? html`<img
-                                            src=${this.person.imageUrl}
-                                            class="flex-shrink-0 w-24 h-24 rounded-full object-cover object-center shadow-md"
-                                        />`
-                                      : nothing}
-                                  <div class="flex flex-col px-4">
-                                      <h2 class="flex gap-2">
-                                          ${this.person.name}
-                                          <div
-                                              class="inline cursor-pointer button-muted px-1 py-1 border border-divider rounded text-sm font-semibold"
-                                              @click=${() => this.download("person", this.person)}
-                                          >
-                                              JSON
-                                          </div>
-                                          <a
-                                              href="/api/persons/${this.person.id}"
-                                              class="button-muted px-1 py-1 border border-divider rounded text-sm font-semibold"
-                                              >API</a
-                                          >
-                                      </h2>
-                                      <span>${this.person.parties.join(", ")}</span>
-                                      <span class="text-xs">Gesetzgebungs-Perioden: ${this.person.periods.join(", ")}</span>
-                                      <a href="https://parlament.gv.at/person/${this.person.id}" class="text-blue-400">Parlamentsseite</a>
-                                  </div>
-                              </div>
+                        ? html`<person-header .person=${this.person}></person-header>
                               <h2 class="flex gap-2">
                                   Zwischenrufe von ${this.person.name} (${this.numScreams})
-                                  <div
-                                      class="inline cursor-pointer button-muted px-1 py-1 border border-divider rounded text-sm font-semibold"
-                                      @click=${() => this.download("zwischenrufe", this.screams)}
-                                  >
-                                      JSON
-                                  </div>
-                                  <a
-                                      href="/api/screams/${this.person.id}"
-                                      class="button-muted px-1 py-1 border border-divider rounded text-sm font-semibold"
-                                      >API</a
-                                  >
+                                  <json-api-boxes
+                                      .prefix=${this.person?.name + "-zwischenrufe"}
+                                      .obj=${this.screams}
+                                      api="/api/screams/${this.person.id}"
+                                  ></json-api-boxes>
                               </h2>
                               ${this.numScreams == 0 ? nothing : html`<canvas id="screams"></canvas><canvas id="screamsPerParty"></canvas>`}
                               ${this.numScreams == 0
@@ -664,17 +696,11 @@ export class PersonPage extends BaseElement {
 
                               <h2 class="flex gap-2">
                                   Zwischenrufe an ${this.person.name} (${this.numScreamsAt})
-                                  <div
-                                      class="inline cursor-pointer button-muted px-1 py-1 border border-divider rounded text-sm font-semibold"
-                                      @click=${() => this.download("zwischenrufe-an", this.screamsAt)}
-                                  >
-                                      JSON
-                                  </div>
-                                  <a
-                                      href="/api/screamsat/${this.person.id}"
-                                      class="button-muted px-1 py-1 border border-divider rounded text-sm font-semibold"
-                                      >API</a
-                                  >
+                                  <json-api-boxes
+                                      .prefix=${this.person?.name + "-zwischenrufe-an"}
+                                      .obj=${this.screamsAt}
+                                      api="/api/screamsat/${this.person.id}"
+                                  ></json-api-boxes>
                               </h2>
                               ${this.numScreamsAt == 0 ? nothing : html`<canvas id="screamsAt"></canvas><canvas id="screamsAtPerParty"></canvas>`}
                               ${this.numScreamsAt == 0
@@ -685,17 +711,11 @@ export class PersonPage extends BaseElement {
                                         <per-person-screams-list .list=${this.screamsAtPerPerson} .person=${this.person}></per-person-screams-list>`}
                               <h2 class="flex gap-2">
                                   Abwesenheiten (${this.missing.missing.length})
-                                  <div
-                                      class="inline cursor-pointer button-muted px-1 py-1 border border-divider rounded text-sm font-semibold"
-                                      @click=${() => this.download("abwesenheiten", this.missing.missing)}
-                                  >
-                                      JSON
-                                  </div>
-                                  <a
-                                      href="/api/missing/${this.person.id}"
-                                      class="button-muted px-1 py-1 border border-divider rounded text-sm font-semibold"
-                                      >API</a
-                                  >
+                                  <json-api-boxes
+                                      .prefix=${this.person?.name + "-abwesenheiten"}
+                                      .obj=${this.missing.missing}
+                                      api="/api/missing/${this.person.id}"
+                                  ></json-api-boxes>
                               </h2>
                               <div class="text-sm text-red-400 italic text-center">
                                   Die Abwesenheit einer Person kann verschiedene Gründe haben, z. B. eine langwierige Krankheit usw. Abwesenheiten
@@ -711,17 +731,11 @@ export class PersonPage extends BaseElement {
                                   : html`<missing-list .list=${this.missing.missing} .person=${this.person}></missing-list>`}
                               <h2 class="flex gap-2">
                                   Taferl (${this.plaques.length})
-                                  <div
-                                      class="inline cursor-pointer button-muted px-1 py-1 border border-divider rounded text-sm font-semibold"
-                                      @click=${() => this.download("taferl", this.plaques)}
-                                  >
-                                      JSON
-                                  </div>
-                                  <a
-                                      href="/api/plaques/${this.person.id}"
-                                      class="button-muted px-1 py-1 border border-divider rounded text-sm font-semibold"
-                                      >API</a
-                                  >
+                                  <json-api-boxes
+                                      .prefix=${this.person?.name + "-taferl"}
+                                      .obj=${this.plaques}
+                                      api="/api/plaques/${this.person.id}"
+                                  ></json-api-boxes>
                               </h2>
                               ${this.plaques.length == 0 ? nothing : html`<canvas id="plaques"></canvas>`}
                               ${this.plaques.length == 0
@@ -734,17 +748,11 @@ export class PersonPage extends BaseElement {
                                         <plaque-list .list=${this.plaques} .sections=${this.sections}></plaque-list>`}
                               <h2 class="flex gap-2">
                                   Redebeiträge
-                                  <div
-                                      class="inline cursor-pointer button-muted px-1 py-1 border border-divider rounded text-sm font-semibold"
-                                      @click=${() => this.download("redebeiträge", this.sections)}
-                                  >
-                                      JSON
-                                  </div>
-                                  <a
-                                      href="/api/sections?person=${this.person.id}"
-                                      class="button-muted px-1 py-1 border border-divider rounded text-sm font-semibold"
-                                      >API</a
-                                  >
+                                  <json-api-boxes
+                                      .prefix=${this.person?.name + "-redebeiträge"}
+                                      .obj=${this.sections}
+                                      api="/api/sections?person=${this.person.id}"
+                                  ></json-api-boxes>
                               </h2>
                               <canvas id="sectionsPerPeriod"></canvas>
                               <input
@@ -756,7 +764,8 @@ export class PersonPage extends BaseElement {
                               />
                               <div class="text-xs text-center italic">
                                   Um ein Wort aus- bzw. unbedingt einzuschließen, <code>'-'</code> oder <code>'+'</code> voransetzen. Z.B.
-                                  '+Fristenlösung +Abtreibung' um nur Redebeiträge anzuzeigen, die beide Worte beinhalten.
+                                  '+Fristenlösung +Abtreibung' um nur Redebeiträge anzuzeigen, die beide Worte beinhalten. Zur Suche ganzer Phrasen,
+                                  die Phrase in Anführungszeichen setzen. Z.B. "Wer schafft die Arbeit?".
                               </div>
                               <div class="flex justify-center items-center flex-wra gap-2">
                                   ${repeat(
@@ -786,21 +795,20 @@ export class PersonPage extends BaseElement {
                                   (${this.sections.length == this.searchResults.length
                                       ? this.sections.length
                                       : `${this.searchResults.length}/${this.sections.length}`})
-                                  <div
-                                      class="inline cursor-pointer button-muted px-1 py-1 border border-divider rounded text-sm font-semibold"
-                                      @click=${() => this.download("reden-sucheergebnis", this.searchResults)}
-                                  >
-                                      JSON
-                                  </div>
+
+                                  <json-api-boxes
+                                      .prefix=${this.person?.name + "-reden-sucheergebnis"}
+                                      .obj=${this.searchResults}
+                                      api="/api/sections?person=${this.person.id}&${this.periods
+                                          .map((period) => `period=${period}`)
+                                          .join("&")}&query=${this.querySelector<HTMLInputElement>("#query")?.value.trim() ?? ""}"
+                                  ></json-api-boxes>
                               </div>
                               ${this.searching ? html`<loading-spinner></loading-spinner>` : nothing}
                               <section-list .list=${this.searchResults}></section-list>`
                         : nothing}
                 </div>
-                <span class="text-xs text-center text-fg-muted pb-4 mt-8"
-                    >Mit Spucke und Tixo gebaut von <a href="https://twitter.com/badlogicgames" class="text-blue-400">Mario Zechner</a><br />Es werden
-                    keine Daten gesammelt, nicht einmal deine IP Adresse</span
-                >
+                <page-footer></page-footer>
             </div>
         </div>`;
     }
@@ -820,34 +828,15 @@ export class PersonPage extends BaseElement {
             const query = this.querySelector<HTMLInputElement>("#query")!.value.trim();
             const sectionList = this.querySelector<SectionList>("section-list")!;
             this.searchResults = [...this.sections.filter((item) => this.periods.some((period) => period.selected && period.name == item.period))];
-            if (query.length == 0) {
+            const preparedQuery = prepareQuery(query);
+            if (preparedQuery.tokens.length == 0) {
                 sectionList.setSections(this.searchResults);
             } else {
-                const tokens = query.split(/\s+/);
-                const must = new Set<string>();
-                const mustNot = new Set<string>();
-                const optional = new Set<string>();
-                for (const token of tokens) {
-                    if (token.startsWith("+") && token.length >= 2) must.add(token.substring(1).toLowerCase());
-                    else if (token.startsWith("-") && token.length >= 2) mustNot.add(token.substring(1).toLowerCase());
-                    else if (token.length >= 2) optional.add(token.toLowerCase());
-                }
-                this.searchResults = this.searchResults.filter((item) => {
-                    const text = item.section.text.toLowerCase();
-                    if (mustNot.size > 0 && Array.from(mustNot.values()).some((token) => text.includes(token))) return false;
-                    if (must.size > 0 && Array.from(must.values()).every((token) => text.includes(token))) return true;
-                    if (optional.size > 0 && Array.from(optional.values()).some((token) => text.includes(token))) return true;
-                    return false;
-                });
-                sectionList.setSections(this.searchResults, new Set<string>([...must, ...optional]));
+                this.searchResults = this.searchResults.filter((item) => matchesQuery(preparedQuery, item.section.text));
+                sectionList.setSections(this.searchResults, new Set<string>([...preparedQuery.must, ...preparedQuery.optional]));
             }
         } finally {
             this.searching = false;
         }
-    }
-
-    download(suffix: string, obj: any) {
-        const prefix = this.person!.name.replace(/[^\w\s]/gi, "").replace(/\s+/g, "_");
-        downloadFile(prefix + "-" + suffix + ".json", JSON.stringify(obj, null, 2));
     }
 }
