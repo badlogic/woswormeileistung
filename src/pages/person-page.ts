@@ -451,8 +451,8 @@ export class PersonPage extends BaseElement {
     @state()
     sectionsPerPeriod: { period: string; numSections: number }[] = [];
 
-    connectedCallback(): void {
-        super.connectedCallback();
+    protected firstUpdated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
+        super.firstUpdated(_changedProperties);
         this.load();
     }
 
