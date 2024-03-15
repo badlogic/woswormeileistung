@@ -709,7 +709,7 @@ export function fixLinksAndVideos(container: HTMLElement, collapsed = false) {
                     ev.stopPropagation();
                     ev.stopImmediatePropagation();
                     if (link.pathname == location.pathname) return;
-                    router.push(link.pathname);
+                    router.push(link.pathname + link.search + link.hash);
                 });
             }
             link.addEventListener("click", (ev) => {
@@ -732,7 +732,7 @@ export function fixLinksAndVideos(container: HTMLElement, collapsed = false) {
 @customElement("theme-toggle")
 export class ThemeToggle extends LitElement {
     @state()
-    theme: Theme = "dark";
+    theme: Theme = "light";
 
     protected createRenderRoot(): Element | ShadowRoot {
         return this;
@@ -740,7 +740,7 @@ export class ThemeToggle extends LitElement {
 
     connectedCallback(): void {
         super.connectedCallback();
-        this.theme = Store.getTheme() ?? "dark";
+        this.theme = Store.getTheme() ?? "light";
         this.setTheme(this.theme);
     }
 

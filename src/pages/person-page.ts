@@ -15,12 +15,12 @@ import {
     partyColors,
     periodDates,
 } from "../common/common";
+import { matchesQuery, prepareQuery } from "../common/query";
 import { renderBarChart } from "../utils/charts";
-import { arrowLeftIcon, arrowRightIcon } from "../utils/icons";
+import { arrowLeftIcon, arrowRightIcon, searchIcon } from "../utils/icons";
 import { router } from "../utils/routing";
 import { pageContainerStyle, pageContentStyle } from "../utils/styles";
-import { download, downloadFile } from "../utils/utils";
-import { matchesQuery, prepareQuery } from "../common/query";
+import { download } from "../utils/utils";
 
 function escapeRegExp(string: string): string {
     return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -54,7 +54,7 @@ export function renderSectionText(section: SpeakerSection, highlights = new Set<
     }
 
     for (const link of section.links) {
-        text = text.replaceAll(link.label, /*html*/ `<a class="text-blue-400 italic" href="${link.url}">${link.label}</span>`);
+        text = text.replaceAll(link.label, /*html*/ `<a class="text-blue-400 italic" href="${link.url}">${link.label}</a>`);
     }
     return text;
 }
@@ -78,12 +78,13 @@ export class MissingList extends ExpandableList<MissingEntry> {
             callouts: [],
             links: [],
             speaker: this.person,
+            isSessionPresident: true,
             text: "Als verhindert gemeldet sind " + item.sourceText,
         };
 
         // prettier-ignore
         return html`<div class="flex flex-col gap-2 p-4 border border-divider rounded-md">
-            <section-header .date=${item.date} .period=${item.period} .session=${item.session} .section=${0}></section-header>
+            <section-header .date=${item.date} .period=${item.period} .session=${item.session} .section=${0} .highlights=${[item.nameInText]}></section-header>
             <div class="italic">${unsafeHTML(renderSectionText(section, new Set<string>([item.nameInText])))}</div>
         </div>`;
     }
@@ -144,7 +145,13 @@ export class SectionList extends ExpandableList<SessionSection> {
 
     renderItem(item: SessionSection): TemplateResult {
         return html` <div class="flex flex-col gap-2 border border-divider rounded-md p-4">
-            <section-header .date=${item.date} .period=${item.period} .session=${item.session} .section=${item.sectionIndex}></section-header>
+            <section-header
+                .date=${item.date}
+                .period=${item.period}
+                .session=${item.session}
+                .section=${item.sectionIndex}
+                .highlights=${Array.from(this.highlights)}
+            ></section-header>
             <div class="whitespace-pre-wrap">${unsafeHTML(renderSectionText(item.section, this.highlights))}</div>
         </div>`;
     }
@@ -227,7 +234,7 @@ export class ScreamsList extends ExpandableList<SectionScreams> {
 
         // prettier-ignore
         return html`<div class="flex flex-col gap-2 p-4 border border-divider rounded-md">
-            <section-header .date=${item.date} .period=${item.period} .session=${item.session} .section=${item.section}></section-header>
+            <section-header .date=${item.date} .period=${item.period} .session=${item.session} .section=${item.section} .highlights=${item.texts}></section-header>
             <div class="flex items-center gap-2">
                 <a href="/person/${from.id}" class="flex gap-2 items-center text-blue-400">
                     <img class="w-8 h-8 rounded-full shadow-lg object-cover object-center" src=${from.imageUrl}/>
@@ -378,10 +385,17 @@ export class SectionHeader extends BaseElement {
     @property()
     section!: string | number;
 
+    @property()
+    highlights: string[] = [];
+
     render() {
         const section = typeof this.section == "string" ? parseInt(this.section) : this.section;
+        const hls = new URLSearchParams();
+        for (const hl of this.highlights) {
+            hls.append("hl", hl);
+        }
         return html` <div class="flex gap-2">
-            <a class="text-blue-400" href="/section/${this.period}/${this.session}/${this.section}"
+            <a class="text-blue-400" href="/section/${this.period}/${this.session}/${this.section}?${hls.toString()}"
                 >${this.date.split("T")[0]} GP ${this.period}, Sitzung ${this.session.toString()}, Redebeitrag ${section + 1}</a
             >
         </div>`;
@@ -398,6 +412,10 @@ export class PersonPage extends BaseElement {
 
     @state()
     sections: SessionSection[] = [];
+    numActualSections = 0;
+
+    @state()
+    wasSessionPresident = false;
 
     @state()
     plaques: PlaqueCallout[] = [];
@@ -493,6 +511,7 @@ export class PersonPage extends BaseElement {
                 if (result instanceof Error) throw result;
                 screamsAt = result;
                 const screamsAtPerPerson = new Map<string, ScreamsPerPerson>();
+                this;
                 for (const scream of screamsAt) {
                     this.numScreamsAt += scream.texts.length;
                     const personScreams: ScreamsPerPerson = screamsAtPerPerson.get(scream.person.id) ?? {
@@ -509,7 +528,7 @@ export class PersonPage extends BaseElement {
 
             this.person = person;
             this.sections = sections;
-            this.searchResults = sections;
+            this.searchResults = sections.filter((item) => !item.section.isSessionPresident);
             this.plaques = plaques;
             this.missing = missing;
             this.screams = screams;
@@ -521,7 +540,12 @@ export class PersonPage extends BaseElement {
             for (const section of sections) {
                 periods.add(section.period);
                 const period = sectionsPerPeriod.get(section.period) ?? { period: section.period, num: 0 };
+                if (section.section.isSessionPresident) {
+                    this.wasSessionPresident = true;
+                    continue;
+                }
                 period.num++;
+                this.numActualSections++;
                 sectionsPerPeriod.set(section.period, period);
             }
             this.periods = this.periods.filter((item) => periods.has(item.name));
@@ -568,7 +592,7 @@ export class PersonPage extends BaseElement {
                 "Gesetzsgebungsperiode",
                 "Abwesenheiten"
             );
-
+            //HACKL abwesenheiten "Als verhindert gemeldet" reicht nicht um alle verhinderungen zu erwischen
             // Screams chart
             {
                 const screamsPerPeriod: Map<string, { period: string; num: number }> = new Map();
@@ -678,7 +702,7 @@ export class PersonPage extends BaseElement {
                     ${this.loading ? html`<loading-spinner></loading-spinner>` : nothing}
                     ${this.person
                         ? html`<person-header .person=${this.person}></person-header>
-                              <h2 class="flex gap-2">
+                              <h2 class="flex gap-2 mt-16">
                                   Zwischenrufe von ${this.person.name} (${this.numScreams})
                                   <json-api-boxes
                                       .prefix=${this.person?.name + "-zwischenrufe"}
@@ -687,14 +711,16 @@ export class PersonPage extends BaseElement {
                                   ></json-api-boxes>
                               </h2>
                               ${this.numScreams == 0 ? nothing : html`<canvas id="screams"></canvas><canvas id="screamsPerParty"></canvas>`}
-                              ${this.numScreams == 0
-                                  ? html`<span>Keine Zwischenrufe</span>`
-                                  : html`<h3>Zwischenrufe chronologisch</h3>
-                                        <section-screams-list .list=${this.screams} .person=${this.person}></section-screams-list>
-                                        <h3>Zwischenrufe pro Person (absteigend)</h3>
-                                        <per-person-screams-list .list=${this.screamsPerPerson} .person=${this.person}></per-person-screams-list>`}
+                              ${
+                                  this.numScreams == 0
+                                      ? html`<span>Keine Zwischenrufe</span>`
+                                      : html`<h3>Zwischenrufe chronologisch</h3>
+                                            <section-screams-list .list=${this.screams} .person=${this.person}></section-screams-list>
+                                            <h3>Zwischenrufe pro Person (absteigend)</h3>
+                                            <per-person-screams-list .list=${this.screamsPerPerson} .person=${this.person}></per-person-screams-list>`
+                              }
 
-                              <h2 class="flex gap-2">
+                              <h2 class="flex gap-2 mt-16">
                                   Zwischenrufe an ${this.person.name} (${this.numScreamsAt})
                                   <json-api-boxes
                                       .prefix=${this.person?.name + "-zwischenrufe-an"}
@@ -703,13 +729,18 @@ export class PersonPage extends BaseElement {
                                   ></json-api-boxes>
                               </h2>
                               ${this.numScreamsAt == 0 ? nothing : html`<canvas id="screamsAt"></canvas><canvas id="screamsAtPerParty"></canvas>`}
-                              ${this.numScreamsAt == 0
-                                  ? html`<span>Keine Zwischenrufe</span>`
-                                  : html`<h3>Zwischenrufe chronologisch</h3>
-                                        <section-screams-list .list=${this.screamsAt} .person=${this.person}></section-screams-list>
-                                        <h3>Zwischenrufe pro Person (absteigend)</h3>
-                                        <per-person-screams-list .list=${this.screamsAtPerPerson} .person=${this.person}></per-person-screams-list>`}
-                              <h2 class="flex gap-2">
+                              ${
+                                  this.numScreamsAt == 0
+                                      ? html`<span>Keine Zwischenrufe</span>`
+                                      : html`<h3>Zwischenrufe chronologisch</h3>
+                                            <section-screams-list .list=${this.screamsAt} .person=${this.person}></section-screams-list>
+                                            <h3>Zwischenrufe pro Person (absteigend)</h3>
+                                            <per-person-screams-list
+                                                .list=${this.screamsAtPerPerson}
+                                                .person=${this.person}
+                                            ></per-person-screams-list>`
+                              }
+                              <h2 class="flex gap-2 mt-16">
                                   Abwesenheiten (${this.missing.missing.length})
                                   <json-api-boxes
                                       .prefix=${this.person?.name + "-abwesenheiten"}
@@ -726,10 +757,12 @@ export class PersonPage extends BaseElement {
                                   als Bundesminister:in werden nicht angezeigt.
                               </div>
                               ${this.missing.missing.length == 0 ? nothing : html`<canvas id="missing"></canvas>`}
-                              ${this.missing.missing.length == 0
-                                  ? html`<span>Nie abwesend</span>`
-                                  : html`<missing-list .list=${this.missing.missing} .person=${this.person}></missing-list>`}
-                              <h2 class="flex gap-2">
+                              ${
+                                  this.missing.missing.length == 0
+                                      ? html`<span>Nie abwesend</span>`
+                                      : html`<missing-list .list=${this.missing.missing} .person=${this.person}></missing-list>`
+                              }
+                              <h2 class="flex gap-2 mt-16">
                                   Taferl (${this.plaques.length})
                                   <json-api-boxes
                                       .prefix=${this.person?.name + "-taferl"}
@@ -738,16 +771,18 @@ export class PersonPage extends BaseElement {
                                   ></json-api-boxes>
                               </h2>
                               ${this.plaques.length == 0 ? nothing : html`<canvas id="plaques"></canvas>`}
-                              ${this.plaques.length == 0
-                                  ? html`<span>Keine Taferl</span>`
-                                  : html`<div class="text-xs italic text-center">
-                                            Für die Anzeige des Redebeitrags einer Person während deren Taferlaufstellung kann deren Redebeitrag
-                                            angezeigt werden. Redebeiträge anderer Personen, während die Person ein Taferl aufgestellt hat, werden
-                                            nicht angezeigt.
-                                        </div>
-                                        <plaque-list .list=${this.plaques} .sections=${this.sections}></plaque-list>`}
-                              <h2 class="flex gap-2">
-                                  Redebeiträge
+                              ${
+                                  this.plaques.length == 0
+                                      ? html`<span>Keine Taferl</span>`
+                                      : html`<div class="text-xs italic text-center">
+                                                Für die Anzeige des Redebeitrags einer Person während deren Taferlaufstellung kann deren Redebeitrag
+                                                angezeigt werden. Redebeiträge anderer Personen, während die Person ein Taferl aufgestellt hat, werden
+                                                nicht angezeigt.
+                                            </div>
+                                            <plaque-list .list=${this.plaques} .sections=${this.sections}></plaque-list>`
+                              }
+                              <h2 class="flex gap-2 mt-16">
+                                  Redebeiträge (${this.numActualSections})
                                   <json-api-boxes
                                       .prefix=${this.person?.name + "-redebeiträge"}
                                       .obj=${this.sections}
@@ -755,18 +790,16 @@ export class PersonPage extends BaseElement {
                                   ></json-api-boxes>
                               </h2>
                               <canvas id="sectionsPerPeriod"></canvas>
-                              <input
-                                  id="query"
-                                  class="px-4 py-2 border border-divider rounded-full bg-transparent"
-                                  placeholder="Reden nach Stichwörtern durchsuchen ..."
-                                  @input=${() => this.handleQuery()}
-                                  @keyup=${() => this.handleQuery()}
-                              />
-                              <div class="text-xs text-center italic">
-                                  Um ein Wort aus- bzw. unbedingt einzuschließen, <code>'-'</code> oder <code>'+'</code> voransetzen. Z.B.
-                                  '+Fristenlösung +Abtreibung' um nur Redebeiträge anzuzeigen, die beide Worte beinhalten. Zur Suche ganzer Phrasen,
-                                  die Phrase in Anführungszeichen setzen. Z.B. "Wer schafft die Arbeit?".
-                              </div>
+                              <div class="flex gap-4 px-4 py-2 border border-[#777] dark:border-[#ccc] rounded-full bg-transparent">
+                                <i class="icon w-6 h-6">${searchIcon}</i>
+                                <input
+                                    class="flex-grow bg-transparent"
+                                    id="query"
+                                    placeholder="Reden nach Stichwörtern durchsuchen ..."
+                                    @input=${() => this.handleQuery()}
+                                    @keyup=${() => this.handleQuery()}
+                                />
+                                </div>
                               <div class="flex justify-center items-center flex-wra gap-2">
                                   ${repeat(
                                       this.periods,
@@ -787,21 +820,39 @@ export class PersonPage extends BaseElement {
                                           </div>`
                                   )}
                               </div>
+                              ${
+                                  this.wasSessionPresident
+                                      ? html`<div class="flex justify-center items-center">
+                                            <label
+                                                ><input type="checkbox" id="includeSessionPresident" @change=${() => this.handleQuery()} />
+                                                Redebeiträge als Parlamentspräsident:in inkludieren</label
+                                            >
+                                        </div>`
+                                      : nothing
+                              }
+                              </div>
                               <div class="text-xs text-center italic">
-                                  Hier können Suchresultate auf bestimmte Gesetzgebungsperioden eingeschränkt werden.
+                                  Um ein Wort aus- bzw. unbedingt einzuschließen, <code>'-'</code> oder <code>'+'</code> voransetzen. Z.B.
+                                  '+Fristenlösung +Abtreibung' um nur Redebeiträge anzuzeigen, die beide Worte beinhalten. Zur Suche ganzer Phrasen,
+                                  die Phrase in Anführungszeichen setzen. Z.B. "Wer schafft die Arbeit?".
+                              </div>
+                              <div class="text-xs text-center italic">
+                                  Auf Gesetzgebungsperioden klicken, um Redebeiträge aus der Periode ein- bzw. auszuschließen.
                               </div>
                               <div class="font-bold flex gap-2 items-center">
                                   Ergebnisse
-                                  (${this.sections.length == this.searchResults.length
-                                      ? this.sections.length
-                                      : `${this.searchResults.length}/${this.sections.length}`})
+                                  (${
+                                      this.sections.length == this.searchResults.length
+                                          ? this.sections.length
+                                          : `${this.searchResults.length}/${this.sections.length}`
+                                  })
 
                                   <json-api-boxes
                                       .prefix=${this.person?.name + "-reden-sucheergebnis"}
                                       .obj=${this.searchResults}
                                       api="/api/sections?person=${this.person.id}&${this.periods
-                                          .map((period) => `period=${period}`)
-                                          .join("&")}&query=${this.querySelector<HTMLInputElement>("#query")?.value.trim() ?? ""}"
+                              .map((period) => `period=${period}`)
+                              .join("&")}&query=${this.querySelector<HTMLInputElement>("#query")?.value.trim() ?? ""}"
                                   ></json-api-boxes>
                               </div>
                               ${this.searching ? html`<loading-spinner></loading-spinner>` : nothing}
@@ -826,8 +877,16 @@ export class PersonPage extends BaseElement {
     async search() {
         try {
             const query = this.querySelector<HTMLInputElement>("#query")!.value.trim();
+            const includePresidentSection = this.querySelector<HTMLInputElement>("#includeSessionPresident")?.checked ?? true;
             const sectionList = this.querySelector<SectionList>("section-list")!;
-            this.searchResults = [...this.sections.filter((item) => this.periods.some((period) => period.selected && period.name == item.period))];
+            this.searchResults = [
+                ...this.sections
+                    .filter((item) => this.periods.some((period) => period.selected && period.name == item.period))
+                    .filter((item) => {
+                        if (item.section.isSessionPresident && !includePresidentSection) return false;
+                        return true;
+                    }),
+            ];
             const preparedQuery = prepareQuery(query);
             if (preparedQuery.tokens.length == 0) {
                 sectionList.setSections(this.searchResults);

@@ -65,7 +65,9 @@ export class MainPage extends LitElement {
                         entsprechende Kasterl klicken :D
                     </div>
                     <div class="flex flex-wrap gap-4">
-                        <a class="flex flex-col gap-2 max-w-[50%] border border-primary rounded-md p-4 text-center" href="/persons">
+                        <a class="flex flex-col gap-2 max-w-[50%] border hover:border-primary rounded-md p-4 text-center shadow-lg" href="/persons">
+                            <img src="/img/persons.jpeg" class="object-fit" />
+                            <span class="self-start p-1 text-xs italic bg-[#000] text-[#ccc] -mt-8 rounded-md">Foto: APA</span>
                             <span class="text-lg font-bold">Personen Recherche</span>
                             <p>Personen suchen und deren Zwischenrufe, Abwesenheiten, Taferln und Redebeiträge analysieren.</p>
                         </a>
@@ -105,6 +107,9 @@ ${code(`
   {
     "id": "3612",
     "name": "Sonja Ablinger",
+    "givenName": "Sonja",
+    "familyName": "Ablinger",
+    "titles": [],
     "parties": [
       "SPÖ"
     ],
@@ -119,6 +124,9 @@ ${code(`
   {
     "id": "14854",
     "name": "Dipl.-Ing. Elke Achleitner",
+    "givenName": "Elke",
+    "familyName": "Achleitner",
+    "titles": ["Dipl.-Ing."],
     "parties": [
       "BZÖ",
       "FPÖ"
@@ -140,6 +148,9 @@ ${code(`
                             <b>name</b>: Der Name der Person, inklusive Titel. Titel sind sowohl vor als auch nach dem Namen (getrennt durch ein
                             Komma) möglich, z.B. <code>Mag. Hannes Amesbauer, BA</code>.
                         </li>
+                        <li><b>givenName</b>: Der Vorname der Person.</li>
+                        <li><b>familyName</b>: Der Nachname der Person.</li>
+                        <li><b>titles</b>: Die akademischen Title der Person oder eine leere Liste.</li>
                         <li>
                             <b>parties</b>: Parteizugehörigkeit, so in den Parlamentsdaten eruierbar. Bei mehreren Einträgen gibt die Reihenfolge der
                             Liste nicht die chronologische Reihenfolge wieder! Mögliche Werte: <code>ÖVP</code>, <code>SPÖ</code>, <code>FPÖ</code>,
@@ -147,7 +158,7 @@ ${code(`
                             <code>Ohne Klub</code>. Bei Personen, die ohne Parteizugehörigkeit und vorheriges Nationalratsmandat zu
                             Regierungsmitgliedern ernannt wurden, ist diese Liste leer. Das ist z.B. bei den Regierungsmitgliedern der
                             <a class="text-blue-400" href="https://de.wikipedia.org/wiki/Bundesregierung_Bierlein">Bundesregierung Bierlein</a> der
-                            Fall, oder auch bei parteilosen MinisterInnen, die von einer Partei nominiert wurden, wie z.B. Mag. Dr. Martin Kocher.
+                            Fall, oder auch bei parteilosen Minister:innen, die von einer Partei nominiert wurden, wie z.B. Mag. Dr. Martin Kocher.
                         </li>
                         <li>
                             <b>periods</b>: Legislaturperioden während derer die Person Abgeordnete(r) im Parlament war. Bei Personen ohne Mandat ist
@@ -192,7 +203,7 @@ ${code(`
         "https://parlament.gv.at/dokument/XXVII/NRSITZ/216/fnameorig_1598900.html"
     ],
     "sections": [
-        ... SprecherInnen Sektionen ...
+        ... Sprecher:innen Sektionen ...
     ]
   },
   {
@@ -226,17 +237,17 @@ ${code(`
                             verfügbar ist, ist diese Liste leer.
                         </li>
                         <li>
-                            <b>sections</b>: eine chronologische Liste von SprecherInnen-Sektionen. Siehe unten für Details. Für Sitzungen, für die
+                            <b>sections</b>: eine chronologische Liste von Sprecher:innen-Sektionen. Siehe unten für Details. Für Sitzungen, für die
                             kein stenographisches Protokoll verfügbar ist, ist diese Liste leer.
                         </li>
                     </ul>
 
-                    <h2>SprecherInnen Sektionen</h2>
+                    <h2>Sprecher:innen Sektionen</h2>
                     <p>
-                        Jede Sitzung, für die ein stenographisches Protokoll existiert, hat eine oder mehrere SpecherInnen-Sektionen. Diese sind für
+                        Jede Sitzung, für die ein stenographisches Protokoll existiert, hat eine oder mehrere Specher:innen-Sektionen. Diese sind für
                         eine Sitzung in chronologischer Reihenfolge im Feld <code>sections</code> abgelegt.
                     </p>
-                    <p>Eine SprecherInnen-Sektion in der <code>sections</code> Liste hat folgende Struktur:</p>
+                    <p>Eine Sprecher:innen-Sektion in der <code>sections</code> Liste hat folgende Struktur:</p>
 
                     <pre><code>
 ${code(`
@@ -272,12 +283,13 @@ ${code(`
 }
 `)}
                     </code></pre>
-                    <p>Eine SprecherInnen-Sektion hat dabei folgende Felder:</p>
+                    <p>Eine Sprecher:innen-Sektion hat dabei folgende Felder:</p>
                     <ul class="px-4">
                         <li>
                             <b>speaker</b>: Die Parlaments-ID der Person, die spricht. Mit dieser ID können die Details zur Person im
                             Personen-Datensatz gefunden werden (vgl. oben).
                         </li>
+                        <li><b>isSessionPresident</b>: Ob die Person diesen Redebeitrag als Parlamentspräsident:in getätigt hat.</li>
                         <li><b>text</b>: Das Transkript der Rede der Person, inklusive Zwischenrufen und Beschreibungen der Situation im Plenum.</li>
                         <li>
                             <b>callouts</b>: Eine Liste von Zwischenrufen und Situationsbeschreibungen. Bei einem Zwischenruf gibt das Feld
@@ -285,7 +297,7 @@ ${code(`
                             dieses Feld. Das Feld <code>text</code> gibt das Transkript des Zwischenrufes oder die Situationsbeschreibung wieder.
                         </li>
                         <li>
-                            <b>links</b>: Eine Liste an Links, die im stenographischen Protokoll in dieser SprecherInnen-Sektion gefunden wurden. Das
+                            <b>links</b>: Eine Liste an Links, die im stenographischen Protokoll in dieser Sprecher:innen-Sektion gefunden wurden. Das
                             Feld <code>label</code> gibt den Text des Links wieder, das Feld <code>url</code> den Link selbst.
                         </li>
                     </ul>
@@ -297,11 +309,11 @@ ${code(`
                         <a
                             class="text-blue-400"
                             href="https://www.parlament.gv.at/recherchieren/open-data/daten-und-lizenz/parlamentarierinnen/index.html"
-                            >Open Data API des Parlaments für ParlamentarierInnen ab 1918</a
-                        >. Über diese API werden die ParlamentarierInnen für die untersuchten Legislaturperioden ab 20.12.2002 extrahiert. Die von der
-                        API returnierten Daten beinhalten den Namen der Person, die Legislaturperioden in denen die Person im Plenum teilgenommen hat,
-                        sowie rudimentäre und uneinheitlich kodierte Information über die Klubzugehörigkeit der Person. Aus diesen Daten werden die
-                        Legislaturperiodeninformation sowie Klubzugehörigkeit verwendet, wobei letzteres normiert wird (vgl. Feld
+                            >Open Data API des Parlaments für Parlamentarier:innen ab 1918</a
+                        >. Über diese API werden die Parlamentarier:innen für die untersuchten Legislaturperioden ab 20.12.2002 extrahiert. Die von
+                        der API returnierten Daten beinhalten den Namen der Person, die Legislaturperioden in denen die Person im Plenum teilgenommen
+                        hat, sowie rudimentäre und uneinheitlich kodierte Information über die Klubzugehörigkeit der Person. Aus diesen Daten werden
+                        die Legislaturperiodeninformation sowie Klubzugehörigkeit verwendet, wobei letzteres normiert wird (vgl. Feld
                         <code>parties</code> im Personen Datensatz oben).
                     </p>
                     <p>
@@ -321,6 +333,9 @@ ${code(`
                         Entsprechend sind auch die URLs der Seiten zu Personen auf der Parlamentsseite, sowie die Bild URLs immer korrekt.
                     </p>
                     <p>Die Extraktion des Namens einer Person war in allen geprüften Fällen (68) korrekt.</p>
+                    <p>Die Extraktion des Vornames einer Person war in allen geprüften Fällen (68) korrekt.</p>
+                    <p>Die Extraktion des Nachnamens einer Person war in allen geprüften Fällen (68) korrekt.</p>
+                    <p>Die Extraktion der akademischen Titel einer Person war in allen geprüften Fällen (68) korrekt.</p>
                     <p>Die Extraktion der Klub- bzw. Parteizugehörigkeit war in allen Fällen (68) korrekt.</p>
                     <p>Die Extraktion der Legislaturperioden, in denen die Person im Parlament vertreten war, war in allen Fällen (68) korrekt.</p>
                     <p>
@@ -333,25 +348,25 @@ ${code(`
                     <p>
                         Als Basis des transformierten Datensatzes dienen die im HTML-Format abgespeicherten stenographischen Protokolle von der
                         Parlamentsseite. Die rohen HTML-Dateien werden dabei mit einem einfachen Algorithmus heuristisch geparst, um
-                        SprecherInnen-Sektionen zu extrahieren.
+                        Sprecher:innen-Sektionen zu extrahieren.
                     </p>
                     <p>
                         Diese rohen HTML-Dateien wurden von den Erstellern aus Microsoft Word exportiert. Leider sind diese HTML-Exporte von minderer
                         Qualität und kein valides HTML, ein bekanntes Problem von Microsoft Word. Dies kann zur Folge haben, dass die Extraktion der
-                        SprecherInnen-Sektionen nicht 100% korrekt ist. Auch die Verknüpfung von Zwischenrufen mit Personen kann fehlschlagen.
+                        Sprecher:innen-Sektionen nicht 100% korrekt ist. Auch die Verknüpfung von Zwischenrufen mit Personen kann fehlschlagen.
                     </p>
 
                     <p>
                         Der transformierte Datensatz wurde daher stichprobenartig überprüft, um die Extraktions-Pipeline zu validieren. Es wurden pro
                         Legislaturperiode jeweils 4 Sitzungen mit stenographischem Protokoll ausgewählt und manuell mit den Rohdaten der
-                        Parlamentsseite verglichen. Dabei wurden für jede Sitzung jeweils 20 SprecherInnen-Sektionen, verteilt über das ganze
+                        Parlamentsseite verglichen. Dabei wurden für jede Sitzung jeweils 20 Sprecher:innen-Sektionen, verteilt über das ganze
                         Protokoll, verglichen.
                     </p>
                     <p>
-                        Die Zuweisung der Personen-ID an eine SprecherInnen-Sektion ist immer korrekt, da die IDs eindeutig in den Rohdaten
+                        Die Zuweisung der Personen-ID an eine Sprecher:innen-Sektion ist immer korrekt, da die IDs eindeutig in den Rohdaten
                         ausgewiesen sind.
                     </p>
-                    <p>Die Extraktionen des Transkripts einer SprecherInnen-Sektion war in allen geprüften Fällen (480) korrekt.</p>
+                    <p>Die Extraktionen des Transkripts einer Sprecher:innen-Sektion war in allen geprüften Fällen (480) korrekt.</p>
                     <p>
                         Die Extraktion von Zwischenrufen und die Zuweisung der dazugehörigen Personen-IDs war in allen geprüften Fällen (480) korrekt.
                     </p>

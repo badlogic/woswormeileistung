@@ -27,6 +27,8 @@ export function queryPersons(persons: string[]) {
     return result;
 }
 
+const lowercaseSectionCache = new Map<string, string>();
+
 export function querySpeakerSections(
     periods: string[],
     sessions: number[],
@@ -53,10 +55,16 @@ export function querySpeakerSections(
         for (let i = 0; i < session.sections.length; i++) {
             const section = session.sections[i];
             const speaker = personsDb.byId(section.speaker as string)!;
+            const sectionKey = session.date + "-" + session.sessionNumber + "-" + i;
+            let text = lowercaseSectionCache.get(sectionKey);
+            if (!text) {
+                text = section.text.toLowerCase();
+                lowercaseSectionCache.set(sectionKey, text);
+            }
 
             if (parties.length > 0 && !speaker.parties.some((party) => partiesLookup.has(party))) continue;
             if (persons.length > 0 && !personLookup.has(speaker?.id)) continue;
-            if (preparedQuery.tokens.length > 0 && !matchesQuery(preparedQuery, section.text)) continue;
+            if (preparedQuery.tokens.length > 0 && !matchesQuery(preparedQuery, text, false)) continue;
 
             resultPersons.set(speaker.id, speaker);
             resultSections.push({
@@ -118,9 +126,9 @@ export function prepareQuery(query: string): PreparedQuery {
     return preparedQuery;
 }
 
-export function matchesQuery(query: PreparedQuery, text: string) {
+export function matchesQuery(query: PreparedQuery, text: string, lowerCase = true) {
     const { mustNot, must, optional } = query;
-    text = text.toLowerCase();
+    if (lowerCase) text = text.toLowerCase();
     if (mustNot.size > 0 && Array.from(mustNot.values()).some((token) => text.includes(token))) return false;
     if (must.size > 0 && Array.from(must.values()).every((token) => text.includes(token))) return true;
     if (optional.size > 0 && Array.from(optional.values()).some((token) => text.includes(token))) return true;

@@ -4,84 +4,165 @@ import * as fs from "fs";
 
 export function extractMissing(persons: Persons, sessions: Session[], periods = new Set<string>()) {
     const extractPattern = (str: string): string | null => {
-        const match = str.match(/[Aa]ls verhindert gemeldet sind (.*?)\n/s);
+        const match = str.match(/[Vv]erhindert gemeldet:?(.*?)\n/s);
         return match ? match[1] : null;
     };
 
     const splitters = [
-        "für die heutige Sitzung insgesamt 42 Abgeordnete, ",
+        "für die heutige Sitzung insgesamt 42 Abgeordnete, nämlich ",
         "die Abgeordneten",
         "Abgeordneten ",
         "Frau Abgeordnete ",
         "der Zweite Präsident des Nationalrates",
+        "ist eine ganze Reihe von Abgeordneten:",
+        "en Abgeordneten bekannt geben: Das sind die Abgeordneten ",
+        "ist für die heutige Sitzung Herr ",
+        "ist die Abgeordnete ",
+        "ist Herr Abgeordneter ",
+        " ist Abgeordnete ",
+        "ist Abgeordnete ",
+        " – und zwar für diese Sitzung –:",
     ];
-    const result = querySpeakerSections([], [], [], [], undefined, undefined, `+"Als verhindert gemeldet sind"`);
+    const result = querySpeakerSections([], [], [], [], undefined, undefined, `+"verhindert gemeldet"`);
     const output: Missing[] = [];
-    for (const section of result.sections) {
-        if (periods.size > 0 && !periods.has(section.period)) continue;
-        let rawMissing = extractPattern(section.section.text);
-        if (!rawMissing) {
-            console.log(">>>");
-            console.log(section.date.split("T")[0] + "-" + section.period + "-" + section.session);
-            console.log(section.section.text);
-            console.log(">>>");
-            throw new Error("Pattern did not match");
-        }
-        const missing = rawMissing; // .substring(0, rawMissing.lastIndexOf(".") > 0 ? rawMissing.lastIndexOf(".") : rawMissing.length);
-        // Can't catch 4-5 with the following code. Exclude for now. FIXME
-        let splitter: string | undefined;
-        for (const s of splitters) {
-            if (missing.includes(s)) {
-                splitter = s;
-                break;
+    const cleanOutput: string[] = [];
+    const titles = new Set<string>([
+        "Ing. Mag",
+        "MMSc BA",
+        "MA MLS",
+        "Ing. Mag",
+        "Ing. Mag.",
+        "BEd BEd.",
+        "BEd BEd",
+        "Dipl.-Kffr",
+        "Dipl.-Kffr.",
+        "MBA MSc.",
+        "MBA MSc",
+        "Mag.",
+        "Bakk.",
+        "BEd.",
+        "MBA.",
+        "MES.",
+        "Dipl.-Ing.",
+        "LL.M.",
+        "PMM.",
+        "M.A.I.S",
+        "Dipl.-Ing.in",
+        "Dipl.-Kfm.",
+    ]);
+    try {
+        for (const section of result.sections) {
+            if (periods.size > 0 && !periods.has(section.period)) continue;
+            if (!section.section.isSessionPresident) {
+                console.log(">>>");
+                console.log("[Not president]");
+                console.log(section.date.split("T")[0] + "-" + section.period + "-" + section.session);
+                console.log(section.section.text);
+                console.log(">>>");
+                console.log();
             }
-        }
+            let rawMissing = extractPattern(section.section.text);
+            if (!rawMissing) {
+                console.log("[Pattern not found]");
+                console.log(">>>");
+                console.log(section.date.split("T")[0] + "-" + section.period + "-" + section.session);
+                console.log(section.section.text);
+                console.log(">>>");
+                console.log();
+                // throw new Error("Pattern did not match");
+                continue;
+            }
+            const missing = rawMissing;
+            let splitter: string | undefined;
+            for (const s of splitters) {
+                if (missing.includes(s)) {
+                    splitter = s;
+                    break;
+                }
+            }
 
-        if (!splitter) {
-            console.log(">>>");
-            console.log(section.date.split("T")[0] + "-" + section.period + "-" + section.session);
-            console.log(missing);
-            console.log(">>>");
-            continue;
-        }
+            if (!splitter) {
+                console.log(">>>");
+                console.log("[Splitter not found]");
+                console.log(section.date.split("T")[0] + "-" + section.period + "-" + section.session);
+                console.log(missing);
+                console.log(">>>");
+                console.log();
+                continue;
+            }
 
-        let missingClean = missing.split(splitter)[1];
+            let missingClean = missing.split(splitter)[1];
+            cleanOutput.push(missingClean);
 
-        let names = missingClean.split(", ");
-        if (names[names.length - 1].includes("und")) {
-            const last = names.pop()!;
-            names.push(...last.split("und"));
+            let rawNames = missingClean.split(", ");
+            let names: string[] = [];
+            for (const name of rawNames) {
+                if (name.includes("und")) {
+                    names.push(...name.split("und"));
+                } else if (name.includes("sowie")) {
+                    names.push(...name.split("sowie"));
+                } else {
+                    names.push(name);
+                }
+            }
+
+            names = names.map((name) => name.trim().split("(")[0].trim()).filter((name) => name.length > 3 && !/^[a-zäöüß]/.test(name.charAt(0)));
+            names = names.filter((name) => !titles.has(name));
+            cleanOutput.push(names.join("|"));
+            const foundPersons = names
+                .map((name) => {
+                    name = name.trim();
+                    if (name.endsWith(".")) {
+                        name = name.substring(0, name.length - 1);
+                    }
+                    if (name.startsWith("Frau")) name = name.replace("Frau", "");
+                    if (name.startsWith("Herr")) name = name.replace("Herr", "");
+
+                    let person: Person;
+                    let { extracted, foundPersons } = persons.searchByFamilyNameAndTitles(name);
+                    foundPersons = foundPersons.filter((person) => person.periods.some((period) => period == section.period));
+                    if (foundPersons.length > 1) {
+                        //console.log(
+                        //    "More than one person found for name " + name,
+                        //    foundPersons.map((person) => person.name)
+                        //);
+                        if (extracted.givenName.trim().length > 0) {
+                            //console.log("Trying to resolve via given name " + extracted.givenName);
+                            foundPersons = foundPersons.filter((person) => person.givenName.startsWith(extracted.givenName));
+                            if (foundPersons.length == 0) {
+                                throw new Error("No match via given name possible. Giving up on name " + name);
+                            }
+                            if (foundPersons.length > 1) {
+                                throw new Error("Name " + name + " still ambiguous: " + foundPersons.map((person) => person.name).join(", "));
+                            } else {
+                                // console.log("Resolved as " + foundPersons[0].name);
+                                person = foundPersons[0];
+                            }
+                        }
+                        // console.log();
+                    }
+                    person = foundPersons[0];
+
+                    if (!person) {
+                        console.log("!!! Could not find person for " + name);
+                        console.log();
+                        return undefined;
+                    }
+                    return { nameInText: name, ...person };
+                })
+                .filter((person) => person);
+            output.push({
+                sourceText: rawMissing,
+                date: section.date,
+                period: section.period,
+                session: section.session,
+                persons: foundPersons as any,
+            });
         }
-        if (names[names.length - 1].includes("sowie")) {
-            const last = names.pop()!;
-            names.push(...last.split("sowie"));
-        }
-        names = names.map((name) => name.trim().split("(")[0].trim()).filter((name) => name.length > 3 && !/^[a-zäöüß]/.test(name.charAt(0)));
-        const lookup = new Map<string, Person>();
-        const foundPersons = names
-            .map((name) => {
-                if (name.endsWith(".")) {
-                    name = name.substring(0, name.length - 1);
-                }
-                // Special case Werner Herbert, as he clashes with Herbert Kickl
-                if (name == "Herbert") {
-                    name = "Werner Herbert";
-                }
-                let person = lookup.get(name);
-                if (!person) {
-                    person = persons.search(name)[0]?.person;
-                }
-                if (!person) {
-                    console.log("Did not find person for " + name);
-                    return undefined;
-                }
-                lookup.set(name, person);
-                return { nameInText: name, ...person };
-            })
-            .filter((person) => person);
-        output.push({ sourceText: rawMissing, date: section.date, period: section.period, session: section.session, persons: foundPersons as any });
+        fs.writeFileSync("data/missing.json", JSON.stringify(output, null, 2));
+    } finally {
+        fs.writeFileSync("data/missing-clean.json", JSON.stringify(cleanOutput, null, 2));
     }
-    fs.writeFileSync("data/missing.json", JSON.stringify(output, null, 2));
     return output;
 }
 

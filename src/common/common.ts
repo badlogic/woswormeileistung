@@ -12,6 +12,7 @@ export interface Person {
 
 export interface SpeakerSection {
     speaker: Person | string;
+    isSessionPresident: boolean;
     text: string;
     callouts: Callout[];
     links: Link[];
@@ -185,30 +186,6 @@ export class Persons {
         return matrix[b.length][a.length];
     }
 
-    /*search(query: string, period?: string) {
-        const normalizedQuery = query
-            .toLowerCase()
-            .replace(/ı/g, "i") // Replace dotless 'ı' with 'i'
-            .split(/\s+/)
-            .filter((part) => part);
-
-        const persons = period ? this.persons.filter((p) => p.periods.includes(period)) : this.persons;
-        const scoredNames = persons.map((person) => {
-            const nameParts = this.idToNameParts.get(person.id)!;
-            const score = normalizedQuery.reduce((acc, queryPart) => {
-                // Find the best match for each query part in name parts
-                const partScores = nameParts.map((namePart) => Persons.levenshtein(queryPart, namePart));
-                const bestMatch = Math.min(...partScores);
-                return acc + bestMatch;
-            }, 0);
-            return { person, score };
-        });
-
-        // Sort by total score (sum of best matches for all query parts), then by name length for similarly scored names
-        scoredNames.sort((a, b) => a.score - b.score || a.person.name.length - b.person.name.length);
-        return scoredNames.slice(0, 5);
-    }*/
-
     search(query: string, period?: string) {
         const normalizedQuery = query
             .toLowerCase()
@@ -252,4 +229,73 @@ export class Persons {
         scoredNames.sort((a, b) => a.score - b.score || a.person.name.length - b.person.name.length);
         return scoredNames.slice(0, 5);
     }
+
+    readonly familyNameChanges: Record<string, string> = {
+        Vorderwinkler: "Tanzler",
+        Rausch: "Rausch-Amon",
+        "Belakowitsch-Jenewein": "Belakowitsch",
+        "Fürntrath-Moretti": "Moretti",
+        Fuhrmann: "Grünberger",
+        Gartlgruber: "Schimanek",
+        Gartelgruber: "Schimanek",
+        Pock: "Bernhard",
+        Glawischnig: "Glawischnig-Piesczek",
+        Yilmaz: "Yılmaz",
+    };
+
+    searchByFamilyNameAndTitles(name: string) {
+        name = name.replace("- ", "-").replace(/\u00AD/g, "");
+
+        // Handle special case of persons who've changed their last name
+        if (name.includes("Strache") && name.includes("Pia")) {
+            name = name.replace("Strache", "Beck");
+        }
+        const extracted = extractName(name);
+        if (this.familyNameChanges[extracted.familyName] != undefined) {
+            extracted.familyName = this.familyNameChanges[extracted.familyName];
+        }
+        const result = [];
+        for (const person of this.persons) {
+            if (extracted.familyName == person.familyName) {
+                result.push(person);
+            }
+        }
+        return { extracted, foundPersons: result };
+    }
+}
+
+export function extractName(name: string): { givenName: string; familyName: string; titles: string[] } {
+    const tokens: string[] = [];
+    name.split(" ").forEach((token) => {
+        if (token.endsWith(",")) {
+            tokens.push(token.slice(0, -1), ",");
+        } else {
+            tokens.push(token);
+        }
+    });
+
+    const titleParts: string[] = [];
+    const nameParts: string[] = [];
+    let inTitleSuffix = false;
+    tokens.forEach((token) => {
+        if (token.includes(".")) {
+            titleParts.push(token);
+        } else if (token.includes("(")) {
+            titleParts[titleParts.length - 1] += " " + token;
+        } else if (token.startsWith("Präsident")) {
+            titleParts.push(token);
+        } else if (token === ",") {
+            inTitleSuffix = true;
+        } else {
+            if (inTitleSuffix) {
+                titleParts.push(token);
+            } else {
+                nameParts.push(token);
+            }
+        }
+    });
+
+    const familyName = nameParts.pop() || "";
+    const givenName = nameParts.join(" ");
+    return { givenName, familyName, titles: titleParts };
 }

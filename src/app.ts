@@ -49,6 +49,6 @@ export class App extends LitElement {
 
         router.setRootRoute("/");
         router.setNotFoundRoot("/404");
-        router.replace(location.pathname);
+        router.replace(location.href);
     }
 }

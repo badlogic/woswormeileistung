@@ -8,6 +8,7 @@ const config = {
     entryPoints: {
         "process-data": "src/cli/process-data.ts",
         persons: "src/cli/persons.ts",
+        sessions: "src/cli/sessions.ts",
         plaque: "src/cli/plaque.ts",
         screamer: "src/cli/screamers.ts",
         missing: "src/cli/missing.ts",

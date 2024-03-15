@@ -1,5 +1,5 @@
 import * as fs from "fs";
-import { periods } from "../common/common";
+import { extractName, periods } from "../common/common";
 import { Person } from "../common/common";
 import { sleep } from "../utils/utils";
 
@@ -13,40 +13,6 @@ function extractSpanInnerText(html: string) {
     }
 
     return innerTexts;
-}
-
-export function processName(name: string): { givenName: string; familyName: string; titles: string[] } {
-    const tokens: string[] = [];
-    name.split(" ").forEach((token) => {
-        if (token.endsWith(",")) {
-            tokens.push(token.slice(0, -1), ",");
-        } else {
-            tokens.push(token);
-        }
-    });
-
-    const titleParts: string[] = [];
-    const nameParts: string[] = [];
-    let inTitleSuffix = false;
-    tokens.forEach((token) => {
-        if (token.includes(".")) {
-            titleParts.push(token);
-        } else if (token.includes("(")) {
-            titleParts[titleParts.length - 1] += " " + token;
-        } else if (token === ",") {
-            inTitleSuffix = true;
-        } else {
-            if (inTitleSuffix) {
-                titleParts.push(token);
-            } else {
-                nameParts.push(token);
-            }
-        }
-    });
-
-    const familyName = nameParts.pop() || "";
-    const givenName = nameParts.join(" ");
-    return { givenName, familyName, titles: titleParts };
 }
 
 const cache = new Map<string, { parties: string[]; imageUrl: string | undefined }>();
@@ -159,7 +125,7 @@ export async function processPersons(baseDir: string) {
                 .replace(/\u00AD/g, "")
                 .replace(/\xa0/g, " ")
                 .replace(/\n/g, " ");
-        const nameParts = processName(name);
+        const nameParts = extractName(name);
         persons.push({
             id,
             name,
@@ -171,21 +137,6 @@ export async function processPersons(baseDir: string) {
             url: "https://parlament.gv.at/person/" + id,
             imageUrl: imageUrl ? "https://parlament.gv.at" + imageUrl : undefined,
         });
-
-        // special case...
-        if (row[2].includes("Gartelgruber")) {
-            persons.push({
-                id,
-                name: "Carmen Gartelgruber",
-                givenName: "Carmen",
-                familyName: "Gartelgruber",
-                titles: [],
-                parties: Array.from(new Set<string>(parties)).sort(),
-                periods: personPeriods.sort(),
-                url: "https://parlament.gv.at/person/" + id,
-                imageUrl: imageUrl ? "https://parlament.gv.at" + imageUrl : undefined,
-            });
-        }
         console.log("Processed " + persons.length + "/" + rawData.rows.length + " persons");
     }
     fs.writeFileSync(`${baseDir}/persons.json`, JSON.stringify(persons, null, 2), "utf-8");

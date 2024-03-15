@@ -8,6 +8,7 @@ import { arrowLeftIcon } from "../utils/icons";
 import { router } from "../utils/routing";
 import { pageContainerStyle, pageContentStyle } from "../utils/styles";
 import { downloadFile } from "../utils/utils";
+import { repeat } from "lit-html/directives/repeat.js";
 
 @customElement("section-page")
 export class SectionPage extends BaseElement {
@@ -25,6 +26,14 @@ export class SectionPage extends BaseElement {
 
     @state()
     section!: SessionSection;
+
+    @state()
+    highlights: string[] = [];
+
+    constructor() {
+        super();
+        this.highlights = new URLSearchParams(document.location.search).getAll("hl") ?? [];
+    }
 
     connectedCallback(): void {
         super.connectedCallback();
@@ -52,8 +61,18 @@ export class SectionPage extends BaseElement {
 
     render() {
         // prettier-ignore
-        const text = this.section ? html`<div id="section" class="p-4 border border-divider rounded-md whitespace-pre-wrap">${unsafeHTML(renderSectionText(this.section.section))}</div>` : nothing;
+        const text = this.section ? html`<div id="section" class="p-4 border border-divider rounded-md whitespace-pre-wrap"> ${unsafeHTML(renderSectionText(this.section.section, new Set<string>(this.highlights)))}</div>`
+            : nothing;
         const speaker = this.section ? (this.section.section.speaker as Person) : undefined;
+
+        const scrollToHighlight = (target: EventTarget | null, hl: string) => {
+            for (const span of Array.from(document.querySelectorAll("span"))) {
+                if (span.innerText.toLowerCase() == hl.toLowerCase() && span != target) {
+                    span.scrollIntoView({ behavior: "smooth", block: "center" });
+                    return;
+                }
+            }
+        };
 
         return html`<div class="${pageContainerStyle} min-h-[100vh]">
             <div class="${pageContentStyle} h-[100vh]">
@@ -82,6 +101,21 @@ export class SectionPage extends BaseElement {
                                   .section=${this.section.sectionIndex}
                               ></section-header>
                               <person-header .person=${this.section.section.speaker}></person-header>
+                              ${this.highlights.length > 0
+                                  ? html` <h3>Highlights im Text</h3>
+                                        <div class="flex flex-col gap-2">
+                                            ${repeat(
+                                                this.highlights,
+                                                (hl) =>
+                                                    html`<span
+                                                        class="cursor-pointer px-4 p-1 border hover:border-primary shadow-md rounded-md italic"
+                                                        @click=${(ev: Event) => scrollToHighlight(ev.target, hl)}
+                                                        >${hl}</span
+                                                    >`
+                                            )}
+                                        </div>`
+                                  : nothing}
+                              <h3>Transkript</h3>
                               ${text}
                           </div>`
                         : nothing}

@@ -22,7 +22,7 @@ export class Store {
         let settings: Settings | undefined = Store.get<Settings>("settings");
         settings = settings ?? ({} as Settings);
 
-        settings.theme = settings.theme ?? "dark";
+        settings.theme = settings.theme ?? "light";
 
         settings.devPrefs = settings.devPrefs ?? ({} as DevPreferences);
         settings.devPrefs.enabled = settings.devPrefs.enabled ?? false;

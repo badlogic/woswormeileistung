@@ -1,8 +1,8 @@
 import * as fs from "fs";
 import * as cheerio from "cheerio";
 import { fetchAndSaveHtml } from "./utils";
-import { getMetadata, processName } from "./persons";
-import { Callout, Person, Persons, Session, SpeakerSection, periods } from "../common/common";
+import { getMetadata } from "./persons";
+import { Callout, Person, Persons, Session, SpeakerSection, extractName, periods } from "../common/common";
 
 interface RawSessions {
     pages: number;
@@ -301,6 +301,7 @@ async function extractSections(session: Session, filePath: string, persons: Pers
             .replace(/\u00AD/g, "")
             .replace(/\xa0/g, " ")
             .replace(/\n/g, " ");
+        const isSessionPresident = current.find("b").text().includes("Präsident");
         const aTag = current.find('a[href^="/WWER/"]');
         const speakerUrl = "https://parlament.gv.at/" + aTag.attr("href");
         const links = extractLinks(current);
@@ -343,7 +344,7 @@ async function extractSections(session: Session, filePath: string, persons: Pers
                     ?.substring(4) || "";
             const speakerId = parseInt(extractId(speakerUrl)).toString();
             let person = persons.byId(speakerId)!;
-            const nameParts = processName(speaker);
+            const nameParts = extractName(speaker);
             if (!person) {
                 person = {
                     id: speakerId,
@@ -356,7 +357,7 @@ async function extractSections(session: Session, filePath: string, persons: Pers
                     url: "https://parlament.gv.at/person/" + speakerId,
                 };
             }
-            sections.push({ speaker: person, text: removePageHeader(sectionText), callouts, links });
+            sections.push({ speaker: person, isSessionPresident, text: removePageHeader(sectionText), callouts, links });
         }
     });
 
