@@ -1,4 +1,4 @@
-import { MissingPerson, Person, Plaque, PlaqueCallout, SessionSection, SpeakerSection, SectionScreams } from "./common/common.js";
+import { MissingPerson, Person, Plaque, PlaqueCallout, SessionSection, SpeakerSection, SectionScreams, Ordercall } from "./common/common.js";
 import { error } from "./utils/utils.js";
 
 export interface JsonValue {
@@ -111,6 +111,10 @@ export class Api {
         const params = new URLSearchParams();
         params.append("person", id);
         return await apiGet<SectionScreams[]>("screamsat/" + +encodeURIComponent(id));
+    }
+
+    static async personOrdercalls(id: string) {
+        return await apiGet<Ordercall[]>("ordercalls/" + +encodeURIComponent(id));
     }
 
     static async section(period: string, session: number | string, section: number | string) {

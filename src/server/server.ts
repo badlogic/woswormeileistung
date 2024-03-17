@@ -6,7 +6,7 @@ import express from "express";
 import * as fs from "fs";
 import * as http from "http";
 import WebSocket, { WebSocketServer } from "ws";
-import { Missing, MissingPerson, Persons, Plaque, Scream, Screamer, SectionScreams, Session, SessionSection } from "../common/common";
+import { Missing, MissingPerson, Ordercall, Persons, Plaque, Scream, Screamer, SectionScreams, Session, SessionSection } from "../common/common";
 import { processPersons } from "./persons";
 import { initQueries, isAllDigits, querySpeakerSections } from "../common/query";
 import { processSessions } from "./sessions";
@@ -20,6 +20,7 @@ export let plaques: Map<string, Plaque> = new Map();
 export let missingPerPerson: Map<string, MissingPerson> = new Map();
 export let screamsFromPerson: Map<string, SectionScreams[]> = new Map();
 export let screamsAtPerson: Map<string, SectionScreams[]> = new Map();
+export let ordercallsForPerson: Map<string, Ordercall[]> = new Map();
 
 function toArray(queryParam: string[] | string | any | undefined): string[] {
     if (queryParam == undefined) return [];
@@ -30,7 +31,7 @@ function toArray(queryParam: string[] | string | any | undefined): string[] {
 
 function loadData() {
     try {
-        // persons and sessions
+        // persons, sessions, ordercalls
         console.log("Loading data");
         const newPersons = new Persons(JSON.parse(fs.readFileSync("/data/persons.json", "utf-8")));
         const newSessions = JSON.parse(fs.readFileSync("/data/sessions.json", "utf-8")) as Session[];
@@ -40,6 +41,17 @@ function loadData() {
         sessions = newSessions;
         for (const session of sessions) {
             sessionsById.set(session.period + "-" + session.sessionNumber, session);
+            for (const ordercall of session.orderCalls) {
+                const person = persons.byId(ordercall.person as string);
+                if (!person) throw new Error("WTF");
+                const orderCalls = ordercallsForPerson.get(person.id) ?? [];
+                orderCalls.push(ordercall);
+                ordercallsForPerson.set(person.id, orderCalls);
+            }
+        }
+        for (const key of ordercallsForPerson.keys()) {
+            const calls = ordercallsForPerson.get(key);
+            calls?.sort((a, b) => b.date.localeCompare(a.date));
         }
 
         // plaques
@@ -320,6 +332,16 @@ async function updateData() {
         } catch (e) {
             console.error("Could not get screams at person " + req.params.id, e);
             res.status(400).json({ error: "Could not get screams at person " + req.params.id });
+        }
+    });
+
+    app.get("/api/ordercalls/:id", async (req, res) => {
+        try {
+            const ordercalls = ordercallsForPerson.get(req.params.id as string) ?? [];
+            res.json(ordercalls);
+        } catch (e) {
+            console.error("Could not get screams from person " + req.params.id, e);
+            res.status(400).json({ error: "Could not get screams from person " + req.params.id });
         }
     });
 

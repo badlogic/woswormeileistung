@@ -139,6 +139,24 @@ export async function processPersons(baseDir: string) {
         });
         console.log("Processed " + persons.length + "/" + rawData.rows.length + " persons");
     }
-    fs.writeFileSync(`${baseDir}/persons.json`, JSON.stringify(persons, null, 2), "utf-8");
-    return persons;
+
+    // Remove duplicates, no idea where they are coming from.
+    const dedup = new Map<string, Person[]>();
+    for (const person of persons) {
+        const list = dedup.get(person.id) ?? [];
+        list.push(person);
+        dedup.set(person.id, list);
+    }
+
+    const dedupPersons: Person[] = [];
+    for (const dd of dedup.values()) {
+        dedupPersons.push(dd[0]);
+        if (dd.length > 1) {
+            console.log("Duplicate person " + dd[0].name + ", " + dd[0].id);
+        }
+    }
+
+    fs.writeFileSync(`${baseDir}/dup-persons.json`, JSON.stringify(persons, null, 2), "utf-8");
+    fs.writeFileSync(`${baseDir}/persons.json`, JSON.stringify(dedupPersons, null, 2), "utf-8");
+    return dedupPersons;
 }

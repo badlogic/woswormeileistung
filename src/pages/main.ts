@@ -64,12 +64,16 @@ export class MainPage extends LitElement {
                         Hier entstehen verschiedene Recherche bzw. Analyse Tools, basierend auf den unten beschrieben Daten. Einfach auf das
                         entsprechende Kasterl klicken :D
                     </div>
-                    <div class="flex flex-wrap gap-4">
-                        <a class="flex flex-col gap-2 max-w-[50%] border hover:border-primary rounded-md p-4 text-center shadow-lg" href="/persons">
-                            <img src="/img/persons.jpeg" class="object-fit" />
-                            <span class="self-start p-1 text-xs italic bg-[#000] text-[#ccc] -mt-8 rounded-md">Foto: APA</span>
-                            <span class="text-lg font-bold">Personen Recherche</span>
-                            <p>Personen suchen und deren Zwischenrufe, Abwesenheiten, Taferln und Redebeiträge analysieren.</p>
+                    <div class="flex flex-col self-center items-center justify-center flex-wrap gap-4">
+                        <a class="flex flex-col sm:flex-row gap-2 border hover:border-primary rounded-md text-center shadow-lg" href="/persons">
+                            <div class="flex flex-col">
+                                <img src="/img/persons.jpeg" class="object-fit" />
+                            </div>
+                            <div class="flex flex-col p-4">
+                                <span class="text-lg font-bold">Personen Recherche</span>
+                                <p>Personen suchen und deren Zwischenrufe, Abwesenheiten, Taferln und Redebeiträge analysieren.</p>
+                                <span class="text-xs mt-auto">Foto: APA</span>
+                            </div>
                         </a>
                     </div>
                     <h1>Daten</h1>

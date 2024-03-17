@@ -1,8 +1,8 @@
 import * as fs from "fs";
 import * as cheerio from "cheerio";
-import { fetchAndSaveHtml } from "./utils";
+import { fetchAndSaveHtml, fetchAndSaveJSON } from "./utils";
 import { getMetadata } from "./persons";
-import { Callout, Person, Persons, Session, SpeakerSection, extractName, periods } from "../common/common";
+import { Callout, Ordercall, Person, Persons, Session, SpeakerSection, extractName, periods } from "../common/common";
 
 interface RawSessions {
     pages: number;
@@ -57,6 +57,7 @@ export async function processSessions(persons: Persons, baseDir: string) {
             sessionLabel: row[5],
             date: row[9],
             protocolUrls: urls,
+            orderCalls: [],
             sections: [],
         };
         sessions.push(session);
@@ -67,6 +68,8 @@ export async function processSessions(persons: Persons, baseDir: string) {
         return b.date.localeCompare(a.date);
     });
 
+    // Delete all old .json files, we reprocess the .html files if they are
+    // already on disk
     if (fs.existsSync(`${baseDir}/sessions`)) {
         fs.readdirSync(`${baseDir}/sessions`)
             .filter((file) => file.endsWith(".json"))
@@ -81,15 +84,28 @@ export async function processSessions(persons: Persons, baseDir: string) {
         // Parlament server has the most aggressive fucking rate limiting I've ever seen.
         // All we are doing here is fetching the static HTML content of parlament session
         // stenography protocols. Those should be CDN'ed up the wazoo. Nope...
-        const batch = toProcess.splice(0, 5).filter((session) => session.protocolUrls.some((url) => url.endsWith(".html")));
+        let batch = toProcess.splice(0, 5);
+        batch = batch.filter((session) => session.protocolUrls.some((url) => url.endsWith(".html")));
         const filesAndUrls = batch.map((session) => {
             const url = session.protocolUrls.find((url) => url.endsWith(".html"))!;
             const file = `${baseDir}/sessions/` + session.date.split("T")[0] + "-" + session.period + "-" + session.sessionNumber + ".html";
-            return { file, url, session };
+            const jsonUrl = `https://www.parlament.gv.at/gegenstand/${session.period}/NRSITZ/${session.sessionNumber}?json=true`;
+            const jsonFile =
+                `${baseDir}/sessions/` + session.date.split("T")[0] + "-" + session.period + "-" + session.sessionNumber + ".json.original";
+            return { file, url, jsonFile, jsonUrl, session };
         });
-        const promises = filesAndUrls.map((url) => {
+
+        // Fetch .html files
+        let promises = filesAndUrls.map((url) => {
             if (fs.existsSync(url.file)) return Promise.resolve();
             return fetchAndSaveHtml(url.url, url.file);
+        });
+        await Promise.all(promises);
+
+        // Fetch session JSONs from parliament site, not ours
+        promises = filesAndUrls.map((url) => {
+            if (fs.existsSync(url.jsonFile)) return Promise.resolve();
+            return fetchAndSaveJSON(url.jsonUrl, url.jsonFile);
         });
         await Promise.all(promises);
 
@@ -108,6 +124,9 @@ export async function processSessions(persons: Persons, baseDir: string) {
         newPersons.set(person.id, person);
     }
     for (const session of sessions) {
+        for (const ordercall of session.orderCalls) {
+            ordercall.person = (ordercall.person as Person).id;
+        }
         for (const section of session.sections) {
             if (typeof section.speaker == "string") throw new Error("Section speaker given as id, this should not happen");
             if (!newPersons.has(section.speaker.id)) {
@@ -137,7 +156,8 @@ function extractCallouts(text: string, period: string, persons: Persons) {
     const regex = /\(.*?\)/g;
     const matches = text.match(regex) ?? [];
     for (const match of matches) {
-        const calloutText = match.replace("(", "").replace(")", "").trim();
+        ("Abg. Loacker begibt sich zum Redner:innenpult, um die Tafel zu lesen.");
+        const calloutText = match.replace("(", "").replace(")", "").replace(":innen", "innen").trim();
         const parts = calloutText.split("–").map((part) => part.trim().replace(/\n/g, " "));
         for (const part of parts) {
             if (!/\s/.test(part)) continue;
@@ -156,73 +176,43 @@ function extractCallouts(text: string, period: string, persons: Persons) {
                             .replace(/\xa0/g, " "),
                     });
                 } else {
+                    // Fix typos in protocol...
                     const name = caller
                         .trim()
-                        .replace("Abg. ", "")
-                        .replace("- ", "")
+                        .replace("Diemek", "Deimek")
+                        .replace("Dei- mek", "Deimek")
                         .replace("Wes-ten", "Westen")
-                        .replace("Dr. ", "")
-                        .replace("Mag.", "")
+                        .replace("Westentaler", "Westenthaler")
+                        .replace("Künsberg-Sarre", "Sarre")
+                        .replace("Höbarth", "Höbart")
+                        .replace("haberzettl", "Haberzettl")
+                        .replace("Petzer", "Petzner")
+                        .replace("Grilltisch", "Grillitsch")
+                        .replace("Buchner", "Bucher")
+                        .replace("Räd- ler", "Rädler")
+                        .replace("Dr. graf", "Dr. Graf")
+                        .replace("Baumgarnter-Gabitzer", "Baumgartner-Gabitzer")
+                        .replace("Spingelegger", "Spindelegger")
+                        .replace("Mag. Hans Moser", "Mag. Johann Moser")
+                        .replace("Dr. Paritk-Pablé", "Dr. Partik-Pablé")
+                        .replace("- ", "-")
                         .replace(/\u00AD/g, "")
                         .replace(/\xa0/g, " ")
                         .trim();
-                    let person: Person | undefined = persons.search(name, period)[0].person;
-                    const personFamilyName = person.name
-                        .toLowerCase()
-                        .replace(/\u00AD/g, "")
-                        .replace(/\xa0/g, " ")
-                        .split(",")[0]
-                        .split(/\s+/)
-                        .filter((part) => !part.includes(".") && !part.includes("("))
-                        .pop()!;
-                    const calloutFamilyName = name
-                        .toLowerCase()
-                        .replace(/\u00AD/g, "")
-                        .replace(/\xa0/g, " ")
-                        .split(",")[0]
-                        .split(/\s+/)
-                        .filter((part) => !part.includes(".") && !part.includes("("))
-                        .pop()!;
-                    // Some people changed their family name...
-                    const specialCases = [
-                        "belakowitsch-jenewein",
-                        "rausch",
-                        "dziedzic",
-                        "künsberg-sarre",
-                        "yilmaz",
-                        "fürntrath-moretti",
-                        "westentaler",
-                        "gabitzer",
-                        "binder",
-                        "glawischnig",
-                    ];
-                    if (!specialCases.includes(calloutFamilyName) && personFamilyName != calloutFamilyName) {
-                        person = undefined;
-                        for (const other of persons.persons) {
-                            const familyName = other.name
-                                .toLowerCase()
+
+                    const person = persons.searchByGivenAndFamilyName(name, period);
+
+                    if (!person) {
+                        console.log("\nCould not find caller '" + name + "'\n" + part + "\n");
+                        callouts.push({
+                            text: part
+                                .trim()
                                 .replace(/\u00AD/g, "")
-                                .replace(/\xa0/g, " ")
-                                .split(",")[0]
-                                .split(/\s+/)
-                                .filter((part) => !part.includes(".") && !part.includes("("))
-                                .pop()!;
-                            if (familyName == calloutFamilyName && other.periods.includes(period)) {
-                                person = other;
-                                break;
-                            }
-                        }
-                        if (!person) {
-                            console.log("Could not find caller " + name + ", " + part);
-                            callouts.push({
-                                text: part
-                                    .trim()
-                                    .replace(/\u00AD/g, "")
-                                    .replace(/\xa0/g, " "),
-                            });
-                            continue;
-                        }
+                                .replace(/\xa0/g, " "),
+                        });
+                        continue;
                     }
+
                     callouts.push({
                         caller: person,
                         text: call
@@ -269,7 +259,7 @@ function extractLinks(el: cheerio.Cheerio<cheerio.Element>): { label: string; ur
     return links;
 }
 
-async function extractSections(session: Session, filePath: string, persons: Persons) {
+export async function extractSections(session: Session, filePath: string, persons: Persons) {
     const htmlContent = fs.readFileSync(filePath, "utf-8");
     if (htmlContent.includes("Word 97")) {
         console.log("Can not parse Word 97 created file " + filePath + ", skipping");
@@ -363,7 +353,66 @@ async function extractSections(session: Session, filePath: string, persons: Pers
 
     session.sections = sections;
     await postProcess(session);
+    const orderCalls = extractOrdercalls(session, persons, filePath);
+    session.orderCalls = orderCalls;
     fs.writeFileSync(filePath.replace(".html", ".json"), JSON.stringify(session, null, 2), "utf-8");
+}
+
+function extractOrdercalls(session: Session, persons: Persons, htmlFilePath: string) {
+    const originalJson = JSON.parse(fs.readFileSync(htmlFilePath.replace(".html", ".json.original"), "utf-8"));
+    const stages = (originalJson.content as any[]).find((item) => Array.isArray(item.stages))?.stages;
+    const sessionKey = session.date.split("T")[0] + "-" + session.period + "-" + session.sessionNumber;
+    if (!stages) {
+        console.log("Could not find stages for session " + sessionKey + ", either missing entirely or still being processed by parliament.");
+        return [];
+    } else {
+        const orderCalls: Ordercall[] = [];
+        for (const stage of stages) {
+            if (stage.text?.includes("Ordnungsruf erteilt")) {
+                const matches = stage.text.match(/\/person\/(\d+)/);
+                if (!matches) {
+                    console.log("Could not extract person ID from ordercall '" + stage.text + "', " + sessionKey);
+                    continue;
+                }
+                const personId = matches[1];
+                if (!personId) {
+                    console.log("Could not extract person ID from ordercall '" + stage.text + "', " + sessionKey);
+                    continue;
+                }
+                const person = persons.byId(personId);
+                if (!person) {
+                    console.log("Could not find person with ID " + personId + " for ordercall '" + stage.text + "', " + sessionKey);
+                    continue;
+                }
+
+                let speechUrl: string | undefined;
+                let ordercallUrl: string | undefined;
+                if (Array.isArray(stage.fsth)) {
+                    if (stage.fsth.length >= 2) {
+                        ordercallUrl = "https://parlament.gv.at/" + stage.fsth[0].url;
+                        speechUrl = "https://parlament.gv.at/" + stage.fsth[1].url;
+                        if (!ordercallUrl || !speechUrl) {
+                            console.log("WTF 2");
+                        }
+                    } else {
+                        ordercallUrl = "https://parlament.gv.at/" + stage.fsth[0].url;
+                    }
+                } else {
+                    console.log("No proper sources found for order call for " + person.name + ", " + sessionKey);
+                }
+
+                orderCalls.push({
+                    date: session.date,
+                    period: session.period,
+                    session: session.sessionNumber,
+                    speechUrl,
+                    ordercallUrl,
+                    person: person,
+                });
+            }
+        }
+        return orderCalls;
+    }
 }
 
 async function postProcess(session: Session) {

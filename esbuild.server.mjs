@@ -12,6 +12,7 @@ const config = {
         plaque: "src/cli/plaque.ts",
         screamer: "src/cli/screamers.ts",
         missing: "src/cli/missing.ts",
+        ordercalls: "src/cli/ordercalls.ts",
         server: "src/server/server.ts",
     },
     bundle: true,

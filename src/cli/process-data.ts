@@ -6,13 +6,13 @@ import * as fs from "fs";
 
 if (require.main === module) {
     (async () => {
-        // const persons = new Persons(JSON.parse(fs.readFileSync("./data/persons.json", "utf-8")));
+        const persons = new Persons(JSON.parse(fs.readFileSync("./data/persons.json", "utf-8")));
         // const sessions = JSON.parse(fs.readFileSync("./data/sessions.json", "utf-8")) as Session[];
         /// const sessionsResult = { persons, sessions };
-        console.log(">>> Extracting persons");
-        const persons = await processPersons("./data");
+        // console.log(">>> Extracting persons");
+        // const persons = new Persons(await processPersons("./data"));
         console.log(">>> Extracting sessions");
-        const sessionsResult = await processSessions(new Persons(persons), "./data");
+        const sessionsResult = await processSessions(persons, "./data");
         console.log(">>> Extracting plaques");
         await extractPlaques(sessionsResult.persons, sessionsResult.sessions);
         console.log(">>> Extracting missing");

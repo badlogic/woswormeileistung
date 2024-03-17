@@ -25,10 +25,20 @@ export interface Session {
     sessionLabel: string;
     date: string;
     protocolUrls: string[];
+    orderCalls: Ordercall[];
     sections: SpeakerSection[];
 }
 
 export type SessionSection = { date: string; period: string; session: number; sectionIndex: number; section: SpeakerSection };
+
+export interface Ordercall {
+    person: Person | string;
+    date: string;
+    period: string;
+    session: number;
+    speechUrl?: string;
+    ordercallUrl?: string;
+}
 
 export interface Callout {
     caller?: Person | string;
@@ -241,10 +251,16 @@ export class Persons {
         Pock: "Bernhard",
         Glawischnig: "Glawischnig-Piesczek",
         Yilmaz: "Yılmaz",
+        Dziedzic: "Ernst-Dziedzic",
+        "Steßl-Mühlbacher": "Steßl",
+        Binder: "Binder-Maier",
     };
 
-    searchByFamilyNameAndTitles(name: string) {
-        name = name.replace("- ", "-").replace(/\u00AD/g, "");
+    searchByFamilyName(name: string) {
+        name = name
+            .replace("- ", "-")
+            .replace(/\u00AD/g, "")
+            .replace(/\xa0/g, " ");
 
         // Handle special case of persons who've changed their last name
         if (name.includes("Strache") && name.includes("Pia")) {
@@ -261,6 +277,27 @@ export class Persons {
             }
         }
         return { extracted, foundPersons: result };
+    }
+
+    searchByGivenAndFamilyName(name: string, period?: string) {
+        let person: Person;
+        let { extracted, foundPersons } = this.searchByFamilyName(name);
+        if (period) foundPersons = foundPersons.filter((person) => person.periods.some((p) => p == period));
+        if (foundPersons.length == 0) return undefined;
+        if (foundPersons.length > 1) {
+            if (extracted.givenName.trim().length > 0) {
+                foundPersons = foundPersons.filter((person) => person.givenName.startsWith(extracted.givenName));
+                if (foundPersons.length == 0) {
+                    return undefined;
+                }
+                if (foundPersons.length > 1) {
+                    throw new Error("Name " + name + " still ambiguous: " + foundPersons.map((person) => person.name).join(", "));
+                } else {
+                    person = foundPersons[0];
+                }
+            }
+        }
+        return foundPersons[0];
     }
 }
 

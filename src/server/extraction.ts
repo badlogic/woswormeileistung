@@ -119,31 +119,7 @@ export function extractMissing(persons: Persons, sessions: Session[], periods = 
                     if (name.startsWith("Frau")) name = name.replace("Frau", "");
                     if (name.startsWith("Herr")) name = name.replace("Herr", "");
 
-                    let person: Person;
-                    let { extracted, foundPersons } = persons.searchByFamilyNameAndTitles(name);
-                    foundPersons = foundPersons.filter((person) => person.periods.some((period) => period == section.period));
-                    if (foundPersons.length > 1) {
-                        //console.log(
-                        //    "More than one person found for name " + name,
-                        //    foundPersons.map((person) => person.name)
-                        //);
-                        if (extracted.givenName.trim().length > 0) {
-                            //console.log("Trying to resolve via given name " + extracted.givenName);
-                            foundPersons = foundPersons.filter((person) => person.givenName.startsWith(extracted.givenName));
-                            if (foundPersons.length == 0) {
-                                throw new Error("No match via given name possible. Giving up on name " + name);
-                            }
-                            if (foundPersons.length > 1) {
-                                throw new Error("Name " + name + " still ambiguous: " + foundPersons.map((person) => person.name).join(", "));
-                            } else {
-                                // console.log("Resolved as " + foundPersons[0].name);
-                                person = foundPersons[0];
-                            }
-                        }
-                        // console.log();
-                    }
-                    person = foundPersons[0];
-
+                    const person = persons.searchByGivenAndFamilyName(name, section.period);
                     if (!person) {
                         console.log("!!! Could not find person for " + name);
                         console.log();
@@ -168,6 +144,9 @@ export function extractMissing(persons: Persons, sessions: Session[], periods = 
 }
 
 function extractName(text: string): string {
+    if (text.includes("Van der Bellen")) {
+        text = text.replace("Van der Bellen", "Van Der Bellen");
+    }
     // Ensure to remove the initial "Abg." to start processing the name parts
     const withoutPrefix = text.replace(/^Abg\.\s+/, "");
     const tokens = withoutPrefix.split(/\s+/);
@@ -175,8 +154,9 @@ function extractName(text: string): string {
 
     for (const token of tokens) {
         // Use the regex with the 'u' flag for Unicode support
-        if (/^(\p{Lu}|[(])/u.test(token)) {
+        if (/^(\p{Lu}|[(])/u.test(token) || token == ",") {
             nameTokens.push(token.replace(/,$/, ""));
+            if (token.endsWith(",")) break;
         } else {
             break;
         }
@@ -217,16 +197,25 @@ export async function extractPlaques(persons: Persons, sessions: Session[]) {
                 callout.text = callout.text.replace("Die Abgeordnete ", "Abg. " + speaker.name + " ");
                 callout.text = callout.text.replace("die Abgeordnete ", "Abg. " + speaker.name + " ");
                 callout.text = callout.text.replace(/\u00AD/g, "");
+
                 if (callout.text.startsWith("eine Tafel")) {
                     callout.text = "Abg. " + speaker.name + ", " + callout.text;
                 }
                 if (
                     !callout.caller &&
                     callout.text.startsWith("Abg.") &&
-                    (callout.text.includes("Tafel") || callout.text.includes("Taferl") || callout.text.includes("Schild"))
+                    (callout.text.includes("Tafel") ||
+                        callout.text.includes("Taferl") ||
+                        callout.text.includes("Schild") ||
+                        callout.text.includes("Schautafel") ||
+                        callout.text.includes("Schaumgummihand"))
                 ) {
                     const name = extractName(callout.text);
-                    const person = persons.search(name)[0].person;
+                    const person = persons.searchByGivenAndFamilyName(name, session.period);
+                    if (!person) {
+                        console.log("Could not find person for name " + name + ", taferl " + callout.text);
+                        continue;
+                    }
                     let callouts = plaques.get(person.id);
                     if (!callouts) {
                         callouts = [];

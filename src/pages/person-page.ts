@@ -7,6 +7,7 @@ import { BaseElement, ExpandableList } from "../app";
 import {
     MissingEntry,
     MissingPerson,
+    Ordercall,
     Person,
     PlaqueCallout,
     SectionScreams,
@@ -86,6 +87,29 @@ export class MissingList extends ExpandableList<MissingEntry> {
         return html`<div class="flex flex-col gap-2 p-4 border border-divider rounded-md">
             <section-header .date=${item.date} .period=${item.period} .session=${item.session} .section=${0} .highlights=${[item.nameInText]}></section-header>
             <div class="italic">${unsafeHTML(renderSectionText(section, new Set<string>([item.nameInText])))}</div>
+        </div>`;
+    }
+}
+
+@customElement("ordercall-list")
+export class OrdercallList extends ExpandableList<Ordercall> {
+    @state()
+    sections: SessionSection[] = [];
+
+    constructor() {
+        super();
+        this.numVisible = 3;
+    }
+
+    itemId(item: Ordercall): string {
+        return item.period + "-" + item.session + "-" + item.ordercallUrl;
+    }
+
+    renderItem(item: Ordercall): TemplateResult {
+        // prettier-ignore
+        return html`<div class="flex flex-col gap-2 p-4 border border-divider rounded-md">
+            <a href="${item.speechUrl}">Redebeitrag</a>
+            <a href="${item.ordercallUrl}">Ordnungsruf der Präsidentin</a>
         </div>`;
     }
 }
@@ -438,6 +462,9 @@ export class PersonPage extends BaseElement {
     screamsAtPerPerson: ScreamsPerPerson[] = [];
 
     @state()
+    ordercalls: Ordercall[] = [];
+
+    @state()
     searchResults: SessionSection[] = [];
 
     @state()
@@ -466,6 +493,7 @@ export class PersonPage extends BaseElement {
             let missing: MissingPerson;
             let screams: SectionScreams[];
             let screamsAt: SectionScreams[];
+            let ordercalls: Ordercall[];
             {
                 const result = await Api.person(id);
                 if (result instanceof Error) throw result;
@@ -525,6 +553,11 @@ export class PersonPage extends BaseElement {
                 }
                 this.screamsAtPerPerson = Array.from(screamsAtPerPerson.values()).sort((a, b) => b.numScreams - a.numScreams);
             }
+            {
+                const result = await Api.personOrdercalls(person.id);
+                if (result instanceof Error) throw result;
+                ordercalls = result;
+            }
 
             this.person = person;
             this.sections = sections;
@@ -533,6 +566,7 @@ export class PersonPage extends BaseElement {
             this.missing = missing;
             this.screams = screams;
             this.screamsAt = screamsAt;
+            this.ordercalls = ordercalls;
 
             // Sections per period chart
             const periods = new Set<string>();
@@ -574,6 +608,23 @@ export class PersonPage extends BaseElement {
                 data.map((item) => item.num),
                 "Gesetzsgebungsperiode",
                 "Taferl"
+            );
+
+            // Ordercalls chart
+            const ordercallsPerPeriod: Map<string, { period: string; num: number }> = new Map();
+            for (const ordercall of this.ordercalls) {
+                const period = ordercallsPerPeriod.get(ordercall.period) ?? { period: ordercall.period, num: 0 };
+                period.num++;
+                ordercallsPerPeriod.set(ordercall.period, period);
+            }
+            data = Array.from(ordercallsPerPeriod.values()).reverse();
+            renderBarChart(
+                this,
+                "#ordercalls",
+                data.map((item) => item.period),
+                data.map((item) => item.num),
+                "Gesetzsgebungsperiode",
+                "Ordnungsrufe"
             );
 
             // Missing chart
@@ -775,11 +826,25 @@ export class PersonPage extends BaseElement {
                                   this.plaques.length == 0
                                       ? html`<span>Keine Taferl</span>`
                                       : html`<div class="text-xs italic text-center">
-                                                Für die Anzeige des Redebeitrags einer Person während deren Taferlaufstellung kann deren Redebeitrag
-                                                angezeigt werden. Redebeiträge anderer Personen, während die Person ein Taferl aufgestellt hat, werden
-                                                nicht angezeigt.
+                                                Redebeiträge, in denen die Person ein Taferl aufgestellt hat, können angezeigt werden. Redebeiträge
+                                                anderer Personen, während derer die Person ein Taferl aufgestellt hat, werden nicht angezeigt.
                                             </div>
                                             <plaque-list .list=${this.plaques} .sections=${this.sections}></plaque-list>`
+                              }
+                              <h2 class="flex gap-2 mt-16">
+                                  Ordnungsrufe (${this.ordercalls.length})
+                                  <json-api-boxes
+                                      .prefix=${this.person?.name + "-ordercalls"}
+                                      .obj=${this.ordercalls}
+                                      api="/api/ordercalls/${this.person.id}"
+                                  ></json-api-boxes>
+                              </h2>
+                              ${this.ordercalls.length == 0 ? nothing : html`<canvas id="ordercalls"></canvas>`}
+                              ${
+                                  this.ordercalls.length == 0
+                                      ? html`<span>Keine Ordnungsrufe</span>`
+                                      : html`<div class="text-xs italic text-center"></div>
+                                            <ordercall-list .list=${this.ordercalls} .sections=${this.sections}></ordercall-list>`
                               }
                               <h2 class="flex gap-2 mt-16">
                                   Redebeiträge (${this.numActualSections})

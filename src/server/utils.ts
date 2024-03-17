@@ -30,3 +30,21 @@ export async function fetchAndSaveHtml(url: string, outputPath: string): Promise
         }
     }
 }
+
+export async function fetchAndSaveJSON(url: string, outputPath: string): Promise<void> {
+    let retries = 3;
+    while (true) {
+        try {
+            const response = await fetch(url);
+            const obj = await response.json();
+            fs.writeFileSync(outputPath, JSON.stringify(obj, null, 2), "utf-8");
+            return;
+        } catch (e) {
+            retries--;
+            if (retries > 0) {
+                console.error("Failed to fetch url " + url + ", retrying");
+                await sleep(500);
+            } else throw e;
+        }
+    }
+}
