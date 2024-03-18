@@ -3,6 +3,7 @@ import * as cheerio from "cheerio";
 import { fetchAndSaveHtml, fetchAndSaveJSON } from "./utils";
 import { getMetadata } from "./persons";
 import { Callout, Ordercall, Person, Persons, Session, SpeakerSection, extractName, periods } from "../common/common";
+import { extractCallouts, extractOrdercalls, extractSections, resolveOrdercalls, resolveUnknownSpeakers } from "./extraction";
 
 interface RawSessions {
     pages: number;
@@ -85,20 +86,21 @@ export async function processSessions(persons: Persons, baseDir: string) {
         // All we are doing here is fetching the static HTML content of parlament session
         // stenography protocols. Those should be CDN'ed up the wazoo. Nope...
         let batch = toProcess.splice(0, 5);
+        const batchSize = batch.length;
         batch = batch.filter((session) => session.protocolUrls.some((url) => url.endsWith(".html")));
         const filesAndUrls = batch.map((session) => {
-            const url = session.protocolUrls.find((url) => url.endsWith(".html"))!;
-            const file = `${baseDir}/sessions/` + session.date.split("T")[0] + "-" + session.period + "-" + session.sessionNumber + ".html";
+            const htmlUrl = session.protocolUrls.find((url) => url.endsWith(".html"))!;
+            const htmlFile = `${baseDir}/sessions/` + session.date.split("T")[0] + "-" + session.period + "-" + session.sessionNumber + ".html";
             const jsonUrl = `https://www.parlament.gv.at/gegenstand/${session.period}/NRSITZ/${session.sessionNumber}?json=true`;
             const jsonFile =
                 `${baseDir}/sessions/` + session.date.split("T")[0] + "-" + session.period + "-" + session.sessionNumber + ".json.original";
-            return { file, url, jsonFile, jsonUrl, session };
+            return { htmlFile, htmlUrl, jsonFile, jsonUrl, session };
         });
 
         // Fetch .html files
         let promises = filesAndUrls.map((url) => {
-            if (fs.existsSync(url.file)) return Promise.resolve();
-            return fetchAndSaveHtml(url.url, url.file);
+            if (fs.existsSync(url.htmlFile)) return Promise.resolve();
+            return fetchAndSaveHtml(url.htmlUrl, url.htmlFile);
         });
         await Promise.all(promises);
 
@@ -110,10 +112,13 @@ export async function processSessions(persons: Persons, baseDir: string) {
         await Promise.all(promises);
 
         for (const session of filesAndUrls) {
-            await extractSections(session.session, session.file, persons);
+            session.session.sections = await extractSections(session.htmlFile, session.session.period, persons);
+            session.session.orderCalls = await extractOrdercalls(session.jsonFile, session.session, persons);
+            await resolveUnknownSpeakers(session.session);
+            fs.writeFileSync(session.htmlFile.replace(".html", ".json"), JSON.stringify(session.session, null, 2), "utf-8");
         }
 
-        processed += batch.length;
+        processed += batchSize;
         console.log("Processed " + processed + "/" + sessions.length + " protocols");
     }
 
@@ -146,301 +151,8 @@ export async function processSessions(persons: Persons, baseDir: string) {
     }
 
     persons = new Persons(Array.from(newPersons.values()));
+    await resolveOrdercalls(sessions, persons);
     fs.writeFileSync(`${baseDir}/persons.json`, JSON.stringify(persons.persons, null, 2), "utf-8");
     fs.writeFileSync(`${baseDir}/sessions.json`, JSON.stringify(sessions, null, 2), "utf-8");
     return { sessions, persons };
-}
-
-function extractCallouts(text: string, period: string, persons: Persons) {
-    const callouts: Callout[] = [];
-    const regex = /\(.*?\)/g;
-    const matches = text.match(regex) ?? [];
-    for (const match of matches) {
-        ("Abg. Loacker begibt sich zum Redner:innenpult, um die Tafel zu lesen.");
-        const calloutText = match.replace("(", "").replace(")", "").replace(":innen", "innen").trim();
-        const parts = calloutText.split("–").map((part) => part.trim().replace(/\n/g, " "));
-        for (const part of parts) {
-            if (!/\s/.test(part)) continue;
-
-            if (part.startsWith("Abg. ")) {
-                const caller = part.split(":")[0];
-                const call = part.split(":")[1]?.trim();
-                if (!call) {
-                    if (!/\s/.test(part.replace("Abg. ", ""))) {
-                        continue;
-                    }
-                    callouts.push({
-                        text: part
-                            .trim()
-                            .replace(/\u00AD/g, "")
-                            .replace(/\xa0/g, " "),
-                    });
-                } else {
-                    // Fix typos in protocol...
-                    const name = caller
-                        .trim()
-                        .replace("Diemek", "Deimek")
-                        .replace("Dei- mek", "Deimek")
-                        .replace("Wes-ten", "Westen")
-                        .replace("Westentaler", "Westenthaler")
-                        .replace("Künsberg-Sarre", "Sarre")
-                        .replace("Höbarth", "Höbart")
-                        .replace("haberzettl", "Haberzettl")
-                        .replace("Petzer", "Petzner")
-                        .replace("Grilltisch", "Grillitsch")
-                        .replace("Buchner", "Bucher")
-                        .replace("Räd- ler", "Rädler")
-                        .replace("Dr. graf", "Dr. Graf")
-                        .replace("Baumgarnter-Gabitzer", "Baumgartner-Gabitzer")
-                        .replace("Spingelegger", "Spindelegger")
-                        .replace("Mag. Hans Moser", "Mag. Johann Moser")
-                        .replace("Dr. Paritk-Pablé", "Dr. Partik-Pablé")
-                        .replace("- ", "-")
-                        .replace(/\u00AD/g, "")
-                        .replace(/\xa0/g, " ")
-                        .trim();
-
-                    const person = persons.searchByGivenAndFamilyName(name, period);
-
-                    if (!person) {
-                        console.log("\nCould not find caller '" + name + "'\n" + part + "\n");
-                        callouts.push({
-                            text: part
-                                .trim()
-                                .replace(/\u00AD/g, "")
-                                .replace(/\xa0/g, " "),
-                        });
-                        continue;
-                    }
-
-                    callouts.push({
-                        caller: person,
-                        text: call
-                            .trim()
-                            .replace(/\u00AD/g, "")
-                            .replace(/\xa0/g, " "),
-                    });
-                }
-            } else {
-                if (part.trim().length < 4) continue;
-                callouts.push({
-                    text: part
-                        .trim()
-                        .replace(/\u00AD/g, "")
-                        .replace(/\xa0/g, " "),
-                });
-            }
-        }
-    }
-    return callouts;
-}
-
-function mergeSubsequentNewlines(input: string): string {
-    return input.replace(/\n{3,}/g, "\n\n");
-}
-
-function removePageHeader(input: string): string {
-    input = mergeSubsequentNewlines(input);
-    const pattern = /\n\nNationalrat.*? \/ Seite \d+\n\n/gs;
-    return input.replace(pattern, "\n\n");
-}
-
-function extractLinks(el: cheerio.Cheerio<cheerio.Element>): { label: string; url: string }[] {
-    const links: { label: string; url: string }[] = [];
-    el.find("a").each((index, element) => {
-        const $element = cheerio.load(element.cloneNode(true));
-        const label = $element.text().trim();
-        const url = element.attribs["href"] ?? "";
-        if (url.startsWith("/WWER/")) return;
-        if (label.length > 0 && url.length > 0) {
-            links.push({ label, url: "https://parlament.gv.at" + url });
-        }
-    });
-    return links;
-}
-
-export async function extractSections(session: Session, filePath: string, persons: Persons) {
-    const htmlContent = fs.readFileSync(filePath, "utf-8");
-    if (htmlContent.includes("Word 97")) {
-        console.log("Can not parse Word 97 created file " + filePath + ", skipping");
-        return;
-    }
-    const $ = cheerio.load(htmlContent);
-    const sections: SpeakerSection[] = [];
-
-    let commentsWithDelimiter = $("*")
-        .contents()
-        .filter((_, el) => el.type === "comment" && el.data.includes("�"));
-
-    let commentCount = 1;
-    commentsWithDelimiter.each((index, comment) => {
-        commentCount++;
-        if (commentCount % 2 == 0) return;
-
-        let current = $(comment).parent();
-        while (current.length && !current.is("p")) {
-            current = current.parent();
-        }
-
-        if (current.length == 0) return;
-
-        const speaker = current
-            .find('a[href^="/WWER/"]')
-            .text()
-            .trim()
-            .replace(/\u00AD/g, "")
-            .replace(/\xa0/g, " ")
-            .replace(/\n/g, " ");
-        const isSessionPresident = current.find("b").text().includes("Präsident");
-        const aTag = current.find('a[href^="/WWER/"]');
-        const speakerUrl = "https://parlament.gv.at/" + aTag.attr("href");
-        const links = extractLinks(current);
-
-        let sectionText = current
-            .text()
-            .trim()
-            .replace(/\n/g, " ")
-            .replace(/\u00AD/g, "")
-            .replace(/\xa0/g, " ");
-        const callouts = extractCallouts(sectionText, session.period, persons);
-        const colonIndex = sectionText.indexOf(":");
-        if (colonIndex > 0) {
-            sectionText = sectionText.substring(colonIndex + 1).trim();
-        }
-        current = current.next();
-
-        while (current.length) {
-            const hasDelimiterComment = current.contents().filter((_, el) => el.type === "comment" && el.data.includes("�")).length > 0;
-            if (hasDelimiterComment) {
-                break;
-            }
-            const currentText = current
-                .text()
-                .trim()
-                .replace(/\n/g, " ")
-                .replace(/\u00AD/g, "")
-                .replace(/\xa0/g, " ");
-            sectionText += "\n\n" + currentText;
-            callouts.push(...extractCallouts(currentText, session.period, persons));
-            links.push(...extractLinks(current));
-            current = current.next();
-        }
-
-        if (speaker && sectionText) {
-            const extractId = (url: string): string =>
-                url
-                    .split("/")
-                    .find((part) => part.startsWith("PAD_") && part)
-                    ?.substring(4) || "";
-            const speakerId = parseInt(extractId(speakerUrl)).toString();
-            let person = persons.byId(speakerId)!;
-            const nameParts = extractName(speaker);
-            if (!person) {
-                person = {
-                    id: speakerId,
-                    parties: [],
-                    periods: [session.period],
-                    name: speaker,
-                    givenName: nameParts.givenName,
-                    familyName: nameParts.familyName,
-                    titles: nameParts.titles,
-                    url: "https://parlament.gv.at/person/" + speakerId,
-                };
-            }
-            sections.push({ speaker: person, isSessionPresident, text: removePageHeader(sectionText), callouts, links });
-        }
-    });
-
-    session.sections = sections;
-    await postProcess(session);
-    const orderCalls = extractOrdercalls(session, persons, filePath);
-    session.orderCalls = orderCalls;
-    fs.writeFileSync(filePath.replace(".html", ".json"), JSON.stringify(session, null, 2), "utf-8");
-}
-
-function extractOrdercalls(session: Session, persons: Persons, htmlFilePath: string) {
-    const originalJson = JSON.parse(fs.readFileSync(htmlFilePath.replace(".html", ".json.original"), "utf-8"));
-    const stages = (originalJson.content as any[]).find((item) => Array.isArray(item.stages))?.stages;
-    const sessionKey = session.date.split("T")[0] + "-" + session.period + "-" + session.sessionNumber;
-    if (!stages) {
-        console.log("Could not find stages for session " + sessionKey + ", either missing entirely or still being processed by parliament.");
-        return [];
-    } else {
-        const orderCalls: Ordercall[] = [];
-        for (const stage of stages) {
-            if (stage.text?.includes("Ordnungsruf erteilt")) {
-                const matches = stage.text.match(/\/person\/(\d+)/);
-                if (!matches) {
-                    console.log("Could not extract person ID from ordercall '" + stage.text + "', " + sessionKey);
-                    continue;
-                }
-                const personId = matches[1];
-                if (!personId) {
-                    console.log("Could not extract person ID from ordercall '" + stage.text + "', " + sessionKey);
-                    continue;
-                }
-                const person = persons.byId(personId);
-                if (!person) {
-                    console.log("Could not find person with ID " + personId + " for ordercall '" + stage.text + "', " + sessionKey);
-                    continue;
-                }
-
-                let speechUrl: string | undefined;
-                let ordercallUrl: string | undefined;
-                if (Array.isArray(stage.fsth)) {
-                    if (stage.fsth.length >= 2) {
-                        ordercallUrl = "https://parlament.gv.at/" + stage.fsth[0].url;
-                        speechUrl = "https://parlament.gv.at/" + stage.fsth[1].url;
-                        if (!ordercallUrl || !speechUrl) {
-                            console.log("WTF 2");
-                        }
-                    } else {
-                        ordercallUrl = "https://parlament.gv.at/" + stage.fsth[0].url;
-                    }
-                } else {
-                    console.log("No proper sources found for order call for " + person.name + ", " + sessionKey);
-                }
-
-                orderCalls.push({
-                    date: session.date,
-                    period: session.period,
-                    session: session.sessionNumber,
-                    speechUrl,
-                    ordercallUrl,
-                    person: person,
-                });
-            }
-        }
-        return orderCalls;
-    }
-}
-
-async function postProcess(session: Session) {
-    const partyless = new Map<string, Person>();
-    const idsToImageUrls = new Map<string, string>();
-    const idsToParties = new Map<string, string[]>();
-    const sections = session.sections;
-    // party-less speakers aren found in persons, so we need to fetch their
-    // party affiliation and image url separately.
-    for (const section of sections) {
-        if (typeof section.speaker == "string") throw new Error("Section speaker given as id, this should not happen");
-        if (section.speaker.parties.length == 0) {
-            section.speaker.url = "https://parlament.gv.at/person/" + section.speaker.id;
-            if (idsToImageUrls.has(section.speaker.id) && idsToParties.has(section.speaker.id)) {
-                section.speaker.imageUrl = idsToImageUrls.get(section.speaker.id);
-                section.speaker.parties = idsToParties.get(section.speaker.id)!;
-            } else {
-                const metadata = await getMetadata(section.speaker.id);
-                if (metadata.imageUrl) {
-                    idsToImageUrls.set(section.speaker.id, "https://parlament.gv.at" + metadata.imageUrl);
-                    section.speaker.imageUrl = "https://parlament.gv.at" + metadata.imageUrl;
-                }
-                if (metadata.parties) {
-                    idsToParties.set(section.speaker.id, metadata.parties);
-                    section.speaker.parties = metadata.parties;
-                }
-            }
-            partyless.set(section.speaker.id, section.speaker);
-        }
-    }
 }

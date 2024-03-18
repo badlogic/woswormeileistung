@@ -160,3 +160,54 @@ export async function processPersons(baseDir: string) {
     fs.writeFileSync(`${baseDir}/persons.json`, JSON.stringify(dedupPersons, null, 2), "utf-8");
     return dedupPersons;
 }
+
+export async function getPerson(id: string) {
+    let retries = 3;
+
+    while (true) {
+        try {
+            const response = await fetch(`https://parlament.gv.at/person/${id}?json=true`);
+            if (!response.ok) {
+                throw new Error(await response.text());
+            }
+            const json = await response.json();
+            const str = JSON.stringify(json, null, 2).toLowerCase();
+            const parties = new Set<string>();
+            if (str.includes("spö")) parties.add("SPÖ");
+            if (str.includes("övp")) parties.add("ÖVP");
+            if (str.includes("grüne")) parties.add("GRÜNE");
+            if (str.includes("fpö")) parties.add("FPÖ");
+            if (str.includes("Klub der Freiheitlichen Partei Österreichs")) parties.add("FPÖ");
+            if (str.includes("bzö")) parties.add("BZÖ");
+            if (str.includes("neos")) parties.add("NEOS");
+            if (str.includes("stronach")) parties.add("STRONACH");
+
+            const name = json.content?.headingbox?.title
+                .trim()
+                .replace(/\u00AD/g, "")
+                .replace(/\xa0/g, " ")
+                .replace(/\n/g, " ");
+            const nameParts = extractName(name);
+            const imageUrl = json.content?.biografie?.portrait?.src ?? json.content?.banner?.portrait?.src;
+
+            const person: Person = {
+                id: id,
+                name,
+                familyName: nameParts.familyName,
+                givenName: nameParts.givenName,
+                titles: nameParts.titles,
+                periods: [],
+                parties: Array.from(parties),
+                imageUrl: imageUrl ? "https://parlament.gv.at" + imageUrl : undefined,
+                url: "https://parlament.gv.at/person/" + id,
+            };
+            return person;
+        } catch (e) {
+            retries--;
+            if (retries > 0) {
+                console.error("Failed to fetch person for id " + id + ", retrying", e);
+                await sleep(500);
+            } else throw e;
+        }
+    }
+}

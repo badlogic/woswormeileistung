@@ -695,6 +695,11 @@ export function fixLinksAndVideos(container: HTMLElement, collapsed = false) {
                 return;
             }
 
+            if (link.host == location.host && link.href.includes("/data/")) {
+                link.setAttribute("target", "_blank");
+                return;
+            }
+
             if (collapsed) {
                 link.addEventListener("click", (ev) => ev.preventDefault());
                 return;

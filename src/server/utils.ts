@@ -2,7 +2,7 @@ import * as fs from "fs";
 import * as iconv from "iconv-lite";
 import { sleep } from "../utils/utils";
 
-export async function fetchAndSaveHtml(url: string, outputPath: string): Promise<void> {
+export async function fetchAndSaveHtml(url: string, outputPath: string): Promise<string> {
     let retries = 3;
     while (true) {
         try {
@@ -20,7 +20,7 @@ export async function fetchAndSaveHtml(url: string, outputPath: string): Promise
             }
 
             fs.writeFileSync(outputPath, body);
-            return;
+            return bytes.toString("utf-8");
         } catch (e) {
             retries--;
             if (retries > 0) {

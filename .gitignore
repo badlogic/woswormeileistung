@@ -9,3 +9,5 @@ build
 data
 result.json
 report.html
+out.txt
+tmp.html

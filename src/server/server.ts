@@ -39,6 +39,7 @@ function loadData() {
         initQueries(newPersons, newSessions);
         persons = newPersons;
         sessions = newSessions;
+        ordercallsForPerson = new Map();
         for (const session of sessions) {
             sessionsById.set(session.period + "-" + session.sessionNumber, session);
             for (const ordercall of session.orderCalls) {
@@ -338,6 +339,7 @@ async function updateData() {
     app.get("/api/ordercalls/:id", async (req, res) => {
         try {
             const ordercalls = ordercallsForPerson.get(req.params.id as string) ?? [];
+
             res.json(ordercalls);
         } catch (e) {
             console.error("Could not get screams from person " + req.params.id, e);

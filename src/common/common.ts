@@ -12,10 +12,11 @@ export interface Person {
 
 export interface SpeakerSection {
     speaker: Person | string;
-    isSessionPresident: boolean;
+    isPresident: boolean;
     text: string;
     callouts: Callout[];
-    links: Link[];
+    tags: string[];
+    pages: number[];
 }
 
 export interface Session {
@@ -36,8 +37,8 @@ export interface Ordercall {
     date: string;
     period: string;
     session: number;
-    speechUrl?: string;
-    ordercallUrl?: string;
+    referenceUrls: string[];
+    resolvedReferences: SpeakerSection[];
 }
 
 export interface Callout {
@@ -315,6 +316,7 @@ export function extractName(name: string): { givenName: string; familyName: stri
     const nameParts: string[] = [];
     let inTitleSuffix = false;
     tokens.forEach((token) => {
+        token = token.trim();
         if (token.includes(".")) {
             titleParts.push(token);
         } else if (token.includes("(")) {

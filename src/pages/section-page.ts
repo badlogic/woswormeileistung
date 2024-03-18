@@ -60,8 +60,10 @@ export class SectionPage extends BaseElement {
     }
 
     render() {
-        // prettier-ignore
-        const text = this.section ? html`<div id="section" class="p-4 border border-divider rounded-md whitespace-pre-wrap"> ${unsafeHTML(renderSectionText(this.section.section, new Set<string>(this.highlights)))}</div>`
+        const text = this.section
+            ? html`<div id="section" class="p-4 border border-divider rounded-md">
+                  ${renderSectionText(this.section.section, new Set<string>(this.highlights))}
+              </div>`
             : nothing;
         const speaker = this.section ? (this.section.section.speaker as Person) : undefined;
 

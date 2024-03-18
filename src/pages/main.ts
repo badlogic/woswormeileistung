@@ -293,7 +293,7 @@ ${code(`
                             <b>speaker</b>: Die Parlaments-ID der Person, die spricht. Mit dieser ID können die Details zur Person im
                             Personen-Datensatz gefunden werden (vgl. oben).
                         </li>
-                        <li><b>isSessionPresident</b>: Ob die Person diesen Redebeitrag als Parlamentspräsident:in getätigt hat.</li>
+                        <li><b>isPresident</b>: Ob die Person diesen Redebeitrag als Parlamentspräsident:in getätigt hat.</li>
                         <li><b>text</b>: Das Transkript der Rede der Person, inklusive Zwischenrufen und Beschreibungen der Situation im Plenum.</li>
                         <li>
                             <b>callouts</b>: Eine Liste von Zwischenrufen und Situationsbeschreibungen. Bei einem Zwischenruf gibt das Feld
