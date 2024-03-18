@@ -29,24 +29,24 @@ function escapeRegExp(string: string): string {
 
 export function renderSectionText(section: SpeakerSection, highlights = new Set<string>()) {
     let text = section.text;
-    for (const callout of section.callouts) {
-        if (callout.caller) {
-            const index = text.indexOf(callout.text);
-            if (index == -1) continue;
+    for (const callout of section.callouts.filter((item) => !item.caller)) {
+        text = text.replaceAll(callout.text, /*html*/ `<span class="text-violet-700 dark:text-green-500 italic">${callout.text}</span>`);
+    }
 
-            const speakerIndex = text.lastIndexOf("Abg. ", index);
-            if (speakerIndex != -1) {
-                const partAfterCalloutText = text.substring(index + callout.text.length);
-                const calloutTextReplacement = `<span class="text-violet-700 dark:text-green-500 italic">${callout.text}</span>`;
+    for (const callout of section.callouts.filter((item) => item.caller)) {
+        const index = text.indexOf(callout.text);
+        if (index == -1) continue;
 
-                const partBeforeAbgIndex = text.substring(0, speakerIndex);
-                const anchorText = text.substring(speakerIndex, index);
-                const anchorReplacement = `<a href="/person/${callout.caller}" class="text-blue-400 italic">${anchorText}</a>${calloutTextReplacement}`;
+        const speakerIndex = text.lastIndexOf("Abg. ", index);
+        if (speakerIndex != -1) {
+            const partAfterCalloutText = text.substring(index + callout.text.length);
+            const calloutTextReplacement = `<span class="text-violet-700 dark:text-green-500 italic">${callout.text}</span>`;
 
-                text = partBeforeAbgIndex + anchorReplacement + partAfterCalloutText;
-            }
-        } else {
-            text = text.replaceAll(callout.text, /*html*/ `<span class="text-violet-700 dark:text-green-500 italic">${callout.text}</span>`);
+            const partBeforeAbgIndex = text.substring(0, speakerIndex);
+            const anchorText = text.substring(speakerIndex, index);
+            const anchorReplacement = `<a href="/person/${callout.caller}" class="text-blue-400 italic">${anchorText}</a>${calloutTextReplacement}`;
+
+            text = partBeforeAbgIndex + anchorReplacement + partAfterCalloutText;
         }
     }
 
@@ -113,7 +113,7 @@ export class OrdercallList extends ExpandableList<Ordercall> {
 
     renderItem(item: Ordercall): TemplateResult {
         const presidentSections = item.resolvedReferences.filter((item) => item.section.isPresident && item.section.text.includes("Ordnungsruf"));
-        const contextSections = item.resolvedReferences;
+        const contextSections = item.resolvedReferences.sort((a, b) => a.sectionIndex - b.sectionIndex);
 
         const renderSection = (ref: SessionSection) =>
             html`<div class="flex flex-col p-4 border border-divider rounded-md">
@@ -137,13 +137,13 @@ export class OrdercallList extends ExpandableList<Ordercall> {
         };
 
         return html`<div class="flex flex-col gap-2 p-4 border border-divider rounded-md">
-            <session-header .date=${item.date} .period=${item.period} .session=${item.session}></session-header>
             ${presidentSections.length > 0
                 ? html`<div class="flex flex-col gap-4">${repeat(presidentSections, (presidentSection) => renderSection(presidentSection))}</div>`
-                : html`<div class="italic">
-                      Der Redebeitrag, in dem der Ordnungsruf erteilt wurde, konnte nicht extrahiert werden. Evtl. ist der Redebeitrag durch die
-                      Referenz-Links unten einsehbar.
-                  </div>`}
+                : html`<session-header .date=${item.date} .period=${item.period} .session=${item.session}></session-header>
+                      <div class="italic">
+                          Der Redebeitrag, in dem der Ordnungsruf erteilt wurde, konnte nicht extrahiert werden. Evtl. ist der Redebeitrag durch die
+                          Referenz-Links unten einsehbar.
+                      </div>`}
             <h3 class="font-semibold">Referenz-Links zu Ordnungsruf und beanstandeten Redebeiträgen</h3>
             ${references}
             <button class="self-center button-muted" @click=${(ev: Event) => toggleContext(ev)}>Beanstandete Redebeiträge anzeigen</button>
@@ -409,7 +409,7 @@ export class PartyBadge extends BaseElement {
 
     render() {
         const color = partyColors[this.party] ?? "0, 0, 0";
-        return html`<div class="px-1 rounded" style="background-color: rgb(${color}); color: #eee">${this.party}</div>`;
+        return html`<div class="p-1 rounded text-xs" style="background-color: rgb(${color}); color: #eee">${this.party}</div>`;
     }
 }
 

@@ -15,45 +15,6 @@ function extractSpanInnerText(html: string) {
     return innerTexts;
 }
 
-const cache = new Map<string, { parties: string[]; imageUrl: string | undefined }>();
-export async function getMetadata(personId: string) {
-    if (cache.has(personId)) return cache.get(personId)!;
-    let retries = 3;
-
-    while (true) {
-        try {
-            const response = await fetch(`https://parlament.gv.at/person/${personId}?json=true`);
-            if (!response.ok) {
-                throw new Error(await response.text());
-            }
-            const json = await response.json();
-            const str = JSON.stringify(json).toLowerCase();
-            const parties = new Set<string>();
-            if (str.includes("spö")) parties.add("SPÖ");
-            if (str.includes("övp")) parties.add("ÖVP");
-            if (str.includes("grüne")) parties.add("GRÜNE");
-            if (str.includes("fpö")) parties.add("FPÖ");
-            if (str.includes("Klub der Freiheitlichen Partei Österreichs")) parties.add("FPÖ");
-            if (str.includes("bzö")) parties.add("BZÖ");
-            if (str.includes("neos")) parties.add("NEOS");
-            if (str.includes("stronach")) parties.add("STRONACH");
-
-            const metadata = {
-                parties: Array.from(parties),
-                imageUrl: json.content?.biografie?.portrait?.src ?? json.content?.banner?.portrait?.src,
-            };
-            cache.set(personId, metadata);
-            return metadata;
-        } catch (e) {
-            retries--;
-            if (retries > 0) {
-                console.error("Failed to fetch person metadata for " + personId + ", retrying", e);
-                await sleep(500);
-            } else throw e;
-        }
-    }
-}
-
 export async function processPersons(baseDir: string) {
     cache.clear();
     if (baseDir.endsWith("/")) {
@@ -108,35 +69,10 @@ export async function processPersons(baseDir: string) {
             .flat();
         parties.forEach((party) => seenParties.add(party));
         const id = row[0];
-        const response = await fetch(`https://parlament.gv.at/person/${id}?json=true`);
-        if (!response.ok) {
-            throw new Error(await response.text());
-        }
-        const json = await response.json();
-        const imageUrl = json.content?.biografie?.portrait?.src ?? json.content?.banner?.portrait?.src;
-        const name =
-            json.content?.headingbox?.title
-                .trim()
-                .replace(/\u00AD/g, "")
-                .replace(/\xa0/g, " ")
-                .replace(/\n/g, " ") ??
-            row[2]
-                .trim()
-                .replace(/\u00AD/g, "")
-                .replace(/\xa0/g, " ")
-                .replace(/\n/g, " ");
-        const nameParts = extractName(name);
-        persons.push({
-            id,
-            name,
-            givenName: nameParts.givenName,
-            familyName: nameParts.familyName,
-            titles: nameParts.titles,
-            parties: Array.from(new Set<string>(parties)).sort(),
-            periods: personPeriods.sort(),
-            url: "https://parlament.gv.at/person/" + id,
-            imageUrl: imageUrl ? "https://parlament.gv.at" + imageUrl : undefined,
-        });
+        const person = await getPerson(id);
+        person.parties = Array.from(new Set<string>(parties)).sort();
+        person.periods = personPeriods.sort();
+        persons.push(person);
         console.log("Processed " + persons.length + "/" + rawData.rows.length + " persons");
     }
 
@@ -210,4 +146,12 @@ export async function getPerson(id: string) {
             } else throw e;
         }
     }
+}
+
+const cache = new Map<string, Person>();
+export async function getMetadata(personId: string) {
+    if (cache.has(personId)) return cache.get(personId)!;
+    const person = await getPerson(personId);
+    cache.set(personId, person);
+    return person;
 }

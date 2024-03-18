@@ -250,25 +250,6 @@ export async function extractSections(filePath: string, period: string, persons:
         }
     }
 
-    // Fill in the first page for any sections that do not have
-    // a page assigned.
-    /*let firstPage = -1;
-    if (speakerSections.length > 0) {
-        if (speakerSections[0].pages.length > 0) {
-            firstPage = speakerSections[0].pages[0];
-        }
-    }
-    if (firstPage > 0) {
-        for (const section of speakerSections) {
-            if (section.pages.length == 0) {
-                section.pages.push(firstPage);
-            } else {
-                section.pages.unshift(firstPage);
-                break;
-            }
-        }
-    }*/
-
     return speakerSections;
 }
 
@@ -473,7 +454,10 @@ export async function resolveOrdercalls(sessions: Session[], persons: Persons) {
                         }
 
                         if (speaker && text) {
-                            const candidates = refSessionSections.filter((s) => (s.section.speaker as string) == speaker);
+                            const candidates = refSessionSections.filter((s) => {
+                                const id = typeof s.section.speaker == "string" ? s.section.speaker : s.section.speaker.id;
+                                return id == speaker;
+                            });
                             text = text.split(":")[1];
                             text = text
                                 .trim()
@@ -497,7 +481,7 @@ export async function resolveOrdercalls(sessions: Session[], persons: Persons) {
                             if (!found) {
                                 console.log("Could not resolve ordercall reference " + reference + ordercallKey);
                             } else {
-                                resolvedCalls.push();
+                                resolvedCalls.push(found);
                             }
                         } else {
                             console.log("Could not resolve ordercall reference " + reference + ordercallKey);

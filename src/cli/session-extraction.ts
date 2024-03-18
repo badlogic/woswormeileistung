@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import { Person, Persons, Session } from "../common/common";
-import { extractSections } from "../server/extraction";
+import { extractOrdercalls, extractSections, resolveOrdercalls } from "../server/extraction";
 
 (async () => {
     const persons = new Persons(JSON.parse(fs.readFileSync("./data/persons.json", "utf-8")) as Person[]);
@@ -13,9 +13,23 @@ import { extractSections } from "../server/extraction";
     // const baseFile = "2023-05-12-XXVII-211";
     // const baseFile = "2021-03-25-XXVII-91";
     // const baseFile = "2023-07-06-XXVII-224";
-    const baseFile = "2022-04-05-XXVII-152";
-    const period = "XXVII";
+    // const baseFile = "2022-04-05-XXVII-152";
+    const baseFile = "2023-07-05-XXVII-222";
+    const period = baseFile.split("-")[3];
+    const sessionNumber = baseFile.split("-")[4];
     const sections = await extractSections(`./data/sessions/${baseFile}.html`, period, persons);
+    const session: Session = {
+        date: baseFile.split("X")[0],
+        period,
+        sessionNumber: parseInt(sessionNumber),
+        sessionLabel: sessionNumber,
+        orderCalls: [],
+        protocolUrls: [],
+        sections,
+        url: "",
+    };
+    session.orderCalls = await extractOrdercalls(`./data/sessions/${baseFile}.json.original`, session, persons);
+    await resolveOrdercalls([session], persons);
 
     /*const session = JSON.parse(fs.readFileSync(`./data/sessions/${baseFile}.json`, "utf-8")) as Session;
     const oldSections = session.sections.map((item) => {
