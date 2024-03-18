@@ -4,7 +4,7 @@ import { customElement, state } from "lit/decorators.js";
 import { Api } from "../api";
 import { BaseElement } from "../app";
 import { Person } from "../common/common";
-import { arrowLeftIcon, searchIcon } from "../utils/icons";
+import { arrowLeftIcon, logoIcon, searchIcon } from "../utils/icons";
 import { router } from "../utils/routing";
 import { pageContainerStyle, pageContentStyle } from "../utils/styles";
 
@@ -21,9 +21,7 @@ export class PersonsPage extends BaseElement {
             <div class="${pageContentStyle} h-[100vh]">
                 <div class="flex-grow flex flex-col w-full mt-4 gap-4 px-4">
                     <div class="flex">
-                        <div href="/" class="flex items-center cursor-pointer" @click=${() => router.pop()}>
-                            <i class="icon w-6">${arrowLeftIcon}</i>Zurück
-                        </div>
+                        <a href="/" class="flex items-center gap-2 font-semibold"><i class="icon w-6">${logoIcon}</i> Wos wor mei Leistung?</a>
                         <theme-toggle class="ml-auto"></theme-toggle>
                     </div>
                     <h1 class="text-center">Personen Recherche</h1>

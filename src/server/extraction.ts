@@ -1,4 +1,16 @@
-import { Callout, Missing, Ordercall, Person, Persons, Plaque, Screamer, Session, SpeakerSection, extractName } from "../common/common";
+import {
+    Callout,
+    Missing,
+    Ordercall,
+    Person,
+    Persons,
+    Plaque,
+    Screamer,
+    Session,
+    SessionSection,
+    SpeakerSection,
+    extractName,
+} from "../common/common";
 import { initQueries, querySpeakerSections } from "../common/query";
 import * as fs from "fs";
 import * as cheerio from "cheerio";
@@ -395,8 +407,6 @@ export function extractOrdercalls(jsonFilepath: string, session: Session, person
 }
 
 export async function resolveOrdercalls(sessions: Session[], persons: Persons) {
-    const includeCallouts = true;
-
     const extractPeriodSessionHash = (text: string) => {
         let hash = text.split("#")[1];
         const tokens = text.replace("https://parlament.gv.at/", "").split("/");
@@ -419,7 +429,7 @@ export async function resolveOrdercalls(sessions: Session[], persons: Persons) {
             numCalls += session.orderCalls.length;
             for (const ordercall of session.orderCalls) {
                 allCalls.push(ordercall);
-                const resolvedCalls: SpeakerSection[] = [];
+                const resolvedCalls: SessionSection[] = [];
                 const ordercallKey =
                     " for person " + ordercall.person + " " + ordercall.date.split("T")[0] + "-" + ordercall.period + "-" + ordercall.session;
                 const speakerFull = persons.byId(ordercall.person as string);
@@ -431,6 +441,16 @@ export async function resolveOrdercalls(sessions: Session[], persons: Persons) {
                         console.log("Could not resolve ordercall reference " + reference + " " + ordercallKey);
                         continue;
                     }
+                    const refSessionSections: SessionSection[] = refSession.sections.map((section, index) => {
+                        const refSection: SessionSection = {
+                            date: refSession.date,
+                            period: refSession.period,
+                            session: refSession.sessionNumber,
+                            sectionIndex: index,
+                            section,
+                        };
+                        return refSection;
+                    });
 
                     // New style reference, e.g. 'https://parlament.gv.at/dokument/XXVII/NRSITZ/224/A_-_14_52_17_00301068.html'
                     if (!hash) {
@@ -453,7 +473,7 @@ export async function resolveOrdercalls(sessions: Session[], persons: Persons) {
                         }
 
                         if (speaker && text) {
-                            const candidates = refSession.sections.filter((s) => (s.speaker as string) == speaker);
+                            const candidates = refSessionSections.filter((s) => (s.section.speaker as string) == speaker);
                             text = text.split(":")[1];
                             text = text
                                 .trim()
@@ -461,9 +481,9 @@ export async function resolveOrdercalls(sessions: Session[], persons: Persons) {
                                 .replace(/\xa0/g, " ")
                                 .replace(/\n/g, " ")
                                 .replace(/\s+/g, " ");
-                            let found: SpeakerSection | undefined;
+                            let found: SessionSection | undefined;
                             for (const candidate of candidates) {
-                                const candidateText = candidate.text
+                                const candidateText = candidate.section.text
                                     .trim()
                                     .replace(/\u00AD/g, "")
                                     .replace(/\xa0/g, " ")
@@ -477,7 +497,7 @@ export async function resolveOrdercalls(sessions: Session[], persons: Persons) {
                             if (!found) {
                                 console.log("Could not resolve ordercall reference " + reference + ordercallKey);
                             } else {
-                                resolvedCalls.push({ ...found, callouts: includeCallouts ? found.callouts : [] });
+                                resolvedCalls.push();
                             }
                         } else {
                             console.log("Could not resolve ordercall reference " + reference + ordercallKey);
@@ -488,19 +508,16 @@ export async function resolveOrdercalls(sessions: Session[], persons: Persons) {
                         if (!hash.endsWith(".html")) {
                             const tag = hash;
                             let found = false;
-                            for (let i = 0; i < refSession.sections.length; i++) {
-                                const section = refSession.sections[i];
-                                if (section.tags.includes(tag)) {
-                                    const first = { ...section, callouts: includeCallouts ? section.callouts : [] };
-                                    const second = {
-                                        ...refSession.sections[i + 1],
-                                        callouts: includeCallouts ? refSession.sections[i + 1].callouts : [],
-                                    };
-                                    if (!resolvedCalls.some((s) => s.text == first.text)) {
+                            for (let i = 0; i < refSessionSections.length; i++) {
+                                const section = refSessionSections[i];
+                                if (section.section.tags.includes(tag)) {
+                                    const first = section;
+                                    const second = refSessionSections[i + 1];
+                                    if (!resolvedCalls.some((s) => s.section.text == first.section.text)) {
                                         resolvedCalls.push(first);
                                     }
-                                    if (!first.isPresident && !first.text.includes("Ordnungsruf")) {
-                                        if (!resolvedCalls.some((s) => s.text == second.text)) {
+                                    if (!first.section.isPresident && !first.section.text.includes("Ordnungsruf")) {
+                                        if (!resolvedCalls.some((s) => s.section.text == second.section.text)) {
                                             resolvedCalls.push(second);
                                         }
                                     }
@@ -513,16 +530,17 @@ export async function resolveOrdercalls(sessions: Session[], persons: Persons) {
                         } else {
                             // Even older style Seite_xxx.html or SEITE_xxx.html
                             const page = parseInt(hash.toLowerCase().replace("seite_", "").replace(".html", ""));
-                            const candidates: SpeakerSection[] = [];
+                            const candidates: SessionSection[] = [];
                             let alreadyFound = false;
-                            const sectionsOnPage = refSession.sections.filter((section) => section.pages.includes(page));
+                            const sectionsOnPage = refSessionSections.filter((section) => section.section.pages.includes(page));
                             for (const section of sectionsOnPage) {
-                                const isPresidentOrdnungsruf = section.isPresident && section.text.includes("Ordnungsruf");
+                                const isPresidentOrdnungsruf = section.section.isPresident && section.section.text.includes("Ordnungsruf");
                                 const isOrContainsSpeaker =
-                                    !section.isPresident && (section.speaker == ordercall.person || section.text.includes(speakerFull!.familyName));
+                                    !section.section.isPresident &&
+                                    (section.section.speaker == ordercall.person || section.section.text.includes(speakerFull!.familyName));
                                 if (isPresidentOrdnungsruf || isOrContainsSpeaker) {
-                                    if (!resolvedCalls.some((res) => res?.text == section.text)) {
-                                        let first = { ...section, callouts: includeCallouts ? section.callouts : [] };
+                                    if (!resolvedCalls.some((res) => res?.section.text == section.section.text)) {
+                                        let first = section;
                                         candidates.push(first);
                                     } else {
                                         alreadyFound = true;
@@ -540,8 +558,8 @@ export async function resolveOrdercalls(sessions: Session[], persons: Persons) {
                 }
                 ordercall.resolvedReferences = resolvedCalls.filter(
                     (s) =>
-                        (!s.isPresident && (s.speaker == ordercall.period || s.text.includes(speakerFull!.familyName))) ||
-                        (s.isPresident && s.text.includes("Ordnungsruf"))
+                        (!s.section.isPresident && (s.section.speaker == ordercall.period || s.section.text.includes(speakerFull!.familyName))) ||
+                        (s.section.isPresident && s.section.text.includes("Ordnungsruf"))
                 );
             }
         }

@@ -18,7 +18,7 @@ import {
 } from "../common/common";
 import { matchesQuery, prepareQuery } from "../common/query";
 import { renderBarChart } from "../utils/charts";
-import { arrowLeftIcon, arrowRightIcon, searchIcon } from "../utils/icons";
+import { arrowLeftIcon, arrowRightIcon, logoIcon, searchIcon } from "../utils/icons";
 import { router } from "../utils/routing";
 import { pageContainerStyle, pageContentStyle } from "../utils/styles";
 import { download } from "../utils/utils";
@@ -112,20 +112,22 @@ export class OrdercallList extends ExpandableList<Ordercall> {
     }
 
     renderItem(item: Ordercall): TemplateResult {
-        const presidentSections = item.resolvedReferences.filter((item) => item.isPresident && item.text.includes("Ordnungsruf"));
+        const presidentSections = item.resolvedReferences.filter((item) => item.section.isPresident && item.section.text.includes("Ordnungsruf"));
         const contextSections = item.resolvedReferences;
 
-        const renderSection = (ref: SpeakerSection) =>
-            html`<div class="flex gap-2 p-4 border border-divider rounded-md">
-                <div></div>
-                ${renderSectionText(ref, new Set<string>(["Ordnungsruf", this.person.familyName]))}
+        const renderSection = (ref: SessionSection) =>
+            html`<div class="flex flex-col p-4 border border-divider rounded-md">
+                <section-header .date=${ref.date} .period=${ref.period} .session=${ref.session} .section=${ref.sectionIndex}></section-header>
+                ${renderSectionText(ref.section, new Set<string>(["Ordnungsruf", this.person.familyName]))}
             </div>`;
 
         const references = html`<div class="flex flex-col text-blue-400">
             ${repeat(item.referenceUrls, (url, index) => html`<a href=${url}>Referenz ${index + 1}</a>`)}
         </div>`;
 
-        const context = html`<div id="context" class="hidden">${repeat(contextSections, (item) => renderSection(item))}</div>`;
+        const context = html`<div id="context" class="hidden flex flex-col gap-4">
+            ${repeat(contextSections, (item) => html` ${renderSection(item)} `)}
+        </div>`;
 
         const toggleContext = (ev: Event) => {
             const target = ev.target as HTMLButtonElement;
@@ -137,7 +139,7 @@ export class OrdercallList extends ExpandableList<Ordercall> {
         return html`<div class="flex flex-col gap-2 p-4 border border-divider rounded-md">
             <session-header .date=${item.date} .period=${item.period} .session=${item.session}></session-header>
             ${presidentSections.length > 0
-                ? repeat(presidentSections, (presidentSection) => renderSection(presidentSection))
+                ? html`<div class="flex flex-col gap-4">${repeat(presidentSections, (presidentSection) => renderSection(presidentSection))}</div>`
                 : html`<div class="italic">
                       Der Redebeitrag, in dem der Ordnungsruf erteilt wurde, konnte nicht extrahiert werden. Evtl. ist der Redebeitrag durch die
                       Referenz-Links unten einsehbar.
@@ -312,14 +314,14 @@ export class ScreamsList extends ExpandableList<SectionScreams> {
                     <img class="w-8 h-8 rounded-full shadow-lg object-cover object-center" src=${from.imageUrl}/>
                     ${item.direction == "from" ? html`
                         <span>${from.name}</span>
-                        <span>[${from.parties.join(", ")}]</span>`: nothing}
+                        <div class="flex items-center gap-2">${repeat(from.parties, (party) => html`<party-badge .party=${party}></party-badg>`)}</div>`: nothing}
                 </a>
                 <i class="icon w-6 h-6">${arrowRightIcon}</i>
                 <a href="/person/${to.id}" class="flex gap-2 items-center text-blue-400">
                     <img class="w-8 h-8 rounded-full shadow-lg object-cover object-center" src=${to.imageUrl}/>
                     ${item.direction != "from" ? html`
                         <span>${to.name}</span>
-                        <span>[${to.parties.join(", ")}]</span>` :nothing}
+                        <div class="flex items-center gap-2">${repeat(to.parties, (party) => html`<party-badge .party=${party}></party-badg>`)}</div>` :nothing}
                 </a>
             </div>
             ${repeat(item.texts, (text) => html`<div class="italic">"${text}"</div>`)}
@@ -368,7 +370,9 @@ export class PerPersonScreamsList extends ExpandableList<ScreamsPerPerson> {
                     <img class="w-8 h-8 rounded-full shadow-lg object-cover object-center" src=${from.imageUrl} />
                     ${direction == "from"
                         ? html` <span>${from.name}</span>
-                              <span>[${from.parties.join(", ")}]</span>`
+                              <div class="flex items-center gap-2">
+                                  ${repeat(from.parties, (party) => html`<party-badge .party=${party}></party-badg>`)}
+                              </div>`
                         : nothing}
                 </a>
                 <i class="icon w-6 h-6">${arrowRightIcon}</i>
@@ -376,7 +380,9 @@ export class PerPersonScreamsList extends ExpandableList<ScreamsPerPerson> {
                     <img class="w-8 h-8 rounded-full shadow-lg object-cover object-center" src=${to.imageUrl} />
                     ${direction != "from"
                         ? html` <span>${to.name}</span>
-                              <span>[${to.parties.join(", ")}]</span>`
+                              <div class="flex items-center gap-2">
+                                  ${repeat(to.parties, (party) => html`<party-badge .party=${party}></party-badg>`)}
+                              </div>`
                         : nothing}
                 </a>
             </div>
@@ -396,10 +402,24 @@ export class PerPersonScreamsList extends ExpandableList<ScreamsPerPerson> {
     }
 }
 
+@customElement("party-badge")
+export class PartyBadge extends BaseElement {
+    @property()
+    party!: string;
+
+    render() {
+        const color = partyColors[this.party] ?? "0, 0, 0";
+        return html`<div class="px-1 rounded" style="background-color: rgb(${color}); color: #eee">${this.party}</div>`;
+    }
+}
+
 @customElement("person-header")
 export class PersonHeader extends BaseElement {
     @property()
     person!: Person;
+
+    @property()
+    link = false;
 
     render() {
         return html`<div class="flex items-center">
@@ -408,10 +428,10 @@ export class PersonHeader extends BaseElement {
                 : nothing}
             <div class="flex flex-col px-4">
                 <h2 class="flex gap-2">
-                    ${this.person.name}
+                    ${this.link ? html`<a href="/person/${this.person.id}" class="text-blue-400">${this.person.name}</a>` : this.person.name}
                     <json-api-boxes .prefix=${this.person.name + "-person"} .obj=${this.person} api="/api/persons/${this.person.id}"></json-api-boxes>
                 </h2>
-                <span>${this.person.parties.join(", ")}</span>
+                <div class="flex items-center gap-2">${repeat(this.person.parties, (party) => html`<party-badge .party=${party}></party-badg>`)}</div>
                 <span class="text-xs">Gesetzgebungs-Perioden: ${this.person.periods.join(", ")}</span>
                 <a href="https://parlament.gv.at/person/${this.person.id}" class="text-blue-400">Parlamentsseite</a>
             </div>
@@ -501,7 +521,7 @@ export class ExpandableDetails extends BaseElement {
     shownLabel = "Details verbergen";
 
     @property()
-    hiddenLabel = "Details anzeigen";
+    hiddenLabel = "Mehr Details anzeigen";
 
     render() {
         const toggle = (ev: Event) => {
@@ -834,15 +854,11 @@ export class PersonPage extends BaseElement {
 
     render() {
         const calloutsDetails = html`<div class="flex flex-col gap-4">
-            <h3>Zwischenrufe pro Person (absteigend)</h3>
-            <per-person-screams-list .list=${this.screamsPerPerson} .person=${this.person}></per-person-screams-list>
             <h3>Zwischenrufe chronologisch</h3>
             <section-screams-list .list=${this.screams} .person=${this.person}></section-screams-list>
         </div> `;
 
         const calloutsAtDetails = html`<div class="flex flex-col gap-4">
-            <h3>Zwischenrufe pro Person (absteigend)</h3>
-            <per-person-screams-list .list=${this.screamsAtPerPerson} .person=${this.person}></per-person-screams-list>
             <h3>Zwischenrufe chronologisch</h3>
             <section-screams-list .list=${this.screamsAt} .person=${this.person}></section-screams-list>
         </div> `;
@@ -861,18 +877,18 @@ export class PersonPage extends BaseElement {
             <ordercall-list .list=${this.ordercalls} .person=${this.person}></ordercall-list>
         </div>`;
 
+        const name = this.person ? this.person.givenName + " " + this.person.familyName : "";
+
         return html`<div class="${pageContainerStyle} min-h-[100vh]">
             <div class="${pageContentStyle} h-[100vh]">
                 <div class="flex-grow flex flex-col w-full mt-4 gap-4 px-4">
                     <div class="flex">
-                        <div href="/" class="flex items-center cursor-pointer" @click=${() => router.pop()}>
-                            <i class="icon w-6">${arrowLeftIcon}</i>Zurück
-                        </div>
+                        <a href="/" class="flex items-center gap-2 font-semibold"><i class="icon w-6">${logoIcon}</i> Wos wor mei Leistung?</a>
                         <theme-toggle class="ml-auto"></theme-toggle>
                     </div>
                     ${this.loading ? html`<loading-spinner></loading-spinner>` : nothing}
                     ${this.person
-                        ? html`<person-header .person=${this.person}></person-header>
+                        ? html`<person-header class="mt-8" .person=${this.person}></person-header>
                               <h2 class="flex gap-2 mt-8">
                                   Zwischenrufe von ${this.person.name} (${this.numScreams})
                                   <json-api-boxes
@@ -881,20 +897,22 @@ export class PersonPage extends BaseElement {
                                       api="/api/screams/${this.person.id}"
                                   ></json-api-boxes>
                               </h2>
-                              ${this.numScreams == 0 ? nothing : html`<canvas id="screams"></canvas><canvas id="screamsPerParty"></canvas>`}
+                              ${
+                                  this.numScreams == 0
+                                      ? nothing
+                                      : html`<div class="flex flex-col gap-4 p-4 border border-divider rounded-md">
+                                            <canvas id="screams"></canvas><canvas id="screamsPerParty"></canvas>
+                                        </div>`
+                              }
                               ${
                                   this.numScreams == 0
                                       ? html`<span>Keine Zwischenrufe</span>`
-                                      : html`<div class="flex flex-col gap-2 text-center text-xs">
-                                                <div class="font-semibold">Details</div>
-                                                <ul>
-                                                    <li>
-                                                        Personen, bei deren Redebeiträgen ${this.person.givenName + " " + this.person.familyName}
-                                                        zwischen geruften hat, sortiert nach Anzahl der Zwischenrufe, inklusive
-                                                        Zwischenruf-Transkripten
-                                                    </li>
-                                                    <li>Alle Zwischenruf-Transkripte, chronologisch sortiert</li>
-                                                </ul>
+                                      : html`<div class="flex flex-col gap-4 p-4 border border-divider rounded-md">
+                                                <h3>Zwischenrufe von ${name} an andere Person (absteigend)</h3>
+                                                <per-person-screams-list
+                                                    .list=${this.screamsPerPerson}
+                                                    .person=${this.person}
+                                                ></per-person-screams-list>
                                             </div>
                                             <expandable-details .details=${calloutsDetails}></expandable-details> `
                               }
@@ -907,22 +925,26 @@ export class PersonPage extends BaseElement {
                                       api="/api/screamsat/${this.person.id}"
                                   ></json-api-boxes>
                               </h2>
-                              ${this.numScreamsAt == 0 ? nothing : html`<canvas id="screamsAt"></canvas><canvas id="screamsAtPerParty"></canvas>`}
+                              ${
+                                  this.numScreamsAt == 0
+                                      ? nothing
+                                      : html`<div class="flex flex-col gap-4 p-4 border border-divider rounded-md">
+                                            <canvas id="screamsAt"></canvas><canvas id="screamsAtPerParty"></canvas>
+                                        </div>`
+                              }
                               ${
                                   this.numScreamsAt == 0
                                       ? html`<span>Keine Zwischenrufe</span>`
-                                      : html`<div class="flex flex-col gap-2 text-center text-xs">
-                                                <div class="font-semibold">Details</div>
-                                                <ul>
-                                                    <li>
-                                                        Personen, die während Redebeiträgen von
-                                                        ${this.person.givenName + " " + this.person.familyName} zwischen gerufen haben, sortiert nach
-                                                        Anzahl der Zwischenrufe, inklusive Zwischenruf-Transkripten
-                                                    </li>
-                                                    <li>Alle Zwischenruf-Transkripte, chronologisch sortiert</li>
-                                                </ul>
+                                      : html`
+                                            <div class="flex flex-col gap-4 p-4 border border-divider rounded-md">
+                                                <h3>Zwischenrufe von anderen Person an ${name} (absteigend)</h3>
+                                                <per-person-screams-list
+                                                    .list=${this.screamsAtPerPerson}
+                                                    .person=${this.person}
+                                                ></per-person-screams-list>
                                             </div>
-                                            <expandable-details .details=${calloutsAtDetails}></expandable-details> `
+                                            <expandable-details .details=${calloutsAtDetails}></expandable-details>
+                                        `
                               }
                               <h2 class="flex gap-2 mt-8">
                                   Abwesenheiten (${this.missing.missing.length})
@@ -935,27 +957,14 @@ export class PersonPage extends BaseElement {
                               ${
                                   this.missing.missing.length == 0
                                       ? nothing
-                                      : html`<canvas id="missing"></canvas>
-                                            <div class="text-sm text-red-400 italic text-center">
-                                                Die Abwesenheit einer Person kann verschiedene Gründe haben, z. B. eine langwierige Krankheit usw.
-                                                Abwesenheiten werden aus den stenographischen Protokollen des Nationalrats maschinell erfasst und
-                                                können Fehler aufweisen, z. B. bei uneindeutigen Familiennamen. Die Quelle für jede Abwesenheit in den
-                                                Protokollen wird daher unten angeführt, um die manuelle Überprüfung zu ermöglichen. Es werden nur
-                                                gemeldete Abwesenheiten für die gesamte Sitzung erfasst. Temporäre Abewesenheiten während einer
-                                                Sitzung können nicht erfasst werden. Die Abwesenheiten während der Funktion als Bundesminister:in
-                                                werden nicht angezeigt.
-                                            </div>`
+                                      : html`<div class="flex flex-col gap-4 p-4 border border-divider rounded-md">
+                                            <canvas id="missing"></canvas>
+                                        </div>`
                               }
                               ${
                                   this.missing.missing.length == 0
                                       ? html`<span>Nie abwesend</span>`
-                                      : html`<div class="flex flex-col gap-2 text-center text-xs">
-                                                <div class="font-semibold">Details</div>
-                                                <ul>
-                                                    <li>Im stenographischen Protokoll als "verhindert gemeldet", chronologisch sortiert</li>
-                                                </ul>
-                                            </div>
-                                            <expandable-details .details=${missingDetails}></expandable-details>`
+                                      : html`<expandable-details .details=${missingDetails}></expandable-details>`
                               }
                               <h2 class="flex gap-2 mt-8">
                                   Taferl (${this.plaques.length})
@@ -969,11 +978,7 @@ export class PersonPage extends BaseElement {
                               ${
                                   this.plaques.length == 0
                                       ? html`<span>Keine Taferl</span>`
-                                      : html`<div class="text-xs italic text-center">
-                                                Redebeiträge, in denen die Person ein Taferl aufgestellt hat, können angezeigt werden. Redebeiträge
-                                                anderer Personen, während derer die Person ein Taferl aufgestellt hat, werden nicht angezeigt.
-                                            </div>
-                                            <expandable-details .details=${plaquesDetails}></expandable-detail>`
+                                      : html`<expandable-details .details=${plaquesDetails}></expandable-detail>`
                               }
                               <h2 class="flex gap-2 mt-8">
                                   Ordnungsrufe (${this.ordercalls.length})

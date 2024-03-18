@@ -120,4 +120,8 @@ export class Api {
     static async section(period: string, session: number | string, section: number | string) {
         return await apiGet<SessionSection>(`section/${period}/${session}/${section}`);
     }
+
+    static async numSections(period: string, session: number | string) {
+        return await apiGet<number>(`sessions/${period}/${session}?numSections=true`);
+    }
 }

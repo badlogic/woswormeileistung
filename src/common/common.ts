@@ -38,7 +38,7 @@ export interface Ordercall {
     period: string;
     session: number;
     referenceUrls: string[];
-    resolvedReferences: SpeakerSection[];
+    resolvedReferences: SessionSection[];
 }
 
 export interface Callout {

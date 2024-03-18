@@ -208,7 +208,11 @@ async function updateData() {
                 } else {
                     const result = sessions.filter((session) => session.period == period && session.sessionNumber == sessionNumber);
                     if (!result) res.status(400);
-                    res.json(result);
+                    if (req.query.numSections) {
+                        res.json(result[0].sections.length);
+                    } else {
+                        res.json(result);
+                    }
                 }
             }
         } catch (e) {
