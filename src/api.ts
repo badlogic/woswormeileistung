@@ -1,4 +1,15 @@
-import { MissingPerson, Person, Plaque, PlaqueCallout, SessionSection, SpeakerSection, SectionScreams, Ordercall, Session } from "./common/common.js";
+import {
+    MissingPerson,
+    Person,
+    Plaque,
+    PlaqueCallout,
+    SessionSection,
+    SpeakerSection,
+    SectionScreams,
+    Ordercall,
+    Session,
+    Rollcall,
+} from "./common/common.js";
 import { error } from "./utils/utils.js";
 
 export interface JsonValue {
@@ -115,6 +126,10 @@ export class Api {
 
     static async personOrdercalls(id: string) {
         return await apiGet<Ordercall[]>("ordercalls/" + +encodeURIComponent(id));
+    }
+
+    static async personRollcalls(id: string) {
+        return await apiGet<Rollcall[]>("rollcalls/" + +encodeURIComponent(id));
     }
 
     static async section(period: string, session: number | string, section: number | string) {

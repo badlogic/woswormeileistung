@@ -205,9 +205,7 @@ export async function extractSections(filePath: string, period: string, persons:
         if (!speaker) {
             if (speakerSections.length > 0) {
                 const currSection = speakerSections[speakerSections.length - 1];
-                const callouts = extractCallouts(text, period, persons);
                 currSection.text += "\n\n" + text.trim();
-                currSection.callouts.push(...callouts);
                 currSection.pages.push(...pages);
                 currSection.tags.push(...tags);
                 if (currSection.pages.length > 0) {
@@ -222,21 +220,18 @@ export async function extractSections(filePath: string, period: string, persons:
         } else {
             let fullSpeaker = persons.byId(speaker);
             if (!fullSpeaker) {
+                // Speaker not in parlamentarier seite 1918 API data, resolve directly by id
+                // and add to persons db.
                 fullSpeaker = await getPerson(speaker);
                 if (!fullSpeaker) throw new Error("Could not find speaker for id " + speaker + ", " + filePath);
                 persons.add(fullSpeaker);
             }
 
-            // FIXME persons might not have all persons in it yet. Consider
-            // extracting callouts after all sections (and their speakers) have
-            // been extracted.
-            const callouts = extractCallouts(text, period, persons);
-
             const speakerSection = {
                 speaker: fullSpeaker,
                 isPresident: text.split(":")[0].includes("Präsident"),
                 text: text.trim(),
-                callouts,
+                callouts: [],
                 pages,
                 tags,
             };
@@ -419,8 +414,15 @@ export async function resolveOrdercalls(baseDir: string, sessions: Session[], pe
                 allCalls.push(ordercall);
                 const resolvedCalls: SessionSection[] = [];
                 const ordercallKey =
-                    " for person " + ordercall.person + " " + ordercall.date.split("T")[0] + "-" + ordercall.period + "-" + ordercall.session;
-                const speakerFull = persons.byId(ordercall.person as string);
+                    " for person " +
+                    (ordercall.person as Person).name +
+                    " " +
+                    ordercall.date.split("T")[0] +
+                    "-" +
+                    ordercall.period +
+                    "-" +
+                    ordercall.session;
+                const speakerFull = ordercall.person as Person;
                 for (const reference of ordercall.referenceUrls) {
                     const result = extractPeriodSessionHash(reference);
                     const { period, sessionNumber, hash } = result;
@@ -528,7 +530,7 @@ export async function resolveOrdercalls(baseDir: string, sessions: Session[], pe
                                 const isPresidentOrdnungsruf = section.section.isPresident && section.section.text.includes("Ordnungsruf");
                                 const isOrContainsSpeaker =
                                     !section.section.isPresident &&
-                                    (section.section.speaker == ordercall.person || section.section.text.includes(speakerFull!.familyName));
+                                    (section.section.speaker == ordercall.person || section.section.text.includes(speakerFull.familyName));
                                 if (isPresidentOrdnungsruf || isOrContainsSpeaker) {
                                     if (!resolvedCalls.some((res) => res?.section.text == section.section.text)) {
                                         let first = section;
@@ -622,7 +624,8 @@ export function extractMissing(baseDir: string, persons: Persons, sessions: Sess
         "Dipl.-Kfm.",
     ]);
     try {
-        for (const section of result.sections) {
+        for (let i = 0; i < result.sections.length; i++) {
+            let section = result.sections[i];
             if (periods.size > 0 && !periods.has(section.period)) continue;
             if (!section.section.isPresident) {
                 console.log(">>>");
@@ -703,6 +706,8 @@ export function extractMissing(baseDir: string, persons: Persons, sessions: Sess
                 date: section.date,
                 period: section.period,
                 session: section.session,
+                section: i,
+                pages: section.section.pages,
                 persons: foundPersons as any,
             });
         }
@@ -866,7 +871,6 @@ export async function extractScreamers(baseDir: string, persons: Persons, sessio
 }
 
 export async function resolveUnknownSpeakers(session: Session) {
-    const partyless = new Map<string, Person>();
     const idsToImageUrls = new Map<string, string>();
     const idsToParties = new Map<string, string[]>();
     const sections = session.sections;
@@ -891,7 +895,6 @@ export async function resolveUnknownSpeakers(session: Session) {
                     section.speaker.parties = metadata.parties;
                 }
             }
-            partyless.set(section.speaker.id, section.speaker);
         }
     }
 }
@@ -1199,6 +1202,7 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
                 period: content.gp_code,
                 title: content.title,
                 description: content.description,
+                url: rollcall.url.replace("?json=true", ""),
                 persons: names,
                 noVotes: noPersons,
                 yesVotes: yesPersons,

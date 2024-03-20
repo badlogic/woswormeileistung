@@ -9,6 +9,7 @@ import { router } from "../utils/routing";
 import { pageContainerStyle, pageContentStyle } from "../utils/styles";
 import { downloadFile } from "../utils/utils";
 import { repeat } from "lit-html/directives/repeat.js";
+import { renderSection, renderSectionCard } from "./components";
 
 @customElement("session-page")
 export class SessionPage extends BaseElement {
@@ -57,20 +58,6 @@ export class SessionPage extends BaseElement {
     }
 
     render() {
-        const renderSection = (section: SpeakerSection, date: string, period: string, session: number, sectionNumber: number) => {
-            const person = this.session.persons[section.speaker as string];
-            return html`<div class="flex flex-col gap-4">
-                <section-header .date=${date} .period=${period} .session=${session} .section=${sectionNumber}></section-header>
-                <span>${section.pages.join(", ")}</span>
-                <a href="/person/${person.id}" class="flex gap-2 items-center text-blue-400">
-                    <img class="w-8 h-8 rounded-full shadow-lg object-cover object-center" src=${person.imageUrl} />
-                    <span>${person.name}</span>
-                    <div class="flex items-center gap-2">${repeat(person.parties, (party) => html`<party-badge .party=${party}></party-badg>`)}</div>
-                </a>
-                ${renderSectionText(section)}
-            </div>`;
-        };
-
         const session = this.session?.session;
         return html`<div class="${pageContainerStyle} min-h-[100vh]">
             <div class="${pageContentStyle} h-[100vh]">
@@ -95,11 +82,8 @@ export class SessionPage extends BaseElement {
                                   href="https://parlament.gv.at/gegenstand/${session.period}/NRSITZ/${session.sessionNumber}"
                                   >Parlamentsseite</a
                               >
-                              ${repeat(
-                                  session.sections,
-                                  (section, index) => html`<div class="p-4 border border-divider rounded shadow flex flex-col">
-                                      ${renderSection(section, session.date, session.period, session.sessionNumber, index)}
-                                  </div>`
+                              ${repeat(session.sections, (section, index) =>
+                                  renderSectionCard(section, session.date, session.period, session.sessionNumber, index, this.session.persons, [])
                               )}
                           </div>`
                         : nothing}

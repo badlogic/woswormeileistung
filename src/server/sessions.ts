@@ -51,12 +51,17 @@ export async function processSessions(persons: Persons, baseDir: string) {
             }
         }
 
+        if (!urls.some((url) => url.endsWith(".html"))) {
+            console.log("No final protocol for session " + row[9].split("T")[0] + "-" + row[2] + "-" + row[4]);
+            continue;
+        }
+
         const session: Session = {
             url: "https://parlament.gv.at" + row[1],
+            date: row[9],
             period: row[2],
             sessionNumber: row[4],
             sessionLabel: row[5],
-            date: row[9],
             protocolUrls: urls,
             orderCalls: [],
             sections: [],
@@ -79,7 +84,19 @@ export async function processSessions(persons: Persons, baseDir: string) {
         fs.mkdirSync(`${baseDir}/sessions`, { recursive: true });
     }
 
-    const toProcess = [...sessions];
+    // Create metadata objects with file and url paths. Ignore sessions without protocol URL pointing to .html
+    const sessionInfos = sessions
+        .map((session) => {
+            const htmlUrl = session.protocolUrls.find((url) => url.endsWith(".html"))!;
+            const htmlFile = `${baseDir}/sessions/` + session.date.split("T")[0] + "-" + session.period + "-" + session.sessionNumber + ".html";
+            const jsonUrl = `https://www.parlament.gv.at/gegenstand/${session.period}/NRSITZ/${session.sessionNumber}?json=true`;
+            const jsonFile =
+                `${baseDir}/sessions/` + session.date.split("T")[0] + "-" + session.period + "-" + session.sessionNumber + ".json.original";
+            return { htmlFile, htmlUrl, jsonFile, jsonUrl, session };
+        })
+        .filter((item) => item.htmlUrl);
+
+    const toProcess = [...sessionInfos];
     let processed = 0;
     while (toProcess.length > 0) {
         // Parlament server has the most aggressive fucking rate limiting I've ever seen.
@@ -87,40 +104,61 @@ export async function processSessions(persons: Persons, baseDir: string) {
         // stenography protocols. Those should be CDN'ed up the wazoo. Nope...
         let batch = toProcess.splice(0, 5);
         const batchSize = batch.length;
-        batch = batch.filter((session) => session.protocolUrls.some((url) => url.endsWith(".html")));
-        const filesAndUrls = batch.map((session) => {
-            const htmlUrl = session.protocolUrls.find((url) => url.endsWith(".html"))!;
-            const htmlFile = `${baseDir}/sessions/` + session.date.split("T")[0] + "-" + session.period + "-" + session.sessionNumber + ".html";
-            const jsonUrl = `https://www.parlament.gv.at/gegenstand/${session.period}/NRSITZ/${session.sessionNumber}?json=true`;
-            const jsonFile =
-                `${baseDir}/sessions/` + session.date.split("T")[0] + "-" + session.period + "-" + session.sessionNumber + ".json.original";
-            return { htmlFile, htmlUrl, jsonFile, jsonUrl, session };
-        });
+        batch = batch.filter((session) => session.session.protocolUrls.some((url) => url.endsWith(".html")));
 
         // Fetch .html files
-        let promises = filesAndUrls.map((url) => {
+        let promises = batch.map((url) => {
             if (fs.existsSync(url.htmlFile)) return Promise.resolve();
             return fetchAndSaveHtml(url.htmlUrl, url.htmlFile);
         });
         await Promise.all(promises);
 
         // Fetch session JSONs from parliament site, not ours
-        promises = filesAndUrls.map((url) => {
+        promises = batch.map((url) => {
             if (fs.existsSync(url.jsonFile)) return Promise.resolve();
             return fetchAndSaveJSON(url.jsonUrl, url.jsonFile);
         });
         await Promise.all(promises);
 
-        for (const session of filesAndUrls) {
+        for (const session of batch) {
             session.session.sections = await extractSections(session.htmlFile, session.session.period, persons);
-            session.session.orderCalls = await extractOrdercalls(session.jsonFile, session.session, persons);
-            await resolveUnknownSpeakers(session.session);
             fs.writeFileSync(session.htmlFile.replace(".html", ".json"), JSON.stringify(session.session, null, 2), "utf-8");
         }
 
         processed += batchSize;
-        console.log("Processed " + processed + "/" + sessions.length + " protocols");
+        console.log("Processed " + processed + "/" + sessionInfos.length + " protocols");
     }
+
+    // Second pass. We now have all sessions and their sections, and resolved speakers.
+    // However, the speakers may lack periods assigned to them. Let's assign them based
+    // on when they spoke.
+    for (const session of sessionInfos) {
+        for (const section of session.session.sections) {
+            const person = section.speaker as Person;
+            if (!person.periods.includes(session.session.period)) {
+                person.periods.push(session.session.period);
+                person.periods.sort();
+            }
+        }
+    }
+
+    // Third pass. We've now collected all speakers, including those not returned by the
+    // "parlamentarier seit 1918" API endpoint. We can now extract:
+    // 1. callouts (relies on Persons instance to lookup based on name)
+    // 2. ordercalls (also relies on Persons instance)
+    // 3. reolve ordercalls (requires all sections to be known and persons)
+    console.log(">>> Extracting callouts");
+    for (const session of sessionInfos) {
+        for (const section of session.session.sections) {
+            section.callouts = await extractCallouts(section.text, session.session.period, persons);
+        }
+    }
+    console.log(">>> Extracting ordercalls");
+    for (const session of sessionInfos) {
+        session.session.orderCalls = await extractOrdercalls(session.jsonFile, session.session, persons);
+    }
+    console.log(">>> Resolving ordercalls to sections");
+    await resolveOrdercalls(baseDir, sessions, persons);
 
     // Merge the parliament folks with folks that may not have been in the parliament
     // list, and replace speaker objects with their ids to conserve space.
@@ -151,7 +189,6 @@ export async function processSessions(persons: Persons, baseDir: string) {
     }
 
     persons = new Persons(Array.from(newPersons.values()));
-    await resolveOrdercalls(baseDir, sessions, persons);
     fs.writeFileSync(`${baseDir}/persons.json`, JSON.stringify(persons.persons, null, 2), "utf-8");
     fs.writeFileSync(`${baseDir}/sessions.json`, JSON.stringify(sessions, null, 2), "utf-8");
     return { sessions, persons };

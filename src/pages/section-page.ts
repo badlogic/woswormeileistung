@@ -2,7 +2,7 @@ import { html, nothing } from "lit";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 import { customElement, state } from "lit/decorators.js";
 import { Api } from "../api";
-import { BaseElement, renderSectionText } from "../app";
+import { BaseElement, renderSectionCard, renderSectionText } from "../app";
 import { Person, SessionSection } from "../common/common";
 import { arrowLeftIcon, arrowRightIcon, logoIcon } from "../utils/icons";
 import { router } from "../utils/routing";
@@ -76,20 +76,13 @@ export class SectionPage extends BaseElement {
 
     render() {
         const text = this.section
-            ? html`<div id="section" class="p-4 border border-divider rounded-md">
+            ? html`<div id="section" class="p-4 border border-divider rounded shadow flex flex-col">
                   ${renderSectionText(this.section.section, new Set<string>(this.highlights))}
               </div>`
             : nothing;
         const speaker = this.section ? (this.section.section.speaker as Person) : undefined;
-
-        const scrollToHighlight = (target: EventTarget | null, hl: string) => {
-            for (const span of Array.from(document.querySelectorAll("span"))) {
-                if (span.innerText.toLowerCase() == hl.toLowerCase() && span != target) {
-                    span.scrollIntoView({ behavior: "smooth", block: "center" });
-                    return;
-                }
-            }
-        };
+        const persons: Record<string, Person> = {};
+        if (speaker) persons[speaker.id] = speaker;
 
         return html`<div class="${pageContainerStyle} min-h-[100vh]">
             <div class="${pageContentStyle} h-[100vh]">
@@ -125,28 +118,15 @@ export class SectionPage extends BaseElement {
                                       api="/api/section/${this.section.period}/${this.section.session}/${this.section.sectionIndex}"
                                   ></json-api-boxes>
                               </h2>
-                              <person-header .person=${this.section.section.speaker} .link=${true}></person-header>
-                              <section-header
-                                  .date=${this.section.date}
-                                  .period=${this.section.period}
-                                  .session=${this.section.session}
-                                  .section=${this.section.sectionIndex}
-                              ></section-header>
-                              ${this.highlights.length > 0
-                                  ? html` <h3>Highlights im Text</h3>
-                                        <div class="flex flex-col gap-2">
-                                            ${repeat(
-                                                this.highlights,
-                                                (hl) =>
-                                                    html`<span
-                                                        class="cursor-pointer px-4 p-1 border hover:border-primary shadow-md rounded-md italic"
-                                                        @click=${(ev: Event) => scrollToHighlight(ev.target, hl)}
-                                                        >${hl}</span
-                                                    >`
-                                            )}
-                                        </div>`
-                                  : nothing}
-                              ${text}
+                              ${renderSectionCard(
+                                  this.section.section,
+                                  this.section.date,
+                                  this.section.period,
+                                  this.section.session,
+                                  this.section.sectionIndex,
+                                  persons,
+                                  this.highlights
+                              )}
                           </div>`
                         : nothing}
                 </div>

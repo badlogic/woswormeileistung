@@ -13,6 +13,7 @@ import {
     Person,
     Persons,
     Plaque,
+    Rollcall,
     Scream,
     Screamer,
     SectionScreams,
@@ -34,6 +35,8 @@ export let missingPerPerson: Map<string, MissingPerson> = new Map();
 export let screamsFromPerson: Map<string, SectionScreams[]> = new Map();
 export let screamsAtPerson: Map<string, SectionScreams[]> = new Map();
 export let ordercallsForPerson: Map<string, Ordercall[]> = new Map();
+export let rollcalls: Rollcall[] = [];
+export let rollcallsPerPerson: Map<string, Rollcall[]> = new Map();
 
 function toArray(queryParam: string[] | string | any | undefined): string[] {
     if (queryParam == undefined) return [];
@@ -87,6 +90,8 @@ function loadData() {
                     sourceText: missing.sourceText,
                     period: missing.period,
                     session: missing.session,
+                    section: missing.section,
+                    pages: missing.pages,
                     date: missing.date,
                     nameInText: person.nameInText,
                 });
@@ -155,6 +160,39 @@ function loadData() {
                     return b.section - a.section;
                 })
             );
+        }
+
+        // rollcalls
+        console.log("Computing rollcalls data");
+        rollcalls = JSON.parse(fs.readFileSync("/data/rollcalls.json", "utf-8")) as Rollcall[];
+        rollcalls.sort((a, b) => b.date.localeCompare(a.date));
+        rollcallsPerPerson = new Map();
+        for (const rollcall of rollcalls) {
+            for (const person of rollcall.persons) {
+                const calls = rollcallsPerPerson.get(person.id) ?? [];
+                calls.push(rollcall);
+                rollcallsPerPerson.set(person.id, calls);
+            }
+
+            for (const person of rollcall.yesVotes) {
+                if (!person) continue;
+                const calls = rollcallsPerPerson.get(person.id) ?? [];
+                const downsizedRollcall = { ...rollcall };
+                downsizedRollcall.yesVotes = downsizedRollcall.yesVotes.filter((item) => item && item.id == person.id);
+                downsizedRollcall.noVotes = downsizedRollcall.noVotes.filter((item) => item && item.id == person.id);
+                calls.push(downsizedRollcall);
+                rollcallsPerPerson.set(person.id, calls);
+            }
+
+            for (const person of rollcall.noVotes) {
+                if (!person) continue;
+                const calls = rollcallsPerPerson.get(person.id) ?? [];
+                const downsizedRollcall = { ...rollcall };
+                downsizedRollcall.yesVotes = downsizedRollcall.yesVotes.filter((item) => item && item.id == person.id);
+                downsizedRollcall.noVotes = downsizedRollcall.noVotes.filter((item) => item && item.id == person.id);
+                calls.push(downsizedRollcall);
+                rollcallsPerPerson.set(person.id, calls);
+            }
         }
     } catch (e) {
         console.error("Could not load data", e);
@@ -371,6 +409,16 @@ async function updateData() {
         try {
             const ordercalls = ordercallsForPerson.get(req.params.id as string) ?? [];
             res.json(ordercalls);
+        } catch (e) {
+            console.error("Could not get screams from person " + req.params.id, e);
+            res.status(400).json({ error: "Could not get screams from person " + req.params.id });
+        }
+    });
+
+    app.get("/api/rollcalls/:id", async (req, res) => {
+        try {
+            const rollcalls = rollcallsPerPerson.get(req.params.id as string) ?? [];
+            res.json(rollcalls);
         } catch (e) {
             console.error("Could not get screams from person " + req.params.id, e);
             res.status(400).json({ error: "Could not get screams from person " + req.params.id });

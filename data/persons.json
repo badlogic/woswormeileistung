@@ -86,7 +86,8 @@
       "XXIII",
       "XXIV",
       "XXV",
-      "XXVI"
+      "XXVI",
+      "XXVII"
     ],
     "parties": [
       "ÖVP"
@@ -457,6 +458,7 @@
       "Dipl.-Ing."
     ],
     "periods": [
+      "XXIV",
       "XXV",
       "XXVI",
       "XXVII"
@@ -568,6 +570,7 @@
       "MBA"
     ],
     "periods": [
+      "XXVI",
       "XXVII"
     ],
     "parties": [
@@ -749,7 +752,10 @@
       "XX",
       "XXI",
       "XXII",
-      "XXIII"
+      "XXIII",
+      "XXIV",
+      "XXV",
+      "XXVI"
     ],
     "parties": [
       "ÖVP"
@@ -1320,6 +1326,7 @@
       "Mag."
     ],
     "periods": [
+      "XXV",
       "XXVI",
       "XXVII"
     ],
@@ -1355,6 +1362,7 @@
       "Mag."
     ],
     "periods": [
+      "XXV",
       "XXVI",
       "XXVII"
     ],
@@ -1798,6 +1806,7 @@
     "givenName": "Werner",
     "titles": [],
     "periods": [
+      "XXIII",
       "XXIV",
       "XXV"
     ],
@@ -1931,7 +1940,9 @@
     ],
     "periods": [
       "XXIII",
-      "XXIV"
+      "XXIV",
+      "XXV",
+      "XXVI"
     ],
     "parties": [
       "FPÖ"
@@ -2284,7 +2295,8 @@
     ],
     "periods": [
       "XXV",
-      "XXVI"
+      "XXVI",
+      "XXVII"
     ],
     "parties": [
       "NEOS"
@@ -2844,7 +2856,8 @@
       "XX",
       "XXI",
       "XXII",
-      "XXIII"
+      "XXIII",
+      "XXIV"
     ],
     "parties": [
       "SPÖ"
@@ -3002,6 +3015,7 @@
       "Dr."
     ],
     "periods": [
+      "XXIII",
       "XXIV"
     ],
     "parties": [
@@ -3021,7 +3035,8 @@
     "periods": [
       "XXIV",
       "XXV",
-      "XXVI"
+      "XXVI",
+      "XXVII"
     ],
     "parties": [
       "FPÖ"
@@ -3165,6 +3180,7 @@
       "Dr."
     ],
     "periods": [
+      "XXV",
       "XXVI",
       "XXVII"
     ],
@@ -3221,6 +3237,7 @@
     "givenName": "Ursula",
     "titles": [],
     "periods": [
+      "XXII",
       "XXIII",
       "XXIV"
     ],
@@ -3315,6 +3332,7 @@
       "XXI",
       "XXII",
       "XXIII",
+      "XXIV",
       "XXV",
       "XXVI",
       "XXVII"
@@ -3782,6 +3800,7 @@
     "givenName": "Rudolf",
     "titles": [],
     "periods": [
+      "XXIV",
       "XXV"
     ],
     "parties": [
@@ -4234,6 +4253,7 @@
       "Mag."
     ],
     "periods": [
+      "XXV",
       "XXVI"
     ],
     "parties": [
@@ -4272,7 +4292,8 @@
       "XVIII",
       "XX",
       "XXI",
-      "XXII"
+      "XXII",
+      "XXIII"
     ],
     "parties": [
       "ÖVP"
@@ -4410,6 +4431,7 @@
       "Mag."
     ],
     "periods": [
+      "XXIV",
       "XXV"
     ],
     "parties": [
@@ -4764,7 +4786,9 @@
       "XXI",
       "XXII",
       "XXIII",
-      "XXIV"
+      "XXIV",
+      "XXV",
+      "XXVI"
     ],
     "parties": [
       "SPÖ"
@@ -4960,7 +4984,8 @@
     "titles": [],
     "periods": [
       "XXIV",
-      "XXV"
+      "XXV",
+      "XXVI"
     ],
     "parties": [
       "FPÖ"
@@ -5015,6 +5040,7 @@
     "givenName": "Sebastian",
     "titles": [],
     "periods": [
+      "XXIV",
       "XXV",
       "XXVI",
       "XXVII"
@@ -5246,6 +5272,7 @@
       "Mag."
     ],
     "periods": [
+      "XXV",
       "XXVI",
       "XXVII"
     ],
@@ -5644,7 +5671,9 @@
       "XXI",
       "XXII",
       "XXIII",
-      "XXIV"
+      "XXIV",
+      "XXV",
+      "XXVII"
     ],
     "parties": [
       "GRÜNE"
@@ -6026,6 +6055,7 @@
     "periods": [
       "XXI",
       "XXII",
+      "XXIV",
       "XXV"
     ],
     "parties": [
@@ -6115,7 +6145,8 @@
       "LL.M."
     ],
     "periods": [
-      "XXV"
+      "XXV",
+      "XXVI"
     ],
     "parties": [
       "NEOS"
@@ -6246,6 +6277,10 @@
       "Dr."
     ],
     "periods": [
+      "XXII",
+      "XXIII",
+      "XXIV",
+      "XXV",
       "XXVI",
       "XXVII"
     ],
@@ -7017,6 +7052,7 @@
       "Dr."
     ],
     "periods": [
+      "XXII",
       "XXIII",
       "XXIV"
     ],
@@ -7036,6 +7072,7 @@
       "XIX",
       "XX",
       "XXI",
+      "XXII",
       "XXIII"
     ],
     "parties": [
@@ -7546,6 +7583,7 @@
       "MBA"
     ],
     "periods": [
+      "XXV",
       "XXVII"
     ],
     "parties": [
@@ -7579,6 +7617,7 @@
       "MSc"
     ],
     "periods": [
+      "XXV",
       "XXVI",
       "XXVII"
     ],
@@ -7739,7 +7778,8 @@
     "periods": [
       "XXIV",
       "XXV",
-      "XXVI"
+      "XXVI",
+      "XXVII"
     ],
     "parties": [
       "FPÖ"
@@ -7832,6 +7872,7 @@
       "Dipl.-Ing."
     ],
     "periods": [
+      "XXV",
       "XXVI"
     ],
     "parties": [
@@ -8149,7 +8190,8 @@
       "Dr."
     ],
     "periods": [
-      "XXIII"
+      "XXIII",
+      "XXV"
     ],
     "parties": [
       "ÖVP"
@@ -8261,7 +8303,8 @@
       "XXIII",
       "XXIV",
       "XXV",
-      "XXVI"
+      "XXVI",
+      "XXVII"
     ],
     "parties": [
       "SPÖ"
@@ -8551,6 +8594,7 @@
       "Dr."
     ],
     "periods": [
+      "XXVI",
       "XXVII"
     ],
     "parties": [
@@ -8930,6 +8974,7 @@
       "Mag."
     ],
     "periods": [
+      "XXV",
       "XXVI",
       "XXVII"
     ],
@@ -9076,6 +9121,7 @@
     "periods": [
       "XIX",
       "XX",
+      "XXII",
       "XXIII",
       "XXIV"
     ],
@@ -9325,6 +9371,8 @@
       "diplômé"
     ],
     "periods": [
+      "XXIV",
+      "XXV",
       "XXVI",
       "XXVII"
     ],
@@ -9363,7 +9411,8 @@
       "XX",
       "XXI",
       "XXII",
-      "XXIII"
+      "XXIII",
+      "XXIV"
     ],
     "parties": [
       "GRÜNE"
@@ -9667,6 +9716,7 @@
       "Dr."
     ],
     "periods": [
+      "XXIV",
       "XXV"
     ],
     "parties": [
@@ -9937,7 +9987,9 @@
     "periods": [
       "XXIII",
       "XXIV",
-      "XXV"
+      "XXV",
+      "XXVI",
+      "XXVII"
     ],
     "parties": [
       "FPÖ"
@@ -10448,7 +10500,8 @@
     ],
     "periods": [
       "XXV",
-      "XXVI"
+      "XXVI",
+      "XXVII"
     ],
     "parties": [
       "ÖVP"
@@ -10809,7 +10862,9 @@
       "MMag.",
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -10825,7 +10880,9 @@
       "Mag.",
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -10842,7 +10899,11 @@
       "Dr.",
       "MBL-HSG"
     ],
-    "periods": [],
+    "periods": [
+      "XXV",
+      "XXVI",
+      "XXVII"
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -10857,7 +10918,9 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -10870,7 +10933,9 @@
     "familyName": "Thaler",
     "givenName": "Barbara",
     "titles": [],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -10885,9 +10950,13 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXV",
+      "XXVI",
+      "XXVII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/200709/20070983_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070983_384.jpg",
     "url": "https://parlament.gv.at/person/88771"
   },
   {
@@ -10898,9 +10967,11 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/200639/20063989_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200639/20063989_384.jpg",
     "url": "https://parlament.gv.at/person/21406"
   },
   {
@@ -10909,7 +10980,9 @@
     "familyName": "Rauch",
     "givenName": "Johannes",
     "titles": [],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -10925,7 +10998,9 @@
       "Dr.",
       "LL.M."
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -10941,9 +11016,11 @@
       "Mag.",
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/200504/20050490_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200504/20050490_384.jpg",
     "url": "https://parlament.gv.at/person/18140"
   },
   {
@@ -10954,9 +11031,11 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/200692/20069283_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200692/20069283_384.jpg",
     "url": "https://parlament.gv.at/person/20449"
   },
   {
@@ -10967,7 +11046,9 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -10983,7 +11064,9 @@
       "Mag.",
       "MSc"
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -10998,7 +11081,10 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXVI",
+      "XXVII"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -11011,9 +11097,11 @@
     "familyName": "Metsola",
     "givenName": "Roberta",
     "titles": [],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg",
+    "imageUrl": "https://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg",
     "url": "https://parlament.gv.at/person/24385"
   },
   {
@@ -11022,7 +11110,9 @@
     "familyName": "Waitz",
     "givenName": "Thomas",
     "titles": [],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -11038,9 +11128,11 @@
       "MBA",
       "MSc"
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/200639/20063990_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200639/20063990_384.jpg",
     "url": "https://parlament.gv.at/person/21407"
   },
   {
@@ -11051,7 +11143,9 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -11066,9 +11160,11 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/200709/20070980_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200709/20070980_384.jpg",
     "url": "https://parlament.gv.at/person/5502"
   },
   {
@@ -11080,9 +11176,12 @@
       "Mag.",
       "LL.M."
     ],
-    "periods": [],
+    "periods": [
+      "XXVI",
+      "XXVII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/200504/20050481_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200504/20050481_384.jpg",
     "url": "https://parlament.gv.at/person/5430"
   },
   {
@@ -11094,7 +11193,11 @@
       "Dr.",
       "MBL-HSG"
     ],
-    "periods": [],
+    "periods": [
+      "XXV",
+      "XXVI",
+      "XXVII"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -11110,7 +11213,9 @@
       "BA",
       "MA"
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -11123,7 +11228,9 @@
     "familyName": "Heide",
     "givenName": "Hannes",
     "titles": [],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -11138,9 +11245,11 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/200505/20050502_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200505/20050502_384.jpg",
     "url": "https://parlament.gv.at/person/7267"
   },
   {
@@ -11151,7 +11260,9 @@
     "titles": [
       "Dipl.-Ing."
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -11167,7 +11278,9 @@
       "Mag.",
       "BA"
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -11182,9 +11295,11 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/200118/20011886_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200118/20011886_384.jpg",
     "url": "https://parlament.gv.at/person/19043"
   },
   {
@@ -11195,9 +11310,12 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXVI",
+      "XXVII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/200026/20002605_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200026/20002605_384.jpg",
     "url": "https://parlament.gv.at/person/2975"
   },
   {
@@ -11208,9 +11326,11 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/200222/20022229_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/200222/20022229_384.jpg",
     "url": "https://parlament.gv.at/person/20175"
   },
   {
@@ -11219,7 +11339,9 @@
     "familyName": "Wiener",
     "givenName": "Sarah",
     "titles": [],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -11235,7 +11357,9 @@
       "Mag.",
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -11248,7 +11372,9 @@
     "familyName": "Schmiedtbauer",
     "givenName": "Simone",
     "titles": [],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -11261,7 +11387,9 @@
     "familyName": "Anschober",
     "givenName": "Rudolf",
     "titles": [],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "GRÜNE"
     ],
@@ -11276,7 +11404,9 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -11291,7 +11421,11 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXV",
+      "XXVI",
+      "XXVII"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -11306,7 +11440,9 @@
     "titles": [
       "Mag. (FH)"
     ],
-    "periods": [],
+    "periods": [
+      "XXVII"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -11321,9 +11457,12 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXVI",
+      "XXVII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/87921/8792101_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/87921/8792101_384.jpg",
     "url": "https://parlament.gv.at/person/5432"
   },
   {
@@ -11334,9 +11473,12 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXVI",
+      "XXVII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/87924/8792446_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/87924/8792446_384.jpg",
     "url": "https://parlament.gv.at/person/5429"
   },
   {
@@ -11348,9 +11490,12 @@
       "Dipl.-Kfm.",
       "MBA"
     ],
-    "periods": [],
+    "periods": [
+      "XXVI",
+      "XXVII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/90320/9032032_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/90320/9032032_384.jpg",
     "url": "https://parlament.gv.at/person/5427"
   },
   {
@@ -11363,9 +11508,12 @@
       "Dr.",
       "h.c."
     ],
-    "periods": [],
+    "periods": [
+      "XXVI",
+      "XXVII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/87924/8792499_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/87924/8792499_384.jpg",
     "url": "https://parlament.gv.at/person/17147"
   },
   {
@@ -11377,9 +11525,12 @@
       "Dipl.-Ing.",
       "MBA"
     ],
-    "periods": [],
+    "periods": [
+      "XXVI",
+      "XXVII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/89140/8914057_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/89140/8914057_384.jpg",
     "url": "https://parlament.gv.at/person/5425"
   },
   {
@@ -11391,9 +11542,11 @@
       "Mag.",
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXVI"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/88482/8848250_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/88482/8848250_384.jpg",
     "url": "https://parlament.gv.at/person/5426"
   },
   {
@@ -11404,9 +11557,11 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXVI"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/87923/8792357_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/87923/8792357_384.jpg",
     "url": "https://parlament.gv.at/person/5423"
   },
   {
@@ -11417,9 +11572,11 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXVI"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/90533/9053344_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/90533/9053344_384.jpg",
     "url": "https://parlament.gv.at/person/12479"
   },
   {
@@ -11431,9 +11588,11 @@
       "Mag.",
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXVI"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/87924/8792464_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/87924/8792464_384.jpg",
     "url": "https://parlament.gv.at/person/5431"
   },
   {
@@ -11442,9 +11601,11 @@
     "familyName": "Pasquier",
     "givenName": "Liliane Maury",
     "titles": [],
-    "periods": [],
+    "periods": [
+      "XXVI"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg",
+    "imageUrl": "https://parlament.gv.at/static/img/Foto_Platzhalter_Quadrat.svg",
     "url": "https://parlament.gv.at/person/5434"
   },
   {
@@ -11455,9 +11616,11 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXVI"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/87921/8792117_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/87921/8792117_384.jpg",
     "url": "https://parlament.gv.at/person/5422"
   },
   {
@@ -11468,9 +11631,11 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXVI"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/87923/8792339_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/87923/8792339_384.jpg",
     "url": "https://parlament.gv.at/person/5428"
   },
   {
@@ -11481,9 +11646,11 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXVI"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/73249/7324914_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/73249/7324914_384.jpg",
     "url": "https://parlament.gv.at/person/8188"
   },
   {
@@ -11494,9 +11661,11 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXVI"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/76380/7638089_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/76380/7638089_384.jpg",
     "url": "https://parlament.gv.at/person/2976"
   },
   {
@@ -11505,9 +11674,11 @@
     "familyName": "Löger",
     "givenName": "Hartwig",
     "titles": [],
-    "periods": [],
+    "periods": [
+      "XXVI"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/74359/7435986_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/74359/7435986_384.jpg",
     "url": "https://parlament.gv.at/person/2977"
   },
   {
@@ -11516,7 +11687,10 @@
     "familyName": "Kadenbach",
     "givenName": "Karin Ingeborg",
     "titles": [],
-    "periods": [],
+    "periods": [
+      "XXV",
+      "XXVI"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -11532,9 +11706,11 @@
       "Mag.",
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXV"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/53804/5380448_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/53804/5380448_384.jpg",
     "url": "https://parlament.gv.at/person/84308"
   },
   {
@@ -11545,9 +11721,11 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXV"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/53700/5370025_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/53700/5370025_384.jpg",
     "url": "https://parlament.gv.at/person/83295"
   },
   {
@@ -11559,9 +11737,11 @@
       "MMag.",
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXV"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/47257/4725791_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/47257/4725791_384.jpg",
     "url": "https://parlament.gv.at/person/83297"
   },
   {
@@ -11570,7 +11750,9 @@
     "familyName": "Becker",
     "givenName": "Heinz Kurt",
     "titles": [],
-    "periods": [],
+    "periods": [
+      "XXV"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -11585,7 +11767,9 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXV"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -11600,7 +11784,9 @@
     "titles": [
       "BA"
     ],
-    "periods": [],
+    "periods": [
+      "XXV"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -11615,7 +11801,9 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXV"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -11630,9 +11818,12 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXIV",
+      "XXV"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/46673/4667335_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/46673/4667335_384.jpg",
     "url": "https://parlament.gv.at/person/52707"
   },
   {
@@ -11641,7 +11832,9 @@
     "familyName": "Freund",
     "givenName": "Eugen",
     "titles": [],
-    "periods": [],
+    "periods": [
+      "XXV"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -11656,9 +11849,11 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXV"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/46128/4612899_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/46128/4612899_384.jpg",
     "url": "https://parlament.gv.at/person/15161"
   },
   {
@@ -11669,9 +11864,12 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXIII",
+      "XXIV"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/42417/4241749_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/42417/4241749_384.jpg",
     "url": "https://parlament.gv.at/person/36447"
   },
   {
@@ -11682,7 +11880,11 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXII",
+      "XXIII",
+      "XXIV"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -11697,9 +11899,11 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXIV"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/36262/3626231_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/36262/3626231_384.jpg",
     "url": "https://parlament.gv.at/person/65320"
   },
   {
@@ -11710,9 +11914,11 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXIV"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/24011/2401194_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/24011/2401194_384.jpg",
     "url": "https://parlament.gv.at/person/53727"
   },
   {
@@ -11723,9 +11929,11 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXIV"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/43472/4347293_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/43472/4347293_384.jpg",
     "url": "https://parlament.gv.at/person/62379"
   },
   {
@@ -11736,9 +11944,11 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXIII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/22837/2283790_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/22837/2283790_384.jpg",
     "url": "https://parlament.gv.at/person/36449"
   },
   {
@@ -11749,9 +11959,11 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXIII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/22838/2283805_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/22838/2283805_384.jpg",
     "url": "https://parlament.gv.at/person/36448"
   },
   {
@@ -11762,9 +11974,12 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXII",
+      "XXIII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/48330/4833078_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/48330/4833078_384.jpg",
     "url": "https://parlament.gv.at/person/28371"
   },
   {
@@ -11775,7 +11990,9 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXIII"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -11788,7 +12005,9 @@
     "familyName": "Kranzl",
     "givenName": "Christa",
     "titles": [],
-    "periods": [],
+    "periods": [
+      "XXIII"
+    ],
     "parties": [
       "SPÖ"
     ],
@@ -11803,7 +12022,9 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXIII"
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -11816,7 +12037,10 @@
     "familyName": "Bauer",
     "givenName": "Rosemarie",
     "titles": [],
-    "periods": [],
+    "periods": [
+      "XXII",
+      "XXIII"
+    ],
     "parties": [
       "ÖVP"
     ],
@@ -11831,7 +12055,9 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXII"
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -11844,7 +12070,9 @@
     "familyName": "Gorbach",
     "givenName": "Hubert",
     "titles": [],
-    "periods": [],
+    "periods": [
+      "XXII"
+    ],
     "parties": [
       "FPÖ",
       "BZÖ"
@@ -11860,7 +12088,9 @@
     "titles": [
       "Mag."
     ],
-    "periods": [],
+    "periods": [
+      "XXII"
+    ],
     "parties": [
       "BZÖ"
     ],
@@ -11873,9 +12103,11 @@
     "familyName": "Prokop",
     "givenName": "Liese",
     "titles": [],
-    "periods": [],
+    "periods": [
+      "XXII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/21008/2100899_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/21008/2100899_384.jpg",
     "url": "https://parlament.gv.at/person/25260"
   },
   {
@@ -11886,9 +12118,11 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXII"
+    ],
     "parties": [],
-    "imageUrl": "https://parlament.gv.athttps://parlament.gv.at/dokument/bild/65176/6517628_384.jpg",
+    "imageUrl": "https://parlament.gv.at/dokument/bild/65176/6517628_384.jpg",
     "url": "https://parlament.gv.at/person/2801"
   },
   {
@@ -11899,7 +12133,9 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXII"
+    ],
     "parties": [
       "FPÖ"
     ],
@@ -11914,7 +12150,9 @@
     "titles": [
       "Dr."
     ],
-    "periods": [],
+    "periods": [
+      "XXII"
+    ],
     "parties": [
       "FPÖ"
     ],

@@ -95,6 +95,7 @@ export interface Plaque {
 }
 
 export interface Rollcall {
+    url: string;
     date: string;
     period: string;
     title: string;
@@ -108,8 +109,24 @@ export interface Rollcall {
     failed: { yes: string[]; no: string[] };
 }
 
-export type Missing = { sourceText: string; date: string; period: string; session: number; persons: ({ nameInText: string } & Person)[] };
-export type MissingEntry = { sourceText: string; date: string; period: string; session: number; nameInText: string };
+export type Missing = {
+    sourceText: string;
+    date: string;
+    period: string;
+    session: number;
+    section: number;
+    pages: number[];
+    persons: ({ nameInText: string } & Person)[];
+};
+export type MissingEntry = {
+    sourceText: string;
+    date: string;
+    period: string;
+    session: number;
+    section: number;
+    pages: number[];
+    nameInText: string;
+};
 export type MissingPerson = { person: Person; missing: MissingEntry[] };
 
 export const periods = new Set<string>(["XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII"]);
@@ -155,11 +172,12 @@ export function getPartiesForPeriods(periods: string[] | Iterable<string>) {
 }
 
 export class Persons {
+    persons: Person[] = [];
     idToPerson = new Map<string, Person>();
     idToNameParts = new Map<string, string[]>();
 
-    constructor(public persons: Person[]) {
-        this.addAll(this.persons);
+    constructor(persons: Person[]) {
+        this.addAll(persons);
     }
 
     addAll(persons: Person[]) {
@@ -182,6 +200,7 @@ export class Persons {
             .map((part) => [...part.split("-"), part])
             .flat();
         this.idToNameParts.set(person.id, nameParts);
+        this.persons.push(person);
     }
 
     byId(id: string) {
@@ -256,6 +275,7 @@ export class Persons {
     }
 
     readonly familyNameChanges: Record<string, string> = {
+        // special case: family name change
         Vorderwinkler: "Tanzler",
         Rausch: "Rausch-Amon",
         "Belakowitsch-Jenewein": "Belakowitsch",
@@ -277,7 +297,7 @@ export class Persons {
             .replace(/\u00AD/g, "")
             .replace(/\xa0/g, " ");
 
-        // Handle special case of persons who've changed their last name
+        // special case Strache -> Beck
         if (name.includes("Strache") && name.includes("Pia")) {
             name = name.replace("Strache", "Beck");
         }

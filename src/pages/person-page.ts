@@ -1,15 +1,15 @@
 import { PropertyValueMap, TemplateResult, html, nothing } from "lit";
 import { repeat } from "lit-html/directives/repeat.js";
-import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 import { customElement, property, state } from "lit/decorators.js";
 import { Api } from "../api";
-import { BaseElement, ExpandableList } from "../app";
+import { BaseElement, ExpandableList, renderSection, renderSectionCard, renderSectionText } from "../app";
 import {
     MissingEntry,
     MissingPerson,
     Ordercall,
     Person,
     PlaqueCallout,
+    Rollcall,
     SectionScreams,
     SessionSection,
     SpeakerSection,
@@ -18,48 +18,9 @@ import {
 } from "../common/common";
 import { matchesQuery, prepareQuery } from "../common/query";
 import { renderBarChart } from "../utils/charts";
-import { arrowLeftIcon, arrowRightIcon, logoIcon, searchIcon } from "../utils/icons";
+import { arrowRightIcon, logoIcon, searchIcon } from "../utils/icons";
 import { router } from "../utils/routing";
 import { pageContainerStyle, pageContentStyle } from "../utils/styles";
-import { download } from "../utils/utils";
-
-function escapeRegExp(string: string): string {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
-export function renderSectionText(section: SpeakerSection, highlights = new Set<string>()) {
-    let text = section.text;
-    for (const callout of section.callouts.filter((item) => !item.caller)) {
-        text = text.replaceAll(callout.text, /*html*/ `<span class="text-violet-700 dark:text-green-500 italic">${callout.text}</span>`);
-    }
-
-    for (const callout of section.callouts.filter((item) => item.caller)) {
-        const index = text.indexOf(callout.text);
-        if (index == -1) continue;
-
-        const speakerIndex = text.lastIndexOf("Abg. ", index);
-        if (speakerIndex != -1) {
-            const partAfterCalloutText = text.substring(index + callout.text.length);
-            const calloutTextReplacement = `<span class="text-violet-700 dark:text-green-500 italic">${callout.text}</span>`;
-
-            const partBeforeAbgIndex = text.substring(0, speakerIndex);
-            const anchorText = text.substring(speakerIndex, index);
-            const anchorReplacement = `<a href="/person/${callout.caller}" class="text-blue-400 italic">${anchorText}</a>${calloutTextReplacement}`;
-
-            text = partBeforeAbgIndex + anchorReplacement + partAfterCalloutText;
-        }
-    }
-
-    for (const highlight of highlights) {
-        text = text.replaceAll(new RegExp(escapeRegExp(highlight), "gi"), /*html*/ `<span class="bg-red-500 p-[2px] text-[#fff] italic">$&</span>`);
-    }
-
-    // FIXME
-    // for (const link of section.links) {
-    //    text = text.replaceAll(link.label, /*html*/ `<a class="text-blue-400 italic" href="${link.url}">${link.label}</a>`);
-    // }
-    return html`<div class="whitespace-pre-wrap">${unsafeHTML(text)}</div>`;
-}
 
 @customElement("missing-list")
 export class MissingList extends ExpandableList<MissingEntry> {
@@ -82,12 +43,12 @@ export class MissingList extends ExpandableList<MissingEntry> {
             isPresident: true,
             text: "Als verhindert gemeldet sind " + item.sourceText,
             tags: [],
-            pages: [],
+            pages: item.pages,
         };
 
         // prettier-ignore
         return html`<div class="flex flex-col gap-2 p-4 border border-divider rounded-md">
-            <section-header .date=${item.date} .period=${item.period} .session=${item.session} .section=${0} .highlights=${[item.nameInText]}></section-header>
+            <section-header .date=${item.date} .period=${item.period} .session=${item.session} .section=${item.section} .highlights=${[item.nameInText]}></section-header>
             <div class="italic">${renderSectionText(section, new Set<string>([item.nameInText]))}</div>
         </div>`;
     }
@@ -116,9 +77,10 @@ export class OrdercallList extends ExpandableList<Ordercall> {
         const contextSections = item.resolvedReferences.sort((a, b) => a.sectionIndex - b.sectionIndex);
 
         const renderSection = (ref: SessionSection) =>
-            html`<div class="flex flex-col p-4 border border-divider rounded-md">
-                <section-header .date=${ref.date} .period=${ref.period} .session=${ref.session} .section=${ref.sectionIndex}></section-header>
-                ${renderSectionText(ref.section, new Set<string>(["Ordnungsruf", this.person.familyName]))}
+            // prettier-ignore
+            html`<div class="flex flex-col gap-2 p-4 border border-divider rounded-md">
+                <section-header .date=${item.date} .period=${item.period} .session=${item.session} .section=${ref.sectionIndex}></section-header>
+                <div class="italic">${renderSectionText(ref.section, new Set<string>(["Ordnungsruf", this.person.familyName]))}</div>
             </div>`;
 
         const references = html`<div class="flex flex-col text-blue-400">
@@ -175,13 +137,6 @@ export class PlaqueList extends ExpandableList<PlaqueCallout> {
             }
         }
 
-        const toggleSectionText = (button: HTMLButtonElement) => {
-            const parent = button.parentElement;
-            const section = parent?.querySelector<HTMLDivElement>("#section")!;
-            section.classList.toggle("hidden");
-            button.textContent = section.classList.contains("hidden") ? "Redebeitrag anzeigen" : "Redebeitrag ausblenden";
-        };
-
         let highlight = item.text.substring(item.text.indexOf(", ") + 2);
         while (highlight.length > 0 && !plaqueSection?.section.text.includes(highlight)) {
             highlight = highlight.substring(1);
@@ -196,20 +151,15 @@ export class PlaqueList extends ExpandableList<PlaqueCallout> {
                 .highlights=${highlight.length > 0 ? [highlight] : undefined}
             ></section-header>
             <div class="italic">${item.text}</div>
-            ${plaqueSection
-                ? html`<button class="self-start button-muted" @click=${(ev: Event) => toggleSectionText(ev.target as HTMLButtonElement)}>
-                          Redebeitrag anzeigen
-                      </button>
-                      <div id="section" class="hidden p-4 border border-divider rounded-md">
-                          ${renderSectionText(plaqueSection.section, highlight.length > 0 ? new Set<string>([highlight]) : undefined)}
-                      </div> `
-                : nothing}
         </div>`;
     }
 }
 
 @customElement("section-list")
 export class SectionList extends ExpandableList<SessionSection> {
+    @property()
+    person!: Person;
+
     @property()
     highlights = new Set<string>();
 
@@ -218,16 +168,9 @@ export class SectionList extends ExpandableList<SessionSection> {
     }
 
     renderItem(item: SessionSection): TemplateResult {
-        return html` <div class="flex flex-col gap-2 border border-divider rounded-md p-4">
-            <section-header
-                .date=${item.date}
-                .period=${item.period}
-                .session=${item.session}
-                .section=${item.sectionIndex}
-                .highlights=${Array.from(this.highlights)}
-            ></section-header>
-            ${renderSectionText(item.section, this.highlights)}
-        </div>`;
+        const persons: Record<string, Person> = {};
+        persons[this.person.id] = this.person;
+        return renderSectionCard(item.section, item.date, item.period, item.session, item.sectionIndex, persons, Array.from(this.highlights));
     }
 
     setSections(sections: SessionSection[], highlights = new Set<string>()) {
@@ -237,8 +180,61 @@ export class SectionList extends ExpandableList<SessionSection> {
     }
 }
 
+@customElement("rollcall-list")
+export class RollcallList extends ExpandableList<Rollcall> {
+    @property()
+    person!: Person;
+
+    constructor() {
+        super();
+        this.stepSize = 5;
+        this.numVisible = 3;
+    }
+
+    itemId(item: Rollcall): string {
+        return item.period + "-" + item.sourceSection.session + "-" + item.sourceSection.sectionIndex;
+    }
+
+    renderItem(item: Rollcall): TemplateResult {
+        const renderPerson = (person: Person) => html`<a href="/person/${person.id}" class="flex gap-2 items-center text-blue-400">
+            <img class="w-8 h-8 rounded-full shadow-lg object-cover object-center" src=${person.imageUrl} />
+            <span>${person.name}</span>
+            <div class="flex items-center gap-2">${repeat(person.parties, (party) => html`<party-badge .party=${party}></party-badg>`)}</div>
+        </a>`;
+
+        const personsHtml = repeat(item.persons, (person) => renderPerson(person));
+
+        const votedYes = item.yesVotes.find((item) => item && item.id == this.person.id) != undefined;
+
+        return html`<div class="flex flex-col gap-4 p-4 border border-divider rounded-md shadow-lg">
+            <span class="font-semibold">Abstimmung ${item.date.split("T")[0]}, GP ${item.period}, Sitzung ${item.sourceSection.session + 1}</span>
+            <a class="text-blue-400" href="${item.url}">${item.title}</a>
+            <p>${item.description.replaceAll("<br>", " ")}</p>
+            ${
+                item.persons.length > 0
+                    ? html`<span class="font-semibold">Abstimmungsgegenstand von</span>
+                          <div class="flex flex-col gap-2">${personsHtml}</div>`
+                    : nothing
+            }</p>
+            <span class="font-semibold flex items-center gap-2">Votum von ${renderPerson(this.person)}</span>
+            ${
+                votedYes
+                    ? html`<div class="self-start bg-green-400 text-[#eee] p-1 px-2 rounded">JA</div>`
+                    : html`<div class="self-start bg-red-400 text-[#fff] p-1 px-2 rounded">NEIN</div>`
+            }
+            <span class="font-semibold">Votum Quellennachweis</span>
+            <section-header .date=${item.date} .period=${item.period} .session=${item.sourceSection.session} .section=${
+            item.sourceSection.sectionIndex
+        } .highlights=${[this.person.familyName]}></section-header>
+        </div>`;
+    }
+}
+
 @customElement("section-view")
 export class SectionView extends BaseElement {
+    @property()
+    date = "";
+
     @property()
     period = "";
 
@@ -328,7 +324,7 @@ export class ScreamsList extends ExpandableList<SectionScreams> {
             <button class="self-start button-muted" @click=${(ev: Event) => toggleSectionText(ev.target as HTMLButtonElement)}>
             Redebeitrag anzeigen
             </button>
-            <section-view id="section" class="hidden" .period=${item.period} .session=${item.session} .section=${item.section} .highlights=${item.texts}></section-view>
+            <section-view id="section" class="hidden" .date=${item.date} .period=${item.period} .session=${item.session} .section=${item.section} .highlights=${item.texts}></section-view>
         </div>`;
     }
 }
@@ -402,146 +398,6 @@ export class PerPersonScreamsList extends ExpandableList<ScreamsPerPerson> {
     }
 }
 
-@customElement("party-badge")
-export class PartyBadge extends BaseElement {
-    @property()
-    party!: string;
-
-    render() {
-        const color = partyColors[this.party] ?? "0, 0, 0";
-        return html`<div class="p-1 rounded text-xs" style="background-color: rgb(${color}); color: #eee">${this.party}</div>`;
-    }
-}
-
-@customElement("person-header")
-export class PersonHeader extends BaseElement {
-    @property()
-    person!: Person;
-
-    @property()
-    link = false;
-
-    render() {
-        return html`<div class="flex items-center">
-            ${this.person.imageUrl
-                ? html`<img src=${this.person.imageUrl} class="flex-shrink-0 w-24 h-24 rounded-full object-cover object-center shadow-md" />`
-                : nothing}
-            <div class="flex flex-col px-4">
-                <h2 class="flex gap-2">
-                    ${this.link ? html`<a href="/person/${this.person.id}" class="text-blue-400">${this.person.name}</a>` : this.person.name}
-                    <json-api-boxes .prefix=${this.person.name + "-person"} .obj=${this.person} api="/api/persons/${this.person.id}"></json-api-boxes>
-                </h2>
-                <div class="flex items-center gap-2">${repeat(this.person.parties, (party) => html`<party-badge .party=${party}></party-badg>`)}</div>
-                <span class="text-xs">Gesetzgebungs-Perioden: ${this.person.periods.join(", ")}</span>
-                <a href="https://parlament.gv.at/person/${this.person.id}" class="text-blue-400">Parlamentsseite</a>
-            </div>
-        </div>`;
-    }
-}
-
-@customElement("json-api-boxes")
-export class JsonApiBoxes extends BaseElement {
-    @property()
-    prefix!: string;
-
-    @property()
-    obj: any;
-
-    @property()
-    api!: string;
-
-    render() {
-        return html` <div class="flex gap-2">
-            <div
-                class="inline cursor-pointer button-muted px-1 py-1 border border-divider rounded text-sm font-semibold"
-                @click=${() => download(this.prefix, this.obj)}
-            >
-                JSON
-            </div>
-            <a href="${this.api}" class="button-muted px-1 py-1 border border-divider rounded text-sm font-semibold">API</a>
-        </div>`;
-    }
-}
-
-@customElement("section-header")
-export class SectionHeader extends BaseElement {
-    @property()
-    date!: string;
-
-    @property()
-    period!: string;
-
-    @property()
-    session!: string | number;
-
-    @property()
-    section: string | number | undefined;
-
-    @property()
-    highlights: string[] = [];
-
-    render() {
-        const section = typeof this.section == "string" ? parseInt(this.section) : this.section;
-        const hls = new URLSearchParams();
-        for (const hl of this.highlights) {
-            hls.append("hl", hl);
-        }
-        return html` <div class="flex items-center">
-            <a class="text-blue-400" href="/period/${this.period}">${this.date.split("T")[0]} GP ${this.period}</a>
-            <i class="icon w-6 h-6">${arrowRightIcon}</i>
-            <a class="text-blue-400" href="/session/${this.period}/${this.session}">Sitzung ${this.session.toString()}</a>
-            ${section != undefined
-                ? html`<i class="icon w-6 h-6">${arrowRightIcon}</i
-                      ><a class="text-blue-400" href="/section/${this.period}/${this.session}/${this.section}">Redebeitrag ${section + 1}</a>`
-                : nothing}
-        </div>`;
-    }
-}
-
-@customElement("session-header")
-export class SessionHEader extends BaseElement {
-    @property()
-    date!: string;
-
-    @property()
-    period!: string;
-
-    @property()
-    session!: string | number;
-
-    render() {
-        return html` <div class="flex gap-2">
-            <a class="text-blue-400" href="/session/${this.period}/${this.session}">${this.date.split("T")[0]} GP ${this.period}</a>
-        </div>`;
-    }
-}
-
-@customElement("expandable-details")
-export class ExpandableDetails extends BaseElement {
-    @property()
-    details!: TemplateResult;
-
-    @property()
-    shownLabel = "Details verbergen";
-
-    @property()
-    hiddenLabel = "Mehr Details anzeigen";
-
-    render() {
-        const toggle = (ev: Event) => {
-            const target = ev.target as HTMLElement;
-            const details = target.parentElement?.querySelector("div")!;
-            details.classList.toggle("hidden");
-            target.innerText = details.classList.contains("hidden") ? this.hiddenLabel : this.shownLabel;
-        };
-
-        return html`<div class="flex flex-col gap-4">
-            <button class="button self-center" @click=${(ev: Event) => toggle(ev)}>${this.hiddenLabel}</button>
-            <div class="hidden">${this.details}</div>
-        </div>`;
-    }
-}
-
 @customElement("person-page")
 export class PersonPage extends BaseElement {
     @state()
@@ -581,6 +437,9 @@ export class PersonPage extends BaseElement {
     ordercalls: Ordercall[] = [];
 
     @state()
+    rollcalls: Rollcall[] = [];
+
+    @state()
     searchResults: SessionSection[] = [];
 
     @state()
@@ -610,6 +469,7 @@ export class PersonPage extends BaseElement {
             let screams: SectionScreams[];
             let screamsAt: SectionScreams[];
             let ordercalls: Ordercall[];
+            let rollcalls: Rollcall[];
             {
                 const result = await Api.person(id);
                 if (result instanceof Error) throw result;
@@ -674,6 +534,11 @@ export class PersonPage extends BaseElement {
                 if (result instanceof Error) throw result;
                 ordercalls = result;
             }
+            {
+                const result = await Api.personRollcalls(person.id);
+                if (result instanceof Error) throw result;
+                rollcalls = result;
+            }
 
             this.person = person;
             this.sections = sections;
@@ -683,6 +548,7 @@ export class PersonPage extends BaseElement {
             this.screams = screams;
             this.screamsAt = screamsAt;
             this.ordercalls = ordercalls;
+            this.rollcalls = rollcalls;
 
             // Sections per period chart
             const periods = new Set<string>();
@@ -759,7 +625,7 @@ export class PersonPage extends BaseElement {
                 "Gesetzsgebungsperiode",
                 "Abwesenheiten"
             );
-            //HACKL abwesenheiten "Als verhindert gemeldet" reicht nicht um alle verhinderungen zu erwischen
+            // HACKL abwesenheiten "Als verhindert gemeldet" reicht nicht um alle verhinderungen zu erwischen
             // Screams chart
             {
                 const screamsPerPeriod: Map<string, { period: string; num: number }> = new Map();
@@ -857,13 +723,15 @@ export class PersonPage extends BaseElement {
     }
 
     render() {
+        const name = this.person ? this.person.givenName + " " + this.person.familyName : "";
+
         const calloutsDetails = html`<div class="flex flex-col gap-4">
-            <h3>Zwischenrufe chronologisch</h3>
+            <h3>Zwischenrufe von ${name} (chronologisch absteigend)</h3>
             <section-screams-list .list=${this.screams} .person=${this.person}></section-screams-list>
         </div> `;
 
         const calloutsAtDetails = html`<div class="flex flex-col gap-4">
-            <h3>Zwischenrufe chronologisch</h3>
+            <h3>Zwischenrufe an ${name} (chronologisch absteigend)</h3>
             <section-screams-list .list=${this.screamsAt} .person=${this.person}></section-screams-list>
         </div> `;
 
@@ -881,7 +749,9 @@ export class PersonPage extends BaseElement {
             <ordercall-list .list=${this.ordercalls} .person=${this.person}></ordercall-list>
         </div>`;
 
-        const name = this.person ? this.person.givenName + " " + this.person.familyName : "";
+        const rollcallsDetails = html`<div class="flex flex-col gap-4">
+            <rollcall-list .list=${this.rollcalls} .person=${this.person}></rollcall-list>
+        </div>`;
 
         return html`<div class="${pageContainerStyle} min-h-[100vh]">
             <div class="${pageContentStyle} h-[100vh]">
@@ -912,7 +782,7 @@ export class PersonPage extends BaseElement {
                                   this.numScreams == 0
                                       ? html`<span>Keine Zwischenrufe</span>`
                                       : html`<div class="flex flex-col gap-4 p-4 border border-divider rounded-md">
-                                                <h3>Zwischenrufe von ${name} an andere Person (absteigend)</h3>
+                                                <h3>Zwischenrufe von ${name} (absteigend)</h3>
                                                 <per-person-screams-list
                                                     .list=${this.screamsPerPerson}
                                                     .person=${this.person}
@@ -941,7 +811,7 @@ export class PersonPage extends BaseElement {
                                       ? html`<span>Keine Zwischenrufe</span>`
                                       : html`
                                             <div class="flex flex-col gap-4 p-4 border border-divider rounded-md">
-                                                <h3>Zwischenrufe von anderen Person an ${name} (absteigend)</h3>
+                                                <h3>Zwischenrufe an ${name} (absteigend)</h3>
                                                 <per-person-screams-list
                                                     .list=${this.screamsAtPerPerson}
                                                     .person=${this.person}
@@ -998,6 +868,15 @@ export class PersonPage extends BaseElement {
                                       ? html`<span>Keine Ordnungsrufe</span>`
                                       : html`<expandable-details .details=${ordercallsDetails}></expandable-details>`
                               }
+                            <h2 class="flex gap-2 mt-8">
+                                  Namentliche Abstimmungen (${this.rollcalls.length})
+                                  <json-api-boxes
+                                      .prefix=${this.person?.name + "-rollcalls"}
+                                      .obj=${this.rollcalls}
+                                      api="/api/rollcalls/${this.person.id}"
+                                  ></json-api-boxes>
+                              </h2>
+                              ${this.rollcalls.length == 0 ? html`<span>Keine namentlichen Abstimmungen</span>` : rollcallsDetails}
                               <h2 class="flex gap-2 mt-8">
                                   Redebeiträge (${this.numActualSections})
                                   <json-api-boxes
@@ -1074,7 +953,7 @@ export class PersonPage extends BaseElement {
                                   ></json-api-boxes>
                               </div>
                               ${this.searching ? html`<loading-spinner></loading-spinner>` : nothing}
-                              <section-list .list=${this.searchResults}></section-list>`
+                              <section-list .person=${this.person} .list=${this.searchResults}></section-list>`
                         : nothing}
                 </div>
                 <page-footer></page-footer>
