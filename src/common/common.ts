@@ -105,7 +105,7 @@ export interface Rollcall {
     stageText: string;
     sources: string[];
     sourceSection: SessionSection;
-    extractedText: string;
+    failed: { yes: string[]; no: string[] };
 }
 
 export type Missing = { sourceText: string; date: string; period: string; session: number; persons: ({ nameInText: string } & Person)[] };

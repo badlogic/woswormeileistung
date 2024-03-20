@@ -123,7 +123,7 @@ export function extractSpeakerFromHtml(sectionHtml: string, period: string, pers
     if (foundCandidate) {
         let personText = foundCandidate;
 
-        // special cases
+        // special case for which we need to change title/name or ignore period
         let localPeriod: string | undefined = period;
         const specialCases = [
             ["Dr. Georg Mayer", "Mag. Dr. Georg Mayer"],
@@ -259,7 +259,6 @@ export function extractCallouts(text: string, period: string, persons: Persons) 
     const regex = /\(.*?\)/g;
     const matches = text.match(regex) ?? [];
     for (const match of matches) {
-        ("Abg. Loacker begibt sich zum Redner:innenpult, um die Tafel zu lesen.");
         const calloutText = match.replace("(", "").replace(")", "").replace(":innen", "innen").trim();
         const parts = calloutText.split("–").map((part) => part.trim().replace(/\n/g, " "));
         for (const part of parts) {
@@ -279,7 +278,7 @@ export function extractCallouts(text: string, period: string, persons: Persons) 
                             .replace(/\xa0/g, " "),
                     });
                 } else {
-                    // Fix typos in protocol...
+                    // special case typos in protocol ...
                     const name = caller
                         .trim()
                         .replace("Diemek", "Deimek")
@@ -572,6 +571,8 @@ export function extractMissing(baseDir: string, persons: Persons, sessions: Sess
         return match ? match[1] : null;
     };
 
+    // special case "Als verhindert gemeldet" comes in different variations
+    // in newer protocols it is standardized, old protocols have these in them...
     const splitters = [
         "für die heutige Sitzung insgesamt 42 Abgeordnete, nämlich ",
         "die Abgeordneten",
@@ -591,6 +592,11 @@ export function extractMissing(baseDir: string, persons: Persons, sessions: Sess
     const result = querySpeakerSections([], [], [], [], undefined, undefined, `+"verhindert gemeldet"`);
     const output: Missing[] = [];
     const cleanOutput: string[] = [];
+    // special case to resolve names to persons, we need to get both
+    // the given name and the family name for disambigution. however,
+    // the protocl also includes person titles, so we need to get rid
+    // of those first. This list must be maintained any time a new
+    // protocol pops up...
     const titles = new Set<string>([
         "Ing. Mag",
         "MMSc BA",
@@ -708,6 +714,7 @@ export function extractMissing(baseDir: string, persons: Persons, sessions: Sess
 }
 
 function extractCalloutName(text: string): string {
+    // special case Mr. Van der Bellen
     if (text.includes("Van der Bellen")) {
         text = text.replace("Van der Bellen", "Van Der Bellen");
     }
@@ -759,6 +766,7 @@ export async function extractPlaques(baseDir: string, persons: Persons, sessions
                     .trim()
                     .replace(/\u00AD/g, "")
                     .replace(/\n/g, " ");
+                // special case plaques are introduced in various ways
                 callout.text = callout.text.replace("Der Redner ", "Abg. " + speaker.name + " ");
                 callout.text = callout.text.replace("der Redner ", "Abg. " + speaker.name + " ");
                 callout.text = callout.text.replace("Der Abgeordnete ", "Abg. " + speaker.name + " ");
@@ -775,6 +783,7 @@ export async function extractPlaques(baseDir: string, persons: Persons, sessions
                 if (
                     !callout.caller &&
                     callout.text.startsWith("Abg.") &&
+                    // special case we have various markers for plaques
                     (callout.text.includes("Tafel") ||
                         callout.text.includes("Taferl") ||
                         callout.text.includes("Schild") ||
@@ -805,25 +814,13 @@ export async function extractPlaques(baseDir: string, persons: Persons, sessions
     }
 
     const result: Plaque[] = [];
-    const csv: { name: string; party: string; plaques: number }[] = [];
     for (const key of plaques.keys()) {
         const callouts = plaques.get(key)!.sort((a, b) => b.date.localeCompare(a.date));
         const person = persons.byId(key)!;
-        const parties = person.parties.filter((party) => party != "Ohne Klub" && party != "LIF");
         result.push({ person, callouts });
-        csv.push({ name: person.name, party: parties.length > 0 ? parties[parties.length - 1] : "", plaques: callouts.length });
     }
     result.sort((a, b) => b.callouts.length - a.callouts.length);
-    csv.sort((a, b) => b.plaques - a.plaques);
 
-    const toCsvString = (data: { name: string; party: string; plaques: number }[]): string => {
-        const csvLines = data.map((obj) => `${obj.name};${obj.party};${obj.plaques}`);
-        // Adding a header row
-        csvLines.unshift("Name;Party;Plaques");
-        return csvLines.join("\n");
-    };
-
-    fs.writeFileSync(`${baseDir}/plaques.csv`, toCsvString(csv), "utf-8");
     fs.writeFileSync(`${baseDir}/plaques.json`, JSON.stringify(result, null, 2), "utf-8");
     return result;
 }
@@ -873,8 +870,9 @@ export async function resolveUnknownSpeakers(session: Session) {
     const idsToImageUrls = new Map<string, string>();
     const idsToParties = new Map<string, string[]>();
     const sections = session.sections;
-    // party-less speakers aren found in persons, so we need to fetch their
-    // party affiliation and image url separately.
+    // party-less speakers, like Brunner or Kocher, aren't found in persons as they don't have an NR mandate and are
+    // thus not returned by the parliament memebrs since 1918 API. We need to fetch their
+    // party affiliation and image url here via their ID.
     for (const section of sections) {
         if (typeof section.speaker == "string") throw new Error("Section speaker given as id, this should not happen");
         if (section.speaker.parties.length == 0) {
@@ -963,6 +961,7 @@ export async function findSectionFromUrl(url: string, session: Session) {
 }
 
 export async function extractRollCalls(baseDir: string, persons: Persons, sessions: Session[]) {
+    // Fetch all Gegenstände with key word "ABSTIMMUNGEN, NAMENTLICH"
     const response = await fetch("https://www.parlament.gv.at/Filter/api/filter/data/101?js=eval&showAll=true&export=true", {
         method: "POST",
         body: JSON.stringify({
@@ -987,6 +986,7 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
         fs.mkdirSync(`${baseDir}/rollcalls`, { recursive: true });
     }
 
+    // Get each Gegenstand's JSON via the API, cache on disk
     const toProcess = [...rollcalls];
     while (toProcess.length > 0) {
         const batch = toProcess.splice(0, 5);
@@ -999,6 +999,7 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
         console.log(`Processed ${rollcalls.length - toProcess.length}/${rollcalls.length}`);
     }
 
+    // Resolve all rollcalls found in the Gegenstand JSONs
     const resolvedRollcalls: Rollcall[] = [];
     let errors = 0;
     for (const rollcall of rollcalls) {
@@ -1007,6 +1008,7 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
             throw new Error("No content in rollcall " + rollcall.file);
         }
 
+        // Extract the persons responsible for the Gegenstand
         const names: Person[] = [];
         if (!content.names) {
             console.log("No names given for rollcall " + rollcall.file);
@@ -1026,6 +1028,7 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
             }
         }
 
+        // Get the stages, for multi-phase Gegenstände we only care for NR sessions
         let stages: any[] | undefined;
         if (content.phase) {
             const phase = content.phase.find((phase: any) => phase.name == "Plenarberatungen NR");
@@ -1036,6 +1039,8 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
         if (!stages) {
             throw new Error("Could not find stages in rollcall " + rollcall.file);
         }
+
+        // Get the stages that talk about rollcalls
         const rollcallStages = stages.filter(
             (item) => item.text.includes("Namentliche Abstimmung") && item.text.includes("Ja-Stimmen") && item.text.includes("Nein-Stimmen")
         );
@@ -1044,6 +1049,8 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
             errors++;
         }
 
+        // For each rollcall stage, find the session section that has the votes, and resolve the persons
+        // voting for yes and no
         for (const rollcallStage of rollcallStages) {
             if (!rollcallStage.fsth || rollcallStage.fsth.length == 0) {
                 console.log("No sources in rollcall " + rollcall.file + " for stage", rollcallStage);
@@ -1071,6 +1078,7 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
                 continue;
             }
 
+            // find the start section to start scanning for the section with the votes
             let startSection: SessionSection | undefined;
             if (!page) {
                 try {
@@ -1109,6 +1117,7 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
                 continue;
             }
 
+            // From the start section onwards, can all subsequent sections for the votes
             let foundSection: SessionSection | undefined;
             for (let i = startSection.sectionIndex; i < session.sections.length; i++) {
                 const section = session.sections[i];
@@ -1132,6 +1141,7 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
                 continue;
             }
 
+            // Got the votes section, extract the names and resolve them to concrete persons
             let extractedText = foundSection.section.text.split("Mit „Ja“ stimmten die Abgeordneten")[1];
             extractedText = extractedText.replace("Mit „Nein“ stimmten die Abgeordneten", "");
             extractedText = extractedText.split("*****")[0];
@@ -1144,6 +1154,11 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
             const yesText = extractedText.split(":")[0];
             const fixName = (name: string) => {
                 name = name.trim();
+                // special cases which are spelled incorrectly, changed name
+                // or would get mangled by tokenizationa and reversal below.
+                // issue is: to disambiguate names in the yes/no list, the
+                // steno people put the family name first then the given name
+                // we use the opposite format...
                 if (name == "Van der Bellen") return name;
                 if (name == "Künsberg Sarre") return "Sarre";
                 if (name == "Moser Hans") return "Johann Moser";
@@ -1190,7 +1205,7 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
                 stageText: rollcallStage.text,
                 sources,
                 sourceSection: foundSection,
-                extractedText: yesFailed.join("|") + ">>>>>>>" + noFailed.join("|"),
+                failed: { yes: yesFailed, no: noFailed },
             });
         }
     }
