@@ -13,6 +13,7 @@ const config = {
         screamer: "src/cli/screamers.ts",
         missing: "src/cli/missing.ts",
         ordercalls: "src/cli/ordercalls.ts",
+        rollcalls: "src/cli/rollcalls.ts",
         "session-extraction": "src/cli/session-extraction.ts",
         server: "src/server/server.ts",
     },

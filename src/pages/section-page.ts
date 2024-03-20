@@ -66,6 +66,7 @@ export class SectionPage extends BaseElement {
             }
 
             this.section = sectionResult;
+            this.session = parseInt(session);
         } catch (e) {
             alert("Sorry, das ist etwas schief gelaufen");
         } finally {
@@ -100,7 +101,7 @@ export class SectionPage extends BaseElement {
                     ${this.loading ? html`<loading-spinner></loading-spinner>` : nothing}
                     ${!this.loading
                         ? html`<div class="flex flex-col gap-4">
-                              <div class="flex">
+                              <div class="flex items-center">
                                   ${this.section.sectionIndex > 0
                                       ? html`<a
                                             href="/section/${this.section.period}/${this.section.session}/${this.section.sectionIndex - 1}"

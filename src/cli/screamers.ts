@@ -6,7 +6,7 @@ if (require.main === module) {
     (async () => {
         const persons = new Persons(JSON.parse(fs.readFileSync("./data/persons.json", "utf-8")) as Person[]);
         const sessions = JSON.parse(fs.readFileSync("./data/sessions.json", "utf-8")) as Session[];
-        const result = await extractScreamers(persons, sessions);
+        const result = await extractScreamers("./data", persons, sessions);
         console.log("Top 25 screamers");
         for (let i = 0; i < 10; i++) {
             const screamer = result[i];

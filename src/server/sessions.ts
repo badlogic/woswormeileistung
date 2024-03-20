@@ -151,7 +151,7 @@ export async function processSessions(persons: Persons, baseDir: string) {
     }
 
     persons = new Persons(Array.from(newPersons.values()));
-    await resolveOrdercalls(sessions, persons);
+    await resolveOrdercalls(baseDir, sessions, persons);
     fs.writeFileSync(`${baseDir}/persons.json`, JSON.stringify(persons.persons, null, 2), "utf-8");
     fs.writeFileSync(`${baseDir}/sessions.json`, JSON.stringify(sessions, null, 2), "utf-8");
     return { sessions, persons };

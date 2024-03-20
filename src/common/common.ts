@@ -94,6 +94,20 @@ export interface Plaque {
     callouts: PlaqueCallout[];
 }
 
+export interface Rollcall {
+    date: string;
+    period: string;
+    title: string;
+    description: string;
+    persons: Person[];
+    yesVotes: (Person | undefined)[];
+    noVotes: (Person | undefined)[];
+    stageText: string;
+    sources: string[];
+    sourceSection: SessionSection;
+    extractedText: string;
+}
+
 export type Missing = { sourceText: string; date: string; period: string; session: number; persons: ({ nameInText: string } & Person)[] };
 export type MissingEntry = { sourceText: string; date: string; period: string; session: number; nameInText: string };
 export type MissingPerson = { person: Person; missing: MissingEntry[] };
@@ -337,4 +351,32 @@ export function extractName(name: string): { givenName: string; familyName: stri
     const familyName = nameParts.pop() || "";
     const givenName = nameParts.join(" ");
     return { givenName, familyName, titles: titleParts };
+}
+
+export function personsFromSection(section: SpeakerSection, persons: Persons): Record<string, Person> {
+    const sectionPersons: Record<string, Person> = {};
+    const person = persons.byId(section.speaker as string);
+    if (!person) throw new Error("Could not find person in section " + section.speaker);
+    sectionPersons[person.id] = person;
+    for (const callout of section.callouts) {
+        if (callout.caller) {
+            const person = persons.byId(callout.caller as string);
+            if (!person) throw new Error("Could not find person in callout " + callout.caller);
+            sectionPersons[person.id] = person;
+        }
+    }
+    return sectionPersons;
+}
+
+export function personsFromSession(session: Session, persons: Persons): Record<string, Person> {
+    let sessionPersons: Record<string, Person> = {};
+    for (const ordercall of session.orderCalls) {
+        const person = persons.byId(ordercall.person as string);
+        if (!person) throw new Error("Could not find person in ordercall " + ordercall.person);
+        sessionPersons[person.id] = person;
+    }
+    for (const section of session.sections) {
+        sessionPersons = { ...sessionPersons, ...personsFromSection(section, persons) };
+    }
+    return sessionPersons;
 }

@@ -14,7 +14,8 @@ import { extractOrdercalls, extractSections, resolveOrdercalls } from "../server
     // const baseFile = "2021-03-25-XXVII-91";
     // const baseFile = "2023-07-06-XXVII-224";
     // const baseFile = "2022-04-05-XXVII-152";
-    const baseFile = "2023-07-05-XXVII-222";
+    // const baseFile = "2023-07-05-XXVII-222";
+    const baseFile = "2003-06-10-XXII-20";
     const period = baseFile.split("-")[3];
     const sessionNumber = baseFile.split("-")[4];
     const sections = await extractSections(`./data/sessions/${baseFile}.html`, period, persons);
@@ -29,7 +30,7 @@ import { extractOrdercalls, extractSections, resolveOrdercalls } from "../server
         url: "",
     };
     session.orderCalls = await extractOrdercalls(`./data/sessions/${baseFile}.json.original`, session, persons);
-    await resolveOrdercalls([session], persons);
+    await resolveOrdercalls("./data", [session], persons);
 
     /*const session = JSON.parse(fs.readFileSync(`./data/sessions/${baseFile}.json`, "utf-8")) as Session;
     const oldSections = session.sections.map((item) => {

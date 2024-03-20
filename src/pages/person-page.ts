@@ -475,7 +475,7 @@ export class SectionHeader extends BaseElement {
     session!: string | number;
 
     @property()
-    section!: string | number;
+    section: string | number | undefined;
 
     @property()
     highlights: string[] = [];
@@ -486,10 +486,14 @@ export class SectionHeader extends BaseElement {
         for (const hl of this.highlights) {
             hls.append("hl", hl);
         }
-        return html` <div class="flex gap-2">
-            <a class="text-blue-400" href="/section/${this.period}/${this.session}/${this.section}?${hls.toString()}"
-                >${this.date.split("T")[0]} GP ${this.period}, Sitzung ${this.session.toString()}, Redebeitrag ${section + 1}</a
-            >
+        return html` <div class="flex items-center">
+            <a class="text-blue-400" href="/period/${this.period}">${this.date.split("T")[0]} GP ${this.period}</a>
+            <i class="icon w-6 h-6">${arrowRightIcon}</i>
+            <a class="text-blue-400" href="/session/${this.period}/${this.session}">Sitzung ${this.session.toString()}</a>
+            ${section != undefined
+                ? html`<i class="icon w-6 h-6">${arrowRightIcon}</i
+                      ><a class="text-blue-400" href="/section/${this.period}/${this.session}/${this.section}">Redebeitrag ${section + 1}</a>`
+                : nothing}
         </div>`;
     }
 }

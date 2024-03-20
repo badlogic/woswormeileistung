@@ -1,5 +1,5 @@
 import { Persons, Session } from "../common/common";
-import { extractPlaques, extractMissing, extractScreamers } from "../server/extraction";
+import { extractPlaques, extractMissing, extractScreamers, extractRollCalls } from "../server/extraction";
 import { processPersons } from "../server/persons";
 import { processSessions } from "../server/sessions";
 import * as fs from "fs";
@@ -14,10 +14,12 @@ if (require.main === module) {
         console.log(">>> Extracting sessions");
         const sessionsResult = await processSessions(persons, "./data");
         console.log(">>> Extracting plaques");
-        await extractPlaques(sessionsResult.persons, sessionsResult.sessions);
+        await extractPlaques("./data", sessionsResult.persons, sessionsResult.sessions);
         console.log(">>> Extracting missing");
-        await extractMissing(sessionsResult.persons, sessionsResult.sessions);
+        await extractMissing("./data", sessionsResult.persons, sessionsResult.sessions);
         console.log(">>> Extracting screamers");
-        await extractScreamers(sessionsResult.persons, sessionsResult.sessions);
+        await extractScreamers("./data", sessionsResult.persons, sessionsResult.sessions);
+        console.log(">>> Extracting rollcalls");
+        await extractRollCalls("./data", sessionsResult.persons, sessionsResult.sessions);
     })();
 }

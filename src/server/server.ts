@@ -6,7 +6,20 @@ import express from "express";
 import * as fs from "fs";
 import * as http from "http";
 import WebSocket, { WebSocketServer } from "ws";
-import { Missing, MissingPerson, Ordercall, Persons, Plaque, Scream, Screamer, SectionScreams, Session, SessionSection } from "../common/common";
+import {
+    Missing,
+    MissingPerson,
+    Ordercall,
+    Person,
+    Persons,
+    Plaque,
+    Scream,
+    Screamer,
+    SectionScreams,
+    Session,
+    SessionSection,
+    personsFromSession,
+} from "../common/common";
 import { processPersons } from "./persons";
 import { initQueries, isAllDigits, querySpeakerSections } from "../common/query";
 import { processSessions } from "./sessions";
@@ -203,11 +216,11 @@ async function updateData() {
             } else {
                 if (!sessionNumber) {
                     const result = sessions.filter((session) => session.period == period);
-                    if (!result) res.status(400);
+                    if (!result) throw new Error();
                     res.json(result);
                 } else {
                     const result = sessions.filter((session) => session.period == period && session.sessionNumber == sessionNumber);
-                    if (!result) res.status(400);
+                    if (!result) throw new Error();
                     if (req.query.numSections) {
                         res.json(result[0].sections.length);
                     } else {
@@ -250,6 +263,20 @@ async function updateData() {
             const params = JSON.stringify(req.query, null, 2);
             console.error("Could not answer query, params:\n" + params, e);
             res.status(400).json({ error: "Could not answer query, params:\n" + params });
+        }
+    });
+
+    app.get("/api/session/:period/:session", (req, res) => {
+        try {
+            const period = req.params.period;
+            const sessionNumber = parseInt(req.params.session);
+            const session = sessions.find((session) => session.period == period && session.sessionNumber == sessionNumber);
+            if (!session) throw new Error();
+            const sessionPersons = personsFromSession(session, persons);
+            res.json({ persons: sessionPersons, session });
+        } catch (e) {
+            console.error("Could not return session for period " + req.params.period + ", session number " + req.params.session);
+            res.status(400).json({ error: "Could not return session for period " + req.params.period + ", session number " + req.params.session });
         }
     });
 
@@ -343,7 +370,6 @@ async function updateData() {
     app.get("/api/ordercalls/:id", async (req, res) => {
         try {
             const ordercalls = ordercallsForPerson.get(req.params.id as string) ?? [];
-
             res.json(ordercalls);
         } catch (e) {
             console.error("Could not get screams from person " + req.params.id, e);

@@ -15,7 +15,7 @@ if (require.main === module) {
                 person.parties = person.parties.filter((party) => possibleParties.has(party));
             }
         }
-        let output = extractMissing(persons, sessions, periods);
+        let output = extractMissing("./data/", persons, sessions, periods);
 
         const missingParty: Record<string, number> = {};
         const personsPerParty: Record<string, number> = {};

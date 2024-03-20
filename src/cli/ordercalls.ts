@@ -6,7 +6,7 @@ if (require.main === module) {
     (async () => {
         const persons = new Persons(JSON.parse(fs.readFileSync("./data/persons.json", "utf-8")) as Person[]);
         const sessions = JSON.parse(fs.readFileSync("./data/sessions.json", "utf-8")) as Session[];
-        await resolveOrdercalls(sessions, persons);
+        await resolveOrdercalls("./data", sessions, persons);
 
         /*const persons = new Persons(JSON.parse(fs.readFileSync("./data/persons.json", "utf-8")) as Person[]);
         // const baseFile = "./data/sessions/2022-11-15-XXVII-183";

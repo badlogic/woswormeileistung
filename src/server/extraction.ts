@@ -5,6 +5,7 @@ import {
     Person,
     Persons,
     Plaque,
+    Rollcall,
     Screamer,
     Session,
     SessionSection,
@@ -15,7 +16,7 @@ import { initQueries, querySpeakerSections } from "../common/query";
 import * as fs from "fs";
 import * as cheerio from "cheerio";
 import { getMetadata, getPerson } from "./persons";
-import { fetchAndSaveHtml } from "./utils";
+import { fetchAndSaveHtml, fetchAndSaveJSON } from "./utils";
 
 export function extractSectionText(doc: cheerio.CheerioAPI, section: cheerio.Element, scanToMark = false) {
     const children = doc(section.children);
@@ -387,7 +388,14 @@ export function extractOrdercalls(jsonFilepath: string, session: Session, person
     }
 }
 
-export async function resolveOrdercalls(sessions: Session[], persons: Persons) {
+export async function resolveOrdercalls(baseDir: string, sessions: Session[], persons: Persons) {
+    if (baseDir.endsWith("/")) {
+        baseDir = baseDir.slice(0, -1);
+    }
+    if (!fs.existsSync(baseDir)) {
+        fs.mkdirSync(baseDir, { recursive: true });
+    }
+
     const extractPeriodSessionHash = (text: string) => {
         let hash = text.split("#")[1];
         const tokens = text.replace("https://parlament.gv.at/", "").split("/");
@@ -548,10 +556,17 @@ export async function resolveOrdercalls(sessions: Session[], persons: Persons) {
             }
         }
     }
-    fs.writeFileSync("./data/ordercalls.json", JSON.stringify(allCalls, null, 2), "utf-8");
+    fs.writeFileSync(`${baseDir}/ordercalls.json`, JSON.stringify(allCalls, null, 2), "utf-8");
 }
 
-export function extractMissing(persons: Persons, sessions: Session[], periods = new Set<string>()) {
+export function extractMissing(baseDir: string, persons: Persons, sessions: Session[], periods = new Set<string>()) {
+    if (baseDir.endsWith("/")) {
+        baseDir = baseDir.slice(0, -1);
+    }
+    if (!fs.existsSync(baseDir)) {
+        fs.mkdirSync(baseDir, { recursive: true });
+    }
+
     const extractPattern = (str: string): string | null => {
         const match = str.match(/[Vv]erhindert gemeldet:?(.*?)\n/s);
         return match ? match[1] : null;
@@ -685,9 +700,9 @@ export function extractMissing(persons: Persons, sessions: Session[], periods = 
                 persons: foundPersons as any,
             });
         }
-        fs.writeFileSync("data/missing.json", JSON.stringify(output, null, 2));
+        fs.writeFileSync(`${baseDir}/missing.json`, JSON.stringify(output, null, 2));
     } finally {
-        fs.writeFileSync("data/missing-clean.json", JSON.stringify(cleanOutput, null, 2));
+        fs.writeFileSync(`${baseDir}/missing-clean.json`, JSON.stringify(cleanOutput, null, 2));
     }
     return output;
 }
@@ -726,7 +741,14 @@ interface CalloutDetails {
     text: string;
 }
 
-export async function extractPlaques(persons: Persons, sessions: Session[]) {
+export async function extractPlaques(baseDir: string, persons: Persons, sessions: Session[]) {
+    if (baseDir.endsWith("/")) {
+        baseDir = baseDir.slice(0, -1);
+    }
+    if (!fs.existsSync(baseDir)) {
+        fs.mkdirSync(baseDir, { recursive: true });
+    }
+
     const plaques = new Map<string, CalloutDetails[]>();
     for (const session of sessions) {
         for (let i = 0; i < session.sections.length; i++) {
@@ -801,12 +823,19 @@ export async function extractPlaques(persons: Persons, sessions: Session[]) {
         return csvLines.join("\n");
     };
 
-    fs.writeFileSync("./data/plaques.csv", toCsvString(csv), "utf-8");
-    fs.writeFileSync("./data/plaques.json", JSON.stringify(result, null, 2), "utf-8");
+    fs.writeFileSync(`${baseDir}/plaques.csv`, toCsvString(csv), "utf-8");
+    fs.writeFileSync(`${baseDir}/plaques.json`, JSON.stringify(result, null, 2), "utf-8");
     return result;
 }
 
-export async function extractScreamers(persons: Persons, sessions: Session[]) {
+export async function extractScreamers(baseDir: string, persons: Persons, sessions: Session[]) {
+    if (baseDir.endsWith("/")) {
+        baseDir = baseDir.slice(0, -1);
+    }
+    if (!fs.existsSync(baseDir)) {
+        fs.mkdirSync(baseDir, { recursive: true });
+    }
+
     const screamers = new Map<string, Screamer>();
     for (const session of sessions) {
         for (let i = 0; i < session.sections.length; i++) {
@@ -835,7 +864,7 @@ export async function extractScreamers(persons: Persons, sessions: Session[]) {
         }
     }
     const result = Array.from(screamers.values()).sort((a, b) => b.screams.length - a.screams.length);
-    fs.writeFileSync("data/screamers.json", JSON.stringify(result, null, 2), "utf-8");
+    fs.writeFileSync(`${baseDir}/screamers.json`, JSON.stringify(result, null, 2), "utf-8");
     return result;
 }
 
@@ -867,4 +896,304 @@ export async function resolveUnknownSpeakers(session: Session) {
             partyless.set(section.speaker.id, section.speaker);
         }
     }
+}
+
+export async function findSectionFromUrl(url: string, session: Session) {
+    const html = await fetchAndSaveHtml(url, "tmp.html");
+    const htmlDoc = cheerio.load(html);
+    const refSections = htmlDoc('div[class^="WordSection"]').toArray();
+    if (refSections.length == 0) {
+        throw new Error("Could not resolve section " + url);
+    }
+    let speaker: string | undefined;
+    let text: string | undefined;
+    for (const refSection of refSections) {
+        const aTags = htmlDoc(refSection).find('a[href^="/WWER/PAD_"]').toArray();
+        if (aTags.length > 0) {
+            speaker = parseInt(aTags[0].attribs["href"].replace("/WWER/PAD_", "").split("/")[0]).toString();
+        }
+        text = htmlDoc(refSection).text();
+        break;
+    }
+
+    const refSessionSections: SessionSection[] = session.sections.map((section, index) => {
+        const refSection: SessionSection = {
+            date: session.date,
+            period: session.period,
+            session: session.sessionNumber,
+            sectionIndex: index,
+            section,
+        };
+        return refSection;
+    });
+
+    if (speaker && text) {
+        const candidates = refSessionSections.filter((s) => {
+            const id = typeof s.section.speaker == "string" ? s.section.speaker : s.section.speaker.id;
+            return id == speaker;
+        });
+        text = text.split(":")[1];
+        text = text
+            .trim()
+            .replace(/\u00AD/g, "")
+            .replace(/\xa0/g, " ")
+            .replace(/\n/g, " ")
+            .replace(/\s+/g, " ");
+        let found: SessionSection | undefined;
+        for (const candidate of candidates) {
+            const candidateText = candidate.section.text
+                .trim()
+                .replace(/\u00AD/g, "")
+                .replace(/\xa0/g, " ")
+                .replace(/\n/g, " ")
+                .replace(/\s+/g, " ");
+            if (candidateText.includes(text)) {
+                found = candidate;
+                break;
+            }
+        }
+        if (!found) {
+            throw new Error("Could not resolve section " + url);
+        } else {
+            return found;
+        }
+    } else {
+        throw new Error("Could not resolve section " + url);
+    }
+}
+
+export async function extractRollCalls(baseDir: string, persons: Persons, sessions: Session[]) {
+    const response = await fetch("https://www.parlament.gv.at/Filter/api/filter/data/101?js=eval&showAll=true&export=true", {
+        method: "POST",
+        body: JSON.stringify({
+            GP_CODE: ["XXV", "XXII", "XXIII", "XXIV", "XXVI", "XXVII"],
+            SW: ["ABSTIMMUNGEN, NAMENTLICHE"],
+            NRBR: ["NR"],
+        }),
+    });
+    if (!response.ok) throw new Error("Could not fetch roll calls from API");
+    const result = await response.json();
+    const rows = result.rows;
+    const rollcalls: { url: string; file: string }[] = [];
+    for (const row of rows) {
+        rollcalls.push({
+            url: "https://parlament.gv.at" + row[14] + "?json=true",
+            file: `${baseDir}/rollcalls/${row[0]}-${row[1]}-${row[2]}.json`,
+        });
+    }
+    console.log(rollcalls.length);
+
+    if (!fs.existsSync(`${baseDir}/rollcalls`)) {
+        fs.mkdirSync(`${baseDir}/rollcalls`, { recursive: true });
+    }
+
+    const toProcess = [...rollcalls];
+    while (toProcess.length > 0) {
+        const batch = toProcess.splice(0, 5);
+        await Promise.all(
+            batch.map((rollcall) => {
+                if (fs.existsSync(rollcall.file)) return Promise.resolve();
+                return fetchAndSaveJSON(rollcall.url, rollcall.file);
+            })
+        );
+        console.log(`Processed ${rollcalls.length - toProcess.length}/${rollcalls.length}`);
+    }
+
+    const resolvedRollcalls: Rollcall[] = [];
+    let errors = 0;
+    for (const rollcall of rollcalls) {
+        const content = JSON.parse(fs.readFileSync(rollcall.file, "utf-8")).content;
+        if (!content) {
+            throw new Error("No content in rollcall " + rollcall.file);
+        }
+
+        const names: Person[] = [];
+        if (!content.names) {
+            console.log("No names given for rollcall " + rollcall.file);
+        } else {
+            for (const name of content.names) {
+                if (!name.url || !name.url.startsWith("/person/")) {
+                    console.log("Name " + name.name + " for rollcall " + rollcall.file + " is not a person");
+                } else {
+                    const id = name.url.replace("/person/", "");
+                    const person = persons.byId(id);
+                    if (!person) {
+                        console.log("Could not find person with id " + id + " for rollcall " + rollcall.file);
+                    } else {
+                        names.push(person);
+                    }
+                }
+            }
+        }
+
+        let stages: any[] | undefined;
+        if (content.phase) {
+            const phase = content.phase.find((phase: any) => phase.name == "Plenarberatungen NR");
+            stages = phase.stages;
+        } else {
+            stages = content.stages;
+        }
+        if (!stages) {
+            throw new Error("Could not find stages in rollcall " + rollcall.file);
+        }
+        const rollcallStages = stages.filter(
+            (item) => item.text.includes("Namentliche Abstimmung") && item.text.includes("Ja-Stimmen") && item.text.includes("Nein-Stimmen")
+        );
+        if (rollcallStages.length == 0) {
+            // console.log("Not rollcall stage(s) in rollcall " + rollcall.file + ", possibly rollcalled in Bundesrat");
+            errors++;
+        }
+
+        for (const rollcallStage of rollcallStages) {
+            if (!rollcallStage.fsth || rollcallStage.fsth.length == 0) {
+                console.log("No sources in rollcall " + rollcall.file + " for stage", rollcallStage);
+                continue;
+            }
+
+            const sources = rollcallStage.fsth.map((fsth: any) => "https://parlament.gv.at" + fsth.url);
+            const period = rollcallStage.fsth[0].gp_code;
+            const sessionNumber = rollcallStage.fsth[0].sitzung_id;
+            const page = rollcallStage.fsth[0].fund_von;
+            const url = rollcallStage.fsth[0].url;
+            if (!period || !sessionNumber) {
+                console.log("No period/session given in stage for rollcall " + rollcall.file, rollcallStage);
+                continue;
+            }
+
+            const session = sessions.find((session) => session.period == period && session.sessionNumber == sessionNumber);
+            if (!session) {
+                console.log("Could not find session " + period + " " + session + " for rollcall " + rollcall.file, rollcallStage);
+                continue;
+            }
+
+            if (session.sections.length == 0) {
+                console.log("Empty session " + period + " " + session.sessionNumber + " for rollcall " + rollcall.file);
+                continue;
+            }
+
+            let startSection: SessionSection | undefined;
+            if (!page) {
+                try {
+                    startSection = await findSectionFromUrl("https://parlament.gv.at" + url, session);
+                } catch (e) {
+                    console.log(
+                        "Could not find section for rollcall " +
+                            rollcall.file +
+                            ", possibly because no session " +
+                            period +
+                            " " +
+                            session +
+                            " protocol exists yet.",
+                        e
+                    );
+                    continue;
+                }
+            } else {
+                for (let i = 0; i < session.sections.length; i++) {
+                    const s = session.sections[i];
+                    if (s.pages.length > 0 && page >= s.pages[0] && page <= s.pages[s.pages.length - 1]) {
+                        startSection = {
+                            date: session.date,
+                            period: session.period,
+                            session: session.sessionNumber,
+                            section: s,
+                            sectionIndex: i,
+                        };
+                        break;
+                    }
+                }
+            }
+
+            if (!startSection) {
+                console.log("Could not find start section " + period + " " + session.sessionNumber + " for rollcall " + rollcall.file, rollcallStage);
+                continue;
+            }
+
+            let foundSection: SessionSection | undefined;
+            for (let i = startSection.sectionIndex; i < session.sections.length; i++) {
+                const section = session.sections[i];
+                if (section.text.includes("Mit „Ja“ stimmten die Abgeordneten")) {
+                    foundSection = {
+                        date: session.date,
+                        period: session.period,
+                        session: session.sessionNumber,
+                        section: section,
+                        sectionIndex: i,
+                    };
+                    break;
+                }
+            }
+
+            if (!foundSection) {
+                console.log(
+                    "Could not find section with votes in " + period + " " + session.sessionNumber + " for rollcall " + rollcall.file,
+                    rollcallStage
+                );
+                continue;
+            }
+
+            let extractedText = foundSection.section.text.split("Mit „Ja“ stimmten die Abgeordneten")[1];
+            extractedText = extractedText.replace("Mit „Nein“ stimmten die Abgeordneten", "");
+            extractedText = extractedText.split("*****")[0];
+            extractedText = extractedText.substring(extractedText.indexOf(":") + 1);
+            extractedText = extractedText.replace(/\n+/g, " ");
+            extractedText = extractedText.replace(/\s+/g, " ");
+            extractedText = extractedText.replaceAll(";", ",");
+            extractedText = extractedText.replace(/Nationalrat,.+?Seite\s\d+/g, "");
+            extractedText = extractedText.replaceAll(".", "").trim();
+            const yesText = extractedText.split(":")[0];
+            const fixName = (name: string) => {
+                name = name.trim();
+                if (name == "Van der Bellen") return name;
+                if (name == "Künsberg Sarre") return "Sarre";
+                if (name == "Moser Hans") return "Johann Moser";
+                if (name == "Turković-Wendl") return "Turkovic-Wendl";
+                if (name == "El Habbassi") return "El Habbassi";
+                if (name == "Holzinger") return "Holzinger-Vogtenhuber";
+                if (name == "Fürntrath") return "Moretti";
+                if (name == "Strache" && period == "XXVII") return "Beck";
+                const tokens = name.trim().split(" ");
+                if (tokens.length > 1) {
+                    const first = tokens.splice(0, 1);
+                    return [...tokens, first].join(" ");
+                } else {
+                    return tokens[0];
+                }
+            };
+            const yesNames = yesText.split(",").map(fixName);
+            const yesPersons = yesNames.map((name) => persons.searchByGivenAndFamilyName(name, period));
+            const noText = extractedText.split(":")[1];
+            const noNames = noText.split(",").map(fixName);
+            const noPersons = noNames.map((name) => persons.searchByGivenAndFamilyName(name, period));
+
+            const yesFailed: string[] = [];
+            for (let i = 0; i < yesNames.length; i++) {
+                if (yesPersons[i] == undefined) {
+                    yesFailed.push(yesNames[i]);
+                }
+            }
+            const noFailed: string[] = [];
+            for (let i = 0; i < noNames.length; i++) {
+                if (noPersons[i] == undefined) {
+                    noFailed.push(noNames[i]);
+                }
+            }
+
+            resolvedRollcalls.push({
+                date: content.einlangen,
+                period: content.gp_code,
+                title: content.title,
+                description: content.description,
+                persons: names,
+                noVotes: noPersons,
+                yesVotes: yesPersons,
+                stageText: rollcallStage.text,
+                sources,
+                sourceSection: foundSection,
+                extractedText: yesFailed.join("|") + ">>>>>>>" + noFailed.join("|"),
+            });
+        }
+    }
+    console.log("Missing rollcalls " + errors + "/" + rollcalls.length);
+    fs.writeFileSync(`${baseDir}/rollcalls.json`, JSON.stringify(resolvedRollcalls, null, 2));
 }

@@ -1,4 +1,4 @@
-import { MissingPerson, Person, Plaque, PlaqueCallout, SessionSection, SpeakerSection, SectionScreams, Ordercall } from "./common/common.js";
+import { MissingPerson, Person, Plaque, PlaqueCallout, SessionSection, SpeakerSection, SectionScreams, Ordercall, Session } from "./common/common.js";
 import { error } from "./utils/utils.js";
 
 export interface JsonValue {
@@ -123,5 +123,11 @@ export class Api {
 
     static async numSections(period: string, session: number | string) {
         return await apiGet<number>(`sessions/${period}/${session}?numSections=true`);
+    }
+
+    static async session(period: string, session: number | string) {
+        const result = await apiGet<{ persons: Record<string, Person>; session: Session }>(`session/${period}/${session}`);
+        if (result instanceof Error) return result;
+        return result;
     }
 }
