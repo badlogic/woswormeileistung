@@ -876,6 +876,7 @@ export class PersonPage extends BaseElement {
                                       api="/api/rollcalls/${this.person.id}"
                                   ></json-api-boxes>
                               </h2>
+                              <div class="text-red-400 text-center">Die Extraktion dieser Daten aus den stenographischen Protokollen ist noch in Arbeit. Dementsprechend können die angezeigten Informationen fehlerhaft sein. Mit den Links zum Gegenstand, sowie dem Link zum Redebeitrag können die Informationen mit den Quelldaten verglichen werden.</div>
                               ${this.rollcalls.length == 0 ? html`<span>Keine namentlichen Abstimmungen</span>` : rollcallsDetails}
                               <h2 class="flex gap-2 mt-8">
                                   Redebeiträge (${this.numActualSections})
