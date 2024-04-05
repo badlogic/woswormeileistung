@@ -168,12 +168,6 @@ function loadData() {
         rollcalls.sort((a, b) => b.date.localeCompare(a.date));
         rollcallsPerPerson = new Map();
         for (const rollcall of rollcalls) {
-            for (const person of rollcall.persons) {
-                const calls = rollcallsPerPerson.get(person.id) ?? [];
-                calls.push(rollcall);
-                rollcallsPerPerson.set(person.id, calls);
-            }
-
             for (const person of rollcall.yesVotes) {
                 if (!person) continue;
                 const calls = rollcallsPerPerson.get(person.id) ?? [];

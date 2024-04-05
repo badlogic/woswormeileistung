@@ -3,7 +3,7 @@ import * as cheerio from "cheerio";
 import { fetchAndSaveHtml, fetchAndSaveJSON } from "./utils";
 import { getMetadata } from "./persons";
 import { Callout, Ordercall, Person, Persons, Session, SpeakerSection, extractName, periods } from "../common/common";
-import { extractCallouts, extractOrdercalls, extractSections, resolveOrdercalls, resolveUnknownSpeakers } from "./extraction";
+import { extractCallouts, extractOrdercalls, extractSections, resolveOrdercalls } from "./extraction";
 
 interface RawSessions {
     pages: number;
@@ -12,7 +12,11 @@ interface RawSessions {
     rows: any[][];
 }
 
-export async function processSessions(persons: Persons, baseDir: string) {
+export async function processSessions(
+    persons: Persons,
+    baseDir: string,
+    extractSectionsFn: (filePath: string, period: string, persons: Persons) => Promise<SpeakerSection[]> = extractSections
+) {
     if (baseDir.endsWith("/")) {
         baseDir = baseDir.slice(0, -1);
     }
@@ -121,7 +125,7 @@ export async function processSessions(persons: Persons, baseDir: string) {
         await Promise.all(promises);
 
         for (const session of batch) {
-            session.session.sections = await extractSections(session.htmlFile, session.session.period, persons);
+            session.session.sections = await extractSectionsFn(session.htmlFile, session.session.period, persons);
             fs.writeFileSync(session.htmlFile.replace(".html", ".json"), JSON.stringify(session.session, null, 2), "utf-8");
         }
 
@@ -135,6 +139,9 @@ export async function processSessions(persons: Persons, baseDir: string) {
     for (const session of sessionInfos) {
         for (const section of session.session.sections) {
             const person = section.speaker as Person;
+            if (person.periods == undefined) {
+                person.periods = [];
+            }
             if (!person.periods.includes(session.session.period)) {
                 person.periods.push(session.session.period);
                 person.periods.sort();

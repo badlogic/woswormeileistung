@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import { Person, Persons, Session } from "../common/common";
-import { extractOrdercalls, extractSections, resolveOrdercalls } from "../server/extraction";
+import { extractOrdercalls, extractSections, extractSectionsNew, resolveOrdercalls } from "../server/extraction";
 
 (async () => {
     const persons = new Persons(JSON.parse(fs.readFileSync("./data/persons.json", "utf-8")) as Person[]);
@@ -15,11 +15,20 @@ import { extractOrdercalls, extractSections, resolveOrdercalls } from "../server
     // const baseFile = "2023-07-06-XXVII-224";
     // const baseFile = "2022-04-05-XXVII-152";
     // const baseFile = "2023-07-05-XXVII-222";
-    const baseFile = "2003-06-10-XXII-20";
-    const period = baseFile.split("-")[3];
-    const sessionNumber = baseFile.split("-")[4];
-    const sections = await extractSections(`./data/sessions/${baseFile}.html`, period, persons);
-    const session: Session = {
+    // const baseFile = "2003-06-10-XXII-20";
+    // const baseFile = "2019-09-25-XXVI-89";
+    // const period = baseFile.split("-")[3];
+    // const sessionNumber = baseFile.split("-")[4];
+    // const sections = await extractSections(`./data/sessions/${baseFile}.html`, period, persons);
+    // const sectionsNew = await extractSectionsNew(`./data/sessions/${baseFile}.html`, period, persons);
+
+    for (const file of fs.readdirSync("./data/sessions/")) {
+        if (file.endsWith(".html")) {
+            console.log("processing " + file);
+            const sectionsNew = await extractSectionsNew(`./data/sessions/${file}`, "XXX", persons);
+        }
+    }
+    /*const session: Session = {
         date: baseFile.split("X")[0],
         period,
         sessionNumber: parseInt(sessionNumber),
@@ -30,7 +39,7 @@ import { extractOrdercalls, extractSections, resolveOrdercalls } from "../server
         url: "",
     };
     session.orderCalls = await extractOrdercalls(`./data/sessions/${baseFile}.json.original`, session, persons);
-    await resolveOrdercalls("./data", [session], persons);
+    await resolveOrdercalls("./data", [session], persons);*/
 
     /*const session = JSON.parse(fs.readFileSync(`./data/sessions/${baseFile}.json`, "utf-8")) as Session;
     const oldSections = session.sections.map((item) => {

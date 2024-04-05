@@ -17,6 +17,8 @@ import * as fs from "fs";
 import * as cheerio from "cheerio";
 import { getMetadata, getPerson } from "./persons";
 import { fetchAndSaveHtml, fetchAndSaveJSON } from "./utils";
+import { ChildNode } from "domhandler";
+import { error } from "../utils/utils";
 
 export function extractSectionText(doc: cheerio.CheerioAPI, section: cheerio.Element, scanToMark = false) {
     const children = doc(section.children);
@@ -98,6 +100,89 @@ export function extractSectionText(doc: cheerio.CheerioAPI, section: cheerio.Ele
     return { speaker, text, html, pages, tags };
 }
 
+export function extractSpeakerFromHtmlNew(sectionHtml: string, period: string, persons: Persons, filePath: string) {
+    if (!sectionHtml.includes("<!--�-->")) {
+        return undefined;
+    }
+    sectionHtml = sectionHtml
+        .replace(/\u00AD/g, "")
+        .replace(/\xa0/g, " ")
+        .replace(/\n/g, " ")
+        .replace(/\s+/g, " ");
+    const doc = cheerio.load(sectionHtml);
+    const bolds = doc("b").toArray();
+    let candidate: string | undefined;
+    for (const bold of bolds) {
+        if (doc(bold).text().trim().length == 0) continue;
+        candidate = doc(bold).text();
+        break;
+    }
+
+    let speaker: string | undefined;
+    if (candidate) {
+        let personText = candidate
+            .replace(":", "")
+            // special cases person extraction can't deal with the non abbreviated titles
+            // and comma in these, replace them manually
+            .replace("Abgeordneter", "")
+            .replace("Abgeordnete", "")
+            .replace("Staatssekretär", "")
+            .replace("Präsident", "")
+            .replace("Bundesminister für Land- und Forstwirtschaft, Umwelt und Wasserwirtschaft", "")
+            .replace("Bundesminister für Gesundheit, Familie und Jugend", "")
+            .replace("Bundesministerin für Arbeit, Soziales, Gesundheit und Konsumentenschutz Mag ", "")
+            .replace(/\u00AD/g, "")
+            .replace(/\xa0/g, " ")
+            .replace(/\n/g, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+
+        // special case for which we need to change title/name or ignore period
+        let localPeriod: string | undefined = period;
+        const specialCases = [
+            ["Dr. Georg Mayer", "Mag. Dr. Georg Mayer"],
+            ["Dkfm. Dr. Hannes Bauer", "Dipl.-Kfm. Dr. Hannes Bauer"],
+            ["Martha Bißmann", "Martha Bißmann"],
+            ["Heinz Firscher", "Heinz Fischer"], // period wrong
+        ];
+
+        for (const specialCase of specialCases) {
+            specialCase[0] = specialCase[0]
+                .replace(/\u00AD/g, "")
+                .replace(/\xa0/g, " ")
+                .replace(/\n/g, " ")
+                .replace(/\s+/g, " ");
+            if (personText.includes(specialCase[0])) {
+                personText = specialCase[1];
+                localPeriod = undefined;
+                break;
+            }
+        }
+
+        let { extracted, foundPersons } = persons.searchByFamilyName(personText);
+        if (foundPersons.length > 1 && localPeriod) foundPersons = foundPersons.filter((person) => person.periods.some((p) => p == localPeriod));
+
+        if (foundPersons.length == 0) {
+            // Do nothing, no person found
+            console.log(">>>\n" + filePath + "\nCould not find HTML person in lookup\n" + personText + "\n" + sectionHtml);
+        } else if (foundPersons.length == 1) {
+            speaker = foundPersons[0].id;
+        } else {
+            foundPersons = foundPersons.filter((person) => {
+                const missedTitles = new Set<string>(extracted.titles.map((title) => title.replace(/\([^)]*\)/g, "").trim()));
+                for (const title of person.titles) {
+                    missedTitles.delete(title);
+                }
+                return missedTitles.size == 0;
+            });
+            if (foundPersons.length == 1) {
+                speaker = foundPersons[0].id;
+            }
+        }
+    }
+    return speaker;
+}
+
 export function extractSpeakerFromHtml(sectionHtml: string, period: string, persons: Persons, filePath: string) {
     let speaker: string | undefined = undefined;
     let foundCandidate: any = null;
@@ -168,6 +253,222 @@ export function extractSpeakerFromHtml(sectionHtml: string, period: string, pers
     return speaker;
 }
 
+export async function extractSectionsNew(filePath: string, period: string, persons: Persons) {
+    const debug = false;
+
+    const html = fs.readFileSync(filePath, "utf8");
+    const doc = cheerio.load(html);
+
+    let wordSections = doc('div[class^="WordSection"]');
+    if (wordSections.length == 0) {
+        wordSections = doc('div[class^="Section"]');
+    }
+
+    // Collect all children of all WordSection divs
+    let children: ChildNode[] = [];
+    for (const wordSection of wordSections) {
+        children.push(...wordSection.childNodes);
+    }
+
+    // Scan for the first speaker marker and collect pages
+    let pages: number[] = [];
+    let startIndex = -1;
+    for (let i = 0; i < children.length; i++) {
+        let child = children[i];
+        if (child.type == "tag" && child.tagName == "hr") {
+            ++i;
+            child = children[i];
+            let pageNumber = -1;
+            let start = pages.length;
+            while (child) {
+                if (child.type == "tag" && child.tagName == "hr") {
+                    break;
+                }
+                const text = doc(child)
+                    .text()
+                    .replace(/\u00AD/g, "")
+                    .replace(/\xa0/g, " ")
+                    .replace(/\n/g, " ")
+                    .replace(/\s+/g, " ")
+                    .trim();
+                const match = text.match(/Seite (\d+)/);
+                pageNumber = match ? parseInt(match[1], 10) : -1;
+                if (pageNumber != -1) {
+                    if (debug) console.log("---------------------------- Page ----------------------------" + pageNumber);
+                    pages.push(pageNumber);
+                }
+                ++i;
+                child = children[i];
+            }
+            continue;
+        }
+
+        const childHtml = doc(child).html();
+        if (childHtml?.includes("<!--�-->")) {
+            startIndex = i;
+            break;
+        }
+    }
+    if (startIndex == -1) {
+        console.log("\n>>>\n" + filePath + "\n" + "No speaker markers in document\n>>>\n");
+        return [];
+    }
+    children = children.slice(startIndex);
+    if (pages.length > 0) pages = [pages.pop()!];
+
+    const nextChild = () => {
+        if (children.length == 0) return undefined;
+        const child = children.splice(0, 1)[0];
+        const childDoc = doc(child);
+        const childHtml = childDoc.html()?.trim();
+        const childText = childDoc
+            .text()
+            .replace(/\u00AD/g, "")
+            .replace(/\xa0/g, " ")
+            .replace(/\n/g, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+        return { node: child, html: childHtml, text: childText };
+    };
+    const count = (str: string, search: string) => (str.match(new RegExp(search, "g")) || []).length;
+
+    const speakerSections: SpeakerSection[] = [];
+    const tags: string[] = [];
+    let currSection: SpeakerSection | undefined;
+
+    while (children.length > 0) {
+        let child = nextChild();
+        if (!child) break;
+        if (child.node.type == "text" && child.text.length == 0) continue;
+
+        // New speaker section starting
+        const markerCount = count(child.html ?? "", "<!--�-->");
+        if (markerCount >= 1) {
+            const links = doc(child.node).find('a[href^="/WWER/PAD_"]').toArray();
+            let speaker: Person | undefined;
+            if (links.length >= 1) {
+                // console.log("[[[[[[[[[[SPEAKER]]]]]]]]]]] count: " + markerCount);
+                const speakerId = parseInt(links[0].attribs["href"].replace("/WWER/PAD_", "").replace("/", "")).toString();
+                speaker = persons.byId(speakerId);
+                if (!speaker) {
+                    speaker = await getPerson(speakerId);
+                    persons.add(speaker);
+                }
+            } else {
+                // No links found, check if we got at least 2 markers, then try to
+                // extract the speaker from the text in-between the markers
+                if (markerCount == 2 && child.html) {
+                    const speakerId = extractSpeakerFromHtmlNew(child.html, period, persons, filePath);
+                    if (!speakerId) {
+                        console.log(
+                            "\n>>>\n" + filePath + "\n" + "Could not derrive speaker id from HTML and person lookup\n" + child.html + "\n>>>\n"
+                        );
+                    } else {
+                        speaker = persons.byId(speakerId);
+                        if (!speaker) {
+                            speaker = await getPerson(speakerId);
+                            persons.add(speaker);
+                        }
+                    }
+                } else {
+                    // console.log("\n>>>\n" + filePath + "\n" + "single speaker marker or no html\n" + child.html + "\n>>>\n");
+                }
+            }
+            if (speaker) {
+                const speakerSection: SpeakerSection = {
+                    callouts: [],
+                    pages: [],
+                    isPresident: child.text.split(":")[0].includes("Präsident"),
+                    speaker,
+                    tags: [],
+                    text: "",
+                };
+                if (pages.length > 0) {
+                    speakerSection.pages.push(pages[pages.length - 1]);
+                }
+                currSection = speakerSection;
+                speakerSections.push(currSection);
+            }
+        }
+
+        // const tag = child.node.type == "tag" ? child.node.tagName : "text";
+        // console.log(`>>>>\n<${tag}>` + (child.html ?? child.text) + `</${tag}>\n>>>>\n`);
+
+        // Extract tags of outer and inner <a>
+        if (child.node.type == "tag" && child.node.attribs["name"]) {
+            const name = child.node.attribs["name"];
+            if (debug) console.log("tag: " + name + "\n");
+            tags.push(name);
+            if (currSection) currSection.tags.push(name);
+        }
+        const links = doc(child.node).find("a").toArray();
+        for (const link of links) {
+            const name = link.attribs["name"];
+            if (name) {
+                if (debug) console.log("tag: " + name + "\n");
+                tags.push(name);
+                if (currSection) currSection.tags.push(name);
+            }
+        }
+
+        if (child.html == undefined) {
+            if (child.text.length > 0) {
+                // Only one occurance, not relevant
+                if (debug) console.log("\n>>>\n" + filePath + "\n" + "Child without html has non-empty text\n" + child.text + "\n>>>\n");
+            }
+            continue;
+        }
+
+        // Handle page breaks, record current page number
+        // A page break always starts with <hr>, followed by a few elements,
+        // one of which includes the pattern /Seite (\d+)/ from which we get
+        // the page number. The break ends with another <hr>
+        if (child.node.type == "tag" && child.node.tagName == "hr") {
+            child = nextChild();
+            let pageNumber = -1;
+            let matched = false;
+            while (child) {
+                if (child.node.type == "tag" && child.node.tagName == "hr") break;
+                const match = child.text.match(/Seite (\d+)/);
+                pageNumber = match ? parseInt(match[1], 10) : -1;
+                if (pageNumber != -1) {
+                    if (debug) console.log("---------------------------- Page ----------------------------" + pageNumber);
+                    pages.push(pageNumber);
+                    if (currSection) currSection.pages.push(pageNumber);
+                    matched = true;
+                }
+                child = nextChild();
+            }
+            if (!matched) {
+                if (debug) console.log("\n>>>\n" + filePath + "\n" + "Could not match page number in page section \n" + child?.html + "\n>>>\n");
+            }
+            continue;
+        }
+        if (child.text.length > 0) {
+            if (currSection) currSection.text += child.text + "\n";
+            if (debug) console.log(child.text + "\n");
+        }
+    }
+
+    // Check page validity
+    for (let i = 0, page = pages[0]; i < pages.length; i++, page++) {
+        if (page != pages[i]) {
+            if (debug) console.log("\n>>>\n" + filePath + "\n" + "Invalid pages " + page + "!=" + pages[i] + "\n>>>\n");
+            page = pages[i];
+        }
+    }
+    if (pages.length == 0) {
+        console.log("\n>>>\n" + filePath + "\n" + "No pages found\n>>>\n");
+    }
+
+    // Trim all section texts
+    for (const section of speakerSections) {
+        section.text = section.text.trim();
+    }
+
+    return speakerSections;
+}
+
 export async function extractSections(filePath: string, period: string, persons: Persons) {
     const html = fs.readFileSync(filePath, "utf8");
     const doc = cheerio.load(html);
@@ -198,6 +499,9 @@ export async function extractSections(filePath: string, period: string, persons:
             // best we can, then use persons to lookup a candidate person.
             if (!speaker) {
                 speaker = extractSpeakerFromHtml(html, period, persons, filePath);
+                const regex = /<!--�-->(.*?)<!--�-->/gs;
+                const matches = html.match(regex);
+                const foundCandidate = matches ? matches[0].replace(/<!--�-->/g, "").trim() : undefined;
             }
         }
 
@@ -1004,7 +1308,7 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
 
     // Resolve all rollcalls found in the Gegenstand JSONs
     const resolvedRollcalls: Rollcall[] = [];
-    let errors = 0;
+    const errors: { type: string; urlJSON: string; url: string }[] = [];
     for (const rollcall of rollcalls) {
         const content = JSON.parse(fs.readFileSync(rollcall.file, "utf-8")).content;
         if (!content) {
@@ -1018,7 +1322,7 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
         } else {
             for (const name of content.names) {
                 if (!name.url || !name.url.startsWith("/person/")) {
-                    console.log("Name " + name.name + " for rollcall " + rollcall.file + " is not a person");
+                    // console.log("Name " + name.name + " for rollcall " + rollcall.file + " is not a person");
                 } else {
                     const id = name.url.replace("/person/", "");
                     const person = persons.byId(id);
@@ -1029,6 +1333,10 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
                     }
                 }
             }
+        }
+
+        if (content.title == "Versagen des Vertrauens gegenüber dem Bundesminister für Inneres") {
+            console.log("fuck");
         }
 
         // Get the stages, for multi-phase Gegenstände we only care for NR sessions
@@ -1049,14 +1357,17 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
         );
         if (rollcallStages.length == 0) {
             // console.log("Not rollcall stage(s) in rollcall " + rollcall.file + ", possibly rollcalled in Bundesrat");
-            errors++;
+            errors.push({ type: "No vote in NR", urlJSON: rollcall.url.replace("?json=true", ""), url: rollcall.url });
         }
 
         // For each rollcall stage, find the session section that has the votes, and resolve the persons
         // voting for yes and no
         for (const rollcallStage of rollcallStages) {
             if (!rollcallStage.fsth || rollcallStage.fsth.length == 0) {
-                console.log("No sources in rollcall " + rollcall.file + " for stage", rollcallStage);
+                console.log("No source references in rollcall " + rollcall.file + " for stage", rollcallStage);
+                if (rollcallStages.length == 1) {
+                    errors.push({ type: "Stenographic protocol corrupt", urlJSON: rollcall.url.replace("?json=true", ""), url: rollcall.url });
+                }
                 continue;
             }
 
@@ -1077,13 +1388,16 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
             }
 
             if (session.sections.length == 0) {
-                console.log("Empty session " + period + " " + session.sessionNumber + " for rollcall " + rollcall.file);
+                console.log("Stenographic protocol corrupt" + period + " " + session.sessionNumber + " for rollcall " + rollcall.file);
+                if (rollcallStages.length == 1) {
+                    errors.push({ type: "Stenographic protocol corrupt", urlJSON: rollcall.url.replace("?json=true", ""), url: rollcall.url });
+                }
                 continue;
             }
 
             // find the start section to start scanning for the section with the votes
             let startSection: SessionSection | undefined;
-            if (!page) {
+            /*if (!page) {
                 try {
                     startSection = await findSectionFromUrl("https://parlament.gv.at" + url, session);
                 } catch (e) {
@@ -1113,6 +1427,50 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
                         break;
                     }
                 }
+            }*/
+            const votesIndex: number[] = [];
+            const votes: SpeakerSection[] = [];
+            const president: SpeakerSection[] = [];
+            for (let i = 0; i < session.sections.length; i++) {
+                const s = session.sections[i];
+                if (s.isPresident && s.text.includes("Mit „Ja“ stimmten die Abgeordneten")) {
+                    votes.push(s);
+                    votesIndex.push(i);
+                }
+                if (s.isPresident && s.text.includes("namentliche") && s.text.includes("Abstimmung")) {
+                    president.push(s);
+                    if (names.length > 0 && s.text.includes(names[0].familyName)) {
+                        startSection = startSection = {
+                            date: session.date,
+                            period: session.period,
+                            session: session.sessionNumber,
+                            section: s,
+                            sectionIndex: i,
+                        };
+                    }
+                }
+            }
+
+            if (votes.length == 0) {
+                console.log(
+                    "Could not find section with votes in " + period + " " + session.sessionNumber + " for rollcall " + rollcall.file,
+                    rollcallStage
+                );
+                if (rollcallStages.length == 1) {
+                    errors.push({ type: "no votes", urlJSON: rollcall.url.replace("?json=true", ""), url: rollcall.url });
+                }
+                continue;
+            }
+            if (votes.length == 1) {
+                startSection = {
+                    date: session.date,
+                    period: session.period,
+                    session: session.sessionNumber,
+                    section: votes[0],
+                    sectionIndex: votesIndex[0],
+                };
+            } else {
+                console.log("Multiple rollcalls in session");
             }
 
             if (!startSection) {
@@ -1141,6 +1499,9 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
                     "Could not find section with votes in " + period + " " + session.sessionNumber + " for rollcall " + rollcall.file,
                     rollcallStage
                 );
+                if (rollcallStages.length == 1) {
+                    errors.push({ type: "no votes", urlJSON: rollcall.url.replace("?json=true", ""), url: rollcall.url });
+                }
                 continue;
             }
 
@@ -1213,6 +1574,12 @@ export async function extractRollCalls(baseDir: string, persons: Persons, sessio
             });
         }
     }
-    console.log("Missing rollcalls " + errors + "/" + rollcalls.length);
+    console.log("Missing rollcalls " + errors.length + "/" + rollcalls.length);
+    for (const error of errors) {
+        console.log(error.type);
+        console.log("- " + error.url);
+        console.log("- " + error.urlJSON);
+        console.log();
+    }
     fs.writeFileSync(`${baseDir}/rollcalls.json`, JSON.stringify(resolvedRollcalls, null, 2));
 }
