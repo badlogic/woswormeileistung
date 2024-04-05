@@ -67,7 +67,12 @@ import * as cheerio from "cheerio";
                         cells.shift();
                     }
                     const where = doc(cells[0]).text().trim().replace("Dienstgeber/Rechtsträger/Unternehmen", "");
-                    const what = doc(cells[1]).text().trim().replace("Leitende Tätigkeit", "").replace("Tätigkeit", "");
+                    const what = doc(cells[1])
+                        .text()
+                        .trim()
+                        .replace("Leitende Tätigkeit", "")
+                        .replace("Leitende Stellung", "")
+                        .replace("Tätigkeit", "");
                     console.log(where + " >>> " + what);
                     rows.push({ category, where, what });
                 }
