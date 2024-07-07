@@ -9,6 +9,7 @@ import {
     Ordercall,
     Session,
     Rollcall,
+    PeriodScream,
 } from "./common/common.js";
 import { error } from "./utils/utils.js";
 
@@ -110,6 +111,10 @@ export class Api {
 
     static async personMissing(id: string) {
         return await apiGet<MissingPerson>("missing/" + +encodeURIComponent(id));
+    }
+
+    static async screamers() {
+        return await apiGet<{ person: Person; screams: PeriodScream[] }[]>("screams");
     }
 
     static async personScreams(id: string) {

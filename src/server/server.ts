@@ -11,6 +11,7 @@ import {
     MissingPerson,
     Ordercall,
     Person,
+    PeriodScream,
     Persons,
     Plaque,
     Rollcall,
@@ -19,7 +20,9 @@ import {
     SectionScreams,
     Session,
     SessionSection,
+    periods,
     personsFromSession,
+    partiesPerPeriod,
 } from "../common/common";
 import { processPersons } from "./persons";
 import { initQueries, isAllDigits, querySpeakerSections } from "../common/query";
@@ -34,6 +37,10 @@ export let plaques: Map<string, Plaque> = new Map();
 export let missingPerPerson: Map<string, MissingPerson> = new Map();
 export let screamsFromPerson: Map<string, SectionScreams[]> = new Map();
 export let screamsAtPerson: Map<string, SectionScreams[]> = new Map();
+export let screamsFromPersonLite: { person: Person; screams: PeriodScream[] }[] = [];
+export let screamsFromPartyLite: { party: string; screams: PeriodScream[] }[] = [];
+export let screamsAtPersonLite: { person: Person; screams: PeriodScream[] }[] = [];
+export let screamsAtPartyLite: { party: string; screams: PeriodScream[] }[] = [];
 export let ordercallsForPerson: Map<string, Ordercall[]> = new Map();
 export let rollcalls: Rollcall[] = [];
 export let rollcallsPerPerson: Map<string, Rollcall[]> = new Map();
@@ -104,8 +111,11 @@ function loadData() {
         const screamersRaw = JSON.parse(fs.readFileSync("/data/screamers.json", "utf-8")) as Screamer[];
         const screamsAtPersonRaw = new Map<string, Scream[]>();
         screamsFromPerson = new Map<string, SectionScreams[]>();
+        screamsFromPersonLite = [];
+        const partyScreamsLookup = new Map<string, Map<string, PeriodScream>>();
         for (const screamer of screamersRaw) {
             const screamsPerSection = new Map<string, SectionScreams>();
+            const screamsPerPeriod = new Map<string, PeriodScream>();
             for (const scream of screamer.screams) {
                 const sectionKey = scream.period + "-" + scream.session + "-" + scream.section;
                 const sectionScreams: SectionScreams = screamsPerSection.get(sectionKey) ?? {
@@ -120,6 +130,24 @@ function loadData() {
                 sectionScreams.texts.push(scream.text);
                 screamsPerSection.set(sectionKey, sectionScreams);
 
+                const periodScreams: PeriodScream = screamsPerPeriod.get(scream.period) ?? {
+                    period: scream.period,
+                    numScreams: 0,
+                };
+                periodScreams.numScreams++;
+                screamsPerPeriod.set(scream.period, periodScreams);
+
+                for (const party of screamer.person.parties) {
+                    if (!partiesPerPeriod.get(scream.period)!.includes(party)) {
+                        continue;
+                    }
+                    const partyScreams = partyScreamsLookup.get(party) ?? new Map<string, PeriodScream>();
+                    const partyPeriodScream = partyScreams.get(scream.period) ?? { period: scream.period, numScreams: 0 };
+                    partyPeriodScream.numScreams++;
+                    partyScreams.set(scream.period, partyPeriodScream);
+                    partyScreamsLookup.set(party, partyScreams);
+                }
+
                 const screamsAt = screamsAtPersonRaw.get(scream.person.id) ?? [];
                 screamsAt.push({
                     period: scream.period,
@@ -133,8 +161,29 @@ function loadData() {
                 screamsAtPersonRaw.set(scream.person.id, screamsAt);
             }
             screamsFromPerson.set(screamer.person.id, Array.from(screamsPerSection.values()));
+            screamsFromPersonLite.push({ person: screamer.person, screams: Array.from(screamsPerPeriod.values()) });
         }
+        screamsFromPartyLite = [];
+        for (const party of partyScreamsLookup.keys()) {
+            const partyScreams = partyScreamsLookup.get(party);
+            screamsFromPartyLite.push({ party, screams: Array.from(partyScreams!.values()).sort((a, b) => b.period.localeCompare(a.period)) });
+        }
+        if (fs.existsSync("/data/screamers-ranking.csv")) {
+            fs.unlinkSync("/data/screamers-ranking.csv");
+        }
+        const header = "id;name;parties;period;numScreams";
+        fs.appendFileSync("/data/screamers-ranking.csv", header + "\n");
+
+        for (const screamer of screamsFromPersonLite) {
+            const person = screamer.person;
+            for (const scream of screamer.screams) {
+                const row = `${person.id};${person.name};${person.parties};${scream.period};${scream.numScreams}`;
+                fs.appendFileSync("/data/screamers-ranking.csv", row + "\n", "utf-8");
+            }
+        }
+        console.log("Done");
         screamsAtPerson = new Map<string, SectionScreams[]>();
+        screamsAtPersonLite = [];
         for (const screamedAt of screamsAtPersonRaw.keys()) {
             const screamsPerSection = new Map<string, SectionScreams>();
             const screams = screamsAtPersonRaw.get(screamedAt)!;
@@ -376,6 +425,26 @@ async function updateData() {
         } catch (e) {
             console.error("Could not get abscence information for person " + req.params.id, e);
             res.status(400).json({ error: "Could not get abscence information for person " + req.params.id });
+        }
+    });
+
+    app.get("/api/screams", async (req, res) => {
+        try {
+            const screams = screamsFromPersonLite;
+            res.json(screams);
+        } catch (e) {
+            console.error("Could not get screams lite", e);
+            res.status(400).json({ error: "Could not get screams lite" });
+        }
+    });
+
+    app.get("/api/screamsparty", async (req, res) => {
+        try {
+            const screams = screamsFromPartyLite;
+            res.json(screams);
+        } catch (e) {
+            console.error("Could not get screams from party lite", e);
+            res.status(400).json({ error: "Could not get screams from party lite" });
         }
     });
 

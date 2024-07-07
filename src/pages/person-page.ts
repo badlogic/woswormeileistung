@@ -453,6 +453,8 @@ export class PersonPage extends BaseElement {
     @state()
     sectionsPerPeriod: { period: string; numSections: number }[] = [];
 
+    scrolledToAnchor = false;
+
     protected firstUpdated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
         super.firstUpdated(_changedProperties);
         this.load();
@@ -763,7 +765,7 @@ export class PersonPage extends BaseElement {
                     ${this.loading ? html`<loading-spinner></loading-spinner>` : nothing}
                     ${this.person
                         ? html`<person-header class="mt-8" .person=${this.person}></person-header>
-                              <h2 class="flex gap-2 mt-8">
+                              <h2 class="flex gap-2 mt-8" id="anchorscreams">
                                   Zwischenrufe von ${this.person.name} (${this.numScreams})
                                   <json-api-boxes
                                       .prefix=${this.person?.name + "-zwischenrufe"}
@@ -994,6 +996,18 @@ export class PersonPage extends BaseElement {
             }
         } finally {
             this.searching = false;
+        }
+    }
+
+    protected updated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
+        super.updated(_changedProperties);
+        const hash = location.hash.replace("#", "");
+        if (hash && hash.length > 0 && !this.scrolledToAnchor) {
+            const element = this.querySelector("#anchor" + hash);
+            if (element) {
+                this.scrolledToAnchor = true;
+                element?.scrollIntoView({ block: "start" });
+            }
         }
     }
 }

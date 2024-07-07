@@ -58,11 +58,23 @@ export class MainPage extends LitElement {
                     <div class="flex flex-col self-center items-center justify-center flex-wrap gap-4">
                         <a class="flex flex-col sm:flex-row gap-2 border hover:border-primary rounded-md text-center shadow-lg" href="/persons">
                             <div class="flex flex-col">
-                                <img src="/img/persons.jpeg" class="object-fit" />
+                                <img src="/img/persons.jpeg" class="object-fit h-[190px]" />
                             </div>
                             <div class="flex flex-col p-4">
                                 <span class="text-lg font-bold">Personen Recherche</span>
                                 <p>Personen suchen und deren Zwischenrufe, Abwesenheiten, Taferln und Redebeiträge analysieren.</p>
+                                <span class="text-xs mt-auto">Foto: APA</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="flex flex-col self-center items-center justify-center flex-wrap gap-4">
+                        <a class="flex flex-col sm:flex-row gap-2 border hover:border-primary rounded-md text-center shadow-lg" href="/screamers">
+                            <div class="flex flex-col">
+                                <img src="/img/screamer.png" class="object-fit h-[190px]" />
+                            </div>
+                            <div class="flex flex-col p-4">
+                                <span class="text-lg font-bold">Zwischenrufe Ranking</span>
+                                <p>Zwischenrufe pro Partei und Abgeordneter.</p>
                                 <span class="text-xs mt-auto">Foto: APA</span>
                             </div>
                         </a>

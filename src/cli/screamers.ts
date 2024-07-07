@@ -34,5 +34,23 @@ if (require.main === module) {
             .splice(0, 25)) {
             console.log(r.person.name + " (" + r.person.parties.join(", ") + "): " + r.screams + "x screamed at");
         }
+
+        if (fs.existsSync("./data/screamers.csv")) {
+            fs.unlinkSync("./data/screamers.csv");
+        }
+        const header = "id;name;parties;text;atId;atName;date;period;session;section;link";
+        fs.appendFileSync("./data/screamers.csv", header + "\n");
+
+        for (const screamer of result) {
+            const person = screamer.person;
+            for (const scream of screamer.screams) {
+                const row = `${person.id};${person.name};${person.parties};"${scream.text.replaceAll('"', "'")}";${scream.person.id};${
+                    scream.person.name
+                };${scream.date};${scream.period};${scream.session};${scream.section};https://woswormeileistung.marioslab.io/section/${
+                    scream.period
+                }/${scream.session}/${scream.section}?hl=${encodeURIComponent(scream.text)}`;
+                fs.appendFileSync("./data/screamers.csv", row + "\n", "utf-8");
+            }
+        }
     })();
 }

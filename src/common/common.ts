@@ -76,6 +76,12 @@ export interface SectionScreams {
     texts: string[];
 }
 
+// Screams from or at a person or party within a period
+export interface PeriodScream {
+    period: string;
+    numScreams: number;
+}
+
 export interface Link {
     label: string;
     url: string;
@@ -129,8 +135,9 @@ export type MissingEntry = {
 };
 export type MissingPerson = { person: Person; missing: MissingEntry[] };
 
+export type Period = { name: string; dates: string };
 export const periods = new Set<string>(["XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII"]);
-export const periodDates = [
+export const periodDates: Period[] = [
     { name: "XXII", dates: "20.12.2002 – 29.10.2006" },
     { name: "XXIII", dates: "30.10.2006 – 27.10.2008" },
     { name: "XXIV", dates: "28.10.2008 – 28.10.2013" },

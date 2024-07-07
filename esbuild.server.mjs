@@ -12,6 +12,7 @@ const config = {
         plaque: "src/cli/plaque.ts",
         screamer: "src/cli/screamers.ts",
         missing: "src/cli/missing.ts",
+        "missing-csv": "src/cli/missing-csv.ts",
         ordercalls: "src/cli/ordercalls.ts",
         rollcalls: "src/cli/rollcalls.ts",
         transparency: "src/cli/transparency.ts",
